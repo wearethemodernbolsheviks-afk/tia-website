@@ -18,7 +18,14 @@
         {"id": "hegel-1807-phenomenology", "title": "The Phenomenology of Spirit", "year": "1807", "kind": "link", "key": true, "url": "https://www.marxists.org/reference/archive/hegel/phindex.htm"},
         {"id": "hegel-1812-science-of-logic", "title": "The Science of Logic", "year": "1812–1816", "kind": "link", "key": true, "url": "https://www.marxists.org/reference/archive/hegel/hl_index.htm"},
         {"id": "hegel-1817-logic", "slug": "logic", "title": "The Logic of Hegel", "subtitle": "The first part of the Encyclopaedia of the Philosophical Sciences", "year": "1817", "kind": "hosted", "key": true, "lang": "en", "edition": "Translated by William Wallace. Second edition, revised and augmented. Oxford, 1892.", "pg": 55108},
-        {"id": "hegel-1820-philosophy-of-right", "title": "The Philosophy of Right", "year": "1820", "kind": "link", "url": "https://www.marxists.org/reference/archive/hegel/index.htm"}
+        {"id": "hegel-1820-philosophy-of-right", "title": "The Philosophy of Right", "year": "1820", "kind": "link", "url": "https://www.marxists.org/reference/archive/hegel/index.htm"},
+        {"id": "hegel-1807-phaenomenologie", "slug": "phaenomenologie-des-geistes", "title": "Phänomenologie des Geistes", "subtitle": "The Phenomenology of Spirit in the original German, with Hegel's own announcement of the book", "year": "1807", "kind": "hosted", "lang": "de", "edition": "German text of the first edition, Bamberg and Würzburg, 1807.", "pg": 6698},
+        {"id": "hegel-1812-wissenschaft-der-logik-1", "slug": "wissenschaft-der-logik-1", "title": "Wissenschaft der Logik, Erster Teil", "subtitle": "The Science of Logic, part one: The Objective Logic, in the original German", "year": "1812–1813", "kind": "hosted", "lang": "de", "edition": "Edited by Leopold von Henning, Berlin, 1841.", "pg": 6729},
+        {"id": "hegel-1812-wissenschaft-der-logik-2", "slug": "wissenschaft-der-logik-2", "title": "Wissenschaft der Logik, Zweiter Teil", "subtitle": "The Science of Logic, part two: The Subjective Logic, or the Doctrine of the Concept, in the original German", "year": "1816", "kind": "hosted", "lang": "de", "edition": "Edited by Leopold von Henning, Berlin, 1841.", "pg": 6834},
+        {"id": "hegel-1817-philosophy-of-mind", "slug": "philosophy-of-mind", "title": "Hegel's Philosophy of Mind", "subtitle": "The third part of the Encyclopaedia of the Philosophical Sciences, with five introductory essays by William Wallace", "year": "1817", "kind": "hosted", "lang": "en", "edition": "Translated by William Wallace. Oxford, Clarendon Press, 1894.", "pg": 39064},
+        {"id": "hegel-1805-history-of-philosophy-1", "slug": "history-of-philosophy-1", "title": "Lectures on the History of Philosophy, Volume One", "subtitle": "Greek philosophy to Plato", "year": "1805–1831", "kind": "hosted", "lang": "en", "edition": "Translated by E. S. Haldane. London, 1892.", "pg": 51635},
+        {"id": "hegel-1805-history-of-philosophy-2", "slug": "history-of-philosophy-2", "title": "Lectures on the History of Philosophy, Volume Two", "subtitle": "Plato to the Neo-Platonists", "year": "1805–1831", "kind": "hosted", "lang": "en", "edition": "Translated by E. S. Haldane and Frances H. Simson. London, 1894.", "pg": 51636},
+        {"id": "hegel-1805-history-of-philosophy-3", "slug": "history-of-philosophy-3", "title": "Lectures on the History of Philosophy, Volume Three", "subtitle": "Medieval and modern philosophy", "year": "1805–1831", "kind": "hosted", "lang": "en", "edition": "Translated by E. S. Haldane and Frances H. Simson. London, 1896.", "pg": 58169}
       ]
     },
     {
@@ -29,7 +36,8 @@
         {"id": "marx-1852-eighteenth-brumaire", "slug": "eighteenth-brumaire", "title": "The Eighteenth Brumaire of Louis Bonaparte", "year": "1852", "kind": "hosted", "key": true, "lang": "en", "edition": "Translated by Daniel De Leon. New York, 1898.", "pg": 1346, "cols": ["marx-and-engels"]},
         {"id": "marx-1859-contribution", "title": "A Contribution to the Critique of Political Economy", "year": "1859", "kind": "link", "url": "https://www.marxists.org/archive/marx/works/index.htm", "cols": ["marx-and-engels"]},
         {"id": "marx-1867-capital-1", "title": "Capital, Volume I", "year": "1867", "kind": "link", "key": true, "url": "https://www.marxists.org/archive/marx/works/1867-c1/index.htm", "cols": ["marx-and-engels"]},
-        {"id": "marx-1875-gotha", "title": "Critique of the Gotha Programme", "year": "1875", "kind": "link", "url": "https://www.marxists.org/archive/marx/works/1875/gotha/ch01.htm", "cols": ["the-programme", "marx-and-engels"]}
+        {"id": "marx-1875-gotha", "title": "Critique of the Gotha Programme", "year": "1875", "kind": "link", "url": "https://www.marxists.org/archive/marx/works/1875/gotha/ch01.htm", "cols": ["the-programme", "marx-and-engels"]},
+        {"id": "marx-engels-1844-briefwechsel-1", "slug": "briefwechsel-1", "title": "Der Briefwechsel zwischen Friedrich Engels und Karl Marx, Erster Band", "subtitle": "Their letters from 1844 to 1853, in the original German", "with": ["engels"], "year": "1844–1853", "kind": "hosted", "lang": "de", "edition": "Edited by August Bebel and Eduard Bernstein. Stuttgart, Dietz, 1921 (first published 1913).", "cols": ["marx-and-engels"], "pg": 64327}
       ]
     },
     {
@@ -67,11 +75,12 @@
       "slug": "trotsky",
       "mia": "https://www.marxists.org/archive/trotsky/works/index.htm",
       "works": [
-        {"id": "trotsky-1918-our-revolution", "slug": "our-revolution", "title": "Our Revolution", "subtitle": "Essays on Working-Class and International Revolution, 1904–1917, including Prospects of a Labor Dictatorship", "year": "1904–1917", "kind": "hosted", "key": true, "lang": "en", "edition": "Collected, translated and annotated by Moissaye J. Olgin. New York, 1918.", "pg": 36303, "cols": ["lenin-and-october"]},
+        {"id": "trotsky-1918-our-revolution", "slug": "our-revolution", "title": "Our Revolution", "subtitle": "Essays on Working-Class and International Revolution, 1904–1917, including Prospects of a Labor Dictatorship", "year": "1904–1917", "kind": "hosted", "key": false, "lang": "en", "edition": "Collected, translated and annotated by Moissaye J. Olgin. New York, 1918.", "pg": 36303, "cols": ["lenin-and-october"]},
         {"id": "trotsky-1906-results-and-prospects", "title": "Results and Prospects", "year": "1906", "kind": "link", "url": "https://www.marxists.org/archive/trotsky/works/index.htm", "cols": ["lenin-and-october"]},
         {"id": "trotsky-1914-bolsheviki-world-peace", "slug": "the-war-and-the-international", "title": "The War and the International", "subtitle": "Published in English as The Bolsheviki and World Peace", "year": "1914", "kind": "hosted", "lang": "en", "edition": "English edition, New York, 1918, with an introduction by Lincoln Steffens.", "pg": 40273, "cols": ["second-international"]},
         {"id": "trotsky-1930-history-russian-revolution", "title": "The History of the Russian Revolution", "year": "1930–1932", "kind": "link", "key": true, "url": "https://www.marxists.org/archive/trotsky/1930/hrr/index.htm", "cols": ["lenin-and-october"]},
-        {"id": "trotsky-1936-revolution-betrayed", "title": "The Revolution Betrayed", "year": "1936", "kind": "link", "key": true, "url": "https://www.marxists.org/archive/trotsky/1936/revbet/revbetray.pdf"}
+        {"id": "trotsky-1936-revolution-betrayed", "title": "The Revolution Betrayed", "year": "1936", "kind": "link", "key": true, "url": "https://www.marxists.org/archive/trotsky/1936/revbet/revbetray.pdf"},
+        {"id": "trotsky-1920-terrorism-communism", "slug": "terrorism-and-communism", "title": "Terrorism and Communism", "subtitle": "A Reply to Karl Kautsky. Published in English as Dictatorship vs. Democracy", "year": "1920", "kind": "hosted", "key": true, "lang": "en", "edition": "English edition, Workers Party of America, New York, 1922. The foreword and preface added to that edition by other writers are left out.", "cols": ["lenin-and-october"], "pg": 38982}
       ]
     },
     {
@@ -81,7 +90,8 @@
         {"id": "luxemburg-1899-reform-or-revolution", "title": "Reform or Revolution", "year": "1899", "kind": "link", "key": true, "url": "https://www.marxists.org/archive/luxemburg/1900/reform-revolution/index.htm", "cols": ["second-international", "the-german-left"]},
         {"id": "luxemburg-1906-massenstreik", "slug": "massenstreik", "title": "Massenstreik, Partei und Gewerkschaften", "subtitle": "The Mass Strike, the Political Party and the Trade Unions, in the original German", "year": "1906", "kind": "hosted", "key": true, "lang": "de", "edition": "First edition, Hamburg, 1906.", "pg": 31614, "cols": ["second-international", "the-german-left"]},
         {"id": "luxemburg-1906-mass-strike-english", "title": "The Mass Strike (English translation)", "year": "1906", "kind": "link", "url": "https://www.marxists.org/archive/luxemburg/index.htm", "cols": ["the-german-left"]},
-        {"id": "luxemburg-1913-accumulation", "title": "The Accumulation of Capital", "year": "1913", "kind": "link", "key": true, "url": "https://www.marxists.org/archive/luxemburg/index.htm", "cols": ["the-german-left"]}
+        {"id": "luxemburg-1913-accumulation", "title": "The Accumulation of Capital", "year": "1913", "kind": "link", "key": true, "url": "https://www.marxists.org/archive/luxemburg/index.htm", "cols": ["the-german-left"]},
+        {"id": "luxemburg-1916-briefe-aus-dem-gefaengnis", "slug": "briefe-aus-dem-gefaengnis", "title": "Briefe aus dem Gefängnis", "subtitle": "Letters from prison to Sophie Liebknecht, 1916–1918, in the original German", "year": "1916–1918", "kind": "hosted", "lang": "de", "edition": "Berlin, Verlag der Jugendinternationale, 1922.", "cols": ["the-german-left"], "pg": 26964}
       ]
     },
     {

@@ -111,6 +111,11 @@ img { display: block; max-width: 100%; }
   .ov-band, .inst-x, .it-bscan, .it-sweep { display: none; }
 }
 
+@media (max-width: 1500px) { .tbar .wrap > span.mn:last-child { display: none; } }
+.page-bg { position: fixed; inset: 0; z-index: -1; background-size: cover; background-position: center; pointer-events: none; animation: it-kb 40s ease-in-out infinite alternate; }
+.page-bg::after { content: ""; position: absolute; inset: 0; background: linear-gradient(100deg, rgba(9, 5, 6, 0.86) 0%, rgba(9, 5, 6, 0.62) 50%, rgba(9, 5, 6, 0.42) 100%); }
+@media (max-width: 760px) { .page-bg::after { background: rgba(9, 5, 6, 0.7); } }
+@media (prefers-reduced-motion: reduce) { .page-bg { animation: none !important; } }
 .wall { position: absolute; inset: 0; overflow: hidden; pointer-events: none; opacity: var(--o, 0.2); -webkit-mask-image: linear-gradient(to bottom, transparent, #000 10%, #000 90%, transparent); mask-image: linear-gradient(to bottom, transparent, #000 10%, #000 90%, transparent); }
 .wall-in { position: absolute; left: 0; right: 0; top: -19.444vw; bottom: 0; background-repeat: repeat-y; background-size: 25% auto; background-position: 0 0, 33.333% 41%, 66.667% 17%, 100% 63%; animation: it-wall 150s linear infinite; }
 @keyframes it-wall { from { transform: translateY(0); } to { transform: translateY(19.444vw); } }
@@ -180,7 +185,8 @@ mark { background: rgba(232, 34, 42, 0.42); color: #FFFFFF; padding: 0 2px; }
 </style>
 </head>
 <body>
-<div style="position: relative; background: #090506; color: #F2ECE4; font-family: Inter, system-ui, sans-serif; font-size: 17px; line-height: 1.55">
+<div class="page-bg" aria-hidden="true" style="background-image: url('/assets/bgc/p_nine_days.webp')"></div>
+<div style="position: relative; color: #F2ECE4; font-family: Inter, system-ui, sans-serif; font-size: 17px; line-height: 1.55">
 
 <div aria-hidden="true">
   <div class="ov-lines"></div>
@@ -202,6 +208,7 @@ mark { background: rgba(232, 34, 42, 0.42); color: #FFFFFF; padding: 0 2px; }
       <a href="/#labs">LABS</a>
       <a href="/arcade/">ARCADE</a>
       <a href="/#watch">WATCH</a>
+      <a href="/dispatches/">DISPATCHES</a>
       <a href="/#ussr2089">USSR 2089</a>
       <a href="/shop/">SHOP</a>
     </nav>
@@ -211,23 +218,21 @@ mark { background: rgba(232, 34, 42, 0.42); color: #FFFFFF; padding: 0 2px; }
 
 <div aria-hidden="true" class="mn" style="overflow: hidden; border-bottom: 1px solid #2B1B1D; background: #100A0B; font-size: 13px; letter-spacing: 0.16em; color: #A89C95; padding: 8px 0">
   <div class="it-ticker">
-    <span style="padding-right: 56px; white-space: nowrap">COL-04 /// LENIN AND OCTOBER /// 1894 — 1924 /// 10 WORKS /// 2 FULL TEXTS ///</span>
-    <span style="padding-right: 56px; white-space: nowrap">COL-04 /// LENIN AND OCTOBER /// 1894 — 1924 /// 10 WORKS /// 2 FULL TEXTS ///</span>
+    <span style="padding-right: 56px; white-space: nowrap">COL-04 /// LENIN AND OCTOBER /// 1894 — 1924 /// 11 WORKS /// 3 FULL TEXTS ///</span>
+    <span style="padding-right: 56px; white-space: nowrap">COL-04 /// LENIN AND OCTOBER /// 1894 — 1924 /// 11 WORKS /// 3 FULL TEXTS ///</span>
   </div>
 </div>
 <section style="position: relative; overflow: hidden; border-bottom: 1px solid #2B1B1D">
-  <div class="wall" aria-hidden="true" style="--o: 0.34"><div class="wall-in" style="background-image: url('/assets/bgc/p_mon_lenin_head.webp'), url('/assets/bgc/p_nine_days.webp'), url('/assets/bgc/p_raise_it_higher.webp'), url('/assets/bgc/p_mon_motherland_flags.webp')"></div></div>
   <div class="wrap" style="padding-top: 26px; padding-bottom: clamp(40px, 5vw, 64px)">
     <nav class="crumbs mn" aria-label="Breadcrumb"><a href="/archive/">ARCHIVE</a> / <a href="/archive/#collections">COLLECTIONS</a> / <span style="color: #F2ECE4">LENIN AND OCTOBER</span></nav>
     <span class="tag" style="margin-top: 24px">COL-04 · COLLECTION</span>
     <h1 class="mn it-glitch shade" style="margin: 18px 0 0; font-size: clamp(42px, 6vw, 92px); line-height: 1; color: #F2ECE4">LENIN AND OCTOBER</h1>
-    <p class="src shade">1894 — 1924 · 10 WORKS · 2 FULL TEXTS</p>
+    <p class="src shade">1894 — 1924 · 11 WORKS · 3 FULL TEXTS</p>
     <p class="shade" style="margin: 20px 0 0; max-width: 700px; padding: 14px 16px; background: rgba(9, 5, 6, 0.72); border-left: 2px solid #E8222A; font-size: 19px; color: #ECE4DC">The Bolshevik party, the revolutions of 1905 and 1917, and the first years of the Soviet republic, in the words of the people who led them.</p>
   </div>
 </section>
 
-<section class="grid-bg" style="position: relative; overflow: hidden; background-color: #0C0708">
-  <div class="wall" aria-hidden="true" style="--o: 0.12"><div class="wall-in" style="background-image: url('/assets/bgc/p_mon_motherland_flags.webp'), url('/assets/bgc/p_raise_it_higher.webp'), url('/assets/bgc/p_nine_days.webp'), url('/assets/bgc/p_mon_lenin_head.webp')"></div></div>
+<section class="grid-bg" style="position: relative; overflow: hidden; background-color: rgba(12, 7, 8, 0.84)">
   <div class="wrap" style="padding-top: 44px; padding-bottom: clamp(56px, 7vw, 96px)">
     <div class="it-rv">
       <p class="mn sec-h">CONTENTS · IN ORDER</p>
@@ -239,12 +244,13 @@ mark { background: rgba(232, 34, 42, 0.42); color: #FFFFFF; padding: 0 2px; }
       <a href="https://www.marxists.org/archive/lenin/by-title.htm" target="_blank" rel="noopener" class="row wk"><span class="y">1917</span><span class="ti">The State and Revolution</span><span class="ld"></span><span class="by">LENIN</span><span class="st ln">[MIA ↗]</span></a>
       <a href="/archive/lenin/letter-to-american-workingmen/" class="row wk"><span class="y">1918</span><span class="ti">A Letter to American Workingmen</span><span class="ld"></span><span class="by">LENIN</span><span class="st ok">[READ →]</span></a>
       <a href="https://www.marxists.org/archive/bukharin/works/1920/abc/index.htm" target="_blank" rel="noopener" class="row wk"><span class="y">1919</span><span class="ti">The ABC of Communism<small>With Evgenii Preobrazhensky</small></span><span class="ld"></span><span class="by">BUKHARIN</span><span class="st ln">[MIA ↗]</span></a>
+      <a href="/archive/trotsky/terrorism-and-communism/" class="row wk"><span class="y">1920</span><span class="ti">Terrorism and Communism<small>A Reply to Karl Kautsky. Published in English as Dictatorship vs. Democracy</small></span><span class="ld"></span><span class="by">TROTSKY</span><span class="st ok">[READ →]</span></a>
       <a href="https://www.marxists.org/archive/bukharin/library.htm" target="_blank" rel="noopener" class="row wk"><span class="y">1920</span><span class="ti">The Economics of the Transformation Period</span><span class="ld"></span><span class="by">BUKHARIN</span><span class="st ln">[MIA ↗]</span></a>
       <a href="https://www.marxists.org/archive/trotsky/1930/hrr/index.htm" target="_blank" rel="noopener" class="row wk"><span class="y">1930–1932</span><span class="ti">The History of the Russian Revolution</span><span class="ld"></span><span class="by">TROTSKY</span><span class="st ln">[MIA ↗]</span></a>
     </div>
     <div class="it-rv" style="margin-top: 48px">
       <p class="mn sec-h">OTHER COLLECTIONS</p>
-      <a href="/archive/collections/the-programme/" class="row"><span style="color: #A89C95">COL-01</span><span>THE PROGRAMME</span><span class="ld"></span><span style="color: #FF5A60">1848 —</span><span style="color: #39D98A">[7 WORKS]</span></a><a href="/archive/collections/marx-and-engels/" class="row"><span style="color: #A89C95">COL-02</span><span>MARX AND ENGELS</span><span class="ld"></span><span style="color: #FF5A60">1843 — 1895</span><span style="color: #39D98A">[11 WORKS]</span></a><a href="/archive/collections/second-international/" class="row"><span style="color: #A89C95">COL-03</span><span>SECOND INTERNATIONAL</span><span class="ld"></span><span style="color: #FF5A60">1889 — 1914</span><span style="color: #39D98A">[7 WORKS]</span></a><a href="/archive/collections/the-german-left/" class="row"><span style="color: #A89C95">COL-05</span><span>THE GERMAN LEFT</span><span class="ld"></span><span style="color: #FF5A60">1898 — 1919</span><span style="color: #39D98A">[4 WORKS]</span></a><a href="/archive/collections/the-communist-left/" class="row"><span style="color: #A89C95">COL-06</span><span>THE COMMUNIST LEFT</span><span class="ld"></span><span style="color: #FF5A60">1912 — 1970</span><span style="color: #39D98A">[3 WORKS]</span></a><div class="row"><span style="color: #A89C95">COL-07</span><span>BEYOND EUROPE</span><span class="ld"></span><span style="color: #FF5A60">1919 —</span><span class="st wait">[COMPILING]</span></div><a href="https://www.youtube.com/@Invariance_Tech" target="_blank" rel="noopener" class="row"><span style="color: #A89C95">COL-08</span><span>TIA BROADCASTS</span><span class="ld"></span><span style="color: #FF5A60">2026 —</span><span style="color: #39D98A">[YOUTUBE ↗]</span></a>
+      <a href="/archive/collections/the-programme/" class="row"><span style="color: #A89C95">COL-01</span><span>THE PROGRAMME</span><span class="ld"></span><span style="color: #FF5A60">1848 —</span><span style="color: #39D98A">[7 WORKS]</span></a><a href="/archive/collections/marx-and-engels/" class="row"><span style="color: #A89C95">COL-02</span><span>MARX AND ENGELS</span><span class="ld"></span><span style="color: #FF5A60">1843 — 1895</span><span style="color: #39D98A">[12 WORKS]</span></a><a href="/archive/collections/second-international/" class="row"><span style="color: #A89C95">COL-03</span><span>SECOND INTERNATIONAL</span><span class="ld"></span><span style="color: #FF5A60">1889 — 1914</span><span style="color: #39D98A">[7 WORKS]</span></a><a href="/archive/collections/the-german-left/" class="row"><span style="color: #A89C95">COL-05</span><span>THE GERMAN LEFT</span><span class="ld"></span><span style="color: #FF5A60">1898 — 1919</span><span style="color: #39D98A">[5 WORKS]</span></a><a href="/archive/collections/the-communist-left/" class="row"><span style="color: #A89C95">COL-06</span><span>THE COMMUNIST LEFT</span><span class="ld"></span><span style="color: #FF5A60">1912 — 1970</span><span style="color: #39D98A">[3 WORKS]</span></a><div class="row"><span style="color: #A89C95">COL-07</span><span>BEYOND EUROPE</span><span class="ld"></span><span style="color: #FF5A60">1919 —</span><span class="st wait">[COMPILING]</span></div><a href="https://www.youtube.com/@Invariance_Tech" target="_blank" rel="noopener" class="row"><span style="color: #A89C95">COL-08</span><span>TIA BROADCASTS</span><span class="ld"></span><span style="color: #FF5A60">2026 —</span><span style="color: #39D98A">[YOUTUBE ↗]</span></a>
     </div>
   </div>
 </section>

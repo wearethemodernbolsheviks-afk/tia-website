@@ -97,6 +97,46 @@ img { display: block; max-width: 100%; }
   .ov-lines, .ov-grain, .ov-band, .inst-ruler i, .inst-hex > div, .inst-x, .it-ticker, .dot, .sec-bg, .it-glitch, .it-rv { animation: none !important; }
   .ov-band, .inst-x { display: none; }
 }
+.prod[hidden], .shop-grp[hidden] { display: none; }
+.sizes { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+.sizes[hidden] { display: none; }
+.sz { flex: 1 0 auto; min-height: 40px; padding: 0 10px; border: 1px solid #3A2326; background: #090506; color: #F2ECE4; font-size: 13px; letter-spacing: 0.08em; cursor: pointer; }
+.sz:hover, .sz:focus-visible { border-color: #E8222A; color: #FF5A60; }
+.add.ok { background: #39D98A; border-color: #39D98A; color: #090506; }
+.cart-count { color: #FF5A60; }
+.cart-ov { position: fixed; inset: 0; z-index: 80; background: rgba(9, 5, 6, 0.62); opacity: 0; transition: opacity 200ms ease; }
+.cart-ov.in { opacity: 1; }
+.cart-dr { position: fixed; top: 0; right: 0; bottom: 0; z-index: 81; width: min(440px, 100vw); box-sizing: border-box; display: flex; flex-direction: column; background: #0F0A0B; color: #F2ECE4; border-left: 1px solid #5A1E22; box-shadow: -20px 0 60px rgba(0, 0, 0, 0.5); transform: translateX(100%); transition: transform 220ms ease; font-family: Inter, system-ui, sans-serif; }
+.cart-dr.in { transform: none; }
+.cart-dr[hidden], .cart-ov[hidden] { display: none; }
+.cart-h { display: flex; justify-content: space-between; align-items: center; padding: 16px 20px; border-bottom: 1px solid #3A2326; font-size: 16px; letter-spacing: 0.12em; }
+.cart-h b { font-weight: 400; color: #FF5A60; }
+.cart-x { width: 44px; height: 44px; border: 1px solid #3A2326; background: transparent; color: #F2ECE4; font-size: 24px; line-height: 1; cursor: pointer; }
+.cart-l { list-style: none; margin: 0; padding: 0 20px; overflow-y: auto; flex: 1; }
+.cart-l li { display: flex; gap: 12px; align-items: flex-start; padding: 14px 0; border-bottom: 1px solid #241618; }
+.cart-l img { flex: 0 0 64px; width: 64px; height: 64px; object-fit: cover; background: #E3DED6; }
+.ci { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 4px; }
+.cn { font-weight: 800; font-size: 15px; line-height: 1.3; }
+.cs { font-size: 12px; letter-spacing: 0.1em; color: #A89C95; }
+.cq { display: flex; align-items: center; gap: 8px; margin-top: 4px; font-size: 14px; }
+.cq button { min-width: 34px; height: 34px; border: 1px solid #3A2326; background: #090506; color: #F2ECE4; font-size: 16px; cursor: pointer; }
+.cq .rm { margin-left: auto; min-width: 0; border: 0; background: none; color: #A89C95; font-size: 11px; letter-spacing: 0.12em; }
+.cq .rm:hover { color: #FF5A60; }
+.cart-l li > b { font-weight: 400; font-size: 15px; }
+.cart-l li.cart-empty { display: block; padding: 28px 0; color: #A89C95; border: 0; }
+.cart-f { padding: 18px 20px 22px; border-top: 1px solid #3A2326; }
+.cart-t { display: flex; justify-content: space-between; align-items: baseline; font-size: 15px; letter-spacing: 0.1em; }
+.cart-t b { font-weight: 400; font-size: 22px; }
+.cart-note { margin: 8px 0 0; font-size: 13px; color: #A89C95; }
+.cart-go { width: 100%; margin-top: 14px; min-height: 52px; border: 0; background: #C81D25; color: #FFFFFF; font-family: Inter, sans-serif; font-weight: 800; font-size: 17px; cursor: pointer; }
+.cart-go:hover { background: #E8222A; }
+.cart-go:disabled { opacity: 0.45; cursor: default; }
+.cart-msg { margin: 10px 0 0; min-height: 1em; font-size: 14px; line-height: 1.5; color: #E8A33A; }
+.cart-msg a { color: #FF5A60; }
+.cart-toast { position: fixed; left: 50%; bottom: 24px; z-index: 82; max-width: calc(100vw - 32px); box-sizing: border-box; display: flex; gap: 14px; align-items: center; padding: 12px 16px; background: #0F0A0B; border: 1px solid #39D98A; font-size: 13px; letter-spacing: 0.08em; color: #F2ECE4; transform: translate(-50%, 160%); transition: transform 250ms ease; }
+.cart-toast.in { transform: translate(-50%, 0); }
+.cart-toast button { border: 0; background: none; color: #39D98A; font: inherit; letter-spacing: 0.12em; white-space: nowrap; cursor: pointer; }
+@media (prefers-reduced-motion: reduce) { .cart-dr, .cart-ov, .cart-toast { transition: none; } }
 </style>
 </head>
 <body>
@@ -122,12 +162,13 @@ img { display: block; max-width: 100%; }
       <a href="/#labs">LABS</a>
       <a href="/arcade/">ARCADE</a>
       <a href="/#watch">WATCH</a>
+      <a href="/dispatches/">DISPATCHES</a>
       <a href="/#ussr2089">USSR 2089</a>
       <a href="/shop/" aria-current="page" style="color: #FF5A60; border-bottom: 2px solid #E8222A">SHOP</a>
     </nav>
-    <a href="#" class="mn" style="display: inline-flex; align-items: center; gap: 10px; min-height: 44px; padding: 0 16px; border: 1px solid #3A2326; font-size: 14px; letter-spacing: 0.12em">
+    <a href="#cart" id="cart-btn" aria-haspopup="dialog" class="mn" style="display: inline-flex; align-items: center; gap: 10px; min-height: 44px; padding: 0 16px; border: 1px solid #3A2326; font-size: 14px; letter-spacing: 0.12em">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 4h2l2.4 11.2a2 2 0 0 0 2 1.8h7.8a2 2 0 0 0 2-1.6L21 8H6"></path><circle cx="10" cy="20" r="1.4"></circle><circle cx="17" cy="20" r="1.4"></circle></svg>
-      CART · 0
+      CART · <span class="cart-count">0</span>
     </a>
   </div>
 </header>
@@ -145,9 +186,9 @@ img { display: block; max-width: 100%; }
     <div style="flex: 1 1 520px; min-width: 0">
       <span class="tag">FILE 04 · SHOP</span>
       <h1 class="mn it-glitch" style="margin: 18px 0 0; font-size: clamp(44px, 6.2vw, 100px); line-height: 1; color: #F2ECE4">TIA SUPPLY DEPOT</h1>
-      <p class="src">SRC: DROP 01 · 30 ITEMS · PRINTED TO ORDER BY OUR STORE PARTNER</p>
+      <p class="src">SRC: DROP 01 · 30 ITEMS · PRINTED TO ORDER, CHECKOUT BY FOURTHWALL</p>
       <div style="margin-top: 30px; padding: 22px; background: rgba(9, 5, 6, 0.82); border: 1px solid #5A1E22; max-width: 560px">
-        <span class="mn" style="display: inline-flex; align-items: center; gap: 8px; font-size: 13px; letter-spacing: 0.14em; color: #39D98A"><span class="dot"></span>DROP 01 · LIVE</span>
+        <span id="shop-status" class="mn" style="display: inline-flex; align-items: center; gap: 8px; font-size: 13px; letter-spacing: 0.14em; color: #E8A33A"><span class="dot" style="background: #E8A33A; box-shadow: 0 0 8px rgba(232, 163, 58, 0.8)"></span>DROP 01 · STORE OPENING SOON</span>
         <p class="mn glow-r" style="margin: 10px 0 0; font-size: clamp(30px, 3.4vw, 46px); line-height: 1.05; color: #FF5A60">STORM HEAVEN</p>
         <p style="margin: 12px 0 0; color: #DCD2CA">The name is Marx's, from his 1871 letter on the Paris Commune. Nine tees and the emblem cap, plus every poster as a print.</p>
       </div>
@@ -162,13 +203,14 @@ img { display: block; max-width: 100%; }
 <section class="grid-bg" style="background-color: #0C0708">
   <div class="wrap" style="padding-top: 36px; padding-bottom: clamp(56px, 7vw, 96px)">
     <div role="group" aria-label="Filter products" style="display: flex; flex-wrap: wrap; gap: 8px">
-      <button type="button" class="chip on" aria-pressed="true">ALL<span>30</span></button>
-      <button type="button" class="chip" aria-pressed="false">TEES<span>9</span></button>
-      <button type="button" class="chip" aria-pressed="false">HEADWEAR<span>1</span></button>
-      <button type="button" class="chip" aria-pressed="false">PRINTS<span>19</span></button>
-      <button type="button" class="chip" aria-pressed="false">DIGITAL<span>1</span></button>
+      <button type="button" class="chip on" data-f="all" aria-pressed="true">ALL<span>30</span></button>
+      <button type="button" class="chip" data-f="tee" aria-pressed="false">TEES<span>9</span></button>
+      <button type="button" class="chip" data-f="cap" aria-pressed="false">HEADWEAR<span>1</span></button>
+      <button type="button" class="chip" data-f="print" aria-pressed="false">PRINTS<span>19</span></button>
+      <button type="button" class="chip" data-f="digital" aria-pressed="false">DIGITAL<span>1</span></button>
     </div>
 
+    <div class="shop-grp">
     <div style="display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 10px; margin-top: 36px; border-bottom: 1px solid #3A2326; padding-bottom: 10px">
       <p class="mn" style="margin: 0; font-size: 20px; letter-spacing: 0.1em">CLOTHING</p>
       <p class="mn" style="margin: 0; font-size: 13px; letter-spacing: 0.12em; color: #A89C95">10 ITEMS · WASHED BLACK · S — XXL</p>
@@ -185,7 +227,9 @@ img { display: block; max-width: 100%; }
       <div class="prod it-rv"><div class="ph spec"><img src="/assets/tee_homes.webp" alt="Homes tee: Mars under a hand-drawn roof, captioned we can build as many homes as we want"><span class="pid mn">ITEM 09</span></div><div class="bd"><span class="cat mn">TEE</span><span class="nm">As Many Homes</span><span class="pr mn">$35</span><button type="button" class="add">Choose size</button></div></div>
       <div class="prod it-rv"><div class="ph photo"><img src="/assets/cap_emblem.webp" alt="Washed black cap with the red embroidered emblem"><span class="pid mn">ITEM 10</span></div><div class="bd"><span class="cat mn">HEADWEAR · EMBROIDERED</span><span class="nm">Emblem Cap</span><span class="pr mn">$28</span><button type="button" class="add">Add to cart</button></div></div>
     </div>
+    </div>
 
+    <div class="shop-grp">
     <div style="display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 10px; margin-top: 56px; border-bottom: 1px solid #3A2326; padding-bottom: 10px">
       <p class="mn" style="margin: 0; font-size: 20px; letter-spacing: 0.1em">POSTER PRINTS</p>
       <p class="mn" style="margin: 0; font-size: 13px; letter-spacing: 0.12em; color: #A89C95">19 PRINTS · A3 OR A2 · MATTE</p>
@@ -218,11 +262,12 @@ img { display: block; max-width: 100%; }
         <div class="bd"><span class="cat mn">DIGITAL · INSTANT</span><span class="nm">The Full Wall</span><span class="pr mn">$9</span><button type="button" class="add">Add to cart</button></div>
       </div>
     </div>
+    </div>
 
     <div class="mn" style="display: flex; flex-wrap: wrap; gap: 12px 32px; margin-top: 40px; padding-top: 24px; border-top: 1px solid #2B1B1D; font-size: 14px; letter-spacing: 0.12em; color: #A89C95">
       <span>PRINTED TO ORDER</span>
       <span>NO WASTE STOCK</span>
-      <span>CHECKOUT BY OUR STORE PARTNER</span>
+      <span>CHECKOUT BY FOURTHWALL</span>
       <span>SHOP.INVARIANCETECH.INFO</span>
     </div>
   </div>
@@ -236,5 +281,6 @@ img { display: block; max-width: 100%; }
 </footer>
 
 </div>
+<script src="/assets/shop.js" defer></script>
 </body>
 </html>

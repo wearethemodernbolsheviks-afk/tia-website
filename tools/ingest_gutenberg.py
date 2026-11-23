@@ -18,6 +18,26 @@ WORKS = {  # text id -> Gutenberg eBook number
     'luxemburg-1906-massenstreik': 31614,
     'trotsky-1918-our-revolution': 36303,
     'trotsky-1914-bolsheviki-world-peace': 40273,
+    'trotsky-1920-terrorism-communism': 38982,
+    'hegel-1817-philosophy-of-mind': 39064,
+    'hegel-1805-history-of-philosophy-1': 51635,
+    'hegel-1805-history-of-philosophy-2': 51636,
+    'hegel-1805-history-of-philosophy-3': 58169,
+    'hegel-1807-phaenomenologie': 6698,
+    'hegel-1812-wissenschaft-der-logik-1': 6729,
+    'hegel-1812-wissenschaft-der-logik-2': 6834,
+    'marx-engels-1844-briefwechsel-1': 64327,
+    'luxemburg-1916-briefe-aus-dem-gefaengnis': 26964,
+}
+
+# Passages by other writers that are still in copyright in life+70 countries, removed before hosting.
+CUTS = {
+    # 1922 American edition: foreword by Max Bedacht and preface by H. N. Brailsford
+    'trotsky-1920-terrorism-communism': (r'^Foreword\s*$', r'^Introduction\s*$'),
+}
+DROP_LINES = {
+    'trotsky-1920-terrorism-communism': [r'^FOREWORD\s+V\s*$', r'^PREFACE\s+XI\s*$', r'^With a Preface by\s*$',
+                                         r'^H\. N\. BRAILSFORD\s*$', r'^and Foreword by Max Bedact\s*$'],
 }
 
 def read_best(d, n):
@@ -41,6 +61,7 @@ def clean(t):
     e = re.search(r'^End of (the )?Project Gutenberg', t, re.M | re.I)
     if e:
         t = t[:e.start()]
+    t = re.sub(r'\A(.{0,3000}?)^[ \t]*\[\s*(Anmerkungen zur Transkription|Transcriber.s Notes?)\b.*?^[ \t]*\][ \t]*$', r'\1', t, count=1, flags=re.S | re.M | re.I)
     blocks = re.split(r'\n\s*\n', t.strip('\n'))
     out = []
     for i, b in enumerate(blocks):
@@ -49,15 +70,32 @@ def clean(t):
             continue
         if re.fullmatch(r'\[Illustrations?(:[^\]]*)?\]', bs, re.S):
             continue
-        if 'Project Gutenberg' in bs or 'pgdp.net' in bs:
+        if 'Project Gutenberg' in bs or 'pgdp.net' in bs or 'Projekt-DE' in bs or 'gutenberg2000' in bs:
+            continue
+        if i < 12 and re.match(r'^\[?\s*(Anmerkungen zur Transkription|Transcriber.s Note)', bs, re.I) and bs.endswith(']'):
             continue
         out.append(b.rstrip())
-    return '\n\n'.join(out).strip() + '\n'
+    t = '\n\n'.join(out).strip()
+    # a transcriber's list of corrections at the very end
+    m = None
+    for m in re.finditer(r'^\s*(Anmerkungen zur Transkription|TRANSCRIBER.S NOTES?):?\s*$', t, re.M | re.I):
+        pass
+    if m and m.start() > len(t) * 0.9:
+        t = t[:m.start()].rstrip()
+    return t + '\n'
 
 if __name__ == '__main__':
     src = sys.argv[1]
     dst = os.path.join(os.path.dirname(__file__), '..', 'content', 'texts')
     for tid, n in WORKS.items():
         txt = clean(read_best(os.path.join(src, str(n)), n))
+        if tid in CUTS:
+            a, b = CUTS[tid]
+            ma = re.search(a, txt, re.M)
+            mb = re.search(b, txt[ma.end():], re.M) if ma else None
+            if ma and mb:
+                txt = txt[:ma.start()] + txt[ma.end() + mb.start():]
+        for pat in DROP_LINES.get(tid, []):
+            txt = re.sub(pat + r'\n?', '', txt, flags=re.M)
         open(os.path.join(dst, tid + '.txt'), 'w', encoding='utf-8').write(txt)
         print(f'{tid:48s} {len(txt):>8d} chars')

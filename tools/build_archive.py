@@ -60,8 +60,11 @@ COL_WALL = {
     'the-german-left': ['p_rom_romantics', 'p_hp_marianne', 'p_raise_it_higher', 'p_rom_come_back'],
     'the-communist-left': ['p_audit_no_country', 'p_mon_towers', 'p_mon_moon', 'p_mon_motherland_sunset'],
 }
-INDEX_HERO_WALL = ['p_mon_marx_chemnitz', 'p_mon_lenin_head', 'p_raise_it_higher', 'p_rom_romantics']
-INDEX_MAIN_WALL = ['p_mon_towers', 'p_mon_motherland_flags', 'p_nine_days', 'p_mon_worker_kolkhoz']
+# One poster per collection and one for the index; none is used twice.
+COL_POSTER = {'the-programme': 'p_mon_motherland_bw', 'marx-and-engels': 'p_rom_five_year',
+              'second-international': 'p_hp_marianne', 'lenin-and-october': 'p_nine_days',
+              'the-german-left': 'p_mon_motherland_sunset', 'the-communist-left': 'p_mon_towers'}
+INDEX_POSTER = 'p_mon_motherland_flags'
 
 
 def wall(posters, opacity):
@@ -69,6 +72,12 @@ def wall(posters, opacity):
     imgs = ', '.join(f"url('/assets/bgc/{p}.webp')" for p in posters)
     return (f'<div class="wall" aria-hidden="true" style="--o: {opacity}">'
             f'<div class="wall-in" style="background-image: {imgs}"></div></div>')
+
+
+def page_bg(poster):
+    if not poster:
+        return ''
+    return f'<div class="page-bg" aria-hidden="true" style="background-image: url(\'/assets/bgc/{poster}.webp\')"></div>\n'
 
 
 def side_poster(poster):
@@ -96,6 +105,35 @@ def words(n):
 
 ARCH_TPL = (TPL / 'archive_index.html').read_text(encoding='utf-8')
 HOME_TPL = (TPL / 'home_index.html').read_text(encoding='utf-8')
+NAV_EXTRA = '<a href="/#watch">WATCH</a>\n      <a href="/dispatches/">DISPATCHES</a>'
+ARCH_TPL = ARCH_TPL.replace('<a href="/#watch">WATCH</a>', NAV_EXTRA, 1)
+SUBSTACK = 'https://technicalinvariance.substack.com'
+DISPATCH_POSTER = 'p_rom_come_back'
+DSP_CSS = """
+.dsp-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); gap: 22px; margin-top: 32px; }
+.dsp-card { display: flex; flex-direction: column; background: #0F0A0B; border: 1px solid #3A2326; color: #F2ECE4; transition: border-color 200ms ease; }
+.dsp-card:hover { border-color: #E8222A; color: #F2ECE4; }
+.dsp-img { position: relative; aspect-ratio: 16 / 9; overflow: hidden; background-color: #090506; background-image: linear-gradient(rgba(242, 236, 228, 0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(242, 236, 228, 0.04) 1px, transparent 1px); background-size: 24px 24px; border-bottom: 1px solid #3A2326; }
+.dsp-img > img { width: 100%; height: 100%; object-fit: cover; }
+.dsp-ph { display: flex; align-items: center; justify-content: center; width: 100%; height: 100%; }
+.dsp-ph img { width: 76px; height: auto; opacity: 0.85; }
+.dsp-no { position: absolute; left: 10px; top: 10px; padding: 3px 8px; background: rgba(9, 5, 6, 0.85); font-size: 11px; letter-spacing: 0.12em; color: #FF5A60; }
+.dsp-bd { display: flex; flex-direction: column; gap: 8px; padding: 16px 18px 18px; flex: 1; }
+.dsp-d { font-size: 12px; letter-spacing: 0.12em; color: #A89C95; }
+.dsp-t { font-weight: 800; font-size: 20px; line-height: 1.25; }
+.dsp-s { font-size: 15px; line-height: 1.5; color: #CFC4BC; }
+.dsp-go { margin-top: auto; padding-top: 8px; font-size: 13px; letter-spacing: 0.12em; color: #FF5A60; }
+.dsp-empty { grid-column: 1 / -1; padding: 26px; border: 1px dashed #3A2326; background: rgba(9, 5, 6, 0.75); }
+.dsp-empty p { margin: 0 0 12px; color: #DCD2CA; }
+.dsp-empty a { font-size: 14px; letter-spacing: 0.12em; color: #FF5A60; }
+.dsp-wait { grid-column: 1 / -1; font-size: 13px; letter-spacing: 0.12em; color: #A89C95; }
+.dsp-btn { display: inline-flex; align-items: center; gap: 10px; min-height: 48px; padding: 0 22px; background: #C81D25; color: #FFFFFF; font-family: Inter, sans-serif; font-weight: 800; }
+.dsp-btn:hover { background: #E8222A; color: #FFFFFF; }
+.dsp-btn.gh { background: transparent; border: 2px solid #F2ECE4; color: #F2ECE4; }
+.dsp-btn.gh:hover { border-color: #FF5A60; color: #FF5A60; }
+"""
+DSP_WAIT = '<p class="dsp-wait mn">LOADING DISPATCHES FROM SUBSTACK…</p>'
+
 
 BASE_CSS = re.search(r'<style>\n(.*?)</style>', ARCH_TPL, re.S).group(1)
 OVERLAYS = re.search(r'(<div aria-hidden="true">\n  <div class="ov-lines">.*?\n</div>\n)', ARCH_TPL, re.S).group(1)
@@ -107,6 +145,11 @@ FONTS = ('<link rel="preconnect" href="https://fonts.googleapis.com">\n'
          '&amp;family=Lora:ital,wght@0,400;0,600;1,400&amp;family=Share+Tech+Mono&amp;display=swap" rel="stylesheet">')
 
 EXTRA_CSS = """
+@media (max-width: 1500px) { .tbar .wrap > span.mn:last-child { display: none; } }
+.page-bg { position: fixed; inset: 0; z-index: -1; background-size: cover; background-position: center; pointer-events: none; animation: it-kb 40s ease-in-out infinite alternate; }
+.page-bg::after { content: ""; position: absolute; inset: 0; background: linear-gradient(100deg, rgba(9, 5, 6, 0.86) 0%, rgba(9, 5, 6, 0.62) 50%, rgba(9, 5, 6, 0.42) 100%); }
+@media (max-width: 760px) { .page-bg::after { background: rgba(9, 5, 6, 0.7); } }
+@media (prefers-reduced-motion: reduce) { .page-bg { animation: none !important; } }
 .wall { position: absolute; inset: 0; overflow: hidden; pointer-events: none; opacity: var(--o, 0.2); -webkit-mask-image: linear-gradient(to bottom, transparent, #000 10%, #000 90%, transparent); mask-image: linear-gradient(to bottom, transparent, #000 10%, #000 90%, transparent); }
 .wall-in { position: absolute; left: 0; right: 0; top: -19.444vw; bottom: 0; background-repeat: repeat-y; background-size: 25% auto; background-position: 0 0, 33.333% 41%, 66.667% 17%, 100% 63%; animation: it-wall 150s linear infinite; }
 @keyframes it-wall { from { transform: translateY(0); } to { transform: translateY(19.444vw); } }
@@ -233,7 +276,7 @@ READER_CSS = """
 """
 
 
-def page(title, desc, path, body, css='', ticker=None, current_label=None, foot_label=None, script=True):
+def page(title, desc, path, body, css='', ticker=None, current_label=None, foot_label=None, script=True, bg=None):
     """Wrap body markup in the shared archive chrome."""
     canon = SITE + path
     header = HEADER
@@ -275,7 +318,7 @@ def page(title, desc, path, body, css='', ticker=None, current_label=None, foot_
 {BASE_CSS}{EXTRA_CSS}{css}</style>
 </head>
 <body>
-<div style="position: relative; background: #090506; color: #F2ECE4; font-family: Inter, system-ui, sans-serif; font-size: 17px; line-height: 1.55">
+{page_bg(bg)}<div style="position: relative; color: #F2ECE4; font-family: Inter, system-ui, sans-serif; font-size: 17px; line-height: 1.55">
 
 {OVERLAYS}
 {header}
@@ -553,13 +596,13 @@ def dossier_card(a, i):
     delay = f'; animation-delay: {i * 0.5:g}s' if i else ''
     return f"""      <article class="dos it-rv" id="{a['slug']}" data-t="{a['tendency']}">
         <div class="dos-top mn"><span>SUBJECT {a['num']}</span><span class="tg">{a['tg']}</span></div>
-        <a href="{a['url']}" class="dos-img" tabindex="-1" aria-hidden="true"><span class="dos-bg" style="background-image: url('/assets/bgc/{POSTER[a['slug']]}.webp')"></span><img src="{a['img']}" alt=""><span class="hc tl"></span><span class="hc tr"></span><span class="hc bl"></span><span class="hc br"></span><span class="co r" style="top: 26%; right: 10px"><b>{a['hex']}</b><i></i></span><span class="it-bscan" style="position: absolute; left: 0; right: 0; height: 2px; background: #FF5A60; box-shadow: 0 0 10px rgba(232, 34, 42, 0.8){delay}"></span></a>
+        <a href="{a['url']}" class="dos-img" tabindex="-1" aria-hidden="true"><img src="{a['img']}" alt=""><span class="hc tl"></span><span class="hc tr"></span><span class="hc bl"></span><span class="hc br"></span><span class="co r" style="top: 26%; right: 10px"><b>{a['hex']}</b><i></i></span><span class="it-bscan" style="position: absolute; left: 0; right: 0; height: 2px; background: #FF5A60; box-shadow: 0 0 10px rgba(232, 34, 42, 0.8){delay}"></span></a>
         <div class="dos-body">
           <h3><a href="{a['url']}">{a['name']}</a></h3>
           <p class="yr">{a['yr']}</p>
           <p class="role">{a['role']}</p>
           <ul>{''.join(lis)}</ul>
-          <p class="cnt">{f'<b>{len(hosted)} FULL TEXT{"S" if len(hosted) != 1 else ""}</b>' if hosted else 'NO FULL TEXTS YET'} · {len(linked)} LINKED</p>
+          <p class="cnt">{f'<b>{len(hosted)} FULL TEXT{"S" if len(hosted) != 1 else ""}</b>' if hosted else 'NO FULL TEXTS YET'} · <a href="{a['url']}works/" style="color: inherit; border-bottom: 1px dotted #4A2B2E">{len(a.get('bib', [])):,} ITEMS FILED</a></p>
           <a href="{a['url']}" class="open">OPEN DOSSIER →</a>
         </div>
       </article>"""
@@ -694,8 +737,11 @@ def build_author(a, prev_a, next_a, byslug, cols):
     note = f'<p class="note"><b>COPYRIGHT</b>{esc(a["note"])}</p>' if a.get('note') else ''
     rows = '\n      '.join(work_row(w, byslug, me=a['slug']) for w in allw)
     colrows = '\n      '.join(collection_row(c) for c in mycols)
+    bib_years = [i['y'] for i in a['bib']] or years
+    bib_y0, bib_y1 = min(bib_years + years), max(bib_years + years)
+    cw_link = (f'<a class="au-cw" href="{a["url"]}works/">Complete works <small>{len(a["bib"]):,} ITEMS →</small></a>' if a['bib'] else '')
+    cw_more = (f'<a class="row" href="{a["url"]}works/" style="color: #FF5A60"><span>ALL {len(a["bib"]):,} WORKS AND LETTERS, BY DATE</span><span class="ld"></span><span>[COMPLETE WORKS →]</span></a>' if a['bib'] else '')
     body = f"""<section style="position: relative; overflow: hidden; border-bottom: 1px solid #2B1B1D">
-  {side_poster(POSTER[a['slug']])}
   <div class="wrap" style="padding-top: 26px; padding-bottom: clamp(40px, 5vw, 64px)">
     {crumbs(('ARCHIVE', '/archive/'), (a['short'], None))}
     <div class="au-grid">
@@ -705,20 +751,21 @@ def build_author(a, prev_a, next_a, byslug, cols):
         <h1 class="mn it-glitch shade" style="margin: 18px 0 0; font-size: clamp(42px, 6vw, 92px); line-height: 1; color: #F2ECE4">{a['name']}</h1>
         <p class="src shade">{a['yr']}</p>
         <p class="shade" style="margin: 20px 0 0; max-width: 640px; font-size: 19px; color: #ECE4DC">{a['role']}</p>
-        <div class="stats"><div><b>{nh}</b><span>FULL TEXTS HERE</span></div><div><b>{nl}</b><span>LINKED SOURCES</span></div><div><b>{min(years)}</b><span>FIRST WORK FILED</span></div><div><b>{max(years)}</b><span>LAST WORK FILED</span></div></div>
-        <p class="mn" style="margin: 22px 0 0; font-size: 14px; letter-spacing: 0.12em"><a href="{attr(a['mia'])}" target="_blank" rel="noopener" style="color: #FF5A60">COMPLETE WORKS ON MARXISTS.ORG ↗</a></p>
+        <div class="stats"><div><b>{len(a['bib']):,}</b><span>ITEMS FILED</span></div><div><b>{nh}</b><span>FULL TEXTS HERE</span></div><div><b>{bib_y0}</b><span>FIRST ITEM</span></div><div><b>{bib_y1}</b><span>LAST ITEM</span></div></div>
+        {cw_link}
+        <p class="mn" style="margin: 16px 0 0; font-size: 14px; letter-spacing: 0.12em"><a href="{attr(a['mia'])}" target="_blank" rel="noopener" style="color: #FF5A60">{a['short']} ON MARXISTS.ORG ↗</a></p>
       </div>
     </div>
   </div>
 </section>
 
-<section class="grid-bg" style="position: relative; overflow: hidden; background-color: #0C0708">
-  {wall(AUTHOR_WALL[a['slug']], 0.13)}
+<section class="grid-bg" style="position: relative; overflow: hidden; background-color: rgba(12, 7, 8, 0.84)">
   <div class="wrap" style="padding-top: 44px; padding-bottom: clamp(56px, 7vw, 96px)">
     {note}
     <div class="it-rv">
-      <p class="mn sec-h">WORKS · IN ORDER</p>
+      <p class="mn sec-h">KEY WORKS · IN ORDER</p>
       {rows}
+      {cw_more}
       <p class="mn" style="margin: 14px 0 0; font-size: 13px; letter-spacing: 0.1em; color: #A89C95"><span style="color: #39D98A">[READ →]</span> FULL TEXT ON THIS SITE · <span>[MIA ↗]</span> OPENS THE MARXISTS INTERNET ARCHIVE</p>
     </div>
     <div class="it-rv" style="margin-top: 48px">
@@ -728,10 +775,10 @@ def build_author(a, prev_a, next_a, byslug, cols):
     <div class="pn mn"><a href="{prev_a['url']}">← SUBJECT {prev_a['num']} · {prev_a['short']}</a><a href="/archive/">INDEX</a><a href="{next_a['url']}">SUBJECT {next_a['num']} · {next_a['short']} →</a></div>
   </div>
 </section>"""
-    ticker = f"DOSSIER {a['num']} /// {html.unescape(a['name'])} /// {html.unescape(a['yr'])} /// {nh} FULL TEXTS /// {nl} LINKED /// {a['tg']} ///"
+    ticker = f"DOSSIER {a['num']} /// {html.unescape(a['name'])} /// {html.unescape(a['yr'])} /// {len(a['bib']):,} ITEMS FILED /// {nh} FULL TEXTS /// {a['tg']} ///"
     title = f'{a["display"]} · TIA Archive'
     desc = f'{html.unescape(a["role"])} Works by {a["display"]} in order, with full texts and sources.'
-    out = page(title, desc, a['url'], body, ticker=ticker, current_label=f'/ARCHIVE/{a["short"]}')
+    out = page(title, desc, a['url'], body, css=CW_CSS, ticker=ticker, current_label=f'/ARCHIVE/{a["short"]}', bg=POSTER[a['slug']])
     d = ROOT / 'archive' / a['slug']
     d.mkdir(parents=True, exist_ok=True)
     (d / 'index.html').write_text(out, encoding='utf-8')
@@ -742,7 +789,6 @@ def build_collection(c, byslug, cols):
     nh = sum(1 for w in c['works'] if w['kind'] == 'hosted')
     others = [x for x in cols if x is not c]
     body = f"""<section style="position: relative; overflow: hidden; border-bottom: 1px solid #2B1B1D">
-  {wall(COL_WALL[c['slug']], 0.34)}
   <div class="wrap" style="padding-top: 26px; padding-bottom: clamp(40px, 5vw, 64px)">
     {crumbs(('ARCHIVE', '/archive/'), ('COLLECTIONS', '/archive/#collections'), (c['title'], None))}
     <span class="tag" style="margin-top: 24px">{c['code']} · COLLECTION</span>
@@ -752,8 +798,7 @@ def build_collection(c, byslug, cols):
   </div>
 </section>
 
-<section class="grid-bg" style="position: relative; overflow: hidden; background-color: #0C0708">
-  {wall(list(reversed(COL_WALL[c['slug']])), 0.12)}
+<section class="grid-bg" style="position: relative; overflow: hidden; background-color: rgba(12, 7, 8, 0.84)">
   <div class="wrap" style="padding-top: 44px; padding-bottom: clamp(56px, 7vw, 96px)">
     <div class="it-rv">
       <p class="mn sec-h">CONTENTS · IN ORDER</p>
@@ -767,7 +812,7 @@ def build_collection(c, byslug, cols):
 </section>"""
     ticker = f"{c['code']} /// {c['title']} /// {c['span']} /// {len(c['works'])} WORKS /// {nh} FULL TEXTS ///"
     out = page(f'{c["title"].title()} · TIA Archive', c['desc'], c['url'], body, ticker=ticker,
-               current_label='/ARCHIVE/COLLECTIONS')
+               current_label='/ARCHIVE/COLLECTIONS', bg=COL_POSTER[c['slug']])
     d = ROOT / 'archive' / 'collections' / c['slug']
     d.mkdir(parents=True, exist_ok=True)
     (d / 'index.html').write_text(out, encoding='utf-8')
@@ -789,7 +834,7 @@ def build_index(authors, byslug, works, cols):
         <input id="ar-q" name="q" type="search" autocomplete="off" placeholder="Name, work, year or phrase" style="flex: 1; min-width: 0; min-height: 52px; box-sizing: border-box; padding: 0 14px; background: #090506; border: 2px solid #3A2326; color: #F2ECE4; font-family: Inter, sans-serif; font-size: 17px">
         <button type="submit" style="min-height: 52px; padding: 0 20px; border: 0; background: #C81D25; color: #FFFFFF; font-family: Inter, sans-serif; font-weight: 800; font-size: 16px; cursor: pointer">Search</button>
       </div>
-      <p class="mn" style="margin: 12px 0 0; font-size: 12px; letter-spacing: 0.1em; color: #A89C95">SEARCHES TITLES AND THE FULL TEXT OF {nh} WORKS</p>
+      <p class="mn" style="margin: 12px 0 0; font-size: 12px; letter-spacing: 0.1em; color: #A89C95">SEARCHES {sum(len(a['bib']) for a in authors):,} TITLES AND THE FULL TEXT OF {nh} WORKS</p>
     </form>"""
     t = re.sub(r'<div role="search".*?</button>\n      </div>\n    </div>', lambda m: search, t, count=1, flags=re.S)
     results = """
@@ -799,13 +844,14 @@ def build_index(authors, byslug, works, cols):
       <div class="res-head mn"><span id="ar-status">SEARCHING</span><button type="button" id="ar-clear" class="chip">CLEAR ×</button></div>
       <div class="scan-bar" aria-hidden="true"><i id="ar-bar"></i></div>
       <div id="ar-cat"></div>
+      <div id="ar-bib"></div>
       <div id="ar-full"></div>
     </div>
   </div>
 </section>
 """
     t = t.replace('<div aria-hidden="true" class="sec-bg" style="background-image: url(\'/assets/bg_archivepage.webp\')"></div>',
-                  wall(INDEX_HERO_WALL, 0.34), 1)
+                  '', 1)
     t = t.replace('<h1 class="mn it-glitch" style="margin: 18px 0 0; font-size: clamp(46px, 6.6vw, 104px)', '<h1 class="mn it-glitch shade" style="margin: 18px 0 0; font-size: clamp(46px, 6.6vw, 104px)', 1)
     t = t.replace('<p style="margin: 22px 0 0; max-width: 620px; font-size: 19px; color: #DCD2CA">', '<p style="margin: 22px 0 0; max-width: 620px; padding: 14px 16px; background: rgba(9, 5, 6, 0.72); border-left: 2px solid #E8222A; font-size: 19px; color: #ECE4DC">', 1)
     hero_end = t.index('</section>', t.index('id="ar-form"')) + len('</section>')
@@ -820,8 +866,7 @@ def build_index(authors, byslug, works, cols):
     cards = '\n\n'.join(dossier_card(a, i) for i, a in enumerate(authors))
     text_rows = '\n      '.join(work_row(w, byslug, show_author=True) for w in hosted)
     col_rows = '\n      '.join(collection_row(c) for c in cols)
-    main = f"""<section class="grid-bg" style="position: relative; overflow: hidden; background-color: #0C0708">
-  {wall(INDEX_MAIN_WALL, 0.12)}
+    main = f"""<section class="grid-bg" style="position: relative; overflow: hidden; background-color: rgba(12, 7, 8, 0.84)">
   <div class="wrap" style="padding-top: 36px; padding-bottom: clamp(56px, 7vw, 96px)">
     <div role="group" aria-label="Filter by tendency" style="display: flex; flex-wrap: wrap; gap: 8px">
       {chips}
@@ -852,6 +897,8 @@ def build_index(authors, byslug, works, cols):
     end = t.index('</section>', t.index('COL-08')) + len('</section>')
     t = t[:start] + main + t[end:]
     t = t.replace('</style>', EXTRA_CSS + '</style>', 1)
+    t = t.replace('<body>\n<div style="position: relative; background: #090506;', '<body>\n' + page_bg(INDEX_POSTER) + '<div style="position: relative;', 1)
+    assert 'class="page-bg"' in t
     t = t.replace(re.search(r'<link href="https://fonts.googleapis.com/css2[^>]*>', t).group(), FONTS.split('\n')[1])
     t = t.replace('</body>', '<script src="/assets/archive.js" defer></script>\n</body>')
     (ROOT / 'archive' / 'index.html').write_text(t, encoding='utf-8')
@@ -867,6 +914,28 @@ def build_home(authors, works, cols):
         old = re.search(rf'<a href="[^"]*" class="row"><span style="color: #A89C95">{c["code"]}</span>.*?</a>', t)
         if old:
             t = t.replace(old.group(), collection_row(c))
+    t = t.replace('<a href="#watch">WATCH</a>', '<a href="#watch">WATCH</a>\n      <a href="#dispatches">DISPATCHES</a>', 1)
+    section = f"""
+<section id="dispatches" class="grid-bg" style="position: relative; overflow: hidden; background-color: #0C0708; border-top: 1px solid #2B1B1D">
+  <div aria-hidden="true" class="sec-bg" style="background-image: url('/assets/bgc/{DISPATCH_POSTER}.webp'); opacity: 0.22"></div>
+  <div class="wrap" style="padding-top: clamp(56px, 7vw, 100px); padding-bottom: clamp(56px, 7vw, 100px)">
+    <div class="it-rv" style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 20px">
+      <div>
+        <span class="tag">FILE 05-B</span>
+        <h2 class="h2">DISPATCHES</h2>
+        <p class="src">SRC: TIA ON SUBSTACK · BY EMAIL</p>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; gap: 10px"><a class="dsp-btn" href="{SUBSTACK}/subscribe" target="_blank" rel="noopener">Subscribe on Substack</a><a class="dsp-btn gh" href="/dispatches/">All dispatches →</a></div>
+    </div>
+    <p class="it-rv" style="margin: 22px 0 0; max-width: 660px; font-size: 19px; color: #CFC4BC">Written dispatches from the Authority: analysis, history and the programme, sent out by email and filed here as they go out.</p>
+    <div class="dsp-grid" data-dispatches data-limit="3" aria-busy="true">{DSP_WAIT}</div>
+  </div>
+</section>
+"""
+    i = t.index('</section>', t.index('<section id="watch"')) + len('</section>')
+    t = t[:i] + '\n' + section + t[i:]
+    t = t.replace('</style>', DSP_CSS + '</style>', 1)
+    t = t.replace('</body>', '<script src="/assets/dispatches.js" defer></script>\n</body>', 1)
     t = t.replace('SRC: TIA ARCHIVE · 9 SUBJECTS · 8 COLLECTIONS', f'SRC: TIA ARCHIVE · 9 SUBJECTS · {nh} FULL TEXTS · 8 COLLECTIONS')
     t = re.sub(r'<div role="search" class="panel" style="padding: 22px">(.*?)</p>\n        </div>',
                lambda m: '<form role="search" class="panel" action="/archive/" method="get" style="padding: 22px">' + m.group(1) + '</p>\n        </form>',
@@ -891,8 +960,9 @@ def build_catalogue_json(authors, byslug, works, cols):
 
 
 def build_sitemap(authors, works, cols):
-    urls = ['/', '/archive/', '/arcade/', '/shop/']
+    urls = ['/', '/archive/', '/dispatches/', '/arcade/', '/shop/']
     urls += [a['url'] for a in authors]
+    urls += [a['url'] + 'works/' for a in authors if a.get('bib')]
     urls += [w['path'] for w in sorted(works.values(), key=lambda w: w['id']) if w['kind'] == 'hosted']
     urls += [c['url'] for c in cols if c.get('url', '').startswith('/')]
     body = '\n'.join(f'  <url><loc>{SITE}{u}</loc></url>' for u in urls)
@@ -902,6 +972,187 @@ def build_sitemap(authors, works, cols):
     return len(urls)
 
 
+# ---------------------------------------------------------------- complete works (bibliographies)
+
+BIB_BASE = {
+    'hegel': 'https://www.marxists.org/reference/archive/hegel/',
+    'lenin': 'https://www.marxists.org/archive/lenin/works/',
+    'trotsky': 'https://www.marxists.org/archive/trotsky/',
+}
+BIB_SOURCE = {
+    'hegel': 'Hegel\'s principal writings and lecture courses. Links open the Hegel section of the Marxists Internet Archive.',
+    'marx': 'Every item in the 50 volumes of the Marx-Engels Collected Works: books, articles, manuscripts, speeches and letters, by date. Links open the Marxists Internet Archive\'s index for that year; texts in the public domain open here.',
+    'engels': 'Every item in the 50 volumes of the Marx-Engels Collected Works: books, articles, manuscripts, speeches and letters, by date. Links open the Marxists Internet Archive\'s index for that year; texts in the public domain open here.',
+    'kautsky': 'Every work in the Kautsky section of the Marxists Internet Archive.',
+    'lenin': 'Every entry in the date index of the Lenin Internet Archive, which follows the Collected Works. Works in several parts are listed once.',
+    'trotsky': 'Every work in the Trotsky index of the Marxists Internet Archive.',
+    'luxemburg': 'Every work in the Luxemburg section of the Marxists Internet Archive.',
+    'bukharin': 'Every work in the Bukharin library of the Marxists Internet Archive.',
+    'bordiga': 'Every English translation in the Bordiga section of the Marxists Internet Archive. His Italian writings run to thousands of articles; more will be filed here as they are translated.',
+}
+MONTHS = {m: i for i, m in enumerate(['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'], 1)}
+MON_NAME = ['', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+
+
+def tnorm(t):
+    return ''.join(c for c in t.lower() if c.isalnum())
+
+
+def load_bibliography(a, byslug):
+    f = CONTENT / 'bibliography' / f'{a["slug"]}.tsv'
+    if not f.exists():
+        return []
+    base = BIB_BASE.get(a['slug'], f'https://www.marxists.org/archive/{a["slug"]}/')
+    hosted = [w for o in byslug.values() for w in o['works'] if w['kind'] == 'hosted' and a['slug'] in w['authors']]
+    hn = [(tnorm(w['title']), w) for w in hosted]
+    items = []
+    for line in f.read_text(encoding='utf-8').splitlines():
+        if not line.strip() or line.startswith('#'):
+            continue
+        cols = line.split('\t')
+        y, t, u = cols[0], cols[1], cols[2]
+        kind = cols[3] if len(cols) > 3 and cols[3] else ('letter' if re.match(r'(A )?Letters? (to|from)', t) else 'work')
+        if u.startswith('~'):
+            u = base + u[1:]
+        elif u.startswith('/'):
+            u = 'https://www.marxists.org' + u
+        d = ''
+        m = re.search(r'/works/\d{4}/([a-z]{3})/(\d\d)', u) if a['slug'] == 'lenin' else None
+        if m and m.group(1) in MONTHS:
+            day = int(m.group(2))
+            d = (f'{day} ' if day else '') + MON_NAME[MONTHS[m.group(1)]]
+        item = {'y': int(re.search(r'\d{4}', y).group()), 't': t, 'u': u, 'k': kind, 'd': d, 'h': None}
+        n = tnorm(t)
+        for hk, w in hn:
+            if len(hk) >= 10 and (n == hk or n.startswith(hk)) and kind == 'work':
+                item['h'] = w
+                item['u'] = w['path']
+                break
+        items.append(item)
+    items.sort(key=lambda i: i['y'])
+    return items
+
+
+CW_CSS = """
+.cw-bar { position: sticky; top: 68px; z-index: 5; display: flex; flex-wrap: wrap; gap: 10px; align-items: center; padding: 14px 0; background: rgba(12, 7, 8, 0.96); border-bottom: 1px solid #3A2326; }
+.cw-bar input { flex: 1 1 280px; min-width: 0; min-height: 48px; box-sizing: border-box; padding: 0 14px; background: #090506; border: 2px solid #3A2326; color: #F2ECE4; font-family: Inter, sans-serif; font-size: 17px; }
+.cw-bar .cnt { font-size: 13px; letter-spacing: 0.12em; color: #A89C95; }
+.cw-jump { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 18px; }
+.cw-jump a { padding: 5px 9px; border: 1px solid #3A2326; background: rgba(9, 5, 6, 0.7); font-size: 12px; letter-spacing: 0.1em; color: #CFC4BC; }
+.cw-jump a:hover { border-color: #E8222A; color: #FF5A60; }
+.cw-y { margin-top: 36px; scroll-margin-top: 150px; }
+.cw-y h2 { margin: 0; display: flex; justify-content: space-between; align-items: baseline; gap: 12px; border-bottom: 1px solid #3A2326; padding-bottom: 8px; font-family: 'Manolo Mono', 'Share Tech Mono', monospace; font-weight: 400; font-size: 28px; color: #FF5A60; }
+.cw-y h2 span { font-size: 12px; letter-spacing: 0.12em; color: #A89C95; }
+.cw { list-style: none; margin: 0; padding: 0; columns: 2 440px; column-gap: 44px; }
+.cw li { break-inside: avoid; display: flex; gap: 12px; padding: 7px 0; border-bottom: 1px solid #1E1214; font-size: 15.5px; line-height: 1.4; }
+.cw li .d { flex: 0 0 56px; padding-top: 3px; font-family: 'Manolo Mono', 'Share Tech Mono', monospace; font-size: 12px; letter-spacing: 0.04em; color: #7A6A64; }
+.cw li a { color: #E6DDD3; }
+.cw li a:hover { color: #FF5A60; }
+.cw li.l a { color: #B3A79F; }
+.cw li b { margin-left: 8px; font-family: 'Manolo Mono', 'Share Tech Mono', monospace; font-weight: 400; font-size: 11px; letter-spacing: 0.12em; color: #39D98A; }
+.no-letters .cw li.l { display: none; }
+.cw-y[hidden], .cw li[hidden] { display: none; }
+.au-cw { display: inline-flex; align-items: center; gap: 12px; margin-top: 22px; min-height: 52px; padding: 0 20px; background: #C81D25; color: #FFFFFF; font-family: Inter, sans-serif; font-weight: 800; font-size: 17px; }
+.au-cw:hover { background: #E8222A; color: #FFFFFF; }
+.au-cw small { font-family: 'Manolo Mono', 'Share Tech Mono', monospace; font-weight: 400; font-size: 13px; letter-spacing: 0.1em; opacity: 0.85; }
+"""
+
+
+def build_complete_works(a, byslug):
+    items = a['bib']
+    if not items:
+        return
+    nl = sum(1 for i in items if i['k'] == 'letter')
+    years = sorted({i['y'] for i in items})
+    groups = {}
+    for i in items:
+        groups.setdefault(i['y'], []).append(i)
+    secs = []
+    for y in years:
+        rows = []
+        for i in groups[y]:
+            cls = ' class="l"' if i['k'] == 'letter' else ''
+            tag = '<b>READ</b>' if i['h'] else ''
+            rows.append(f'<li{cls}><span class="d">{esc(i["d"])}</span><a href="{attr(i["u"])}">{esc(i["t"])}</a>{tag}</li>')
+        secs.append(f'<section class="cw-y" id="y{y}"><h2>{y}<span>{len(groups[y])} ITEM{"S" if len(groups[y]) != 1 else ""}</span></h2><ul class="cw">{"".join(rows)}</ul></section>')
+    decades = sorted({y // 10 * 10 for y in years})
+    jump = ''.join(f'<a href="#y{next(y for y in years if y // 10 * 10 == d)}">{d}s</a>' for d in decades)
+    letters_btn = (f'<button type="button" class="chip on" id="cw-letters" aria-pressed="true">LETTERS<span>{nl:,}</span></button>' if nl else '')
+    body = f"""<section style="position: relative; border-bottom: 1px solid #2B1B1D">
+  <div class="wrap" style="position: relative; z-index: 1; padding-top: 26px; padding-bottom: clamp(36px, 4vw, 56px)">
+    {crumbs(('ARCHIVE', '/archive/'), (a['short'], a['url']), ('COMPLETE WORKS', None))}
+    <span class="tag" style="margin-top: 22px">SUBJECT {a['num']} · COMPLETE WORKS</span>
+    <h1 class="mn it-glitch shade" style="margin: 18px 0 0; font-size: clamp(40px, 5.6vw, 86px); line-height: 1; color: #F2ECE4">{a['name']}</h1>
+    <p class="src shade">{len(items):,} ITEMS · {len(items) - nl:,} WORKS{f' · {nl:,} LETTERS' if nl else ''} · {years[0]} — {years[-1]}</p>
+    <p class="shade" style="margin: 20px 0 0; max-width: 760px; padding: 14px 16px; background: rgba(9, 5, 6, 0.72); border-left: 2px solid #E8222A; font-size: 17px; color: #ECE4DC">{esc(BIB_SOURCE.get(a['slug'], ''))}</p>
+    <nav class="cw-jump mn" aria-label="Jump to decade">{jump}</nav>
+  </div>
+</section>
+
+<section class="grid-bg" style="position: relative; background-color: rgba(12, 7, 8, 0.9)">
+  <div class="wrap" style="padding-bottom: clamp(56px, 7vw, 96px)">
+    <div class="cw-bar mn" role="search">
+      <label for="cw-q" class="sr" style="position: absolute; left: -9999px">Filter titles</label>
+      <input id="cw-q" type="search" placeholder="Filter {len(items):,} titles" autocomplete="off">
+      {letters_btn}
+      <span class="cnt" id="cw-count" aria-live="polite">{len(items):,} SHOWN</span>
+    </div>
+    {''.join(secs)}
+    <div class="pn mn"><a href="{a['url']}">← {a['short']} DOSSIER</a><a href="/archive/">INDEX OF MARXISTS →</a></div>
+  </div>
+</section>"""
+    title = f'{a["display"]}: Complete Works · TIA Archive'
+    desc = f'All {len(items):,} works and letters by {a["display"]}, {years[0]}–{years[-1]}, listed by date with links to every text.'
+    out = page(title, desc, a['url'] + 'works/', body, css=CW_CSS, current_label=f'/ARCHIVE/{a["short"]}/WORKS',
+               bg=POSTER[a['slug']])
+    d = ROOT / 'archive' / a['slug'] / 'works'
+    d.mkdir(parents=True, exist_ok=True)
+    (d / 'index.html').write_text(out, encoding='utf-8')
+
+
+def build_bibliography_json(authors):
+    slugs = [a['slug'] for a in authors]
+    rows = []
+    for ai, a in enumerate(authors):
+        for i in a['bib']:
+            u = i['u']
+            if u.startswith('https://www.marxists.org/'):
+                u = '~' + u[len('https://www.marxists.org/'):]
+            rows.append([ai, i['y'], i['t'], u, 1 if i['k'] == 'letter' else 0])
+    (ROOT / 'archive' / 'bibliography.json').write_text(
+        json.dumps({'a': slugs, 'i': rows}, ensure_ascii=False, separators=(',', ':')), encoding='utf-8')
+    return len(rows)
+
+
+def build_dispatches():
+    body = f"""<section style="position: relative; border-bottom: 1px solid #2B1B1D">
+  <div class="wrap" style="position: relative; z-index: 1; padding-top: 26px; padding-bottom: clamp(40px, 5vw, 64px)">
+    {crumbs(('HOME', '/'), ('DISPATCHES', None))}
+    <span class="tag" style="margin-top: 22px">FILE 05-B · SUBSTACK</span>
+    <h1 class="mn it-glitch shade" style="margin: 18px 0 0; font-size: clamp(44px, 6.2vw, 100px); line-height: 1; color: #F2ECE4">DISPATCHES</h1>
+    <p class="src shade" data-dispatches-count>TECHNICAL INVARIANCE AUTHORITY ON SUBSTACK</p>
+    <p class="shade" style="margin: 20px 0 0; max-width: 680px; padding: 14px 16px; background: rgba(9, 5, 6, 0.72); border-left: 2px solid #E8222A; font-size: 19px; color: #ECE4DC">Written dispatches from the Authority: analysis, history and the programme. Every post goes out by email first and is listed here, newest first.</p>
+    <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px"><a class="dsp-btn" href="{SUBSTACK}/subscribe" target="_blank" rel="noopener">Subscribe by email</a><a class="dsp-btn gh" href="{SUBSTACK}/" target="_blank" rel="noopener">Open on Substack ↗</a></div>
+  </div>
+</section>
+
+<section class="grid-bg" style="position: relative; background-color: rgba(12, 7, 8, 0.86)">
+  <div class="wrap" style="padding-top: 12px; padding-bottom: clamp(56px, 7vw, 96px)">
+    <div class="dsp-grid" data-dispatches aria-busy="true">{DSP_WAIT}</div>
+  </div>
+</section>"""
+    out = page('Dispatches · Technical Invariance Authority',
+               'Written dispatches from the Technical Invariance Authority on Substack: analysis, history and the programme, newest first.',
+               '/dispatches/', body, css=DSP_CSS, ticker='DISPATCHES /// TIA ON SUBSTACK /// ANALYSIS · HISTORY · THE PROGRAMME /// SUBSCRIBE BY EMAIL ///',
+               current_label='/DISPATCHES', bg=DISPATCH_POSTER, script=False)
+    out = out.replace('aria-current="page" style="color: #FF5A60; border-bottom: 2px solid #E8222A">ARCHIVE</a>', '>ARCHIVE</a>', 1)
+    out = out.replace('<a href="/dispatches/">DISPATCHES</a>', '<a href="/dispatches/" aria-current="page" style="color: #FF5A60; border-bottom: 2px solid #E8222A">DISPATCHES</a>', 1)
+    out = out.replace('</body>', '<script src="/assets/dispatches.js" defer></script>\n</body>', 1)
+    d = ROOT / 'dispatches'
+    d.mkdir(exist_ok=True)
+    (d / 'index.html').write_text(out, encoding='utf-8')
+
+
 def main():
     authors, byslug, works, cols = load()
     # clear old generated output so removed works disappear
@@ -909,6 +1160,8 @@ def main():
         shutil.rmtree(ROOT / 'archive' / a['slug'], ignore_errors=True)
     shutil.rmtree(ROOT / 'archive' / 'collections', ignore_errors=True)
     shutil.rmtree(ROOT / 'archive' / 'text', ignore_errors=True)
+    for a in authors:
+        a['bib'] = load_bibliography(a, byslug)
     total = 0
     for a in authors:
         for w in a['works']:
@@ -918,12 +1171,16 @@ def main():
                 print(f'  text  {w["path"]:<58} {n:>8,} words')
     for i, a in enumerate(authors):
         build_author(a, authors[i - 1], authors[(i + 1) % len(authors)], byslug, cols)
+        build_complete_works(a, byslug)
     for c in cols:
         if c.get('url', '').startswith('/'):
             build_collection(c, byslug, cols)
     build_index(authors, byslug, works, cols)
     build_home(authors, works, cols)
+    build_dispatches()
     build_catalogue_json(authors, byslug, works, cols)
+    nb = build_bibliography_json(authors)
+    print(f'  complete works: {nb:,} items ' + ', '.join(f"{a['slug']} {len(a['bib']):,}" for a in authors))
     n = build_sitemap(authors, works, cols)
     nh = sum(1 for w in works.values() if w['kind'] == 'hosted')
     print(f'{len(authors)} authors, {len(works)} works ({nh} full texts, {total:,} words), '

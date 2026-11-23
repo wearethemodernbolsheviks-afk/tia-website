@@ -79,6 +79,43 @@
         return c;
       });
     };
+    var bib = null;
+    var getBib = function () {
+      if (bib) return Promise.resolve(bib);
+      return fetch('/archive/bibliography.json').then(function (r) { return r.json(); }).then(function (b) {
+        b.f = b.i.map(function (row) { return fold(row[2]); });
+        bib = b;
+        return b;
+      });
+    };
+    var bibBox = $('#ar-bib');
+    var searchBib = function (my, tokens, q) {
+      if (!bibBox) return;
+      getBib().then(function (b) {
+        if (my !== run) return;
+        var hits = [];
+        for (var i = 0; i < b.f.length; i++) {
+          var ok = true;
+          for (var t = 0; t < tokens.length; t++) { if (b.f[i].indexOf(tokens[t]) === -1) { ok = false; break; } }
+          if (ok) hits.push(b.i[i]);
+        }
+        if (!hits.length) { bibBox.innerHTML = ''; return; }
+        var names = catalogue ? catalogue.byAuthor : {};
+        var h = '<div style="margin-top: 22px"><p class="mn" style="margin: 0; padding-bottom: 8px; border-bottom: 1px solid #3A2326; font-size: 14px; letter-spacing: 0.1em">IN THE COMPLETE WORKS <span style="color: #A89C95">· ' + hits.length + ' TITLE' + (hits.length === 1 ? '' : 'S') + '</span></p><ul class="hit-list">';
+        hits.slice(0, 40).forEach(function (row) {
+          var slug = b.a[row[0]], a = names[slug];
+          var url = row[3].charAt(0) === '~' ? 'https://www.marxists.org/' + row[3].slice(1) : row[3];
+          var ext = url.indexOf('http') === 0;
+          h += '<li style="padding: 10px 0"><span class="hw">' + row[1] + ' · <a href="/archive/' + slug + '/works/#y' + row[1] + '">' + escHTML(a ? a.short : slug.toUpperCase()) + '</a> · ' +
+            '<a href="' + escHTML(url) + '"' + (ext ? ' target="_blank" rel="noopener"' : '') + ' style="color: #F2ECE4">' + markAll(row[2], tokens.length === 1 ? tokens[0] : '') + (ext ? ' ↗' : ' [READ →]') + '</a>' +
+            (row[4] ? ' <span style="color: #7A6A64">LETTER</span>' : '') + '</span></li>';
+        });
+        h += '</ul>';
+        if (hits.length > 40) h += '<p class="mn" style="margin: 10px 0 0; font-size: 13px; letter-spacing: 0.1em; color: #A89C95">+ ' + (hits.length - 40) + ' MORE · ADD A WORD OR A YEAR TO NARROW IT DOWN</p>';
+        h += '</div>';
+        bibBox.innerHTML = h;
+      }).catch(function () {});
+    };
     var getText = function (id) {
       if (texts[id]) return Promise.resolve(texts[id]);
       return fetch('/archive/text/' + id + '.json').then(function (r) { return r.json(); }).then(function (t) {
@@ -104,6 +141,7 @@
       bar.style.width = '4%';
       catBox.innerHTML = '';
       fullBox.innerHTML = '';
+      if (bibBox) bibBox.innerHTML = '';
       var tokens = needle.split(' ');
       // German umlauts are often spelled out in old English editions (Dühring, Duehring)
       var needles = [needle];
@@ -131,6 +169,7 @@
           html += '</ul>';
         }
         catBox.innerHTML = html;
+        searchBib(my, tokens, q);
         var hosted = c.works.filter(function (w) { return w.kind === 'hosted'; });
         if (needle.length < 3) {
           finish(authors.length + works.length, 0, 0, q);
@@ -190,7 +229,7 @@
       parts.push('<b>' + nCat + '</b> IN THE CATALOGUE');
       if (fold(q.trim()).length >= 3) parts.push('<b>' + hits + '</b> PASSAGES IN ' + inTexts + ' FULL TEXT' + (inTexts === 1 ? '' : 'S'));
       status.innerHTML = '“' + escHTML(q.trim()) + '” · ' + parts.join(' · ');
-      if (!nCat && !hits) {
+      if (!nCat && !hits && !(bibBox && bibBox.innerHTML)) {
         catBox.innerHTML = '<p style="margin: 16px 0 0; color: #CFC4BC">Nothing filed under that yet. Try a surname, a year or a phrase from the text, or browse the dossiers below.</p>';
       }
     };
@@ -200,6 +239,7 @@
       panel.hidden = true;
       catBox.innerHTML = '';
       fullBox.innerHTML = '';
+      if (bibBox) bibBox.innerHTML = '';
       input.value = '';
       try { history.replaceState(null, '', location.pathname); } catch (e) {}
     };
@@ -218,6 +258,35 @@
       search(q0);
       panel.scrollIntoView({ block: 'start' });
     }
+  }
+
+  /* ---------------- complete works pages ---------------- */
+  var cwq = $('#cw-q');
+  if (cwq) {
+    var cwRows = $$('.cw li').map(function (li) { return { el: li, f: fold(li.textContent), l: li.classList.contains('l') }; });
+    var cwSecs = $$('.cw-y');
+    var cwCount = $('#cw-count');
+    var showLetters = true;
+    var cwApply = function () {
+      var toks = fold(cwq.value.trim()).split(/\s+/).filter(Boolean);
+      var n = 0;
+      cwRows.forEach(function (r) {
+        var ok = (showLetters || !r.l) && toks.every(function (t) { return r.f.indexOf(t) !== -1; });
+        r.el.hidden = !ok;
+        if (ok) n++;
+      });
+      cwSecs.forEach(function (sec) { sec.hidden = !sec.querySelector('li:not([hidden])'); });
+      cwCount.textContent = n.toLocaleString('en') + ' SHOWN';
+    };
+    var cwT;
+    cwq.addEventListener('input', function () { clearTimeout(cwT); cwT = setTimeout(cwApply, 120); });
+    var lb = $('#cw-letters');
+    if (lb) lb.addEventListener('click', function () {
+      showLetters = !showLetters;
+      lb.classList.toggle('on', showLetters);
+      lb.setAttribute('aria-pressed', showLetters ? 'true' : 'false');
+      cwApply();
+    });
   }
 
   /* ---------------- reader pages ---------------- */

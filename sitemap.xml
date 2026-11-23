@@ -2,6 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://invariancetech.info/</loc></url>
   <url><loc>https://invariancetech.info/archive/</loc></url>
+  <url><loc>https://invariancetech.info/dispatches/</loc></url>
   <url><loc>https://invariancetech.info/arcade/</loc></url>
   <url><loc>https://invariancetech.info/shop/</loc></url>
   <url><loc>https://invariancetech.info/archive/hegel/</loc></url>
@@ -13,18 +14,37 @@
   <url><loc>https://invariancetech.info/archive/luxemburg/</loc></url>
   <url><loc>https://invariancetech.info/archive/bukharin/</loc></url>
   <url><loc>https://invariancetech.info/archive/bordiga/</loc></url>
+  <url><loc>https://invariancetech.info/archive/hegel/works/</loc></url>
+  <url><loc>https://invariancetech.info/archive/marx/works/</loc></url>
+  <url><loc>https://invariancetech.info/archive/engels/works/</loc></url>
+  <url><loc>https://invariancetech.info/archive/kautsky/works/</loc></url>
+  <url><loc>https://invariancetech.info/archive/lenin/works/</loc></url>
+  <url><loc>https://invariancetech.info/archive/trotsky/works/</loc></url>
+  <url><loc>https://invariancetech.info/archive/luxemburg/works/</loc></url>
+  <url><loc>https://invariancetech.info/archive/bukharin/works/</loc></url>
+  <url><loc>https://invariancetech.info/archive/bordiga/works/</loc></url>
   <url><loc>https://invariancetech.info/archive/engels/condition-of-the-working-class/</loc></url>
   <url><loc>https://invariancetech.info/archive/engels/revolution-and-counter-revolution/</loc></url>
   <url><loc>https://invariancetech.info/archive/engels/anti-duhring/</loc></url>
   <url><loc>https://invariancetech.info/archive/engels/socialism-utopian-and-scientific/</loc></url>
   <url><loc>https://invariancetech.info/archive/engels/ludwig-feuerbach/</loc></url>
+  <url><loc>https://invariancetech.info/archive/hegel/history-of-philosophy-1/</loc></url>
+  <url><loc>https://invariancetech.info/archive/hegel/history-of-philosophy-2/</loc></url>
+  <url><loc>https://invariancetech.info/archive/hegel/history-of-philosophy-3/</loc></url>
+  <url><loc>https://invariancetech.info/archive/hegel/phaenomenologie-des-geistes/</loc></url>
+  <url><loc>https://invariancetech.info/archive/hegel/wissenschaft-der-logik-1/</loc></url>
+  <url><loc>https://invariancetech.info/archive/hegel/wissenschaft-der-logik-2/</loc></url>
   <url><loc>https://invariancetech.info/archive/hegel/logic/</loc></url>
+  <url><loc>https://invariancetech.info/archive/hegel/philosophy-of-mind/</loc></url>
   <url><loc>https://invariancetech.info/archive/lenin/letter-to-american-workingmen/</loc></url>
   <url><loc>https://invariancetech.info/archive/luxemburg/massenstreik/</loc></url>
+  <url><loc>https://invariancetech.info/archive/luxemburg/briefe-aus-dem-gefaengnis/</loc></url>
   <url><loc>https://invariancetech.info/archive/marx/eighteenth-brumaire/</loc></url>
+  <url><loc>https://invariancetech.info/archive/marx/briefwechsel-1/</loc></url>
   <url><loc>https://invariancetech.info/archive/marx/communist-manifesto/</loc></url>
   <url><loc>https://invariancetech.info/archive/trotsky/the-war-and-the-international/</loc></url>
   <url><loc>https://invariancetech.info/archive/trotsky/our-revolution/</loc></url>
+  <url><loc>https://invariancetech.info/archive/trotsky/terrorism-and-communism/</loc></url>
   <url><loc>https://invariancetech.info/archive/collections/the-programme/</loc></url>
   <url><loc>https://invariancetech.info/archive/collections/marx-and-engels/</loc></url>
   <url><loc>https://invariancetech.info/archive/collections/second-international/</loc></url>

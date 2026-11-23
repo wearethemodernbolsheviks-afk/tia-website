@@ -111,6 +111,11 @@ img { display: block; max-width: 100%; }
   .ov-band, .inst-x, .it-bscan, .it-sweep { display: none; }
 }
 
+@media (max-width: 1500px) { .tbar .wrap > span.mn:last-child { display: none; } }
+.page-bg { position: fixed; inset: 0; z-index: -1; background-size: cover; background-position: center; pointer-events: none; animation: it-kb 40s ease-in-out infinite alternate; }
+.page-bg::after { content: ""; position: absolute; inset: 0; background: linear-gradient(100deg, rgba(9, 5, 6, 0.86) 0%, rgba(9, 5, 6, 0.62) 50%, rgba(9, 5, 6, 0.42) 100%); }
+@media (max-width: 760px) { .page-bg::after { background: rgba(9, 5, 6, 0.7); } }
+@media (prefers-reduced-motion: reduce) { .page-bg { animation: none !important; } }
 .wall { position: absolute; inset: 0; overflow: hidden; pointer-events: none; opacity: var(--o, 0.2); -webkit-mask-image: linear-gradient(to bottom, transparent, #000 10%, #000 90%, transparent); mask-image: linear-gradient(to bottom, transparent, #000 10%, #000 90%, transparent); }
 .wall-in { position: absolute; left: 0; right: 0; top: -19.444vw; bottom: 0; background-repeat: repeat-y; background-size: 25% auto; background-position: 0 0, 33.333% 41%, 66.667% 17%, 100% 63%; animation: it-wall 150s linear infinite; }
 @keyframes it-wall { from { transform: translateY(0); } to { transform: translateY(19.444vw); } }
@@ -235,7 +240,7 @@ mark { background: rgba(232, 34, 42, 0.42); color: #FFFFFF; padding: 0 2px; }
 </style>
 </head>
 <body>
-<div style="position: relative; background: #090506; color: #F2ECE4; font-family: Inter, system-ui, sans-serif; font-size: 17px; line-height: 1.55">
+<div style="position: relative; color: #F2ECE4; font-family: Inter, system-ui, sans-serif; font-size: 17px; line-height: 1.55">
 
 <div aria-hidden="true">
   <div class="ov-lines"></div>
@@ -257,6 +262,7 @@ mark { background: rgba(232, 34, 42, 0.42); color: #FFFFFF; padding: 0 2px; }
       <a href="/#labs">LABS</a>
       <a href="/arcade/">ARCADE</a>
       <a href="/#watch">WATCH</a>
+      <a href="/dispatches/">DISPATCHES</a>
       <a href="/#ussr2089">USSR 2089</a>
       <a href="/shop/">SHOP</a>
     </nav>
@@ -275,7 +281,7 @@ mark { background: rgba(232, 34, 42, 0.42); color: #FFFFFF; padding: 0 2px; }
         <span class="tag">FULL TEXT · TROTSKY · 1904–1917</span>
         <h1 class="rd-h1 it-glitch">Our Revolution</h1>
         <p class="rd-sub">Essays on Working-Class and International Revolution, 1904–1917, including Prospects of a Labor Dictatorship</p>
-        <p class="src">LEON TROTSKY · 1904–1917 · 36,289 WORDS · 2 H 38 MIN · ENGLISH</p>
+        <p class="src">LEON TROTSKY · 1904–1917 · 36,103 WORDS · 2 H 37 MIN · ENGLISH</p>
         <p class="rd-ed">Collected, translated and annotated by Moissaye J. Olgin. New York, 1918. Public domain.</p>
         <div class="rd-act"><a class="btn" href="#p1">Start reading</a><a class="btn gh" href="our-revolution.txt" download>DOWNLOAD .TXT</a><a class="btn gh" href="/archive/trotsky/">TROTSKY DOSSIER</a></div>
       </div>
@@ -804,13 +810,6 @@ natural leader of the Revolution, 60-61.</p>
 of the world, as influencing masses, 183-4.</p>
 <p id="p488">Witte, 62, 145.</p>
 <p id="p489">Zemstvo, movement of, in <em>1904</em>, 24-25; 33; 62.</p>
-<p id="p490" class="cap">TRANSCRIBER'S NOTES:</p>
-<p id="p491">Obvious typesetting errors have been corrected. Questionable or vintage spelling has been left as printed in the original publication. Variations in spelling have been left as printed, unless otherwise noted in the following.</p>
-<p id="p492">In the original publication, each chapter listed in the Contents section was preceded by a "title page" containing only the chapter title as listed in the Contents, followed by a blank page. The chapter title was repeated on the first page in each chapter. The chapter title pages have not been reproduced in this transcription.</p>
-<p id="p493">Page 90: The following phrase, beginning a quotation, has no closing quotation mark in the original publication: "the struggle for the interests of Russia as a whole...."</p>
-<p id="p494">Page 145: Transcribed "on" as "of" to match the quoted phrase on p. 106: "private ownership of the means of production". Originally printed as: "'private ownership on the means of production'".</p>
-<p id="p495">Page 174: Transcribed "Caucasas" as "Caucasus". As originally printed: "the insurrection on the Caucasas and in the Lettish provinces."</p>
-<p id="p496">Page 193: Supplied "to" in the following phrase, shown in brackets: "Yet he had to speak [to] them...."</p>
       </article>
       <p class="rd-end mn">END OF TEXT · OUR REVOLUTION · LEON TROTSKY</p>
       <div class="pn mn"><a href="/archive/trotsky/">← TROTSKY DOSSIER</a><a href="/archive/trotsky/the-war-and-the-international/">THE WAR AND THE INTERNATIONAL →</a></div>
