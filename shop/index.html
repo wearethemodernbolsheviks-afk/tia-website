@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>TIA Supply Depot</title>
+<meta name="description" content="Drop 01, Storm Heaven: nine tees, the emblem cap and nineteen poster prints, printed to order.">
+<link rel="canonical" href="https://invariancetech.info/shop/">
+<meta name="theme-color" content="#090506">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon_32.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/assets/favicon_512.png">
+<link rel="apple-touch-icon" href="/assets/favicon_180.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Technical Invariance Authority">
+<meta property="og:title" content="TIA Supply Depot">
+<meta property="og:description" content="Drop 01, Storm Heaven: nine tees, the emblem cap and nineteen poster prints, printed to order.">
+<meta property="og:url" content="https://invariancetech.info/shop/">
+<meta property="og:image" content="https://invariancetech.info/assets/og_tia.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@Invariance_Tech">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&amp;family=Share+Tech+Mono&amp;display=swap" rel="stylesheet">
+<style>
+@font-face { font-family: 'Manolo Mono'; src: local('Manolo Mono'), local('ManoloMono-Regular'), local('Manolo Mono Regular'); font-weight: 400; font-display: swap; }
+body { margin: 0; background: #090506; font-synthesis: none; }
+a { color: #F2ECE4; text-decoration: none; }
+a:hover { color: #FF5A60; }
+a:focus-visible, button:focus-visible { outline: 2px solid #FF5A60; outline-offset: 3px; }
+img { display: block; max-width: 100%; }
+.mn { font-family: 'Manolo Mono', 'Share Tech Mono', ui-monospace, monospace; font-weight: 400; }
+.wrap { max-width: 1360px; margin: 0 auto; padding-left: clamp(16px, 4vw, 60px); padding-right: clamp(16px, 4vw, 60px); box-sizing: border-box; }
+.grid-bg { background-image: linear-gradient(rgba(242, 236, 228, 0.045) 1px, transparent 1px), linear-gradient(90deg, rgba(242, 236, 228, 0.045) 1px, transparent 1px); background-size: 48px 48px; }
+.glow-r { text-shadow: 0 0 12px rgba(232, 34, 42, 0.65); }
+.glow-w { text-shadow: 0 0 16px rgba(242, 236, 228, 0.2); }
+.tag { display: inline-flex; align-items: center; gap: 8px; padding: 5px 10px; border: 1px solid #E8222A; font-family: 'Manolo Mono', 'Share Tech Mono', monospace; font-size: 14px; letter-spacing: 0.14em; color: #FF5A60; }
+.src { margin: 12px 0 0; font-family: 'Manolo Mono', 'Share Tech Mono', monospace; font-size: 13px; letter-spacing: 0.1em; color: #A89C95; }
+.dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #39D98A; box-shadow: 0 0 8px rgba(57, 217, 138, 0.8); animation: it-blink 2.4s ease-in-out infinite; }
+.chip { min-height: 42px; padding: 0 14px; border: 1px solid #3A2326; background: rgba(9, 5, 6, 0.7); color: #F2ECE4; font-family: 'Manolo Mono', 'Share Tech Mono', monospace; font-size: 13px; letter-spacing: 0.1em; cursor: pointer; }
+.chip span { color: #A89C95; margin-left: 6px; }
+.chip.on { background: #E8222A; border-color: #E8222A; color: #FFFFFF; }
+.chip.on span { color: #FFD9DA; }
+.spec { background-color: #E3DED6; background-image: linear-gradient(rgba(11, 7, 8, 0.07) 1px, transparent 1px), linear-gradient(90deg, rgba(11, 7, 8, 0.07) 1px, transparent 1px); background-size: 24px 24px; }
+.g5 { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 16px; }
+@media (max-width: 1100px) { .g5 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.prod { display: flex; flex-direction: column; background: #0F0A0B; border: 1px solid #3A2326; transition: border-color 200ms ease; }
+.prod:hover { border-color: #E8222A; }
+.ph { position: relative; aspect-ratio: 4 / 5; overflow: hidden; border-bottom: 1px solid #3A2326; }
+.ph img { width: 100%; height: 100%; transition: transform 300ms ease; }
+.ph.spec img { object-fit: contain; padding: 7%; box-sizing: border-box; }
+.ph.photo img { object-fit: cover; }
+.prod:hover .ph img { transform: scale(1.04); }
+.pid { position: absolute; top: 8px; left: 10px; font-size: 11px; letter-spacing: 0.12em; color: #5A4A44; }
+.ph.photo .pid { color: #F2ECE4; padding: 2px 6px; background: rgba(9, 5, 6, 0.8); }
+.bd { padding: 14px 16px 16px; display: flex; flex-direction: column; gap: 4px; flex: 1; }
+.cat { font-size: 12px; letter-spacing: 0.12em; color: #FF5A60; }
+.nm { font-weight: 800; font-size: 17px; line-height: 1.3; }
+.pr { margin-top: auto; padding-top: 6px; font-size: 17px; color: #F2ECE4; }
+.add { margin-top: 10px; min-height: 44px; border: 2px solid #F2ECE4; background: transparent; color: #F2ECE4; font-family: Inter, sans-serif; font-weight: 800; font-size: 15px; cursor: pointer; }
+.add:hover { background: #F2ECE4; color: #090506; }
+.sec-bg { position: absolute; inset: 0; background-size: cover; background-position: center; opacity: 0.34; animation: it-kb 28s ease-in-out infinite alternate; pointer-events: none; }
+.sec-bg ~ .wrap { position: relative; z-index: 1; }
+.tbar { position: sticky; top: 0; z-index: 55; background: rgba(9, 5, 6, 0.94); border-bottom: 1px solid #2B1B1D; }
+
+.ov-lines { position: fixed; inset: 0; pointer-events: none; z-index: 60; background: repeating-linear-gradient(to bottom, rgba(0, 0, 0, 0) 0px, rgba(0, 0, 0, 0) 2px, rgba(0, 0, 0, 0.26) 3px, rgba(0, 0, 0, 0) 4px); animation: it-flk 0.18s steps(2) infinite; }
+.ov-grain { position: fixed; inset: -160px; pointer-events: none; z-index: 59; background-image: url('/assets/grain.png'); opacity: 0.55; animation: it-grain 0.5s steps(1, end) infinite; }
+.ov-band { position: fixed; left: 0; right: 0; top: 0; height: 180px; pointer-events: none; z-index: 58; background: linear-gradient(to bottom, rgba(232, 34, 42, 0), rgba(232, 34, 42, 0.06) 50%, rgba(232, 34, 42, 0)); animation: it-band 9s linear infinite; }
+.inst { position: fixed; pointer-events: none; z-index: 57; }
+.inst-ruler { top: 0; bottom: 0; left: 0; width: 22px; border-right: 1px solid #2B1B1D; background-image: repeating-linear-gradient(to bottom, #4A2B2E 0px, #4A2B2E 1px, transparent 1px, transparent 10px), repeating-linear-gradient(to bottom, #9A4A4E 0px, #9A4A4E 1px, transparent 1px, transparent 100px); background-size: 8px 100%, 16px 100%; background-repeat: repeat-y; background-position: right top, right top; }
+.inst-ruler i { position: absolute; right: 0; border-right: 7px solid #E8222A; border-top: 5px solid transparent; border-bottom: 5px solid transparent; animation: it-mark 7s ease-in-out infinite alternate; }
+.inst-hex { top: 0; bottom: 0; right: 0; width: 46px; overflow: hidden; border-left: 1px solid #2B1B1D; font-size: 10px; line-height: 18px; color: #7A4246; text-align: center; }
+.inst-hex > div { animation: it-hexup 36s linear infinite; }
+.inst-x { left: 0; top: 0; width: 72px; height: 72px; margin: -36px 0 0 -36px; opacity: 0.28; animation: it-drift 40s ease-in-out infinite; }
+.inst-x::before { content: ""; position: absolute; left: 0; right: 0; top: 50%; height: 1px; background: #FF5A60; }
+.inst-x::after { content: ""; position: absolute; top: 0; bottom: 0; left: 50%; width: 1px; background: #FF5A60; }
+.inst-x i { position: absolute; inset: 18px; border: 1px solid #FF5A60; border-radius: 50%; }
+
+@keyframes it-flk { 0% { opacity: 0.85; } 100% { opacity: 1; } }
+@keyframes it-grain { 0% { transform: translate(0, 0); } 20% { transform: translate(-40px, 30px); } 40% { transform: translate(30px, -50px); } 60% { transform: translate(-60px, -20px); } 80% { transform: translate(20px, 60px); } 100% { transform: translate(0, 0); } }
+@keyframes it-band { from { transform: translateY(-180px); } to { transform: translateY(100vh); } }
+@keyframes it-mark { from { top: 15%; } to { top: 85%; } }
+@keyframes it-hexup { from { transform: translateY(0); } to { transform: translateY(-50%); } }
+@keyframes it-drift { 0% { transform: translate(22vw, 30vh); } 25% { transform: translate(72vw, 22vh); } 50% { transform: translate(64vw, 74vh); } 75% { transform: translate(28vw, 62vh); } 100% { transform: translate(22vw, 30vh); } }
+@keyframes it-ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+.it-ticker { display: flex; width: max-content; animation: it-ticker 70s linear infinite; }
+@keyframes it-blink { 0%, 100% { opacity: 0.3; } 50% { opacity: 1; } }
+@keyframes it-kb { from { transform: scale(1); } to { transform: scale(1.08) translateX(-1.5%); } }
+@keyframes it-glitch { 0% { opacity: 0; } 12% { opacity: 1; text-shadow: 4px 0 rgba(232, 34, 42, 0.9), -4px 0 rgba(79, 209, 232, 0.8); } 24% { opacity: 0.55; text-shadow: -3px 0 rgba(232, 34, 42, 0.9), 3px 0 rgba(79, 209, 232, 0.8); } 40% { opacity: 1; text-shadow: 1px 0 rgba(232, 34, 42, 0.5), -1px 0 rgba(79, 209, 232, 0.4); } 100% { opacity: 1; text-shadow: 0 0 16px rgba(242, 236, 228, 0.2); } }
+.it-glitch { animation: it-glitch 0.9s steps(1, end) 0.15s both; }
+@supports (animation-timeline: view()) {
+  @keyframes it-rv { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: none; } }
+  .it-rv { animation: it-rv linear both; animation-timeline: view(); animation-range: entry 0% entry 70%; }
+}
+@media (max-width: 760px) { .inst { display: none; } }
+@media (prefers-reduced-motion: reduce) {
+  .ov-lines, .ov-grain, .ov-band, .inst-ruler i, .inst-hex > div, .inst-x, .it-ticker, .dot, .sec-bg, .it-glitch, .it-rv { animation: none !important; }
+  .ov-band, .inst-x { display: none; }
+}
+</style>
+</head>
+<body>
+<div style="position: relative; background: #090506; color: #F2ECE4; font-family: Inter, system-ui, sans-serif; font-size: 17px; line-height: 1.55">
+
+<div aria-hidden="true">
+  <div class="ov-lines"></div>
+  <div class="ov-grain"></div>
+  <div class="ov-band"></div>
+  <div class="inst inst-ruler"><i></i></div>
+  <div class="inst inst-hex mn"><div>ITEM<br>0001<br>TEE<br>0009<br>CAP<br>0001<br>PRT<br>0019<br>A2<br>A3<br>5D07<br>C0DE<br>1848<br>1871<br>1917<br>2089<br>77F1<br>0B2E<br>ITEM<br>0001<br>TEE<br>0009<br>CAP<br>0001<br>PRT<br>0019<br>A2<br>A3<br>5D07<br>C0DE<br>1848<br>1871<br>1917<br>2089<br>77F1<br>0B2E</div></div>
+  <div class="inst inst-x"><i></i></div>
+</div>
+
+<header class="tbar">
+  <div class="wrap" style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px 32px; padding-top: 12px; padding-bottom: 12px">
+    <a href="/" style="display: flex; align-items: center; gap: 14px">
+      <img src="/assets/logo_tia_full.png" alt="TIA logo" style="width: 54px; height: auto">
+      <span class="mn" style="font-size: 17px; line-height: 1.15; letter-spacing: 0.06em">TECHNICAL INVARIANCE<br>AUTHORITY</span>
+    </a>
+    <nav aria-label="Main" class="mn" style="display: flex; flex-wrap: wrap; gap: 8px 22px; font-size: 15px; letter-spacing: 0.1em">
+      <a href="/archive/">ARCHIVE</a>
+      <a href="/#labs">LABS</a>
+      <a href="/arcade/">ARCADE</a>
+      <a href="/#watch">WATCH</a>
+      <a href="/#ussr2089">USSR 2089</a>
+      <a href="/shop/" aria-current="page" style="color: #FF5A60; border-bottom: 2px solid #E8222A">SHOP</a>
+    </nav>
+    <a href="#" class="mn" style="display: inline-flex; align-items: center; gap: 10px; min-height: 44px; padding: 0 16px; border: 1px solid #3A2326; font-size: 14px; letter-spacing: 0.12em">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 4h2l2.4 11.2a2 2 0 0 0 2 1.8h7.8a2 2 0 0 0 2-1.6L21 8H6"></path><circle cx="10" cy="20" r="1.4"></circle><circle cx="17" cy="20" r="1.4"></circle></svg>
+      CART · 0
+    </a>
+  </div>
+</header>
+
+<div aria-hidden="true" class="mn" style="overflow: hidden; border-bottom: 1px solid #2B1B1D; background: #100A0B; font-size: 13px; letter-spacing: 0.16em; color: #A89C95; padding: 8px 0">
+  <div class="it-ticker">
+    <span style="padding-right: 56px; white-space: nowrap">TIA SUPPLY DEPOT /// DROP 01: STORM HEAVEN /// 9 TEES · 1 CAP · 19 PRINTS /// PRINTED TO ORDER /// NO WASTE STOCK /// SHOP.INVARIANCETECH.INFO ///</span>
+    <span style="padding-right: 56px; white-space: nowrap">TIA SUPPLY DEPOT /// DROP 01: STORM HEAVEN /// 9 TEES · 1 CAP · 19 PRINTS /// PRINTED TO ORDER /// NO WASTE STOCK /// SHOP.INVARIANCETECH.INFO ///</span>
+  </div>
+</div>
+
+<section style="position: relative; overflow: hidden; border-bottom: 1px solid #2B1B1D">
+  <div aria-hidden="true" class="sec-bg" style="background-image: url('/assets/bg_shop.webp')"></div>
+  <div class="wrap" style="padding-top: clamp(48px, 6vw, 88px); padding-bottom: clamp(40px, 5vw, 72px); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 32px 48px">
+    <div style="flex: 1 1 520px; min-width: 0">
+      <span class="tag">FILE 04 · SHOP</span>
+      <h1 class="mn it-glitch" style="margin: 18px 0 0; font-size: clamp(44px, 6.2vw, 100px); line-height: 1; color: #F2ECE4">TIA SUPPLY DEPOT</h1>
+      <p class="src">SRC: DROP 01 · 30 ITEMS · PRINTED TO ORDER BY OUR STORE PARTNER</p>
+      <div style="margin-top: 30px; padding: 22px; background: rgba(9, 5, 6, 0.82); border: 1px solid #5A1E22; max-width: 560px">
+        <span class="mn" style="display: inline-flex; align-items: center; gap: 8px; font-size: 13px; letter-spacing: 0.14em; color: #39D98A"><span class="dot"></span>DROP 01 · LIVE</span>
+        <p class="mn glow-r" style="margin: 10px 0 0; font-size: clamp(30px, 3.4vw, 46px); line-height: 1.05; color: #FF5A60">STORM HEAVEN</p>
+        <p style="margin: 12px 0 0; color: #DCD2CA">The name is Marx's, from his 1871 letter on the Paris Commune. Nine tees and the emblem cap, plus every poster as a print.</p>
+      </div>
+    </div>
+    <div class="spec it-rv" style="flex: 1 1 420px; min-width: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; padding: 16px; box-sizing: border-box; border: 1px solid #3A2326">
+      <img src="/assets/tee_storm_redarmy.webp" alt="Storm Heaven tee with a Red Army flag bearer" style="width: 100%; aspect-ratio: 1; object-fit: contain">
+      <img src="/assets/tee_storm_serpent.webp" alt="Storm Heaven tee with a statue wrestling a serpent" style="width: 100%; aspect-ratio: 1; object-fit: contain">
+    </div>
+  </div>
+</section>
+
+<section class="grid-bg" style="background-color: #0C0708">
+  <div class="wrap" style="padding-top: 36px; padding-bottom: clamp(56px, 7vw, 96px)">
+    <div role="group" aria-label="Filter products" style="display: flex; flex-wrap: wrap; gap: 8px">
+      <button type="button" class="chip on" aria-pressed="true">ALL<span>30</span></button>
+      <button type="button" class="chip" aria-pressed="false">TEES<span>9</span></button>
+      <button type="button" class="chip" aria-pressed="false">HEADWEAR<span>1</span></button>
+      <button type="button" class="chip" aria-pressed="false">PRINTS<span>19</span></button>
+      <button type="button" class="chip" aria-pressed="false">DIGITAL<span>1</span></button>
+    </div>
+
+    <div style="display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 10px; margin-top: 36px; border-bottom: 1px solid #3A2326; padding-bottom: 10px">
+      <p class="mn" style="margin: 0; font-size: 20px; letter-spacing: 0.1em">CLOTHING</p>
+      <p class="mn" style="margin: 0; font-size: 13px; letter-spacing: 0.12em; color: #A89C95">10 ITEMS · WASHED BLACK · S — XXL</p>
+    </div>
+    <div class="g5" style="margin-top: 18px">
+      <div class="prod it-rv"><div class="ph spec"><img src="/assets/tee_storm_redarmy.webp" alt="Storm Heaven tee: a Red Army flag bearer with the words Storm Heaven"><span class="pid mn">ITEM 01</span></div><div class="bd"><span class="cat mn">TEE · STORM HEAVEN</span><span class="nm">Storm Heaven: Red Army</span><span class="pr mn">$35</span><button type="button" class="add">Choose size</button></div></div>
+      <div class="prod it-rv"><div class="ph spec"><img src="/assets/tee_storm_serpent.webp" alt="Storm Heaven tee: a statue wrestling a serpent under the emblem"><span class="pid mn">ITEM 02</span></div><div class="bd"><span class="cat mn">TEE · STORM HEAVEN</span><span class="nm">Storm Heaven: Serpent</span><span class="pr mn">$35</span><button type="button" class="add">Choose size</button></div></div>
+      <div class="prod it-rv"><div class="ph spec"><img src="/assets/tee_forge.webp" alt="The Forge tee: a statue carving itself with a hammer under the emblem"><span class="pid mn">ITEM 03</span></div><div class="bd"><span class="cat mn">TEE</span><span class="nm">The Forge</span><span class="pr mn">$35</span><button type="button" class="add">Choose size</button></div></div>
+      <div class="prod it-rv"><div class="ph spec"><img src="/assets/tee_red_earth.webp" alt="Red Earth tee: a stone head rising behind a red planet"><span class="pid mn">ITEM 04</span></div><div class="bd"><span class="cat mn">TEE</span><span class="nm">Red Earth</span><span class="pr mn">$35</span><button type="button" class="add">Choose size</button></div></div>
+      <div class="prod it-rv"><div class="ph spec"><img src="/assets/tee_lenin_moon.webp" alt="Lenin Moon tee: a Lenin head rising like the moon over apartment blocks"><span class="pid mn">ITEM 05</span></div><div class="bd"><span class="cat mn">TEE</span><span class="nm">Lenin Moon</span><span class="pr mn">$35</span><button type="button" class="add">Choose size</button></div></div>
+      <div class="prod it-rv"><div class="ph spec"><img src="/assets/tee_parade.webp" alt="Parade tee: a giant Lenin bust on a parade float with a police escort"><span class="pid mn">ITEM 06</span></div><div class="bd"><span class="cat mn">TEE</span><span class="nm">Parade</span><span class="pr mn">$35</span><button type="button" class="add">Choose size</button></div></div>
+      <div class="prod it-rv"><div class="ph spec"><img src="/assets/tee_spacewalk.webp" alt="Spacewalk tee: an astronaut with a red flag patch above the Earth"><span class="pid mn">ITEM 07</span></div><div class="bd"><span class="cat mn">TEE</span><span class="nm">Spacewalk</span><span class="pr mn">$35</span><button type="button" class="add">Choose size</button></div></div>
+      <div class="prod it-rv"><div class="ph spec"><img src="/assets/tee_moonwalk.webp" alt="Moonwalk tee: an astronaut with a red flag patch on the Moon"><span class="pid mn">ITEM 08</span></div><div class="bd"><span class="cat mn">TEE</span><span class="nm">Moonwalk</span><span class="pr mn">$35</span><button type="button" class="add">Choose size</button></div></div>
+      <div class="prod it-rv"><div class="ph spec"><img src="/assets/tee_homes.webp" alt="Homes tee: Mars under a hand-drawn roof, captioned we can build as many homes as we want"><span class="pid mn">ITEM 09</span></div><div class="bd"><span class="cat mn">TEE</span><span class="nm">As Many Homes</span><span class="pr mn">$35</span><button type="button" class="add">Choose size</button></div></div>
+      <div class="prod it-rv"><div class="ph photo"><img src="/assets/cap_emblem.webp" alt="Washed black cap with the red embroidered emblem"><span class="pid mn">ITEM 10</span></div><div class="bd"><span class="cat mn">HEADWEAR · EMBROIDERED</span><span class="nm">Emblem Cap</span><span class="pr mn">$28</span><button type="button" class="add">Add to cart</button></div></div>
+    </div>
+
+    <div style="display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 10px; margin-top: 56px; border-bottom: 1px solid #3A2326; padding-bottom: 10px">
+      <p class="mn" style="margin: 0; font-size: 20px; letter-spacing: 0.1em">POSTER PRINTS</p>
+      <p class="mn" style="margin: 0; font-size: 13px; letter-spacing: 0.12em; color: #A89C95">19 PRINTS · A3 OR A2 · MATTE</p>
+    </div>
+    <div class="g5" style="margin-top: 18px">
+      <div class="prod it-rv"><div class="ph photo"><img src="/assets/p_mon_moon.webp" alt="Poster: Monumental, a Lenin head rising like the moon over apartment blocks"><span class="pid mn">PRT 01</span></div><div class="bd"><span class="cat mn">MONUMENTAL</span><span class="nm">Lenin Moon</span><span class="pr mn">from $18</span><button type="button" class="add">Choose size</button></div></div>
+      <div class="prod it-rv"><div class="ph photo"><img src="/assets/p_mon_magnitogorsk.webp" alt="Poster: Monumental, the Rear to Front monument in Magnitogorsk"><span class="pid mn">PRT 02</span></div><div class="bd"><span class="cat mn">MONUMENTAL</span><span class="nm">Magnitogorsk</span><span class="pr mn">from $18</span><button type="button" class="add">Choose size</button></div></div>
+      <div class="prod it-rv"><div class="ph photo"><img src="/assets/p_mon_motherland_flags.webp" alt="Poster: Monumental, the Motherland Calls between rows of red flags"><span class="pid mn">PRT 03</span></div><div class="bd"><span class="cat mn">MONUMENTAL</span><span class="nm">The Motherland Calls</span><span class="pr mn">from $18</span><button type="button" class="add">Choose size</button></div></div>
+      <div class="prod it-rv"><div class="ph photo"><img src="/assets/p_mon_motherland_sunset.webp" alt="Poster: Monumental, the Motherland Calls in an orange sunset"><span class="pid mn">PRT 04</span></div><div class="bd"><span class="cat mn">MONUMENTAL</span><span class="nm">Motherland at Dusk</span><span class="pr mn">from $18</span><button type="button" class="add">Choose size</button></div></div>
+      <div class="prod it-rv"><div class="ph photo"><img src="/assets/p_mon_lenin_head.webp" alt="Poster: Monumental, a giant red Lenin head with a father and children"><span class="pid mn">PRT 05</span></div><div class="bd"><span class="cat mn">MONUMENTAL</span><span class="nm">The Head</span><span class="pr mn">from $18</span><button type="button" class="add">Choose size</button></div></div>
+      <div class="prod it-rv"><div class="ph photo"><img src="/assets/p_mon_marx_chemnitz.webp" alt="Poster: Monumental, the Karl Marx monument in Chemnitz"><span class="pid mn">PRT 06</span></div><div class="bd"><span class="cat mn">MONUMENTAL</span><span class="nm">Chemnitz</span><span class="pr mn">from $18</span><button type="button" class="add">Choose size</button></div></div>
+      <div class="prod it-rv"><div class="ph photo"><img src="/assets/p_mon_worker_kolkhoz.webp" alt="Poster: Monumental, Worker and Kolkhoz Woman in sepia"><span class="pid mn">PRT 07</span></div><div class="bd"><span class="cat mn">MONUMENTAL</span><span class="nm">Worker and Kolkhoz Woman</span><span class="pr mn">from $18</span><button type="button" class="add">Choose size</button></div></div>
+      <div class="prod it-rv"><div class="ph photo"><img src="/assets/p_mon_motherland_bw.webp" alt="Poster: Monumental, Mamayev Kurgan in black and white"><span class="pid mn">PRT 08</span></div><div class="bd"><span class="cat mn">MONUMENTAL</span><span class="nm">Mamayev Kurgan</span><span class="pr mn">from $18</span><button type="button" class="add">Choose size</button></div></div>
+      <div class="prod it-rv"><div class="ph photo"><img src="/assets/p_mon_towers.webp" alt="Poster: Monumental, twin towers lit with the hammer and sickle"><span class="pid mn">PRT 09</span></div><div class="bd"><span class="cat mn">MONUMENTAL</span><span class="nm">Towers</span><span class="pr mn">from $18</span><button type="button" class="add">Choose size</button></div></div>
+      <div class="prod it-rv"><div class="ph photo"><img src="/assets/p_mon_tiananmen.webp" alt="Poster: Monumental, fireworks over Tiananmen"><span class="pid mn">PRT 10</span></div><div class="bd"><span class="cat mn">MONUMENTAL</span><span class="nm">Tiananmen</span><span class="pr mn">from $18</span><button type="button" class="add">Choose size</button></div></div>
+      <div class="prod it-rv"><div class="ph photo"><img src="/assets/p_hp_napoleon.webp" alt="Poster: Historically progressive, Napoleon at the bridge of Arcole"><span class="pid mn">PRT 11</span></div><div class="bd"><span class="cat mn">HISTORICALLY PROGRESSIVE</span><span class="nm">Arcole</span><span class="pr mn">from $18</span><button type="button" class="add">Choose size</button></div></div>
+      <div class="prod it-rv"><div class="ph photo"><img src="/assets/p_hp_marianne.webp" alt="Poster: Historically progressive, Marianne with the tricolour and a musket"><span class="pid mn">PRT 12</span></div><div class="bd"><span class="cat mn">HISTORICALLY PROGRESSIVE</span><span class="nm">Marianne</span><span class="pr mn">from $18</span><button type="button" class="add">Choose size</button></div></div>
+      <div class="prod it-rv"><div class="ph photo"><img src="/assets/p_rom_come_back.webp" alt="Poster: Come back to me, a soldier and a woman in a shawl embracing"><span class="pid mn">PRT 13</span></div><div class="bd"><span class="cat mn">ROMANTIC</span><span class="nm">Come Back to Me</span><span class="pr mn">from $18</span><button type="button" class="add">Choose size</button></div></div>
+      <div class="prod it-rv"><div class="ph photo"><img src="/assets/p_rom_five_year.webp" alt="Poster: Our five-year plan, a soldier, a woman and a child in the snow"><span class="pid mn">PRT 14</span></div><div class="bd"><span class="cat mn">ROMANTIC</span><span class="nm">Our Five-Year Plan</span><span class="pr mn">from $18</span><button type="button" class="add">Choose size</button></div></div>
+      <div class="prod it-rv"><div class="ph photo"><img src="/assets/p_rom_romantics.webp" alt="Poster: Make more Romantics, a red flag among bougainvillea"><span class="pid mn">PRT 15</span></div><div class="bd"><span class="cat mn">ROMANTIC</span><span class="nm">Make More Romantics</span><span class="pr mn">from $18</span><button type="button" class="add">Choose size</button></div></div>
+      <div class="prod it-rv"><div class="ph photo"><img src="/assets/p_audit_no_country.webp" alt="Poster: The Audit, 195 borders, 1 class, over a red world map"><span class="pid mn">PRT 16</span></div><div class="bd"><span class="cat mn">THE AUDIT</span><span class="nm">195 Borders. 1 Class.</span><span class="pr mn">from $18</span><button type="button" class="add">Choose size</button></div></div>
+      <div class="prod it-rv"><div class="ph photo"><img src="/assets/p_nine_days.webp" alt="Poster: Nine days, a red Lenin head over the city"><span class="pid mn">PRT 17</span></div><div class="bd"><span class="cat mn">SERIES 03</span><span class="nm">Nine Days</span><span class="pr mn">from $18</span><button type="button" class="add">Choose size</button></div></div>
+      <div class="prod it-rv"><div class="ph photo"><img src="/assets/p_raise_it_higher.webp" alt="Poster: Raise it higher, two workers raising a red flag"><span class="pid mn">PRT 18</span></div><div class="bd"><span class="cat mn">SERIES 03</span><span class="nm">Raise It Higher</span><span class="pr mn">from $18</span><button type="button" class="add">Choose size</button></div></div>
+      <div class="prod it-rv"><div class="ph photo"><img src="/assets/p_share_the_land.webp" alt="Poster: Share the land, the Technate of America map in red"><span class="pid mn">PRT 19</span></div><div class="bd"><span class="cat mn">SERIES 03</span><span class="nm">Share the Land</span><span class="pr mn">from $18</span><button type="button" class="add">Choose size</button></div></div>
+      <div class="prod it-rv" style="border-color: #5A1E22">
+        <div class="ph" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px; padding: 12px; box-sizing: border-box; background: #090506">
+          <img src="/assets/p_mon_lenin_head.webp" alt="" style="object-fit: cover"><img src="/assets/p_audit_no_country.webp" alt="" style="object-fit: cover"><img src="/assets/p_rom_come_back.webp" alt="" style="object-fit: cover"><img src="/assets/p_hp_napoleon.webp" alt="" style="object-fit: cover">
+          <span class="mn" style="position: absolute; left: 20px; bottom: 20px; padding: 5px 9px; background: #C81D25; color: #FFFFFF; font-size: 12px; letter-spacing: 0.12em">ALL 19 · HI-RES</span>
+        </div>
+        <div class="bd"><span class="cat mn">DIGITAL · INSTANT</span><span class="nm">The Full Wall</span><span class="pr mn">$9</span><button type="button" class="add">Add to cart</button></div>
+      </div>
+    </div>
+
+    <div class="mn" style="display: flex; flex-wrap: wrap; gap: 12px 32px; margin-top: 40px; padding-top: 24px; border-top: 1px solid #2B1B1D; font-size: 14px; letter-spacing: 0.12em; color: #A89C95">
+      <span>PRINTED TO ORDER</span>
+      <span>NO WASTE STOCK</span>
+      <span>CHECKOUT BY OUR STORE PARTNER</span>
+      <span>SHOP.INVARIANCETECH.INFO</span>
+    </div>
+  </div>
+</section>
+
+<footer style="border-top: 1px solid #2B1B1D; background: #090506">
+  <div class="wrap mn" style="padding-top: 28px; padding-bottom: 28px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; font-size: 14px; letter-spacing: 0.1em; color: #A89C95">
+    <span style="display: flex; align-items: center; gap: 12px"><img src="/assets/emblem_globe.png" alt="" aria-hidden="true" style="width: 48px; height: auto">© 2026 TECHNICAL INVARIANCE AUTHORITY</span>
+    <span>INVARIANCETECH.INFO/SHOP</span>
+  </div>
+</footer>
+
+</div>
+</body>
+</html>
