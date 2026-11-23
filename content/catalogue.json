@@ -1,0 +1,107 @@
+{
+  "_about": "TIA archive catalogue. kind=hosted: the full text is on this site (content/texts/<id>.txt, public domain in the US and in life+70 countries). kind=link: the work is still under copyright here or not yet transcribed, so we point to where it is legally hosted. key=true puts the work on the author's card. cols lists the collections a work belongs to. Run tools/build_archive.py after editing.",
+  "collections": [
+    {"slug": "the-programme", "code": "COL-01", "title": "THE PROGRAMME", "span": "1848 —", "desc": "The communist programme as it was first written down and then defended against every revision: the Manifesto, the critique of Gotha, the Erfurt commentary, The State and Revolution and the theses of the Communist Left. Read in order, they state one programme."},
+    {"slug": "marx-and-engels", "code": "COL-02", "title": "MARX AND ENGELS", "span": "1843 — 1895", "desc": "The work of the two founders, from Engels's study of Manchester to the last prefaces he wrote in London."},
+    {"slug": "second-international", "code": "COL-03", "title": "SECOND INTERNATIONAL", "span": "1889 — 1914", "desc": "The mass parties of the Second International, their theory and the arguments that split them, ending with the collapse of August 1914."},
+    {"slug": "lenin-and-october", "code": "COL-04", "title": "LENIN AND OCTOBER", "span": "1894 — 1924", "desc": "The Bolshevik party, the revolutions of 1905 and 1917, and the first years of the Soviet republic, in the words of the people who led them."},
+    {"slug": "the-german-left", "code": "COL-05", "title": "THE GERMAN LEFT", "span": "1898 — 1919", "desc": "Rosa Luxemburg against revisionism, against the party bureaucracy and against the war, up to the Spartacus uprising."},
+    {"slug": "the-communist-left", "code": "COL-06", "title": "THE COMMUNIST LEFT", "span": "1912 — 1970", "desc": "The Italian Communist Left: the founding theses of the Communist Party of Italy, the fight inside the Communist International and the post-war work of restoring the programme."},
+    {"slug": "beyond-europe", "code": "COL-07", "title": "BEYOND EUROPE", "span": "1919 —", "status": "compiling", "desc": "Marxism in Asia, Africa and the Americas."},
+    {"slug": "tia-broadcasts", "code": "COL-08", "title": "TIA BROADCASTS", "span": "2026 —", "url": "https://www.youtube.com/@Invariance_Tech", "desc": "TIA videos on YouTube."}
+  ],
+  "authors": [
+    {
+      "slug": "hegel",
+      "mia": "https://www.marxists.org/reference/archive/hegel/index.htm",
+      "works": [
+        {"id": "hegel-1807-phenomenology", "title": "The Phenomenology of Spirit", "year": "1807", "kind": "link", "key": true, "url": "https://www.marxists.org/reference/archive/hegel/phindex.htm"},
+        {"id": "hegel-1812-science-of-logic", "title": "The Science of Logic", "year": "1812–1816", "kind": "link", "key": true, "url": "https://www.marxists.org/reference/archive/hegel/hl_index.htm"},
+        {"id": "hegel-1817-logic", "slug": "logic", "title": "The Logic of Hegel", "subtitle": "The first part of the Encyclopaedia of the Philosophical Sciences", "year": "1817", "kind": "hosted", "key": true, "lang": "en", "edition": "Translated by William Wallace. Second edition, revised and augmented. Oxford, 1892.", "pg": 55108},
+        {"id": "hegel-1820-philosophy-of-right", "title": "The Philosophy of Right", "year": "1820", "kind": "link", "url": "https://www.marxists.org/reference/archive/hegel/index.htm"}
+      ]
+    },
+    {
+      "slug": "marx",
+      "mia": "https://www.marxists.org/archive/marx/works/index.htm",
+      "works": [
+        {"id": "marx-engels-1848-manifesto", "slug": "communist-manifesto", "title": "Manifesto of the Communist Party", "with": ["engels"], "year": "1848", "kind": "hosted", "key": true, "lang": "en", "edition": "English edition of 1888, translated by Samuel Moore and edited by Friedrich Engels.", "pg": 61, "cols": ["the-programme", "marx-and-engels"]},
+        {"id": "marx-1852-eighteenth-brumaire", "slug": "eighteenth-brumaire", "title": "The Eighteenth Brumaire of Louis Bonaparte", "year": "1852", "kind": "hosted", "key": true, "lang": "en", "edition": "Translated by Daniel De Leon. New York, 1898.", "pg": 1346, "cols": ["marx-and-engels"]},
+        {"id": "marx-1859-contribution", "title": "A Contribution to the Critique of Political Economy", "year": "1859", "kind": "link", "url": "https://www.marxists.org/archive/marx/works/index.htm", "cols": ["marx-and-engels"]},
+        {"id": "marx-1867-capital-1", "title": "Capital, Volume I", "year": "1867", "kind": "link", "key": true, "url": "https://www.marxists.org/archive/marx/works/1867-c1/index.htm", "cols": ["marx-and-engels"]},
+        {"id": "marx-1875-gotha", "title": "Critique of the Gotha Programme", "year": "1875", "kind": "link", "url": "https://www.marxists.org/archive/marx/works/1875/gotha/ch01.htm", "cols": ["the-programme", "marx-and-engels"]}
+      ]
+    },
+    {
+      "slug": "engels",
+      "mia": "https://www.marxists.org/archive/marx/works/index.htm",
+      "works": [
+        {"id": "engels-1845-condition-working-class", "slug": "condition-of-the-working-class", "title": "The Condition of the Working Class in England in 1844", "year": "1845", "kind": "hosted", "key": true, "lang": "en", "edition": "Translated by Florence Kelley Wischnewetzky, with Engels's preface of 1892. London, 1892.", "pg": 17306, "cols": ["marx-and-engels"]},
+        {"id": "engels-1852-revolution-counter-revolution", "slug": "revolution-and-counter-revolution", "title": "Revolution and Counter-Revolution in Germany", "year": "1851–1852", "kind": "hosted", "lang": "en", "edition": "Written in English for the New York Daily Tribune and first published under Marx's name. Edited by Eleanor Marx Aveling, 1896.", "pg": 32966, "cols": ["marx-and-engels"]},
+        {"id": "engels-1878-landmarks-anti-duhring", "slug": "anti-duhring", "title": "Anti-Dühring", "subtitle": "Published in English as Landmarks of Scientific Socialism", "year": "1878", "kind": "hosted", "key": true, "lang": "en", "edition": "Selections translated and edited by Austin Lewis. Chicago, 1907. Abridged.", "pg": 31933, "cols": ["marx-and-engels"]},
+        {"id": "engels-1880-socialism-utopian-scientific", "slug": "socialism-utopian-and-scientific", "title": "Socialism: Utopian and Scientific", "year": "1880", "kind": "hosted", "lang": "en", "edition": "Translated by Edward Aveling, 1892, with Engels's special introduction.", "pg": 39257, "cols": ["the-programme", "marx-and-engels"]},
+        {"id": "engels-1884-origin-family", "title": "The Origin of the Family, Private Property and the State", "year": "1884", "kind": "link", "key": true, "url": "https://www.marxists.org/archive/marx/works/index.htm", "cols": ["marx-and-engels"]},
+        {"id": "engels-1886-feuerbach", "slug": "ludwig-feuerbach", "title": "Ludwig Feuerbach and the End of Classical German Philosophy", "subtitle": "Published in English as Feuerbach: The Roots of the Socialist Philosophy", "year": "1886", "kind": "hosted", "lang": "en", "edition": "Translated by Austin Lewis. Chicago, 1903.", "pg": 27814, "cols": ["marx-and-engels"]}
+      ]
+    },
+    {
+      "slug": "kautsky",
+      "mia": "https://www.marxists.org/archive/kautsky/index.htm",
+      "works": [
+        {"id": "kautsky-1892-class-struggle", "title": "The Class Struggle (Erfurt Program)", "year": "1892", "kind": "link", "key": true, "url": "https://www.marxists.org/archive/kautsky/1892/erfurt/ch01.htm", "cols": ["the-programme", "second-international"]},
+        {"id": "kautsky-1899-agrarian-question", "title": "The Agrarian Question", "year": "1899", "kind": "link", "key": true, "url": "https://www.marxists.org/archive/kautsky/index.htm", "cols": ["second-international"]},
+        {"id": "kautsky-1909-road-to-power", "title": "The Road to Power", "year": "1909", "kind": "link", "key": true, "url": "https://www.marxists.org/archive/kautsky/1909/power/index.htm", "cols": ["second-international"]}
+      ]
+    },
+    {
+      "slug": "lenin",
+      "mia": "https://www.marxists.org/archive/lenin/works/index.htm",
+      "works": [
+        {"id": "lenin-1902-what-is-to-be-done", "title": "What Is to Be Done?", "year": "1902", "kind": "link", "key": true, "url": "https://www.marxists.org/archive/lenin/works/1901/witbd/index.htm", "cols": ["second-international", "lenin-and-october"]},
+        {"id": "lenin-1917-imperialism", "title": "Imperialism, the Highest Stage of Capitalism", "year": "1917", "kind": "link", "key": true, "url": "https://www.marxists.org/archive/lenin/by-title.htm", "cols": ["lenin-and-october"]},
+        {"id": "lenin-1917-state-and-revolution", "title": "The State and Revolution", "year": "1917", "kind": "link", "key": true, "url": "https://www.marxists.org/archive/lenin/by-title.htm", "cols": ["the-programme", "lenin-and-october"]},
+        {"id": "lenin-1918-letter-american-workingmen", "slug": "letter-to-american-workingmen", "title": "A Letter to American Workingmen", "year": "1918", "kind": "hosted", "lang": "en", "edition": "Pamphlet edition, Socialist Publication Society, New York, December 1918.", "pg": 35232, "cols": ["lenin-and-october"]}
+      ]
+    },
+    {
+      "slug": "trotsky",
+      "mia": "https://www.marxists.org/archive/trotsky/works/index.htm",
+      "works": [
+        {"id": "trotsky-1918-our-revolution", "slug": "our-revolution", "title": "Our Revolution", "subtitle": "Essays on Working-Class and International Revolution, 1904–1917, including Prospects of a Labor Dictatorship", "year": "1904–1917", "kind": "hosted", "key": true, "lang": "en", "edition": "Collected, translated and annotated by Moissaye J. Olgin. New York, 1918.", "pg": 36303, "cols": ["lenin-and-october"]},
+        {"id": "trotsky-1906-results-and-prospects", "title": "Results and Prospects", "year": "1906", "kind": "link", "url": "https://www.marxists.org/archive/trotsky/works/index.htm", "cols": ["lenin-and-october"]},
+        {"id": "trotsky-1914-bolsheviki-world-peace", "slug": "the-war-and-the-international", "title": "The War and the International", "subtitle": "Published in English as The Bolsheviki and World Peace", "year": "1914", "kind": "hosted", "lang": "en", "edition": "English edition, New York, 1918, with an introduction by Lincoln Steffens.", "pg": 40273, "cols": ["second-international"]},
+        {"id": "trotsky-1930-history-russian-revolution", "title": "The History of the Russian Revolution", "year": "1930–1932", "kind": "link", "key": true, "url": "https://www.marxists.org/archive/trotsky/1930/hrr/index.htm", "cols": ["lenin-and-october"]},
+        {"id": "trotsky-1936-revolution-betrayed", "title": "The Revolution Betrayed", "year": "1936", "kind": "link", "key": true, "url": "https://www.marxists.org/archive/trotsky/1936/revbet/revbetray.pdf"}
+      ]
+    },
+    {
+      "slug": "luxemburg",
+      "mia": "https://www.marxists.org/archive/luxemburg/index.htm",
+      "works": [
+        {"id": "luxemburg-1899-reform-or-revolution", "title": "Reform or Revolution", "year": "1899", "kind": "link", "key": true, "url": "https://www.marxists.org/archive/luxemburg/1900/reform-revolution/index.htm", "cols": ["second-international", "the-german-left"]},
+        {"id": "luxemburg-1906-massenstreik", "slug": "massenstreik", "title": "Massenstreik, Partei und Gewerkschaften", "subtitle": "The Mass Strike, the Political Party and the Trade Unions, in the original German", "year": "1906", "kind": "hosted", "key": true, "lang": "de", "edition": "First edition, Hamburg, 1906.", "pg": 31614, "cols": ["second-international", "the-german-left"]},
+        {"id": "luxemburg-1906-mass-strike-english", "title": "The Mass Strike (English translation)", "year": "1906", "kind": "link", "url": "https://www.marxists.org/archive/luxemburg/index.htm", "cols": ["the-german-left"]},
+        {"id": "luxemburg-1913-accumulation", "title": "The Accumulation of Capital", "year": "1913", "kind": "link", "key": true, "url": "https://www.marxists.org/archive/luxemburg/index.htm", "cols": ["the-german-left"]}
+      ]
+    },
+    {
+      "slug": "bukharin",
+      "mia": "https://www.marxists.org/archive/bukharin/library.htm",
+      "works": [
+        {"id": "bukharin-1915-imperialism-world-economy", "title": "Imperialism and World Economy", "year": "1915", "kind": "link", "key": true, "url": "https://www.marxists.org/archive/bukharin/library.htm", "cols": ["lenin-and-october"]},
+        {"id": "bukharin-1919-abc-of-communism", "title": "The ABC of Communism", "subtitle": "With Evgenii Preobrazhensky", "year": "1919", "kind": "link", "key": true, "url": "https://www.marxists.org/archive/bukharin/works/1920/abc/index.htm", "cols": ["lenin-and-october"]},
+        {"id": "bukharin-1920-economics-transformation", "title": "The Economics of the Transformation Period", "year": "1920", "kind": "link", "key": true, "url": "https://www.marxists.org/archive/bukharin/library.htm", "cols": ["lenin-and-october"]}
+      ]
+    },
+    {
+      "slug": "bordiga",
+      "mia": "https://www.marxists.org/archive/bordiga/index.htm",
+      "note": "Bordiga's writings stay under copyright until the end of 2040. Until his publishers agree to hosting, these entries link to the Marxists Internet Archive.",
+      "works": [
+        {"id": "bordiga-1922-rome-theses", "title": "The Rome Theses", "year": "1922", "kind": "link", "key": true, "url": "https://www.marxists.org/archive/bordiga/index.htm", "cols": ["the-programme", "the-communist-left"]},
+        {"id": "bordiga-1926-lyon-theses", "title": "The Lyon Theses", "year": "1926", "kind": "link", "key": true, "url": "https://www.marxists.org/archive/bordiga/index.htm", "cols": ["the-programme", "the-communist-left"]},
+        {"id": "bordiga-1952-dialogue-with-stalin", "title": "Dialogue with Stalin", "year": "1952", "kind": "link", "key": true, "url": "https://www.marxists.org/archive/bordiga/index.htm", "cols": ["the-communist-left"]}
+      ]
+    }
+  ]
+}

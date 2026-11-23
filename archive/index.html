@@ -21,7 +21,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@Invariance_Tech">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&amp;family=Share+Tech+Mono&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&amp;family=Lora:ital,wght@0,400;0,600;1,400&amp;family=Share+Tech+Mono&amp;display=swap" rel="stylesheet">
 <style>
 @font-face { font-family: 'Manolo Mono'; src: local('Manolo Mono'), local('ManoloMono-Regular'), local('Manolo Mono Regular'); font-weight: 400; font-display: swap; }
 body { margin: 0; background: #090506; font-synthesis: none; }
@@ -110,6 +110,73 @@ img { display: block; max-width: 100%; }
   .ov-lines, .ov-grain, .ov-band, .inst-ruler i, .inst-hex > div, .inst-x, .it-ticker, .dot, .sec-bg, .it-glitch, .it-bscan, .it-sweep, .it-rv { animation: none !important; }
   .ov-band, .inst-x, .it-bscan, .it-sweep { display: none; }
 }
+
+.wall { position: absolute; inset: 0; overflow: hidden; pointer-events: none; opacity: var(--o, 0.2); -webkit-mask-image: linear-gradient(to bottom, transparent, #000 10%, #000 90%, transparent); mask-image: linear-gradient(to bottom, transparent, #000 10%, #000 90%, transparent); }
+.wall-in { position: absolute; left: 0; right: 0; top: -19.444vw; bottom: 0; background-repeat: repeat-y; background-size: 25% auto; background-position: 0 0, 33.333% 41%, 66.667% 17%, 100% 63%; animation: it-wall 150s linear infinite; }
+@keyframes it-wall { from { transform: translateY(0); } to { transform: translateY(19.444vw); } }
+@keyframes it-wall-m { from { transform: translateY(0); } to { transform: translateY(38.889vw); } }
+.wall ~ .wrap, .side-poster ~ .wrap { position: relative; z-index: 1; }
+.side-poster { position: absolute; top: 0; bottom: 0; right: 0; width: min(54%, 780px); background-size: cover; background-position: center; opacity: 0.62; -webkit-mask-image: linear-gradient(to right, transparent, #000 62%); mask-image: linear-gradient(to right, transparent, #000 62%); pointer-events: none; transform-origin: right center; animation: it-kb 30s ease-in-out infinite alternate; }
+.shade { text-shadow: 0 2px 18px rgba(9, 5, 6, 0.95), 0 0 2px rgba(9, 5, 6, 0.9); }
+.dos-bg { position: absolute; inset: 0; background-size: cover; background-position: center; opacity: 0.22; transition: opacity 300ms ease; }
+.dos:hover .dos-bg { opacity: 0.42; }
+.dos-img img { position: relative; z-index: 1; }
+@media (max-width: 760px) {
+  .wall-in { top: -38.889vw; background-size: 50% auto; background-position: 0 0, 100% 45%, 0 0, 100% 45%; animation-name: it-wall-m; }
+  .side-poster { width: 100%; opacity: 0.28; -webkit-mask-image: linear-gradient(to bottom, #000 30%, transparent); mask-image: linear-gradient(to bottom, #000 30%, transparent); }
+}
+@media (prefers-reduced-motion: reduce) { .wall-in, .side-poster { animation: none !important; } }
+.dos[hidden] { display: none; }
+.dos-body ul a { color: #DCD2CA; border-bottom: 1px dotted #4A2B2E; }
+.dos-body ul a:hover { color: #FF5A60; border-bottom-color: #E8222A; }
+.dos-body ul .h { color: #39D98A; font-size: 11px; letter-spacing: 0.12em; margin-left: 6px; }
+.dos-body .cnt { margin: 6px 0 0; font-family: 'Manolo Mono', 'Share Tech Mono', monospace; font-size: 12px; letter-spacing: 0.12em; color: #A89C95; }
+.dos-body .cnt b { font-weight: 400; color: #39D98A; }
+.dos h3 a { color: inherit; }
+.crumbs { font-size: 13px; letter-spacing: 0.14em; color: #A89C95; }
+.crumbs a { color: #A89C95; border-bottom: 1px solid #3A2326; }
+.crumbs a:hover { color: #FF5A60; }
+.sec-h { margin: 0; font-size: 18px; letter-spacing: 0.1em; border-bottom: 1px solid #3A2326; padding-bottom: 10px; }
+.row.wk { align-items: flex-start; }
+.row .y { flex: 0 0 auto; min-width: 92px; color: #FF5A60; }
+.row .ti { min-width: 0; flex: 0 1 auto; color: #F2ECE4; }
+.row .ti small { display: block; margin-top: 3px; font-family: Inter, system-ui, sans-serif; font-size: 14px; letter-spacing: 0; color: #A89C95; }
+.row .by { flex: 0 0 auto; color: #A89C95; }
+.row .st { flex: 0 0 auto; white-space: nowrap; }
+.row .st.ok { color: #39D98A; }
+.row .st.ln { color: #A89C95; }
+.row .st.wait { color: #E8A33A; }
+.row.wk .ld { align-self: center; transform: none; }
+a.row:hover .ti { color: #FF5A60; }
+.note { margin: 0 0 32px; padding: 16px 18px; border: 1px solid #E8A33A; background: rgba(232, 163, 58, 0.07); font-size: 16px; color: #EADFCB; }
+.note b { font-family: 'Manolo Mono', 'Share Tech Mono', monospace; font-weight: 400; letter-spacing: 0.12em; color: #E8A33A; margin-right: 8px; }
+.btn { display: inline-flex; align-items: center; min-height: 48px; padding: 0 18px; box-sizing: border-box; background: #C81D25; color: #FFFFFF; font-family: Inter, sans-serif; font-weight: 800; font-size: 16px; }
+.btn:hover { background: #E8222A; color: #FFFFFF; }
+.btn.gh { background: transparent; border: 1px solid #3A2326; color: #F2ECE4; font-family: 'Manolo Mono', 'Share Tech Mono', monospace; font-weight: 400; font-size: 14px; letter-spacing: 0.1em; }
+.btn.gh:hover { border-color: #E8222A; color: #FF5A60; }
+.pn { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; margin-top: 48px; padding-top: 18px; border-top: 1px solid #3A2326; font-size: 14px; letter-spacing: 0.12em; }
+.pn a { color: #FF5A60; }
+.stats { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
+.stats div { min-width: 120px; padding: 12px 14px; border: 1px solid #3A2326; background: rgba(9, 5, 6, 0.8); }
+.stats b { display: block; font-family: Inter, sans-serif; font-weight: 900; font-size: 34px; line-height: 1; color: #F2ECE4; }
+.stats span { display: block; margin-top: 6px; font-family: 'Manolo Mono', 'Share Tech Mono', monospace; font-size: 12px; letter-spacing: 0.12em; color: #A89C95; }
+.au-grid { display: grid; grid-template-columns: minmax(0, 380px) minmax(0, 1fr); gap: 40px; align-items: end; margin-top: 22px; }
+.au-img { height: 440px; border: 1px solid #3A2326; }
+@media (max-width: 860px) { .au-grid { grid-template-columns: 1fr; } .au-img { height: 340px; } }
+#ar-results { scroll-margin-top: 90px; }
+.res-box { padding: 18px; border: 1px solid #3A2326; background: rgba(9, 5, 6, 0.85); }
+.res-head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; font-size: 14px; letter-spacing: 0.12em; color: #A89C95; }
+.res-head b { font-weight: 400; color: #F2ECE4; }
+.hit-list { list-style: none; margin: 0; padding: 0; }
+.hit-list li { padding: 14px 0; border-bottom: 1px solid #241618; }
+.hit-list .hw { font-family: 'Manolo Mono', 'Share Tech Mono', monospace; font-size: 13px; letter-spacing: 0.1em; color: #A89C95; }
+.hit-list .hw a { color: #FF5A60; }
+.hit-list q { display: block; margin-top: 6px; quotes: none; font-family: Lora, Georgia, serif; font-size: 17px; line-height: 1.6; color: #DCD2CA; }
+.hit-list q::before { content: "… "; color: #7A4246; }
+.hit-list q::after { content: " …"; color: #7A4246; }
+mark { background: rgba(232, 34, 42, 0.42); color: #FFFFFF; padding: 0 2px; }
+.scan-bar { height: 2px; margin-top: 10px; background: #241618; overflow: hidden; }
+.scan-bar i { display: block; height: 100%; width: 0; background: #E8222A; box-shadow: 0 0 8px rgba(232, 34, 42, 0.8); transition: width 160ms linear; }
 </style>
 </head>
 <body>
@@ -144,40 +211,54 @@ img { display: block; max-width: 100%; }
 
 <div aria-hidden="true" class="mn" style="overflow: hidden; border-bottom: 1px solid #2B1B1D; background: #100A0B; font-size: 13px; letter-spacing: 0.16em; color: #A89C95; padding: 8px 0">
   <div class="it-ticker">
-    <span style="padding-right: 56px; white-space: nowrap">INDEX OF MARXISTS /// 9 SUBJECTS /// 6 TENDENCIES /// 1770 — 1970 /// HEGEL · MARX · ENGELS · KAUTSKY · LENIN · TROTSKY · LUXEMBURG · BUKHARIN · BORDIGA /// READ THE SOURCES ///</span>
-    <span style="padding-right: 56px; white-space: nowrap">INDEX OF MARXISTS /// 9 SUBJECTS /// 6 TENDENCIES /// 1770 — 1970 /// HEGEL · MARX · ENGELS · KAUTSKY · LENIN · TROTSKY · LUXEMBURG · BUKHARIN · BORDIGA /// READ THE SOURCES ///</span>
+    <span style="padding-right: 56px; white-space: nowrap">INDEX OF MARXISTS /// 9 SUBJECTS /// 6 TENDENCIES /// 37 WORKS /// 12 FULL TEXTS /// 1770 — 1970 /// HEGEL · MARX · ENGELS · KAUTSKY · LENIN · TROTSKY · LUXEMBURG · BUKHARIN · BORDIGA /// READ THE SOURCES ///</span>
+    <span style="padding-right: 56px; white-space: nowrap">INDEX OF MARXISTS /// 9 SUBJECTS /// 6 TENDENCIES /// 37 WORKS /// 12 FULL TEXTS /// 1770 — 1970 /// HEGEL · MARX · ENGELS · KAUTSKY · LENIN · TROTSKY · LUXEMBURG · BUKHARIN · BORDIGA /// READ THE SOURCES ///</span>
   </div>
 </div>
 
 <section style="position: relative; overflow: hidden; border-bottom: 1px solid #2B1B1D">
-  <div aria-hidden="true" class="sec-bg" style="background-image: url('/assets/bg_archivepage.webp')"></div>
+  <div class="wall" aria-hidden="true" style="--o: 0.34"><div class="wall-in" style="background-image: url('/assets/bgc/p_mon_marx_chemnitz.webp'), url('/assets/bgc/p_mon_lenin_head.webp'), url('/assets/bgc/p_raise_it_higher.webp'), url('/assets/bgc/p_rom_romantics.webp')"></div></div>
   <div class="wrap" style="padding-top: clamp(48px, 6vw, 88px); padding-bottom: clamp(40px, 5vw, 72px); display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 28px 48px">
     <div style="flex: 1 1 600px; min-width: 0">
       <span class="tag">FILE 01 · THE ARCHIVE</span>
-      <h1 class="mn it-glitch" style="margin: 18px 0 0; font-size: clamp(46px, 6.6vw, 104px); line-height: 1; color: #F2ECE4">INDEX OF MARXISTS</h1>
-      <p class="src">SRC: TIA ARCHIVE · 9 SUBJECTS · 6 TENDENCIES · 1770 — 1970</p>
-      <p style="margin: 22px 0 0; max-width: 620px; font-size: 19px; color: #DCD2CA">Every major thinker, filed by tendency. Open a dossier to read their works in order, from the first article to the last letter.</p>
+      <h1 class="mn it-glitch shade" style="margin: 18px 0 0; font-size: clamp(46px, 6.6vw, 104px); line-height: 1; color: #F2ECE4">INDEX OF MARXISTS</h1>
+      <p class="src">SRC: TIA ARCHIVE · 9 SUBJECTS · 37 WORKS · 12 FULL TEXTS · 1770 — 1970</p>
+      <p style="margin: 22px 0 0; max-width: 620px; padding: 14px 16px; background: rgba(9, 5, 6, 0.72); border-left: 2px solid #E8222A; font-size: 19px; color: #ECE4DC">Every major thinker, filed by tendency. Open a dossier for their works in order. Texts in the public domain are here in full and searchable; the rest link to the Marxists Internet Archive.</p>
     </div>
-    <div role="search" style="flex: 1 1 360px; min-width: 0; padding: 20px; background: rgba(9, 5, 6, 0.82); border: 1px solid #3A2326">
-      <label for="ar-q" class="mn" style="display: block; font-size: 14px; letter-spacing: 0.14em; color: #A89C95">&gt; QUERY THE INDEX</label>
+    <form role="search" id="ar-form" action="/archive/" method="get" style="flex: 1 1 360px; min-width: 0; padding: 20px; background: rgba(9, 5, 6, 0.82); border: 1px solid #3A2326">
+      <label for="ar-q" class="mn" style="display: block; font-size: 14px; letter-spacing: 0.14em; color: #A89C95">&gt; QUERY THE ARCHIVE</label>
       <div style="display: flex; gap: 10px; margin-top: 12px">
-        <input id="ar-q" type="search" placeholder="Name, work or year" style="flex: 1; min-width: 0; min-height: 52px; box-sizing: border-box; padding: 0 14px; background: #090506; border: 2px solid #3A2326; color: #F2ECE4; font-family: Inter, sans-serif; font-size: 17px">
-        <button type="button" style="min-height: 52px; padding: 0 20px; border: 0; background: #C81D25; color: #FFFFFF; font-family: Inter, sans-serif; font-weight: 800; font-size: 16px; cursor: pointer">Search</button>
+        <input id="ar-q" name="q" type="search" autocomplete="off" placeholder="Name, work, year or phrase" style="flex: 1; min-width: 0; min-height: 52px; box-sizing: border-box; padding: 0 14px; background: #090506; border: 2px solid #3A2326; color: #F2ECE4; font-family: Inter, sans-serif; font-size: 17px">
+        <button type="submit" style="min-height: 52px; padding: 0 20px; border: 0; background: #C81D25; color: #FFFFFF; font-family: Inter, sans-serif; font-weight: 800; font-size: 16px; cursor: pointer">Search</button>
       </div>
+      <p class="mn" style="margin: 12px 0 0; font-size: 12px; letter-spacing: 0.1em; color: #A89C95">SEARCHES TITLES AND THE FULL TEXT OF 12 WORKS</p>
+    </form>
+  </div>
+</section>
+
+<section id="ar-results" hidden style="background: #0C0708; border-bottom: 1px solid #2B1B1D">
+  <div class="wrap" style="padding-top: 32px; padding-bottom: 40px">
+    <div class="res-box" aria-live="polite">
+      <div class="res-head mn"><span id="ar-status">SEARCHING</span><button type="button" id="ar-clear" class="chip">CLEAR ×</button></div>
+      <div class="scan-bar" aria-hidden="true"><i id="ar-bar"></i></div>
+      <div id="ar-cat"></div>
+      <div id="ar-full"></div>
     </div>
   </div>
 </section>
 
-<section class="grid-bg" style="background-color: #0C0708">
+
+<section class="grid-bg" style="position: relative; overflow: hidden; background-color: #0C0708">
+  <div class="wall" aria-hidden="true" style="--o: 0.12"><div class="wall-in" style="background-image: url('/assets/bgc/p_mon_towers.webp'), url('/assets/bgc/p_mon_motherland_flags.webp'), url('/assets/bgc/p_nine_days.webp'), url('/assets/bgc/p_mon_worker_kolkhoz.webp')"></div></div>
   <div class="wrap" style="padding-top: 36px; padding-bottom: clamp(56px, 7vw, 96px)">
     <div role="group" aria-label="Filter by tendency" style="display: flex; flex-wrap: wrap; gap: 8px">
-      <button type="button" class="chip on" aria-pressed="true">ALL<span>9</span></button>
-      <button type="button" class="chip" aria-pressed="false">PRECURSOR<span>1</span></button>
-      <button type="button" class="chip" aria-pressed="false">FOUNDERS<span>2</span></button>
-      <button type="button" class="chip" aria-pressed="false">SECOND INTERNATIONAL<span>1</span></button>
-      <button type="button" class="chip" aria-pressed="false">BOLSHEVIKS<span>3</span></button>
-      <button type="button" class="chip" aria-pressed="false">SPARTACISTS<span>1</span></button>
-      <button type="button" class="chip" aria-pressed="false">COMMUNIST LEFT<span>1</span></button>
+      <button type="button" class="chip on" data-f="all" aria-pressed="true">ALL<span>9</span></button>
+      <button type="button" class="chip" data-f="precursor" aria-pressed="false">PRECURSOR<span>1</span></button>
+      <button type="button" class="chip" data-f="founders" aria-pressed="false">FOUNDERS<span>2</span></button>
+      <button type="button" class="chip" data-f="second" aria-pressed="false">SECOND INTERNATIONAL<span>1</span></button>
+      <button type="button" class="chip" data-f="bolsheviks" aria-pressed="false">BOLSHEVIKS<span>3</span></button>
+      <button type="button" class="chip" data-f="spartacists" aria-pressed="false">SPARTACISTS<span>1</span></button>
+      <button type="button" class="chip" data-f="left" aria-pressed="false">COMMUNIST LEFT<span>1</span></button>
     </div>
 
     <figure class="it-rv" style="margin: 32px 0 0; padding: 18px 18px 10px; background: rgba(9, 5, 6, 0.85); border: 1px solid #3A2326; overflow-x: auto">
@@ -209,127 +290,155 @@ img { display: block; max-width: 100%; }
       <figcaption class="mn" style="margin-top: 8px; font-size: 13px; letter-spacing: 0.14em; color: #A89C95">FIG. 01 · LIFESPANS OF THE INDEX, 1770 — 1970</figcaption>
     </figure>
 
-    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr)); gap: 20px; margin-top: 32px">
+    <div id="ar-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr)); gap: 20px; margin-top: 32px">
 
-      <article class="dos it-rv">
+      <article class="dos it-rv" id="hegel" data-t="precursor">
         <div class="dos-top mn"><span>SUBJECT 01</span><span class="tg">PRECURSOR</span></div>
-        <div class="dos-img"><img src="/assets/hex_hegel.png" alt="Hex-pixel bust of Hegel"><span class="hc tl"></span><span class="hc tr"></span><span class="hc bl"></span><span class="hc br"></span><span class="co r" aria-hidden="true" style="top: 26%; right: 10px"><b>HEX 3,461</b><i></i></span><span class="it-bscan" aria-hidden="true" style="position: absolute; left: 0; right: 0; height: 2px; background: #FF5A60; box-shadow: 0 0 10px rgba(232, 34, 42, 0.8)"></span></div>
+        <a href="/archive/hegel/" class="dos-img" tabindex="-1" aria-hidden="true"><span class="dos-bg" style="background-image: url('/assets/bgc/p_hp_napoleon.webp')"></span><img src="/assets/hex_hegel.png" alt=""><span class="hc tl"></span><span class="hc tr"></span><span class="hc bl"></span><span class="hc br"></span><span class="co r" style="top: 26%; right: 10px"><b>HEX 3,461</b><i></i></span><span class="it-bscan" style="position: absolute; left: 0; right: 0; height: 2px; background: #FF5A60; box-shadow: 0 0 10px rgba(232, 34, 42, 0.8)"></span></a>
         <div class="dos-body">
-          <h3>G. W. F. HEGEL</h3>
+          <h3><a href="/archive/hegel/">G. W. F. HEGEL</a></h3>
           <p class="yr">1770 — 1831 · STUTTGART → BERLIN</p>
           <p class="role">German idealist philosopher. Marx took his dialectic and set it on a materialist footing.</p>
-          <ul><li>Phenomenology of Spirit (1807)</li><li>Science of Logic (1812–16)</li><li>Philosophy of Right (1820)</li></ul>
-          <a href="#" class="open">OPEN DOSSIER →</a>
+          <ul><li><a href="https://www.marxists.org/reference/archive/hegel/phindex.htm" target="_blank" rel="noopener">The Phenomenology of Spirit</a> (1807)</li><li><a href="https://www.marxists.org/reference/archive/hegel/hl_index.htm" target="_blank" rel="noopener">The Science of Logic</a> (1812–1816)</li><li><a href="/archive/hegel/logic/">The Logic of Hegel</a> (1817)<span class="h">TXT</span></li></ul>
+          <p class="cnt"><b>1 FULL TEXT</b> · 3 LINKED</p>
+          <a href="/archive/hegel/" class="open">OPEN DOSSIER →</a>
         </div>
       </article>
 
-      <article class="dos it-rv">
+      <article class="dos it-rv" id="marx" data-t="founders">
         <div class="dos-top mn"><span>SUBJECT 02</span><span class="tg">FOUNDER</span></div>
-        <div class="dos-img"><img src="/assets/hex_marx.png" alt="Hex-pixel bust of Marx"><span class="hc tl"></span><span class="hc tr"></span><span class="hc bl"></span><span class="hc br"></span><span class="co r" aria-hidden="true" style="top: 26%; right: 10px"><b>HEX 3,740</b><i></i></span><span class="it-bscan" aria-hidden="true" style="position: absolute; left: 0; right: 0; height: 2px; background: #FF5A60; box-shadow: 0 0 10px rgba(232, 34, 42, 0.8); animation-delay: 0.5s"></span></div>
+        <a href="/archive/marx/" class="dos-img" tabindex="-1" aria-hidden="true"><span class="dos-bg" style="background-image: url('/assets/bgc/p_mon_marx_chemnitz.webp')"></span><img src="/assets/hex_marx.png" alt=""><span class="hc tl"></span><span class="hc tr"></span><span class="hc bl"></span><span class="hc br"></span><span class="co r" style="top: 26%; right: 10px"><b>HEX 3,740</b><i></i></span><span class="it-bscan" style="position: absolute; left: 0; right: 0; height: 2px; background: #FF5A60; box-shadow: 0 0 10px rgba(232, 34, 42, 0.8); animation-delay: 0.5s"></span></a>
         <div class="dos-body">
-          <h3>KARL MARX</h3>
+          <h3><a href="/archive/marx/">KARL MARX</a></h3>
           <p class="yr">1818 — 1883 · TRIER → LONDON</p>
           <p class="role">Founded scientific socialism with Engels. Spent his last decades on Capital.</p>
-          <ul><li>The Communist Manifesto (1848)</li><li>The Eighteenth Brumaire (1852)</li><li>Capital, Volume I (1867)</li></ul>
-          <a href="#" class="open">OPEN DOSSIER →</a>
+          <ul><li><a href="/archive/marx/communist-manifesto/">Manifesto of the Communist Party</a> (1848)<span class="h">TXT</span></li><li><a href="/archive/marx/eighteenth-brumaire/">The Eighteenth Brumaire of Louis Bonaparte</a> (1852)<span class="h">TXT</span></li><li><a href="https://www.marxists.org/archive/marx/works/1867-c1/index.htm" target="_blank" rel="noopener">Capital, Volume I</a> (1867)</li></ul>
+          <p class="cnt"><b>2 FULL TEXTS</b> · 3 LINKED</p>
+          <a href="/archive/marx/" class="open">OPEN DOSSIER →</a>
         </div>
       </article>
 
-      <article class="dos it-rv">
+      <article class="dos it-rv" id="engels" data-t="founders">
         <div class="dos-top mn"><span>SUBJECT 03</span><span class="tg">FOUNDER</span></div>
-        <div class="dos-img"><img src="/assets/hex_engels.png" alt="Hex-pixel bust of Engels"><span class="hc tl"></span><span class="hc tr"></span><span class="hc bl"></span><span class="hc br"></span><span class="co r" aria-hidden="true" style="top: 26%; right: 10px"><b>HEX 3,467</b><i></i></span><span class="it-bscan" aria-hidden="true" style="position: absolute; left: 0; right: 0; height: 2px; background: #FF5A60; box-shadow: 0 0 10px rgba(232, 34, 42, 0.8); animation-delay: 1s"></span></div>
+        <a href="/archive/engels/" class="dos-img" tabindex="-1" aria-hidden="true"><span class="dos-bg" style="background-image: url('/assets/bgc/p_mon_magnitogorsk.webp')"></span><img src="/assets/hex_engels.png" alt=""><span class="hc tl"></span><span class="hc tr"></span><span class="hc bl"></span><span class="hc br"></span><span class="co r" style="top: 26%; right: 10px"><b>HEX 3,467</b><i></i></span><span class="it-bscan" style="position: absolute; left: 0; right: 0; height: 2px; background: #FF5A60; box-shadow: 0 0 10px rgba(232, 34, 42, 0.8); animation-delay: 1s"></span></a>
         <div class="dos-body">
-          <h3>FRIEDRICH ENGELS</h3>
+          <h3><a href="/archive/engels/">FRIEDRICH ENGELS</a></h3>
           <p class="yr">1820 — 1895 · BARMEN → LONDON</p>
           <p class="role">Marx's partner for forty years. Edited volumes II and III of Capital after Marx died.</p>
-          <ul><li>The Condition of the Working Class in England (1845)</li><li>Anti-Dühring (1878)</li><li>The Origin of the Family (1884)</li></ul>
-          <a href="#" class="open">OPEN DOSSIER →</a>
+          <ul><li><a href="/archive/engels/condition-of-the-working-class/">The Condition of the Working Class in England in 1844</a> (1845)<span class="h">TXT</span></li><li><a href="/archive/engels/anti-duhring/">Anti-Dühring</a> (1878)<span class="h">TXT</span></li><li><a href="https://www.marxists.org/archive/marx/works/index.htm" target="_blank" rel="noopener">The Origin of the Family, Private Property and the State</a> (1884)</li></ul>
+          <p class="cnt"><b>5 FULL TEXTS</b> · 1 LINKED</p>
+          <a href="/archive/engels/" class="open">OPEN DOSSIER →</a>
         </div>
       </article>
 
-      <article class="dos it-rv">
+      <article class="dos it-rv" id="kautsky" data-t="second">
         <div class="dos-top mn"><span>SUBJECT 04</span><span class="tg">SECOND INTERNATIONAL</span></div>
-        <div class="dos-img"><img src="/assets/hex_kautsky.png" alt="Hex-pixel bust of Kautsky"><span class="hc tl"></span><span class="hc tr"></span><span class="hc bl"></span><span class="hc br"></span><span class="co r" aria-hidden="true" style="top: 26%; right: 10px"><b>HEX 3,355</b><i></i></span><span class="it-bscan" aria-hidden="true" style="position: absolute; left: 0; right: 0; height: 2px; background: #FF5A60; box-shadow: 0 0 10px rgba(232, 34, 42, 0.8); animation-delay: 1.5s"></span></div>
+        <a href="/archive/kautsky/" class="dos-img" tabindex="-1" aria-hidden="true"><span class="dos-bg" style="background-image: url('/assets/bgc/p_share_the_land.webp')"></span><img src="/assets/hex_kautsky.png" alt=""><span class="hc tl"></span><span class="hc tr"></span><span class="hc bl"></span><span class="hc br"></span><span class="co r" style="top: 26%; right: 10px"><b>HEX 3,355</b><i></i></span><span class="it-bscan" style="position: absolute; left: 0; right: 0; height: 2px; background: #FF5A60; box-shadow: 0 0 10px rgba(232, 34, 42, 0.8); animation-delay: 1.5s"></span></a>
         <div class="dos-body">
-          <h3>KARL KAUTSKY</h3>
+          <h3><a href="/archive/kautsky/">KARL KAUTSKY</a></h3>
           <p class="yr">1854 — 1938 · PRAGUE → AMSTERDAM</p>
           <p class="role">Leading theorist of the German SPD and the Second International.</p>
-          <ul><li>The Class Struggle (1892)</li><li>The Agrarian Question (1899)</li><li>The Road to Power (1909)</li></ul>
-          <a href="#" class="open">OPEN DOSSIER →</a>
+          <ul><li><a href="https://www.marxists.org/archive/kautsky/1892/erfurt/ch01.htm" target="_blank" rel="noopener">The Class Struggle (Erfurt Program)</a> (1892)</li><li><a href="https://www.marxists.org/archive/kautsky/index.htm" target="_blank" rel="noopener">The Agrarian Question</a> (1899)</li><li><a href="https://www.marxists.org/archive/kautsky/1909/power/index.htm" target="_blank" rel="noopener">The Road to Power</a> (1909)</li></ul>
+          <p class="cnt">NO FULL TEXTS YET · 3 LINKED</p>
+          <a href="/archive/kautsky/" class="open">OPEN DOSSIER →</a>
         </div>
       </article>
 
-      <article class="dos it-rv">
+      <article class="dos it-rv" id="lenin" data-t="bolsheviks">
         <div class="dos-top mn"><span>SUBJECT 05</span><span class="tg">BOLSHEVIK</span></div>
-        <div class="dos-img"><img src="/assets/hex_lenin.png" alt="Hex-pixel bust of Lenin"><span class="hc tl"></span><span class="hc tr"></span><span class="hc bl"></span><span class="hc br"></span><span class="co r" aria-hidden="true" style="top: 26%; right: 10px"><b>HEX 3,126</b><i></i></span><span class="it-bscan" aria-hidden="true" style="position: absolute; left: 0; right: 0; height: 2px; background: #FF5A60; box-shadow: 0 0 10px rgba(232, 34, 42, 0.8); animation-delay: 2s"></span></div>
+        <a href="/archive/lenin/" class="dos-img" tabindex="-1" aria-hidden="true"><span class="dos-bg" style="background-image: url('/assets/bgc/p_mon_lenin_head.webp')"></span><img src="/assets/hex_lenin.png" alt=""><span class="hc tl"></span><span class="hc tr"></span><span class="hc bl"></span><span class="hc br"></span><span class="co r" style="top: 26%; right: 10px"><b>HEX 3,126</b><i></i></span><span class="it-bscan" style="position: absolute; left: 0; right: 0; height: 2px; background: #FF5A60; box-shadow: 0 0 10px rgba(232, 34, 42, 0.8); animation-delay: 2s"></span></a>
         <div class="dos-body">
-          <h3>V. I. LENIN</h3>
+          <h3><a href="/archive/lenin/">V. I. LENIN</a></h3>
           <p class="yr">1870 — 1924 · SIMBIRSK → GORKI</p>
           <p class="role">Led the Bolshevik party and the October Revolution of 1917.</p>
-          <ul><li>What Is to Be Done? (1902)</li><li>Imperialism, the Highest Stage of Capitalism (1917)</li><li>The State and Revolution (1917)</li></ul>
-          <a href="#" class="open">OPEN DOSSIER →</a>
+          <ul><li><a href="https://www.marxists.org/archive/lenin/works/1901/witbd/index.htm" target="_blank" rel="noopener">What Is to Be Done?</a> (1902)</li><li><a href="https://www.marxists.org/archive/lenin/by-title.htm" target="_blank" rel="noopener">Imperialism, the Highest Stage of Capitalism</a> (1917)</li><li><a href="https://www.marxists.org/archive/lenin/by-title.htm" target="_blank" rel="noopener">The State and Revolution</a> (1917)</li></ul>
+          <p class="cnt"><b>1 FULL TEXT</b> · 3 LINKED</p>
+          <a href="/archive/lenin/" class="open">OPEN DOSSIER →</a>
         </div>
       </article>
 
-      <article class="dos it-rv">
+      <article class="dos it-rv" id="trotsky" data-t="bolsheviks">
         <div class="dos-top mn"><span>SUBJECT 06</span><span class="tg">BOLSHEVIK</span></div>
-        <div class="dos-img"><img src="/assets/hex_trotsky.png" alt="Hex-pixel bust of Trotsky"><span class="hc tl"></span><span class="hc tr"></span><span class="hc bl"></span><span class="hc br"></span><span class="co r" aria-hidden="true" style="top: 26%; right: 10px"><b>HEX 2,883</b><i></i></span><span class="it-bscan" aria-hidden="true" style="position: absolute; left: 0; right: 0; height: 2px; background: #FF5A60; box-shadow: 0 0 10px rgba(232, 34, 42, 0.8); animation-delay: 2.5s"></span></div>
+        <a href="/archive/trotsky/" class="dos-img" tabindex="-1" aria-hidden="true"><span class="dos-bg" style="background-image: url('/assets/bgc/p_raise_it_higher.webp')"></span><img src="/assets/hex_trotsky.png" alt=""><span class="hc tl"></span><span class="hc tr"></span><span class="hc bl"></span><span class="hc br"></span><span class="co r" style="top: 26%; right: 10px"><b>HEX 2,883</b><i></i></span><span class="it-bscan" style="position: absolute; left: 0; right: 0; height: 2px; background: #FF5A60; box-shadow: 0 0 10px rgba(232, 34, 42, 0.8); animation-delay: 2.5s"></span></a>
         <div class="dos-body">
-          <h3>LEON TROTSKY</h3>
+          <h3><a href="/archive/trotsky/">LEON TROTSKY</a></h3>
           <p class="yr">1879 — 1940 · YANOVKA → COYOACÁN</p>
           <p class="role">Chaired the Petrograd Soviet in 1905 and 1917 and organised the Red Army.</p>
-          <ul><li>Results and Prospects (1906)</li><li>History of the Russian Revolution (1930–32)</li><li>The Revolution Betrayed (1936)</li></ul>
-          <a href="#" class="open">OPEN DOSSIER →</a>
+          <ul><li><a href="/archive/trotsky/our-revolution/">Our Revolution</a> (1904–1917)<span class="h">TXT</span></li><li><a href="https://www.marxists.org/archive/trotsky/1930/hrr/index.htm" target="_blank" rel="noopener">The History of the Russian Revolution</a> (1930–1932)</li><li><a href="https://www.marxists.org/archive/trotsky/1936/revbet/revbetray.pdf" target="_blank" rel="noopener">The Revolution Betrayed</a> (1936)</li></ul>
+          <p class="cnt"><b>2 FULL TEXTS</b> · 3 LINKED</p>
+          <a href="/archive/trotsky/" class="open">OPEN DOSSIER →</a>
         </div>
       </article>
 
-      <article class="dos it-rv">
+      <article class="dos it-rv" id="luxemburg" data-t="spartacists">
         <div class="dos-top mn"><span>SUBJECT 07</span><span class="tg">SPARTACIST</span></div>
-        <div class="dos-img"><img src="/assets/hex_luxemburg.png" alt="Hex-pixel bust of Rosa Luxemburg"><span class="hc tl"></span><span class="hc tr"></span><span class="hc bl"></span><span class="hc br"></span><span class="co r" aria-hidden="true" style="top: 26%; right: 10px"><b>HEX 3,003</b><i></i></span><span class="it-bscan" aria-hidden="true" style="position: absolute; left: 0; right: 0; height: 2px; background: #FF5A60; box-shadow: 0 0 10px rgba(232, 34, 42, 0.8); animation-delay: 3s"></span></div>
+        <a href="/archive/luxemburg/" class="dos-img" tabindex="-1" aria-hidden="true"><span class="dos-bg" style="background-image: url('/assets/bgc/p_rom_romantics.webp')"></span><img src="/assets/hex_luxemburg.png" alt=""><span class="hc tl"></span><span class="hc tr"></span><span class="hc bl"></span><span class="hc br"></span><span class="co r" style="top: 26%; right: 10px"><b>HEX 3,003</b><i></i></span><span class="it-bscan" style="position: absolute; left: 0; right: 0; height: 2px; background: #FF5A60; box-shadow: 0 0 10px rgba(232, 34, 42, 0.8); animation-delay: 3s"></span></a>
         <div class="dos-body">
-          <h3>ROSA LUXEMBURG</h3>
+          <h3><a href="/archive/luxemburg/">ROSA LUXEMBURG</a></h3>
           <p class="yr">1871 — 1919 · ZAMOŚĆ → BERLIN</p>
           <p class="role">Co-founded the Spartacus League. Murdered in Berlin in January 1919.</p>
-          <ul><li>Reform or Revolution (1899)</li><li>The Mass Strike (1906)</li><li>The Accumulation of Capital (1913)</li></ul>
-          <a href="#" class="open">OPEN DOSSIER →</a>
+          <ul><li><a href="https://www.marxists.org/archive/luxemburg/1900/reform-revolution/index.htm" target="_blank" rel="noopener">Reform or Revolution</a> (1899)</li><li><a href="/archive/luxemburg/massenstreik/">Massenstreik, Partei und Gewerkschaften</a> (1906)<span class="h">TXT</span></li><li><a href="https://www.marxists.org/archive/luxemburg/index.htm" target="_blank" rel="noopener">The Accumulation of Capital</a> (1913)</li></ul>
+          <p class="cnt"><b>1 FULL TEXT</b> · 3 LINKED</p>
+          <a href="/archive/luxemburg/" class="open">OPEN DOSSIER →</a>
         </div>
       </article>
 
-      <article class="dos it-rv">
+      <article class="dos it-rv" id="bukharin" data-t="bolsheviks">
         <div class="dos-top mn"><span>SUBJECT 08</span><span class="tg">BOLSHEVIK</span></div>
-        <div class="dos-img"><img src="/assets/hex_bukharin.png" alt="Hex-pixel bust of Bukharin"><span class="hc tl"></span><span class="hc tr"></span><span class="hc bl"></span><span class="hc br"></span><span class="co r" aria-hidden="true" style="top: 26%; right: 10px"><b>HEX 4,654</b><i></i></span><span class="it-bscan" aria-hidden="true" style="position: absolute; left: 0; right: 0; height: 2px; background: #FF5A60; box-shadow: 0 0 10px rgba(232, 34, 42, 0.8); animation-delay: 3.5s"></span></div>
+        <a href="/archive/bukharin/" class="dos-img" tabindex="-1" aria-hidden="true"><span class="dos-bg" style="background-image: url('/assets/bgc/p_mon_worker_kolkhoz.webp')"></span><img src="/assets/hex_bukharin.png" alt=""><span class="hc tl"></span><span class="hc tr"></span><span class="hc bl"></span><span class="hc br"></span><span class="co r" style="top: 26%; right: 10px"><b>HEX 4,654</b><i></i></span><span class="it-bscan" style="position: absolute; left: 0; right: 0; height: 2px; background: #FF5A60; box-shadow: 0 0 10px rgba(232, 34, 42, 0.8); animation-delay: 3.5s"></span></a>
         <div class="dos-body">
-          <h3>N. I. BUKHARIN</h3>
+          <h3><a href="/archive/bukharin/">N. I. BUKHARIN</a></h3>
           <p class="yr">1888 — 1938 · MOSCOW → MOSCOW</p>
           <p class="role">Bolshevik theorist and editor of Pravda. Shot in 1938 after the third Moscow trial. In USSR 2089, he lives.</p>
-          <ul><li>Imperialism and World Economy (1915)</li><li>The ABC of Communism (1919)</li><li>Economics of the Transformation Period (1920)</li></ul>
-          <a href="#" class="open">OPEN DOSSIER →</a>
+          <ul><li><a href="https://www.marxists.org/archive/bukharin/library.htm" target="_blank" rel="noopener">Imperialism and World Economy</a> (1915)</li><li><a href="https://www.marxists.org/archive/bukharin/works/1920/abc/index.htm" target="_blank" rel="noopener">The ABC of Communism</a> (1919)</li><li><a href="https://www.marxists.org/archive/bukharin/library.htm" target="_blank" rel="noopener">The Economics of the Transformation Period</a> (1920)</li></ul>
+          <p class="cnt">NO FULL TEXTS YET · 3 LINKED</p>
+          <a href="/archive/bukharin/" class="open">OPEN DOSSIER →</a>
         </div>
       </article>
 
-      <article class="dos it-rv">
+      <article class="dos it-rv" id="bordiga" data-t="left">
         <div class="dos-top mn"><span>SUBJECT 09</span><span class="tg">COMMUNIST LEFT</span></div>
-        <div class="dos-img"><img src="/assets/hex_bordiga.png" alt="Hex-pixel bust of Bordiga"><span class="hc tl"></span><span class="hc tr"></span><span class="hc bl"></span><span class="hc br"></span><span class="co r" aria-hidden="true" style="top: 26%; right: 10px"><b>HEX 3,801</b><i></i></span><span class="it-bscan" aria-hidden="true" style="position: absolute; left: 0; right: 0; height: 2px; background: #FF5A60; box-shadow: 0 0 10px rgba(232, 34, 42, 0.8); animation-delay: 4s"></span></div>
+        <a href="/archive/bordiga/" class="dos-img" tabindex="-1" aria-hidden="true"><span class="dos-bg" style="background-image: url('/assets/bgc/p_audit_no_country.webp')"></span><img src="/assets/hex_bordiga.png" alt=""><span class="hc tl"></span><span class="hc tr"></span><span class="hc bl"></span><span class="hc br"></span><span class="co r" style="top: 26%; right: 10px"><b>HEX 3,801</b><i></i></span><span class="it-bscan" style="position: absolute; left: 0; right: 0; height: 2px; background: #FF5A60; box-shadow: 0 0 10px rgba(232, 34, 42, 0.8); animation-delay: 4s"></span></a>
         <div class="dos-body">
-          <h3>AMADEO BORDIGA</h3>
+          <h3><a href="/archive/bordiga/">AMADEO BORDIGA</a></h3>
           <p class="yr">1889 — 1970 · RESINA → FORMIA</p>
           <p class="role">First leader of the Communist Party of Italy in 1921, and the leading figure of the Italian Communist Left.</p>
-          <ul><li>Rome Theses (1922)</li><li>Lyon Theses (1926)</li><li>Dialogue with Stalin (1952)</li></ul>
-          <a href="#" class="open">OPEN DOSSIER →</a>
+          <ul><li><a href="https://www.marxists.org/archive/bordiga/index.htm" target="_blank" rel="noopener">The Rome Theses</a> (1922)</li><li><a href="https://www.marxists.org/archive/bordiga/index.htm" target="_blank" rel="noopener">The Lyon Theses</a> (1926)</li><li><a href="https://www.marxists.org/archive/bordiga/index.htm" target="_blank" rel="noopener">Dialogue with Stalin</a> (1952)</li></ul>
+          <p class="cnt">NO FULL TEXTS YET · 3 LINKED</p>
+          <a href="/archive/bordiga/" class="open">OPEN DOSSIER →</a>
         </div>
       </article>
     </div>
 
-    <div class="it-rv" style="margin-top: 56px">
-      <p class="mn" style="margin: 0; font-size: 18px; letter-spacing: 0.1em; border-bottom: 1px solid #3A2326; padding-bottom: 10px">COLLECTIONS</p>
-      <a href="#" class="row"><span style="color: #A89C95">COL-01</span><span>THE PROGRAMME</span><span class="ld"></span><span style="color: #FF5A60">1848 —</span><span style="color: #39D98A">[OPEN]</span></a>
-      <a href="#" class="row"><span style="color: #A89C95">COL-02</span><span>MARX AND ENGELS</span><span class="ld"></span><span style="color: #FF5A60">1843 — 1895</span><span style="color: #39D98A">[OPEN]</span></a>
-      <a href="#" class="row"><span style="color: #A89C95">COL-03</span><span>SECOND INTERNATIONAL</span><span class="ld"></span><span style="color: #FF5A60">1889 — 1914</span><span style="color: #39D98A">[OPEN]</span></a>
-      <a href="#" class="row"><span style="color: #A89C95">COL-04</span><span>LENIN AND OCTOBER</span><span class="ld"></span><span style="color: #FF5A60">1894 — 1924</span><span style="color: #39D98A">[OPEN]</span></a>
-      <a href="#" class="row"><span style="color: #A89C95">COL-05</span><span>THE GERMAN LEFT</span><span class="ld"></span><span style="color: #FF5A60">1898 — 1919</span><span style="color: #39D98A">[OPEN]</span></a>
-      <a href="#" class="row"><span style="color: #A89C95">COL-06</span><span>THE COMMUNIST LEFT</span><span class="ld"></span><span style="color: #FF5A60">1912 — 1970</span><span style="color: #39D98A">[OPEN]</span></a>
-      <a href="#" class="row"><span style="color: #A89C95">COL-07</span><span>BEYOND EUROPE</span><span class="ld"></span><span style="color: #FF5A60">1919 —</span><span style="color: #39D98A">[OPEN]</span></a>
-      <a href="#" class="row"><span style="color: #A89C95">COL-08</span><span>TIA BROADCASTS</span><span class="ld"></span><span style="color: #FF5A60">2026 —</span><span style="color: #39D98A">[OPEN]</span></a>
+    <div class="it-rv" id="texts" style="margin-top: 56px">
+      <div style="display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 10px; border-bottom: 1px solid #3A2326; padding-bottom: 10px">
+        <p class="mn" style="margin: 0; font-size: 18px; letter-spacing: 0.1em">READING ROOM · 12 FULL TEXTS</p>
+        <span class="mn" style="font-size: 13px; letter-spacing: 0.1em; color: #A89C95">PUBLIC DOMAIN · FREE TO READ AND DOWNLOAD</span>
+      </div>
+      <a href="/archive/hegel/logic/" class="row wk"><span class="y">1817</span><span class="ti">The Logic of Hegel<small>The first part of the Encyclopaedia of the Philosophical Sciences</small></span><span class="ld"></span><span class="by">HEGEL</span><span class="st ok">[READ →]</span></a>
+      <a href="/archive/engels/condition-of-the-working-class/" class="row wk"><span class="y">1845</span><span class="ti">The Condition of the Working Class in England in 1844</span><span class="ld"></span><span class="by">ENGELS</span><span class="st ok">[READ →]</span></a>
+      <a href="/archive/marx/communist-manifesto/" class="row wk"><span class="y">1848</span><span class="ti">Manifesto of the Communist Party</span><span class="ld"></span><span class="by">MARX + ENGELS</span><span class="st ok">[READ →]</span></a>
+      <a href="/archive/engels/revolution-and-counter-revolution/" class="row wk"><span class="y">1851–1852</span><span class="ti">Revolution and Counter-Revolution in Germany</span><span class="ld"></span><span class="by">ENGELS</span><span class="st ok">[READ →]</span></a>
+      <a href="/archive/marx/eighteenth-brumaire/" class="row wk"><span class="y">1852</span><span class="ti">The Eighteenth Brumaire of Louis Bonaparte</span><span class="ld"></span><span class="by">MARX</span><span class="st ok">[READ →]</span></a>
+      <a href="/archive/engels/anti-duhring/" class="row wk"><span class="y">1878</span><span class="ti">Anti-Dühring<small>Published in English as Landmarks of Scientific Socialism</small></span><span class="ld"></span><span class="by">ENGELS</span><span class="st ok">[READ →]</span></a>
+      <a href="/archive/engels/socialism-utopian-and-scientific/" class="row wk"><span class="y">1880</span><span class="ti">Socialism: Utopian and Scientific</span><span class="ld"></span><span class="by">ENGELS</span><span class="st ok">[READ →]</span></a>
+      <a href="/archive/engels/ludwig-feuerbach/" class="row wk"><span class="y">1886</span><span class="ti">Ludwig Feuerbach and the End of Classical German Philosophy<small>Published in English as Feuerbach: The Roots of the Socialist Philosophy</small></span><span class="ld"></span><span class="by">ENGELS</span><span class="st ok">[READ →]</span></a>
+      <a href="/archive/trotsky/our-revolution/" class="row wk"><span class="y">1904–1917</span><span class="ti">Our Revolution<small>Essays on Working-Class and International Revolution, 1904–1917, including Prospects of a Labor Dictatorship</small></span><span class="ld"></span><span class="by">TROTSKY</span><span class="st ok">[READ →]</span></a>
+      <a href="/archive/luxemburg/massenstreik/" class="row wk"><span class="y">1906</span><span class="ti">Massenstreik, Partei und Gewerkschaften<small>The Mass Strike, the Political Party and the Trade Unions, in the original German</small></span><span class="ld"></span><span class="by">LUXEMBURG</span><span class="st ok">[READ →]</span></a>
+      <a href="/archive/trotsky/the-war-and-the-international/" class="row wk"><span class="y">1914</span><span class="ti">The War and the International<small>Published in English as The Bolsheviki and World Peace</small></span><span class="ld"></span><span class="by">TROTSKY</span><span class="st ok">[READ →]</span></a>
+      <a href="/archive/lenin/letter-to-american-workingmen/" class="row wk"><span class="y">1918</span><span class="ti">A Letter to American Workingmen</span><span class="ld"></span><span class="by">LENIN</span><span class="st ok">[READ →]</span></a>
+    </div>
+
+    <div class="it-rv" id="collections" style="margin-top: 56px">
+      <p class="mn sec-h">COLLECTIONS</p>
+      <a href="/archive/collections/the-programme/" class="row"><span style="color: #A89C95">COL-01</span><span>THE PROGRAMME</span><span class="ld"></span><span style="color: #FF5A60">1848 —</span><span style="color: #39D98A">[7 WORKS]</span></a>
+      <a href="/archive/collections/marx-and-engels/" class="row"><span style="color: #A89C95">COL-02</span><span>MARX AND ENGELS</span><span class="ld"></span><span style="color: #FF5A60">1843 — 1895</span><span style="color: #39D98A">[11 WORKS]</span></a>
+      <a href="/archive/collections/second-international/" class="row"><span style="color: #A89C95">COL-03</span><span>SECOND INTERNATIONAL</span><span class="ld"></span><span style="color: #FF5A60">1889 — 1914</span><span style="color: #39D98A">[7 WORKS]</span></a>
+      <a href="/archive/collections/lenin-and-october/" class="row"><span style="color: #A89C95">COL-04</span><span>LENIN AND OCTOBER</span><span class="ld"></span><span style="color: #FF5A60">1894 — 1924</span><span style="color: #39D98A">[10 WORKS]</span></a>
+      <a href="/archive/collections/the-german-left/" class="row"><span style="color: #A89C95">COL-05</span><span>THE GERMAN LEFT</span><span class="ld"></span><span style="color: #FF5A60">1898 — 1919</span><span style="color: #39D98A">[4 WORKS]</span></a>
+      <a href="/archive/collections/the-communist-left/" class="row"><span style="color: #A89C95">COL-06</span><span>THE COMMUNIST LEFT</span><span class="ld"></span><span style="color: #FF5A60">1912 — 1970</span><span style="color: #39D98A">[3 WORKS]</span></a>
+      <div class="row"><span style="color: #A89C95">COL-07</span><span>BEYOND EUROPE</span><span class="ld"></span><span style="color: #FF5A60">1919 —</span><span class="st wait">[COMPILING]</span></div>
+      <a href="https://www.youtube.com/@Invariance_Tech" target="_blank" rel="noopener" class="row"><span style="color: #A89C95">COL-08</span><span>TIA BROADCASTS</span><span class="ld"></span><span style="color: #FF5A60">2026 —</span><span style="color: #39D98A">[YOUTUBE ↗]</span></a>
     </div>
   </div>
 </section>
@@ -342,5 +451,6 @@ img { display: block; max-width: 100%; }
 </footer>
 
 </div>
+<script src="/assets/archive.js" defer></script>
 </body>
 </html>
