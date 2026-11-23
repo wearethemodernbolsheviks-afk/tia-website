@@ -8,8 +8,11 @@ export default {
   async fetch(request, env, ctx) {
     const url = new URL(request.url);
     if (url.pathname === '/api/substack') return substack(request, ctx);
-    const notFound = await env.ASSETS.fetch(new URL('/404.html', url));
-    return new Response(notFound.body, { status: 404, headers: notFound.headers });
+    // "/404" serves 404.html (with auto-trailing-slash, "/404.html" would only redirect there)
+    const notFound = await env.ASSETS.fetch(new Request(new URL('/404', url)));
+    const headers = new Headers(notFound.headers);
+    headers.delete('location');
+    return new Response(notFound.body, { status: 404, headers });
   },
 };
 
