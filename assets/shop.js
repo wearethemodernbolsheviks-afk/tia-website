@@ -5,12 +5,15 @@
   var $ = function (s, r) { return (r || document).querySelector(s); };
   var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
   var KEY = 'tia-cart-v1';
-  var SIZES = { tee: ['S', 'M', 'L', 'XL', 'XXL'], cap: ['One size'], print: ['A3'], digital: ['Digital'] };
+  var SIZES = { tee: ['S', 'M', 'L', 'XL', '2XL', '3XL', '4XL'], cap: ['One size'], print: ['A3'], digital: ['Digital'] };
   var PRICE = { tee: { _: 35 }, cap: { _: 28 }, print: { A3: 18 }, digital: { _: 9 } };
   var LABEL = { tee: 'TEE', cap: 'CAP', print: 'PRINT', digital: 'DIGITAL' };
 
-  function money(n) { return '$' + n.toFixed(0); }
-  function price(p, size) { var t = PRICE[p.type]; return t[size] != null ? t[size] : t._; }
+  function money(n) { return '$' + (Math.round(n * 100) % 100 ? n.toFixed(2) : n.toFixed(0)); }
+  function price(p, size) {
+    if (p.prices && p.prices[size] != null) return p.prices[size];
+    var t = PRICE[p.type]; return t[size] != null ? t[size] : t._;
+  }
   function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
 
   /* ---------- products, read from the page ---------- */
@@ -30,7 +33,9 @@
       type = 'digital'; sku = 'full-wall';
     }
     var img = $('img', el);
-    var p = { sku: sku, type: type, name: $('.nm', el).textContent.trim(), img: img ? img.getAttribute('src') : '', el: el };
+    var prices = null;
+    try { prices = JSON.parse(el.getAttribute('data-prices') || 'null'); } catch (e) { prices = null; }
+    var p = { sku: sku, type: type, name: $('.nm', el).textContent.trim(), img: img ? img.getAttribute('src') : '', el: el, prices: prices };
     products[sku] = p;
     el.setAttribute('data-type', type);
     el.setAttribute('data-sku', sku);
@@ -47,7 +52,7 @@
     row.setAttribute('role', 'group');
     row.setAttribute('aria-label', 'Choose a size for ' + p.name);
     row.innerHTML = sizes.map(function (s) {
-      return '<button type="button" class="sz mn" data-size="' + s + '">' + s + (type === 'print' ? ' · ' + money(price(p, s)) : '') + '</button>';
+      return '<button type="button" class="sz mn" data-size="' + s + '">' + s + (type === 'print' || p.prices ? ' · ' + money(price(p, s)) : '') + '</button>';
     }).join('');
     btn.parentNode.insertBefore(row, btn.nextSibling);
     btn.setAttribute('aria-expanded', 'false');
@@ -227,7 +232,11 @@
     catalog = page(null, 20).catch(function () { catalog = null; return null; });
     return catalog;
   }
-  function storeOpen(cfg, cat) { return !!cfg.shop && (cfg.live === true || !!(cat && Object.keys(cat).length)); }
+  function hasIds(entry) { return !!(entry && entry.variants && Object.keys(entry.variants).some(function (k) { return entry.variants[k]; })); }
+  function storeOpen(cfg, cat) {
+    return !!cfg.shop && (cfg.live === true || !!(cat && Object.keys(cat).length) ||
+      Object.keys(cfg.products || {}).some(function (k) { return hasIds(cfg.products[k]); }));
+  }
   /* A print may be called "Lenin Moon" or "Lenin Moon Print" in Fourthwall; a tee only matches a
      product that has its size, so the tee and the print of the same name never get mixed up. */
   var SUFFIX = { tee: [' tee', ' t shirt', ' tshirt', ' shirt', ''], print: [' print', ' poster', ' a3 print', ''], cap: [''], digital: [''] };
@@ -285,7 +294,19 @@
   getConfig().then(function (cfg) {
     return Promise.resolve(getCatalog(cfg)).then(function (cat) {
       var st = $('#shop-status');
-      if (st && storeOpen(cfg, cat)) { st.innerHTML = '<span class="dot"></span>DROP 01 · LIVE'; st.style.color = '#39D98A'; }
+      if (!storeOpen(cfg, cat)) return;
+      if (st) { st.innerHTML = '<span class="dot"></span>DROP 01 · LIVE'; st.style.color = '#39D98A'; }
+      /* once the store is open, items not yet in it can't be bought: say so on the card */
+      Object.keys(products).forEach(function (sku) {
+        var p = products[sku], entry = (cfg.products || {})[sku];
+        var ok = hasIds(entry) || !!(entry && entry.slug && cfg.storefrontToken) ||
+          SIZES[p.type].some(function (sz) { return !!findVariant(cat, p, sz); });
+        if (ok) return;
+        var b = $('.add', p.el);
+        if (b) { b.disabled = true; b.textContent = 'Coming soon'; b.classList.add('soon'); }
+        var row = $('.sizes', p.el);
+        if (row) row.hidden = true;
+      });
     });
   }).catch(function () {});
 
