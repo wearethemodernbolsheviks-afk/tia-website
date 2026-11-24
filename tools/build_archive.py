@@ -693,7 +693,10 @@ def work_row(w, byslug, show_author=False, me=None):
     if w.get('subtitle'):
         small.append(esc(w['subtitle']))
     others = [s for s in w['authors'] if s != me]
-    if me and others:
+    if me and me not in w['authors']:
+        # filed under someone else and listed here because it answers this author (Marx's Critique on Lassalle's page)
+        small.append('By ' + ' and '.join(byslug[s]['display'] for s in w['authors']))
+    elif me and others:
         small.append('With ' + ' and '.join(byslug[s]['display'] for s in others))
     sm = f'<small>{" · ".join(small)}</small>' if small else ''
     by = f'<span class="by">{" + ".join(byslug[s]["short"] for s in w["authors"])}</span>' if show_author else ''
@@ -843,7 +846,7 @@ def build_author(a, prev_a, next_a, byslug, cols):
     hosted = [w for w in a['works'] if w['kind'] == 'hosted']
     linked = [w for w in a['works'] if w['kind'] == 'link']
     # works co-written with someone else and filed under them (the Manifesto under Engels)
-    shared = [w for o in byslug.values() if o['slug'] != a['slug'] for w in o['works'] if a['slug'] in w.get('with', [])]
+    shared = [w for o in byslug.values() if o['slug'] != a['slug'] for w in o['works'] if a['slug'] in w.get('with', []) + w.get('see', [])]
     allw = sorted(a['works'] + shared, key=lambda w: (year0(w['year']), w['title']))
     nh = len(hosted) + sum(1 for w in shared if w['kind'] == 'hosted')
     nl = len(linked) + sum(1 for w in shared if w['kind'] == 'link')
