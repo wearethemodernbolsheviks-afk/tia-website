@@ -74,14 +74,23 @@ def wall(posters, opacity):
             f'<div class="wall-in" style="background-image: {imgs}"></div></div>')
 
 
+BGP_SIZES = json.loads((ROOT / 'assets' / 'bgp' / 'sizes.json').read_text(encoding='utf-8'))
+
+
+def poster_ar(poster):
+    w, h = BGP_SIZES.get(poster, (720, 900))
+    return f'{w / h:.4f}'
+
+
 def page_bg(poster):
     if not poster:
         return ''
-    return f'<div class="page-bg" aria-hidden="true" style="background-image: url(\'/assets/bgc/{poster}.webp\')"></div>\n'
+    return (f'<div class="page-bg" aria-hidden="true" style="--ar: {poster_ar(poster)}; --p1: url(\'/assets/bgp/{poster}-1x.webp\'); '
+            f'--p2: url(\'/assets/bgp/{poster}.webp\')"></div>\n')
 
 
 def side_poster(poster):
-    return f'<div class="side-poster" aria-hidden="true" style="background-image: url(\'/assets/bgc/{poster}.webp\')"></div>'
+    return f'<div class="side-poster" aria-hidden="true" style="background-image: url(\'/assets/bgp/{poster}.webp\')"></div>'
 
 
 def esc(s):
@@ -146,16 +155,16 @@ FONTS = ('<link rel="preconnect" href="https://fonts.googleapis.com">\n'
 
 EXTRA_CSS = """
 @media (max-width: 1500px) { .tbar .wrap > span.mn:last-child { display: none; } }
-.page-bg { position: fixed; inset: 0; z-index: -1; background-size: cover; background-position: center; pointer-events: none; animation: it-kb 40s ease-in-out infinite alternate; }
-.page-bg::after { content: ""; position: absolute; inset: 0; background: linear-gradient(100deg, rgba(9, 5, 6, 0.86) 0%, rgba(9, 5, 6, 0.62) 50%, rgba(9, 5, 6, 0.42) 100%); }
-@media (max-width: 760px) { .page-bg::after { background: rgba(9, 5, 6, 0.7); } }
-@media (prefers-reduced-motion: reduce) { .page-bg { animation: none !important; } }
+/* the whole poster, shown no bigger than the sharp 2x copy allows, set against the dark page on the right */
+.page-bg { position: fixed; top: 0; right: 0; width: min(58vw, calc(100vh * var(--ar, 0.8)), 1440px); aspect-ratio: var(--ar, 0.8); max-height: 100vh; z-index: -1; pointer-events: none; background-image: var(--p1); background-image: image-set(var(--p1) 1x, var(--p2) 2x); background-size: cover; background-position: center top; -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.55) 22%, #000 48%), linear-gradient(to bottom, #000 70%, transparent); mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.55) 22%, #000 48%), linear-gradient(to bottom, #000 70%, transparent); -webkit-mask-composite: source-in; mask-composite: intersect; }
+.page-bg::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(9, 5, 6, 0.25), rgba(9, 5, 6, 0.1) 40%, rgba(9, 5, 6, 0.55)), repeating-linear-gradient(to bottom, rgba(9, 5, 6, 0.16) 0 1px, transparent 1px 3px); }
+@media (max-width: 760px) { .page-bg { left: 0; width: 100%; max-height: none; -webkit-mask-image: linear-gradient(to bottom, #000 30%, transparent); mask-image: linear-gradient(to bottom, #000 30%, transparent); opacity: 0.5; } }
 .wall { position: absolute; inset: 0; overflow: hidden; pointer-events: none; opacity: var(--o, 0.2); -webkit-mask-image: linear-gradient(to bottom, transparent, #000 10%, #000 90%, transparent); mask-image: linear-gradient(to bottom, transparent, #000 10%, #000 90%, transparent); }
 .wall-in { position: absolute; left: 0; right: 0; top: -19.444vw; bottom: 0; background-repeat: repeat-y; background-size: 25% auto; background-position: 0 0, 33.333% 41%, 66.667% 17%, 100% 63%; animation: it-wall 150s linear infinite; }
 @keyframes it-wall { from { transform: translateY(0); } to { transform: translateY(19.444vw); } }
 @keyframes it-wall-m { from { transform: translateY(0); } to { transform: translateY(38.889vw); } }
 .wall ~ .wrap, .side-poster ~ .wrap { position: relative; z-index: 1; }
-.side-poster { position: absolute; top: 0; bottom: 0; right: 0; width: min(54%, 780px); background-size: cover; background-position: center; opacity: 0.62; -webkit-mask-image: linear-gradient(to right, transparent, #000 62%); mask-image: linear-gradient(to right, transparent, #000 62%); pointer-events: none; transform-origin: right center; animation: it-kb 30s ease-in-out infinite alternate; }
+.side-poster { position: absolute; top: 0; bottom: 0; right: 0; width: min(54%, 720px); background-size: cover; background-position: center top; opacity: 0.62; -webkit-mask-image: linear-gradient(to right, transparent, #000 62%); mask-image: linear-gradient(to right, transparent, #000 62%); pointer-events: none; }
 .shade { text-shadow: 0 2px 18px rgba(9, 5, 6, 0.95), 0 0 2px rgba(9, 5, 6, 0.9); }
 .dos-bg { position: absolute; inset: 0; background-size: cover; background-position: center; opacity: 0.22; transition: opacity 300ms ease; }
 .dos:hover .dos-bg { opacity: 0.42; }
@@ -219,7 +228,7 @@ mark { background: rgba(232, 34, 42, 0.42); color: #FFFFFF; padding: 0 2px; }
 """
 
 READER_CSS = """
-.rd-poster { position: fixed; top: 0; bottom: 0; right: 0; width: 36vw; z-index: 0; pointer-events: none; background-size: cover; background-position: center; opacity: 0.34; -webkit-mask-image: linear-gradient(to right, transparent, #000 72%); mask-image: linear-gradient(to right, transparent, #000 72%); }
+.rd-poster { position: fixed; top: 0; right: 0; width: min(40vw, calc(100vh * var(--ar, 0.8))); aspect-ratio: var(--ar, 0.8); max-height: 100vh; z-index: 0; pointer-events: none; background-size: cover; background-position: center top; opacity: 0.34; -webkit-mask-image: linear-gradient(to right, transparent, #000 72%), linear-gradient(to bottom, #000 65%, transparent); mask-image: linear-gradient(to right, transparent, #000 72%), linear-gradient(to bottom, #000 65%, transparent); -webkit-mask-composite: source-in; mask-composite: intersect; }
 .rd-hero-wrap, .rd-layout { position: relative; z-index: 1; }
 @media (max-width: 1000px) { .rd-poster { width: 100%; opacity: 0.1; -webkit-mask-image: none; mask-image: none; } }
 .ov-lines { opacity: 0.4; }
@@ -300,9 +309,9 @@ def page(title, desc, path, body, css='', ticker=None, current_label=None, foot_
 <meta name="description" content="{attr(desc)}">
 <link rel="canonical" href="{canon}">
 <meta name="theme-color" content="#090506">
-<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon_32.png">
-<link rel="icon" type="image/png" sizes="512x512" href="/assets/favicon_512.png">
-<link rel="apple-touch-icon" href="/assets/favicon_180.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon_32.png?v=2">
+<link rel="icon" type="image/png" sizes="512x512" href="/assets/favicon_512.png?v=2">
+<link rel="apple-touch-icon" href="/assets/favicon_180.png?v=2">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Technical Invariance Authority">
 <meta property="og:title" content="{attr(title)}">
@@ -329,6 +338,7 @@ def page(title, desc, path, body, css='', ticker=None, current_label=None, foot_
 
 </div>
 {'<script src="/assets/archive.js" defer></script>' if script else ''}
+<script src="/assets/tia-media.js" defer></script>
 </body>
 </html>
 """
@@ -685,7 +695,7 @@ def build_reader(a, w, byslug, others):
 
     sub = f'<p class="rd-sub">{esc(w["subtitle"])}</p>' if w.get('subtitle') else ''
     body = f"""<div class="rd-prog" aria-hidden="true"></div>
-<div class="rd-poster" aria-hidden="true" style="background-image: url('/assets/bgc/{POSTER[a['slug']]}.webp')"></div>
+<div class="rd-poster" aria-hidden="true" style="--ar: {poster_ar(POSTER[a['slug']])}; background-image: url('/assets/bgp/{POSTER[a['slug']]}-1x.webp'); background-image: image-set(url('/assets/bgp/{POSTER[a['slug']]}-1x.webp') 1x, url('/assets/bgp/{POSTER[a['slug']]}.webp') 2x)"></div>
 <section style="position: relative; border-bottom: 1px solid #2B1B1D">
   <div class="wrap rd-hero-wrap" style="padding-top: 26px; padding-bottom: clamp(32px, 4vw, 52px)">
     {crumbs(('ARCHIVE', '/archive/'), (a['short'], a['url']), (w['title'].upper(), None))}
@@ -900,7 +910,7 @@ def build_index(authors, byslug, works, cols):
     t = t.replace('<body>\n<div style="position: relative; background: #090506;', '<body>\n' + page_bg(INDEX_POSTER) + '<div style="position: relative;', 1)
     assert 'class="page-bg"' in t
     t = t.replace(re.search(r'<link href="https://fonts.googleapis.com/css2[^>]*>', t).group(), FONTS.split('\n')[1])
-    t = t.replace('</body>', '<script src="/assets/archive.js" defer></script>\n</body>')
+    t = t.replace('</body>', '<script src="/assets/archive.js" defer></script>\n<script src="/assets/tia-media.js" defer></script>\n</body>')
     (ROOT / 'archive' / 'index.html').write_text(t, encoding='utf-8')
 
 
@@ -917,7 +927,7 @@ def build_home(authors, works, cols):
     t = t.replace('<a href="#watch">WATCH</a>', '<a href="#watch">WATCH</a>\n      <a href="#dispatches">DISPATCHES</a>', 1)
     section = f"""
 <section id="dispatches" class="grid-bg" style="position: relative; overflow: hidden; background-color: #0C0708; border-top: 1px solid #2B1B1D">
-  <div aria-hidden="true" class="sec-bg" style="background-image: url('/assets/bgc/{DISPATCH_POSTER}.webp'); opacity: 0.22"></div>
+  <div aria-hidden="true" class="sec-bg" style="left: auto; width: min(620px, 48%); height: 100%; background-image: url('/assets/bgp/p_mon_tiananmen.webp'); background-size: cover; background-position: center top; background-repeat: no-repeat; opacity: 0.32; -webkit-mask-image: linear-gradient(to right, transparent, #000 55%), linear-gradient(to bottom, #000 60%, transparent); mask-image: linear-gradient(to right, transparent, #000 55%), linear-gradient(to bottom, #000 60%, transparent); -webkit-mask-composite: source-in; mask-composite: intersect"></div>
   <div class="wrap" style="padding-top: clamp(56px, 7vw, 100px); padding-bottom: clamp(56px, 7vw, 100px)">
     <div class="it-rv" style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 20px">
       <div>
@@ -935,7 +945,7 @@ def build_home(authors, works, cols):
     i = t.index('</section>', t.index('<section id="watch"')) + len('</section>')
     t = t[:i] + '\n' + section + t[i:]
     t = t.replace('</style>', DSP_CSS + '</style>', 1)
-    t = t.replace('</body>', '<script src="/assets/dispatches.js" defer></script>\n</body>', 1)
+    t = t.replace('</body>', '<script src="/assets/dispatches.js" defer></script>\n<script src="/assets/tia-media.js" defer></script>\n</body>', 1)
     t = t.replace('SRC: TIA ARCHIVE · 9 SUBJECTS · 8 COLLECTIONS', f'SRC: TIA ARCHIVE · 9 SUBJECTS · {nh} FULL TEXTS · 8 COLLECTIONS')
     t = re.sub(r'<div role="search" class="panel" style="padding: 22px">(.*?)</p>\n        </div>',
                lambda m: '<form role="search" class="panel" action="/archive/" method="get" style="padding: 22px">' + m.group(1) + '</p>\n        </form>',
@@ -960,7 +970,7 @@ def build_catalogue_json(authors, byslug, works, cols):
 
 
 def build_sitemap(authors, works, cols):
-    urls = ['/', '/archive/', '/dispatches/', '/arcade/', '/shop/']
+    urls = ['/', '/archive/', '/dispatches/', '/radio/', '/arcade/', '/arcade/plan1/', '/arcade/behind-jupiter/', '/arcade/red-moon/', '/arcade/wither/', '/shop/']
     urls += [a['url'] for a in authors]
     urls += [a['url'] + 'works/' for a in authors if a.get('bib')]
     urls += [w['path'] for w in sorted(works.values(), key=lambda w: w['id']) if w['kind'] == 'hosted']
@@ -1152,6 +1162,79 @@ def build_dispatches():
     d.mkdir(exist_ok=True)
     (d / 'index.html').write_text(out, encoding='utf-8')
 
+RADIO_POSTER = 'p_mon_moon'
+RADIO_CSS = """
+.rp { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 28px; align-items: start; }
+.rp-now { background: rgba(12, 7, 8, 0.9); border: 1px solid #3A2326; padding: 22px; }
+.rp-now .k { font-family: 'Manolo Mono', 'Share Tech Mono', monospace; font-size: 13px; letter-spacing: 0.16em; color: #A89C95; }
+.rp-now h2 { margin: 10px 0 4px; font: 700 clamp(28px, 3.4vw, 46px)/1.05 Inter, system-ui, sans-serif; color: #F2ECE4; }
+.rp-viz { display: block; width: 100%; height: 150px; margin: 18px 0 10px; background: #0A0607; border: 1px solid #2A1A1C; }
+.rp-bar { position: relative; height: 8px; background: #2A1A1C; cursor: pointer; }
+.rp-bar span { position: absolute; inset: 0 auto 0 0; width: 0; background: #E8222A; }
+.rp-time { display: flex; justify-content: space-between; margin-top: 6px; font-family: 'Manolo Mono', 'Share Tech Mono', monospace; font-size: 12px; color: #7A6A64; }
+.rp-ctl { display: flex; gap: 10px; align-items: center; margin-top: 16px; flex-wrap: wrap; }
+.rp-ctl button { height: 46px; min-width: 52px; background: none; border: 1px solid #3A2326; color: #F2ECE4; font: 16px 'Manolo Mono', 'Share Tech Mono', monospace; cursor: pointer; }
+.rp-ctl button:hover, .rp-ctl button:focus-visible { border-color: #E8222A; outline: none; }
+.rp-ctl .play { background: #E8222A; border-color: #E8222A; min-width: 92px; font-size: 18px; }
+.rp-ctl label { display: flex; align-items: center; gap: 8px; font: 12px 'Manolo Mono', 'Share Tech Mono', monospace; letter-spacing: 0.12em; color: #A89C95; }
+.rp-ctl input { accent-color: #E8222A; }
+.rp-list { list-style: none; margin: 0; padding: 0; border-top: 1px solid #3A2326; background: rgba(12, 7, 8, 0.86); }
+.rp-list li { border-bottom: 1px solid #2A1A1C; }
+.rp-list button { display: grid; grid-template-columns: 44px minmax(0, 1fr) auto auto; gap: 14px; align-items: center; width: 100%; padding: 16px 14px; background: none; border: 0; color: #CFC4BC; font: 15px/1.3 'Manolo Mono', 'Share Tech Mono', monospace; letter-spacing: 0.06em; text-align: left; cursor: pointer; }
+.rp-list button:hover { background: #1A1012; color: #F2ECE4; }
+.rp-list li.cur button { color: #FF5A60; }
+.rp-list .n { color: #6E5F5A; } .rp-list .b { color: #6E5F5A; font-size: 12px; }
+.rp-note { margin-top: 18px; font-size: 15px; color: #A89C95; max-width: 560px; }
+body.popout header, body.popout footer, body.popout .it-ticker, body.popout .crumbs, body.popout .rp-intro { display: none !important; }
+body.popout .rp { grid-template-columns: 1fr; }
+@media (max-width: 900px) { .rp { grid-template-columns: 1fr; } }
+"""
+
+
+def build_radio():
+    body = f"""<section style="position: relative; border-bottom: 1px solid #2B1B1D">
+  <div class="wrap rp-intro" style="position: relative; z-index: 1; padding-top: 26px; padding-bottom: 28px">
+    {crumbs(('HOME', '/'), ('RADIO', None))}
+    <span class="tag" style="margin-top: 22px">FILE 06 · TIA RADIO</span>
+    <h1 class="mn it-glitch shade" style="margin: 18px 0 0; font-size: clamp(44px, 6.2vw, 100px); line-height: 1; color: #F2ECE4">TIA RADIO</h1>
+    <p class="shade" style="margin: 20px 0 0; max-width: 680px; padding: 14px 16px; background: rgba(9, 5, 6, 0.72); border-left: 2px solid #E8222A; font-size: 19px; color: #ECE4DC">The station of the Authority. Original music from TIA Labs, free to listen. The player in the corner of every page keeps your place as you move around the site.</p>
+  </div>
+</section>
+<section class="grid-bg" style="position: relative; background-color: rgba(12, 7, 8, 0.82)">
+  <div class="wrap" style="padding-top: 32px; padding-bottom: clamp(56px, 7vw, 96px)">
+    <div class="rp" data-radio-page>
+      <div class="rp-now">
+        <div class="k">● ON AIR · <span data-rp-pos>— / —</span></div>
+        <h2 data-rp-title>Tuning…</h2>
+        <div class="k" data-rp-meta>TIA LABS</div>
+        <canvas class="rp-viz" width="800" height="150" aria-hidden="true"></canvas>
+        <div class="rp-bar" data-rp-bar role="slider" aria-label="Seek" tabindex="0"><span></span></div>
+        <div class="rp-time"><span data-rp-cur>0:00</span><span data-rp-dur>0:00</span></div>
+        <div class="rp-ctl">
+          <button data-rp="prev" aria-label="Previous track">⏮</button>
+          <button class="play" data-rp="play" aria-label="Play">▶ PLAY</button>
+          <button data-rp="next" aria-label="Next track">⏭</button>
+          <label>VOL <input type="range" min="0" max="1" step="0.01" data-rp-vol></label>
+          <label><input type="checkbox" data-rp-shuffle> SHUFFLE</label>
+          <button data-rp="pop" aria-label="Open in a small window">POP OUT ↗</button>
+        </div>
+        <p class="rp-note">Pop the player out into its own small window and it plays without a break while you read.</p>
+      </div>
+      <ol class="rp-list" data-rp-list></ol>
+    </div>
+  </div>
+</section>"""
+    out = page('TIA Radio · Technical Invariance Authority',
+               'TIA Radio: original music from TIA Labs, free to listen, with a player that follows you around the site.',
+               '/radio/', body, css=RADIO_CSS, ticker='TIA RADIO /// ORIGINAL MUSIC FROM TIA LABS /// FREE TO LISTEN /// POP OUT THE PLAYER AND KEEP READING ///',
+               current_label='/RADIO', bg=RADIO_POSTER, script=False)
+    out = out.replace('aria-current="page" style="color: #FF5A60; border-bottom: 2px solid #E8222A">ARCHIVE</a>', '>ARCHIVE</a>', 1)
+    out = out.replace('<body>', '<body data-no-radio-dock>', 1)
+    out = out.replace('</body>', '<script src="/assets/radio-page.js" defer></script>\n</body>', 1)
+    d = ROOT / 'radio'
+    d.mkdir(exist_ok=True)
+    (d / 'index.html').write_text(out, encoding='utf-8')
+
 
 def main():
     authors, byslug, works, cols = load()
@@ -1178,6 +1261,7 @@ def main():
     build_index(authors, byslug, works, cols)
     build_home(authors, works, cols)
     build_dispatches()
+    build_radio()
     build_catalogue_json(authors, byslug, works, cols)
     nb = build_bibliography_json(authors)
     print(f'  complete works: {nb:,} items ' + ', '.join(f"{a['slug']} {len(a['bib']):,}" for a in authors))

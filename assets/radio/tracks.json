@@ -1,0 +1,53 @@
+{
+ "station": "TIA Radio",
+ "tracks": [
+  {
+   "id": "plan-fulfilled",
+   "title": "Plan Fulfilled",
+   "artist": "TIA Labs",
+   "src": "/assets/radio/plan-fulfilled.mp3",
+   "dur": 134,
+   "bpm": 116
+  },
+  {
+   "id": "behind-jupiter",
+   "title": "Behind Jupiter",
+   "artist": "TIA Labs",
+   "src": "/assets/radio/behind-jupiter.mp3",
+   "dur": 107,
+   "bpm": 128
+  },
+  {
+   "id": "red-moon-carrier",
+   "title": "Red Moon Carrier Wave",
+   "artist": "TIA Labs",
+   "src": "/assets/radio/red-moon-carrier.mp3",
+   "dur": 162,
+   "bpm": 84
+  },
+  {
+   "id": "administration-of-things",
+   "title": "The Administration of Things",
+   "artist": "TIA Labs",
+   "src": "/assets/radio/administration-of-things.mp3",
+   "dur": 155,
+   "bpm": 100
+  },
+  {
+   "id": "long-generation",
+   "title": "The Long Generation",
+   "artist": "TIA Labs",
+   "src": "/assets/radio/long-generation.mp3",
+   "dur": 171,
+   "bpm": 74
+  },
+  {
+   "id": "storm-heaven",
+   "title": "Storm Heaven",
+   "artist": "TIA Labs",
+   "src": "/assets/radio/storm-heaven.mp3",
+   "dur": 94,
+   "bpm": 136
+  }
+ ]
+}

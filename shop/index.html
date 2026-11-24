@@ -7,9 +7,9 @@
 <meta name="description" content="Drop 01, Storm Heaven: nine tees, the emblem cap and nineteen poster prints, printed to order.">
 <link rel="canonical" href="https://invariancetech.info/shop/">
 <meta name="theme-color" content="#090506">
-<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon_32.png">
-<link rel="icon" type="image/png" sizes="512x512" href="/assets/favicon_512.png">
-<link rel="apple-touch-icon" href="/assets/favicon_180.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon_32.png?v=2">
+<link rel="icon" type="image/png" sizes="512x512" href="/assets/favicon_512.png?v=2">
+<link rel="apple-touch-icon" href="/assets/favicon_180.png?v=2">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Technical Invariance Authority">
 <meta property="og:title" content="TIA Supply Depot">
@@ -61,6 +61,15 @@ img { display: block; max-width: 100%; }
 .add:hover { background: #F2ECE4; color: #090506; }
 .sec-bg { position: absolute; inset: 0; background-size: cover; background-position: center; opacity: 0.34; animation: it-kb 28s ease-in-out infinite alternate; pointer-events: none; }
 .sec-bg ~ .wrap { position: relative; z-index: 1; }
+/* never blow the 1440px section images up: on wider screens show them at their own size and fade the sides */
+.sec-bg { animation: none !important; }
+@media (min-width: 1441px) {
+  .sec-bg { background-size: 1440px auto; background-repeat: no-repeat; background-position: center top;
+    -webkit-mask-image: linear-gradient(to right, transparent calc(50% - 720px), #000 calc(50% - 520px), #000 calc(50% + 520px), transparent calc(50% + 720px)), linear-gradient(to bottom, #000 0, #000 380px, transparent 720px);
+    mask-image: linear-gradient(to right, transparent calc(50% - 720px), #000 calc(50% - 520px), #000 calc(50% + 520px), transparent calc(50% + 720px)), linear-gradient(to bottom, #000 0, #000 380px, transparent 720px);
+    -webkit-mask-composite: source-in; mask-composite: intersect; }
+}
+
 .tbar { position: sticky; top: 0; z-index: 55; background: rgba(9, 5, 6, 0.94); border-bottom: 1px solid #2B1B1D; }
 
 .ov-lines { position: fixed; inset: 0; pointer-events: none; z-index: 60; background: repeating-linear-gradient(to bottom, rgba(0, 0, 0, 0) 0px, rgba(0, 0, 0, 0) 2px, rgba(0, 0, 0, 0.26) 3px, rgba(0, 0, 0, 0) 4px); animation: it-flk 0.18s steps(2) infinite; }
@@ -282,5 +291,6 @@ img { display: block; max-width: 100%; }
 
 </div>
 <script src="/assets/shop.js" defer></script>
+<script src="/assets/tia-media.js" defer></script>
 </body>
 </html>

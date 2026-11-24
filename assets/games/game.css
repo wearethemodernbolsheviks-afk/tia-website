@@ -1,0 +1,41 @@
+/* Shared shell for the TIA Arcade games */
+@font-face { font-family: 'Manolo Mono'; src: local('Manolo Mono'), local('ManoloMono-Regular'), local('Manolo Mono Regular'); font-weight: 400; font-display: swap; }
+:root { --bg: #090506; --panel: #0F0A0B; --line: #3A2326; --line2: #2A1A1C; --ink: #F2ECE4; --dim: #A89C95; --mute: #6E5F5A; --red: #E8222A; --red2: #FF5A60; --green: #39D98A; --amber: #F2B33D; --mono: 'Manolo Mono', 'Share Tech Mono', ui-monospace, monospace; }
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; background: var(--bg); color: var(--ink); font-family: Inter, system-ui, sans-serif; font-synthesis: none; }
+body { display: flex; flex-direction: column; min-height: 100vh; min-height: 100dvh; }
+a { color: var(--ink); text-decoration: none; }
+a:hover { color: var(--red2); }
+button { font: inherit; color: inherit; }
+:focus-visible { outline: 2px solid var(--red2); outline-offset: 2px; }
+.g-top { display: flex; align-items: center; gap: 16px; padding: 10px 16px; border-bottom: 1px solid var(--line2); background: #0B0708; font-family: var(--mono); font-size: 13px; letter-spacing: 0.14em; }
+.g-top img { width: 34px; height: auto; display: block; }
+.g-top .g-back { color: var(--dim); }
+.g-top .g-back:hover { color: var(--ink); }
+.g-top .g-title { color: var(--ink); }
+.g-top .g-title b { color: var(--red); font-weight: 400; }
+.g-top .g-sp { flex: 1; }
+.g-top button { background: none; border: 1px solid var(--line); height: 34px; padding: 0 12px; cursor: pointer; letter-spacing: 0.12em; color: var(--dim); font-family: var(--mono); font-size: 12px; }
+.g-top button:hover { color: var(--ink); border-color: var(--red); }
+.g-main { flex: 1; display: flex; flex-direction: column; min-height: 0; }
+.g-help { border-top: 1px solid var(--line2); padding: 14px 16px; font-family: var(--mono); font-size: 12px; letter-spacing: 0.1em; color: var(--mute); display: flex; flex-wrap: wrap; gap: 8px 24px; }
+.g-help b { color: var(--dim); font-weight: 400; }
+.btn-g { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 48px; padding: 0 24px; background: #C81D25; border: 0; color: #fff; font-weight: 800; font-size: 16px; cursor: pointer; box-shadow: 0 0 18px rgba(232, 34, 42, 0.4); }
+.btn-g:hover { background: var(--red); color: #fff; }
+.btn-g.gh { background: none; border: 1px solid var(--line); color: var(--ink); box-shadow: none; font-family: var(--mono); font-weight: 400; letter-spacing: 0.12em; font-size: 14px; }
+.btn-g.gh:hover { border-color: var(--red); }
+.g-over { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; padding: 20px; background: rgba(9, 5, 6, 0.86); z-index: 5; }
+.g-over[hidden] { display: none; }
+.g-card { max-width: 620px; width: 100%; border: 1px solid var(--line); background: rgba(12, 7, 8, 0.96); padding: clamp(20px, 4vw, 36px); }
+.g-card .k { font-family: var(--mono); font-size: 12px; letter-spacing: 0.18em; color: var(--red2); }
+.g-card h1, .g-card h2 { margin: 12px 0 10px; font-family: var(--mono); font-weight: 400; font-size: clamp(32px, 6vw, 54px); line-height: 1; letter-spacing: 0.02em; }
+.g-card p { margin: 0 0 12px; color: #CFC4BC; font-size: 16px; line-height: 1.55; }
+.g-card .q { font-family: var(--mono); font-size: 13px; color: var(--dim); letter-spacing: 0.06em; border-left: 2px solid var(--red); padding-left: 12px; margin: 16px 0; }
+.g-card .row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+.g-card .stat { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 8px; margin: 14px 0; }
+.g-card .stat div { border: 1px solid var(--line2); padding: 10px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; color: var(--mute); }
+.g-card .stat b { display: block; font-size: 22px; color: var(--ink); font-weight: 400; letter-spacing: 0.02em; margin-top: 4px; }
+.scan::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: repeating-linear-gradient(to bottom, rgba(0, 0, 0, 0.16) 0 1px, transparent 1px 3px); }
+@media (max-width: 640px) { .g-top { gap: 10px; font-size: 11px; } .g-top .g-hide-s { display: none; } }
+@media (prefers-reduced-motion: reduce) { * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; } }
+@media (max-width: 640px) { .g-top img { width: 28px; } .g-top .g-title { font-size: 10px; letter-spacing: 0.08em; } .g-top button { white-space: nowrap; padding: 0 8px; } .g-top .g-back { white-space: nowrap; } }

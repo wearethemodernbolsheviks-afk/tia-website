@@ -7,9 +7,9 @@
 <meta name="description" content="Full text of Der Briefwechsel zwischen Friedrich Engels und Karl Marx, Erster Band (1844–1853) by Karl Marx and Friedrich Engels. Edited by August Bebel and Eduard Bernstein. Stuttgart, Dietz, 1921 (first published 1913). Free to read and download.">
 <link rel="canonical" href="https://invariancetech.info/archive/marx/briefwechsel-1/">
 <meta name="theme-color" content="#090506">
-<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon_32.png">
-<link rel="icon" type="image/png" sizes="512x512" href="/assets/favicon_512.png">
-<link rel="apple-touch-icon" href="/assets/favicon_180.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon_32.png?v=2">
+<link rel="icon" type="image/png" sizes="512x512" href="/assets/favicon_512.png?v=2">
+<link rel="apple-touch-icon" href="/assets/favicon_180.png?v=2">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Technical Invariance Authority">
 <meta property="og:title" content="Der Briefwechsel zwischen Friedrich Engels und Karl Marx, Erster Band · Karl Marx and Friedrich Engels · TIA Archive">
@@ -112,16 +112,16 @@ img { display: block; max-width: 100%; }
 }
 
 @media (max-width: 1500px) { .tbar .wrap > span.mn:last-child { display: none; } }
-.page-bg { position: fixed; inset: 0; z-index: -1; background-size: cover; background-position: center; pointer-events: none; animation: it-kb 40s ease-in-out infinite alternate; }
-.page-bg::after { content: ""; position: absolute; inset: 0; background: linear-gradient(100deg, rgba(9, 5, 6, 0.86) 0%, rgba(9, 5, 6, 0.62) 50%, rgba(9, 5, 6, 0.42) 100%); }
-@media (max-width: 760px) { .page-bg::after { background: rgba(9, 5, 6, 0.7); } }
-@media (prefers-reduced-motion: reduce) { .page-bg { animation: none !important; } }
+/* the whole poster, shown no bigger than the sharp 2x copy allows, set against the dark page on the right */
+.page-bg { position: fixed; top: 0; right: 0; width: min(58vw, calc(100vh * var(--ar, 0.8)), 1440px); aspect-ratio: var(--ar, 0.8); max-height: 100vh; z-index: -1; pointer-events: none; background-image: var(--p1); background-image: image-set(var(--p1) 1x, var(--p2) 2x); background-size: cover; background-position: center top; -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.55) 22%, #000 48%), linear-gradient(to bottom, #000 70%, transparent); mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.55) 22%, #000 48%), linear-gradient(to bottom, #000 70%, transparent); -webkit-mask-composite: source-in; mask-composite: intersect; }
+.page-bg::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(9, 5, 6, 0.25), rgba(9, 5, 6, 0.1) 40%, rgba(9, 5, 6, 0.55)), repeating-linear-gradient(to bottom, rgba(9, 5, 6, 0.16) 0 1px, transparent 1px 3px); }
+@media (max-width: 760px) { .page-bg { left: 0; width: 100%; max-height: none; -webkit-mask-image: linear-gradient(to bottom, #000 30%, transparent); mask-image: linear-gradient(to bottom, #000 30%, transparent); opacity: 0.5; } }
 .wall { position: absolute; inset: 0; overflow: hidden; pointer-events: none; opacity: var(--o, 0.2); -webkit-mask-image: linear-gradient(to bottom, transparent, #000 10%, #000 90%, transparent); mask-image: linear-gradient(to bottom, transparent, #000 10%, #000 90%, transparent); }
 .wall-in { position: absolute; left: 0; right: 0; top: -19.444vw; bottom: 0; background-repeat: repeat-y; background-size: 25% auto; background-position: 0 0, 33.333% 41%, 66.667% 17%, 100% 63%; animation: it-wall 150s linear infinite; }
 @keyframes it-wall { from { transform: translateY(0); } to { transform: translateY(19.444vw); } }
 @keyframes it-wall-m { from { transform: translateY(0); } to { transform: translateY(38.889vw); } }
 .wall ~ .wrap, .side-poster ~ .wrap { position: relative; z-index: 1; }
-.side-poster { position: absolute; top: 0; bottom: 0; right: 0; width: min(54%, 780px); background-size: cover; background-position: center; opacity: 0.62; -webkit-mask-image: linear-gradient(to right, transparent, #000 62%); mask-image: linear-gradient(to right, transparent, #000 62%); pointer-events: none; transform-origin: right center; animation: it-kb 30s ease-in-out infinite alternate; }
+.side-poster { position: absolute; top: 0; bottom: 0; right: 0; width: min(54%, 720px); background-size: cover; background-position: center top; opacity: 0.62; -webkit-mask-image: linear-gradient(to right, transparent, #000 62%); mask-image: linear-gradient(to right, transparent, #000 62%); pointer-events: none; }
 .shade { text-shadow: 0 2px 18px rgba(9, 5, 6, 0.95), 0 0 2px rgba(9, 5, 6, 0.9); }
 .dos-bg { position: absolute; inset: 0; background-size: cover; background-position: center; opacity: 0.22; transition: opacity 300ms ease; }
 .dos:hover .dos-bg { opacity: 0.42; }
@@ -183,7 +183,7 @@ mark { background: rgba(232, 34, 42, 0.42); color: #FFFFFF; padding: 0 2px; }
 .scan-bar { height: 2px; margin-top: 10px; background: #241618; overflow: hidden; }
 .scan-bar i { display: block; height: 100%; width: 0; background: #E8222A; box-shadow: 0 0 8px rgba(232, 34, 42, 0.8); transition: width 160ms linear; }
 
-.rd-poster { position: fixed; top: 0; bottom: 0; right: 0; width: 36vw; z-index: 0; pointer-events: none; background-size: cover; background-position: center; opacity: 0.34; -webkit-mask-image: linear-gradient(to right, transparent, #000 72%); mask-image: linear-gradient(to right, transparent, #000 72%); }
+.rd-poster { position: fixed; top: 0; right: 0; width: min(40vw, calc(100vh * var(--ar, 0.8))); aspect-ratio: var(--ar, 0.8); max-height: 100vh; z-index: 0; pointer-events: none; background-size: cover; background-position: center top; opacity: 0.34; -webkit-mask-image: linear-gradient(to right, transparent, #000 72%), linear-gradient(to bottom, #000 65%, transparent); mask-image: linear-gradient(to right, transparent, #000 72%), linear-gradient(to bottom, #000 65%, transparent); -webkit-mask-composite: source-in; mask-composite: intersect; }
 .rd-hero-wrap, .rd-layout { position: relative; z-index: 1; }
 @media (max-width: 1000px) { .rd-poster { width: 100%; opacity: 0.1; -webkit-mask-image: none; mask-image: none; } }
 .ov-lines { opacity: 0.4; }
@@ -271,7 +271,7 @@ mark { background: rgba(232, 34, 42, 0.42); color: #FFFFFF; padding: 0 2px; }
 </header>
 
 <div class="rd-prog" aria-hidden="true"></div>
-<div class="rd-poster" aria-hidden="true" style="background-image: url('/assets/bgc/p_mon_marx_chemnitz.webp')"></div>
+<div class="rd-poster" aria-hidden="true" style="--ar: 1.0390; background-image: url('/assets/bgp/p_mon_marx_chemnitz-1x.webp'); background-image: image-set(url('/assets/bgp/p_mon_marx_chemnitz-1x.webp') 1x, url('/assets/bgp/p_mon_marx_chemnitz.webp') 2x)"></div>
 <section style="position: relative; border-bottom: 1px solid #2B1B1D">
   <div class="wrap rd-hero-wrap" style="padding-top: 26px; padding-bottom: clamp(32px, 4vw, 52px)">
     <nav class="crumbs mn" aria-label="Breadcrumb"><a href="/archive/">ARCHIVE</a> / <a href="/archive/marx/">MARX</a> / <span style="color: #F2ECE4">DER BRIEFWECHSEL ZWISCHEN FRIEDRICH ENGELS UND KARL MARX, ERSTER BAND</span></nav>
@@ -5251,5 +5251,6 @@ So möchte ich wohl Gemeinderat von Wesel sein“ –</p>
 
 </div>
 <script src="/assets/archive.js" defer></script>
+<script src="/assets/tia-media.js" defer></script>
 </body>
 </html>
