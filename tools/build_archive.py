@@ -291,7 +291,8 @@ def page(title, desc, path, body, css='', ticker=None, current_label=None, foot_
     header = HEADER
     if current_label:
         header = header.replace('TERMINAL 01 · /ARCHIVE', f'TERMINAL 01 · {esc(current_label)}')
-    footer = FOOTER.replace('INVARIANCETECH.INFO/ARCHIVE', esc(foot_label or ('INVARIANCETECH.INFO' + path.rstrip('/').upper())))
+    footer = FOOTER.replace('<span>INVARIANCETECH.INFO/ARCHIVE</span>', '<span style="overflow-wrap: anywhere; min-width: 0">INVARIANCETECH.INFO/ARCHIVE</span>')
+    footer = footer.replace('INVARIANCETECH.INFO/ARCHIVE', esc(foot_label or ('INVARIANCETECH.INFO' + path.rstrip('/').upper())))
     tick = ''
     if ticker:
         t = esc(ticker)
@@ -408,7 +409,7 @@ def work_link_attrs(w):
 
 # ---------------------------------------------------------------- text parsing
 
-CHAP = re.compile(r'^(CHAPTER|PART|BOOK|SECTION|APPENDIX|LECTURE|KAPITEL|TEIL)\b|^[IVXLC]+\.?(\s|$)|^\d{1,2}\.\s+[A-Z]|^§', re.I)
+CHAP = re.compile(r'^(CHAPTER|PART|BOOK|SECTION|APPENDIX|LECTURE|LETTER|KAPITEL|TEIL)\b|^[IVXLC]+\.?(\s|$)|^\d{1,2}\.\s+[A-Z]|^§', re.I)
 TOCLINE = re.compile(r'\S\s{3,}(\d+|[ivxlc]+)\s*$', re.I)
 BOXLINE = re.compile(r'^\s*\+-+\+\s*$')
 CONTENTS_RE = re.compile(r'^(TABLE OF )?CONTENTS\.?$|^INHALT', re.I)
