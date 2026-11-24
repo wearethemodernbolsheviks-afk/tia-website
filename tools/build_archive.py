@@ -244,6 +244,8 @@ READER_CSS = """
 .rd-h1 { margin: 16px 0 0; font-family: 'Manolo Mono', 'Share Tech Mono', monospace; font-weight: 400; font-size: clamp(32px, 4.4vw, 62px); line-height: 1.04; color: #F2ECE4; text-transform: uppercase; }
 .rd-sub { margin: 12px 0 0; max-width: 760px; font-size: 18px; color: #CFC4BC; }
 .rd-ed { margin: 14px 0 0; max-width: 760px; font-size: 15px; color: #A89C95; }
+.rd-ed a, .text a { color: #FF8A8E; border-bottom: 1px dotted #6E3A3D; overflow-wrap: anywhere; }
+.rd-ed a:hover, .text a:hover { color: #FF5A60; }
 .rd-act { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
 .rd-layout { display: grid; grid-template-columns: 270px minmax(0, 1fr); gap: 56px; padding-top: 40px; padding-bottom: 80px; }
 .rd-layout.solo { grid-template-columns: minmax(0, 880px); justify-content: center; }
@@ -433,6 +435,7 @@ def inline(s, lang):
         s = s.replace('--', '—')
     else:
         s = s.replace(' -- ', ' – ').replace('--', '–')
+    s = re.sub(r'(https://www\.marxists\.org/[\w./%-]+[\w/])', r'<a href="\1" rel="noopener">\1</a>', s)
     return s
 
 
@@ -655,6 +658,28 @@ def crumbs(*items):
 
 # ---------------------------------------------------------------- builders
 
+CC_BY_SA = 'https://creativecommons.org/licenses/by-sa/4.0/'
+
+
+def rights_html(w):
+    if w.get('rights') == 'cc-by-sa':
+        many = 'short-writings' in w['id']
+        return (f'{"The originals are" if many else "The original is"} in the public domain. '
+                f'{"The translations were" if many else "The translation was"} made for the Marxists Internet Archive, '
+                'which publishes its volunteers\' work under a Creative Commons Attribution-ShareAlike licence. '
+                f'This edition (reformatted, a few slips corrected) is shared under <a href="{CC_BY_SA}" rel="license noopener">CC BY-SA 4.0</a>. '
+                f'Source: <a href="{attr(w["source"])}" rel="noopener">marxists.org</a>.')
+    return 'Public domain.'
+
+
+def rights_txt(w):
+    if w.get('rights') == 'cc-by-sa':
+        return ('Original in the public domain. Translation made for the Marxists Internet Archive (marxists.org), '
+                'CC BY-SA. This edition (reformatted, a few slips corrected): CC BY-SA 4.0, ' + CC_BY_SA + '\n'
+                'Source: ' + w['source'] + '\nPrepared for the TIA archive: ' + SITE + w['path'])
+    return 'Public domain. Prepared for the TIA archive: ' + SITE + w['path']
+
+
 def build_reader(a, w, byslug, others):
     lang = w.get('lang', 'en')
     raw = (CONTENT / 'texts' / f'{w["id"]}.txt').read_text(encoding='utf-8')
@@ -670,7 +695,7 @@ def build_reader(a, w, byslug, others):
     by = byline(w, byslug)
     txt_head = '\n'.join(filter(None, [
         w['title'].upper(), w.get('subtitle', ''), '', by, w['year'], '', w['edition'],
-        'Public domain. Prepared for the TIA archive: ' + SITE + w['path'], '', '-' * 60, '', '']))
+        rights_txt(w), '-' * 60])) + '\n\n'
     (folder / f'{w["slug"]}.txt').write_text(txt_head + text.strip() + '\n', encoding='utf-8')
 
     (ROOT / 'archive' / 'text').mkdir(parents=True, exist_ok=True)
@@ -707,7 +732,7 @@ def build_reader(a, w, byslug, others):
         <h1 class="rd-h1 it-glitch">{esc(w['title'])}</h1>
         {sub}
         <p class="src">{esc(by.upper())} · {esc(w['year'])} · {words(nwords)} WORDS · {rt} · {'ENGLISH' if lang == 'en' else 'DEUTSCH'}</p>
-        <p class="rd-ed">{esc(w['edition'])} Public domain.</p>
+        <p class="rd-ed">{esc(w['edition'])} {rights_html(w)}</p>
         <div class="rd-act"><a class="btn" href="#p1">Start reading</a><a class="btn gh" href="{w['slug']}.txt" download>DOWNLOAD .TXT</a><a class="btn gh" href="{a['url']}">{a['short']} DOSSIER</a></div>
       </div>
     </div>
@@ -838,7 +863,7 @@ def build_index(authors, byslug, works, cols):
                   f'SRC: TIA ARCHIVE · 9 SUBJECTS · {len(works)} WORKS · {nh} FULL TEXTS · 1770 — 1970')
     t = t.replace('/// 1770 — 1970 ///', f'/// {len(works)} WORKS /// {nh} FULL TEXTS /// 1770 — 1970 ///')
     t = t.replace('Every major thinker, filed by tendency. Open a dossier to read their works in order, from the first article to the last letter.',
-                  'Every major thinker, filed by tendency. Open a dossier for their works in order. Texts in the public domain are here in full and searchable; the rest link to the Marxists Internet Archive.')
+                  'Every major thinker, filed by tendency. Open a dossier for their works in order. Texts in the public domain, and a few public-domain originals in freely licensed translations, are here in full and searchable; the rest link to the Marxists Internet Archive.')
     search = f"""<form role="search" id="ar-form" action="/archive/" method="get" style="flex: 1 1 360px; min-width: 0; padding: 20px; background: rgba(9, 5, 6, 0.82); border: 1px solid #3A2326">
       <label for="ar-q" class="mn" style="display: block; font-size: 14px; letter-spacing: 0.14em; color: #A89C95">&gt; QUERY THE ARCHIVE</label>
       <div style="display: flex; gap: 10px; margin-top: 12px">
@@ -893,7 +918,7 @@ def build_index(authors, byslug, works, cols):
     <div class="it-rv" id="texts" style="margin-top: 56px">
       <div style="display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 10px; border-bottom: 1px solid #3A2326; padding-bottom: 10px">
         <p class="mn" style="margin: 0; font-size: 18px; letter-spacing: 0.1em">READING ROOM · {nh} FULL TEXTS</p>
-        <span class="mn" style="font-size: 13px; letter-spacing: 0.1em; color: #A89C95">PUBLIC DOMAIN · FREE TO READ AND DOWNLOAD</span>
+        <span class="mn" style="font-size: 13px; letter-spacing: 0.1em; color: #A89C95">PUBLIC DOMAIN OR CC BY-SA · FREE TO READ AND DOWNLOAD</span>
       </div>
       {text_rows}
     </div>

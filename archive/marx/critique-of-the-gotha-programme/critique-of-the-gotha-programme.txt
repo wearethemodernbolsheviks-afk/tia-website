@@ -4,7 +4,9 @@ Karl Marx
 1875
 A new translation from the German, made for the TIA archive in 2026 from the text of the Marx-Engels Werke (vols. 19 and 22). It follows Marx's manuscript, so it includes the passages Engels cut when he first published the notes in 1891.
 Public domain. Prepared for the TIA archive: https://invariancetech.info/archive/marx/critique-of-the-gotha-programme/
-------------------------------------------------------------CRITIQUE OF THE GOTHA PROGRAMME
+------------------------------------------------------------
+
+CRITIQUE OF THE GOTHA PROGRAMME
 
 by Karl Marx
 
