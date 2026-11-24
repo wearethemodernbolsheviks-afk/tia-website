@@ -56,6 +56,7 @@
       "slug": "kautsky",
       "mia": "https://www.marxists.org/archive/kautsky/index.htm",
       "works": [
+        {"id": "kautsky-1887-frederick-engels", "slug": "frederick-engels", "title": "Frederick Engels: His Life, His Work and His Writings", "year": "1887", "kind": "hosted", "key": true, "lang": "en", "edition": "Translated by May Wood Simons. Library of Progress No. 32, Charles H. Kerr & Company, Chicago, 1899. Kautsky's portrait of 1887, framed by an account of Engels's last years written after his death in 1895.", "cols": ["marx-and-engels", "second-international"]},
         {"id": "kautsky-1892-class-struggle", "title": "The Class Struggle (Erfurt Program)", "year": "1892", "kind": "link", "key": true, "url": "https://www.marxists.org/archive/kautsky/1892/erfurt/ch01.htm", "cols": ["the-programme", "second-international"]},
         {"id": "kautsky-1899-agrarian-question", "title": "The Agrarian Question", "year": "1899", "kind": "link", "key": true, "url": "https://www.marxists.org/archive/kautsky/index.htm", "cols": ["second-international"]},
         {"id": "kautsky-1909-road-to-power", "title": "The Road to Power", "year": "1909", "kind": "link", "key": true, "url": "https://www.marxists.org/archive/kautsky/1909/power/index.htm", "cols": ["second-international"]}
@@ -91,6 +92,7 @@
         {"id": "luxemburg-1906-massenstreik", "slug": "massenstreik", "title": "Massenstreik, Partei und Gewerkschaften", "subtitle": "The Mass Strike, the Political Party and the Trade Unions, in the original German", "year": "1906", "kind": "hosted", "key": true, "lang": "de", "edition": "First edition, Hamburg, 1906.", "pg": 31614, "cols": ["second-international", "the-german-left"]},
         {"id": "luxemburg-1906-mass-strike-english", "title": "The Mass Strike (English translation)", "year": "1906", "kind": "link", "url": "https://www.marxists.org/archive/luxemburg/index.htm", "cols": ["the-german-left"]},
         {"id": "luxemburg-1913-accumulation", "title": "The Accumulation of Capital", "year": "1913", "kind": "link", "key": true, "url": "https://www.marxists.org/archive/luxemburg/index.htm", "cols": ["the-german-left"]},
+        {"id": "luxemburg-1915-junius-pamphlet", "slug": "junius-pamphlet", "title": "The Crisis in the German Social-Democracy", "subtitle": "The Junius Pamphlet, written in prison in 1915", "year": "1915", "kind": "hosted", "key": true, "lang": "en", "edition": "The Socialist Publication Society, New York, 1919. The translator is not named.", "cols": ["the-german-left"]},
         {"id": "luxemburg-1916-briefe-aus-dem-gefaengnis", "slug": "briefe-aus-dem-gefaengnis", "title": "Briefe aus dem Gefängnis", "subtitle": "Letters from prison to Sophie Liebknecht, 1916–1918, in the original German", "year": "1916–1918", "kind": "hosted", "lang": "de", "edition": "Berlin, Verlag der Jugendinternationale, 1922.", "cols": ["the-german-left"], "pg": 26964}
       ]
     },
