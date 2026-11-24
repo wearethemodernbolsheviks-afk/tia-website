@@ -9,6 +9,10 @@ and so is the editorial apparatus: forewords, notes, indexes, text variants and 
 translations of foreign words in angle brackets. Page numbers of the MEW edition are kept as
 markers so the texts can be cited.
 
+Angle brackets are dropped everywhere except in the files listed in KEEP_ANGLE, where the MEW
+editors used them for the authors' own words (in the Critique of the Gotha Programme they mark
+the passages Engels left out in 1891). There the text is kept and the brackets are shown as ⟨ ⟩.
+
 Writes content/werke/index.json and content/werke/<band>/<file>.json.
 """
 import html
@@ -34,6 +38,30 @@ AUTHORS = {
 BLOCK = {'p', 'div', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'blockquote', 'li', 'center', 'dd', 'dt', 'pre', 'address'}
 SKIP = {'script', 'style', 'head', 'title', 'noscript'}
 INLINE = {'i': 'i', 'em': 'i', 'b': 'b', 'strong': 'b', 'sup': 'sup', 'sub': 'sub', 'u': 'i'}
+
+# Files whose angle brackets hold the authors' text, with the note a reader needs. MEW 19 says of
+# the Critique: "Stellen, die 1891 ausgelassen und durch Punkte ersetzt wurden, sind in spitze
+# Klammern gesetzt."
+KEEP_ANGLE = {
+    'me19_013.htm': 'Text in ⟨ ⟩ was left out when Engels first published the Critique in 1891.',
+}
+# The mirror turned some bracketed passages into fake tags (<nicht nur="">). Most have a correct
+# escaped copy beside them and are simply removed; these two have none and are restored here.
+REPAIR = {
+    'me19_013.htm': [
+        (r'<nicht nur="">', '&lt;nicht nur&gt; '),
+        (r'<man alle="" die="" eigne="" eskamotieren="" kommen="" kritik="" lassen\.="" nachdenken="" nicht="" offenbar="" '
+         r'partei="" und="" wollte="" zum="">',
+         '&lt;Man wollte offenbar alle Kritik eskamotieren und die eigne Partei nicht zum Nachdenken kommen lassen.&gt; '),
+        # slips in the online text, read against the fake-tag copies of the same passages
+        (r'Nach anbehaltenem Koalitionskongre', 'Nach abgehaltnem Koalitionskongre'),
+        (r'sondern sogar fr jeden Schritt', 'sondern sogar für jeden Schritt'),
+        (r'dem ich enbenfalls', 'dem ich ebenfalls'),
+    ],
+}
+HTML_TAGS = set('a abbr address b big blockquote body br center cite code col colgroup dd div dl dt em font form h1 h2 h3 h4 h5 h6 '
+                'head hr html i img input li link map area meta noscript ol p pre s script small span strike strong style '
+                'sub sup table tbody td tfoot th thead title tr tt u ul'.split())
 
 
 def load(f):
@@ -263,16 +291,20 @@ class Conv(HTMLParser):
         self.flush()
 
 
-def tidy(h):
-    """Clean one block of html."""
+def tidy(h, keep_angle=False):
+    """Clean one block of html. keep_angle: the angle brackets hold the authors' text (KEEP_ANGLE)."""
     # page markers written as text: |15|, <15>
     h = re.sub(r'(?:&lt;|\|)\s*(\d{1,4})\s*(?:&gt;|\|)', r'<span class="pg" data-p="\1"></span>', h)
-    # the editors' translations of foreign words: <...>
-    for _ in range(3):
-        h = re.sub(r'\s?&lt;(?:(?!&lt;|&gt;).){1,400}?&gt;', '', h, flags=re.S)
+    if not keep_angle:
+        # the editors' translations of foreign words: <...>
+        for _ in range(3):
+            h = re.sub(r'\s?&lt;(?:(?!&lt;|&gt;).){1,400}?&gt;', '', h, flags=re.S)
     h = re.sub(r'\{\d+\}', '', h)                       # text-variant markers
     h = re.sub(r'<a href="#[^"]*">\s*(?:&lt;=|<=|=&gt;|↑|zurück)\s*</a>', '', h)
     h = re.sub(r'(?:&lt;=|&lt;-)\s*$', '', h)
+    if keep_angle:
+        h = re.sub(r'&lt;\s*', '⟨', h)
+        h = re.sub(r'\s*&gt;', '⟩', h)
     h = re.sub(r'<(i|b|sup|sub)>(\s*)</\1>', r'\2', h)
     h = re.sub(r'<a href="#[^"]*">(\s*)</a>', r'\1', h)
     h = h.replace('\xa0', ' ')
@@ -295,6 +327,14 @@ def parse_file(path):
     src = re.search(r'Seitenzahlen verweisen auf:(.*?)(?:</p>|</small>|</font>|<hr)', s, re.I | re.S)
     srctxt = clean_text(src.group(1)) if src else ''
     pages = re.search(r'S\.\s*(\d+)\s*(?:-|–|bis)\s*(\d+)', srctxt)
+    keep = path.name in KEEP_ANGLE
+    if keep:
+        for pat, rep in REPAIR.get(path.name, []):
+            s, n = re.subn(pat, rep, s)
+            if n != 1:
+                print('  repair did not match once in', path.name, ':', pat[:40], file=sys.stderr)
+        # the remaining fake tags duplicate an escaped passage next to them
+        s = re.sub(r'</?([A-Za-zÄÖÜäöüß][^\s>/]*)(?:\s[^>]*)?>', lambda m: m.group(0) if m.group(1).lower() in HTML_TAGS else '', s)
     c = Conv(path.name)
     try:
         c.feed(s)
@@ -307,7 +347,7 @@ def parse_file(path):
         if k == 'table':
             blocks.append([k, h])
             continue
-        h = tidy(h)
+        h = tidy(h, keep)
         blocks.append([k, h])
     return {'file': path.name, 'title': title, 'src': srctxt, 'pages': [int(pages.group(1)), int(pages.group(2))] if pages else None,
             'raw': s, 'blocks': blocks}
@@ -702,6 +742,9 @@ def main(src):
              'words': w['words'], 'parts': parts}
         if w['note']:
             e['note'] = w['note']
+        brackets = [KEEP_ANGLE[p['id'] + '.htm'] for p in parts if p['id'] + '.htm' in KEEP_ANGLE]
+        if brackets:
+            e['brackets'] = brackets[0]
         e['origin'] = w['origin']
         review.append(f"{wid}\t{w['origin']}\t{','.join(w['who'])}\t{w['words']}\t{w['title'][:80]}\t{w['pre'][:420]}")
         index.append(e)

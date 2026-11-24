@@ -65,7 +65,7 @@
         {"id": "lassalle-1863-national-workshops", "slug": "the-french-national-workshops-of-1848", "title": "The French National Workshops of 1848", "subtitle": "A reply to the liberal press on what the Paris workshops of 1848 really were", "year": "1863", "kind": "hosted", "lang": "en", "edition": "An anonymous translation, with an editorial introduction, from the Social Democrat (London), April 1906."},
         {"id": "lassalle-1863-voices-of-revolt", "title": "Voices of Revolt: Speeches", "year": "1862–1863", "kind": "link", "url": "https://www.marxists.org/archive/lassalle/revolt/index.html"},
         {"id": "lassalle-1864-what-is-capital", "title": "What is Capital?", "year": "1864", "kind": "link", "url": "https://www.marxists.org/archive/lassalle/works/whatiscapital.htm"},
-        {"id": "lassalle-1875-gotha-programme", "title": "The Gotha Programme", "subtitle": "The 1875 unity programme that carried his ideas into the new Socialist Workers' Party, eleven years after his death. Not written by Lassalle", "year": "1875", "kind": "link", "url": "https://www.marxists.org/archive/liebknecht-w/socialism/gotha.html"}
+        {"id": "lassalle-1875-gotha-programme", "slug": "the-gotha-programme", "title": "The Gotha Programme", "subtitle": "The 1875 unity programme that carried his ideas into the new Socialist Workers' Party, eleven years after his death. Not written by Lassalle", "year": "1875", "kind": "hosted", "lang": "en", "edition": "Translated by May Wood Simons, in Wilhelm Liebknecht, Socialism: What It Is and What It Seeks to Accomplish. Chicago, Charles H. Kerr, 1901 printing."}
       ]
     },
     {
