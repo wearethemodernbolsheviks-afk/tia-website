@@ -1,6 +1,6 @@
 {
-  "_how": "Fill this in once the Fourthwall shop exists. shop = your Fourthwall shop domain (e.g. tia-supply.fourthwall.com, or your own domain if you connect one). For each item, paste the Fourthwall variant ID for every size into variants. If you would rather not copy IDs, set storefrontToken (Fourthwall > Settings > For developers > Storefront token) and each item's slug (the last part of its Fourthwall product URL); the site then looks the sizes up itself. Leave shop empty and the cart shows an 'opening soon' notice at checkout.",
-  "shop": "",
+  "_how": "shop = the Fourthwall shop domain; storefrontToken = the public Storefront API token (Fourthwall > Settings > For developers). With both set, the site reads the shop's products and matches each item by its exact name on the shop page, so products need no IDs here. The shop opens by itself once the Fourthwall shop has products; set live to true to open it sooner. To pin an item to a specific Fourthwall product, give its slug (the last part of the product URL) or paste variant IDs per size.",
+  "shop": "amadeus-mir-shop.fourthwall.com",
   "currency": "USD",
   "storefrontToken": "",
   "products": {

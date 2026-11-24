@@ -189,20 +189,58 @@
     if (config) return Promise.resolve(config);
     return fetch('/shop/fourthwall.json', { cache: 'no-cache' }).then(function (r) { return r.json(); }).then(function (c) { config = c; return c; });
   }
+  var API = 'https://storefront-api.fourthwall.com/v1/';
+  function pickVariant(prod, size, strict) {
+    var vs = (prod && (prod.variants || (prod.product && prod.product.variants))) || [];
+    if (vs.length === 1 && !strict) return vs[0].id;
+    var want = size.toLowerCase();
+    var hit = vs.filter(function (v) {
+      var a = v.attributes || {};
+      var cand = [a.size && a.size.name, a.description, v.name].filter(Boolean).map(function (s) { return String(s).toLowerCase(); });
+      return cand.some(function (c) { return c === want || c.split(/[\s,\/|-]+/).indexOf(want) !== -1; });
+    })[0];
+    return hit ? hit.id : '';
+  }
   function lookupVariant(cfg, entry, size) {
     if (!cfg.storefrontToken || !entry || !entry.slug) return Promise.resolve('');
-    var url = 'https://storefront-api.fourthwall.com/v1/products/' + encodeURIComponent(entry.slug) + '?storefront_token=' + encodeURIComponent(cfg.storefrontToken);
-    return fetch(url).then(function (r) { return r.json(); }).then(function (prod) {
-      var vs = prod.variants || (prod.product && prod.product.variants) || [];
-      if (vs.length === 1) return vs[0].id;
-      var want = size.toLowerCase();
-      var hit = vs.filter(function (v) {
-        var a = v.attributes || {};
-        var cand = [a.size && a.size.name, a.description, v.name].filter(Boolean).map(function (s) { return String(s).toLowerCase(); });
-        return cand.some(function (c) { return c === want || c.split(/[\s,\/|-]+/).indexOf(want) !== -1; });
-      })[0];
-      return hit ? hit.id : '';
-    }).catch(function () { return ''; });
+    var url = API + 'products/' + encodeURIComponent(entry.slug) + '?storefront_token=' + encodeURIComponent(cfg.storefrontToken);
+    return fetch(url).then(function (r) { return r.json(); }).then(function (prod) { return pickVariant(prod, size); }).catch(function () { return ''; });
+  }
+  /* Every product in the Fourthwall shop, keyed by name, so items need no IDs: a product
+     named exactly as on this page is found by itself. */
+  function norm(s) { return String(s || '').toLowerCase().replace(/[‘’]/g, "'").replace(/[^a-z0-9']+/g, ' ').trim(); }
+  var catalog = null;
+  function getCatalog(cfg) {
+    if (catalog) return catalog;
+    if (!cfg.shop || !cfg.storefrontToken) return (catalog = Promise.resolve({}));
+    var byName = {};
+    function page(n, left) {
+      var url = API + 'collections/all/products?storefront_token=' + encodeURIComponent(cfg.storefrontToken) + '&size=100' + (n == null ? '' : '&page=' + n);
+      return fetch(url).then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); }).then(function (d) {
+        (d.results || []).forEach(function (p) {
+          if (p && p.name && (!p.access || p.access.type === 'PUBLIC' || p.access.type === 'HIDDEN')) (byName[norm(p.name)] = byName[norm(p.name)] || []).push(p);
+        });
+        var pg = d.paging || {};
+        return pg.hasNextPage && left > 0 ? page((pg.pageNumber || 0) + 1, left - 1) : byName;
+      });
+    }
+    catalog = page(null, 20).catch(function () { catalog = null; return null; });
+    return catalog;
+  }
+  function storeOpen(cfg, cat) { return !!cfg.shop && (cfg.live === true || !!(cat && Object.keys(cat).length)); }
+  /* A print may be called "Lenin Moon" or "Lenin Moon Print" in Fourthwall; a tee only matches a
+     product that has its size, so the tee and the print of the same name never get mixed up. */
+  var SUFFIX = { tee: [' tee', ' t shirt', ' tshirt', ' shirt', ''], print: [' print', ' poster', ' a3 print', ''], cap: [''], digital: [''] };
+  function findVariant(cat, p, size) {
+    var keys = (SUFFIX[p.type] || ['']).map(function (s) { return norm(p.name + s); });
+    for (var k = 0; k < keys.length; k++) {
+      var list = (cat && cat[keys[k]]) || [];
+      for (var j = 0; j < list.length; j++) {
+        var id = pickVariant(list[j], size, p.type === 'tee');
+        if (id) return id;
+      }
+    }
+    return '';
   }
   $('#cart-go').addEventListener('click', function () {
     var msg = $('#cart-msg'), go = $('#cart-go');
@@ -210,7 +248,11 @@
     go.disabled = true;
     msg.textContent = 'Connecting to the store…';
     getConfig().then(function (cfg) {
-      if (!cfg.shop) {
+      return Promise.resolve(getCatalog(cfg)).then(function (cat) { return [cfg, cat]; });
+    }).then(function (cc) {
+      var cfg = cc[0], cat = cc[1];
+      if (cfg.shop && cat === null) throw new Error('store unreachable');
+      if (!storeOpen(cfg, cat)) {
         msg.innerHTML = 'The store is opening soon. Your cart is saved on this device, so you can check out the moment it goes live. New drops are announced on <a href="https://www.youtube.com/@Invariance_Tech" target="_blank" rel="noopener">YouTube</a>.';
         go.disabled = false;
         return;
@@ -218,7 +260,9 @@
       return Promise.all(cart.map(function (l) {
         var entry = (cfg.products || {})[l.sku] || {};
         var id = entry.variants && entry.variants[l.size];
-        return id ? Promise.resolve(id) : lookupVariant(cfg, entry, l.size);
+        if (id) return Promise.resolve(id);
+        if (entry.slug) return lookupVariant(cfg, entry, l.size);
+        return Promise.resolve(findVariant(cat, products[l.sku], l.size));
       })).then(function (ids) {
         var missing = cart.filter(function (l, i) { return !ids[i]; });
         if (missing.length) {
@@ -239,8 +283,10 @@
 
   /* store status line */
   getConfig().then(function (cfg) {
-    var st = $('#shop-status');
-    if (st && cfg.shop) { st.innerHTML = '<span class="dot"></span>DROP 01 · LIVE'; st.style.color = '#39D98A'; }
+    return Promise.resolve(getCatalog(cfg)).then(function (cat) {
+      var st = $('#shop-status');
+      if (st && storeOpen(cfg, cat)) { st.innerHTML = '<span class="dot"></span>DROP 01 · LIVE'; st.style.color = '#39D98A'; }
+    });
   }).catch(function () {});
 
   render();
