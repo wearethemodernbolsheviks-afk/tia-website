@@ -54,6 +54,20 @@
       ]
     },
     {
+      "slug": "lassalle",
+      "mia": "https://www.marxists.org/archive/lassalle/index.htm",
+      "works": [
+        {"id": "lassalle-1862-working-mans-programme", "slug": "the-working-mans-programme", "title": "The Working Man's Programme", "subtitle": "The Berlin lecture of April 1862 on the working class and the idea of the state", "year": "1862", "kind": "hosted", "key": true, "lang": "en", "edition": "Translated by Edward Peters, with his note on Lassalle's life. London, The Modern Press, 1884."},
+        {"id": "lassalle-1862-verfassungswesen", "slug": "ueber-verfassungswesen", "title": "Über Verfassungswesen", "subtitle": "On the Essence of Constitutions: a constitution is the real relation of forces in a country. In the original German", "year": "1862", "kind": "hosted", "key": true, "lang": "de", "edition": "German text of the Berlin lecture of April 1862."},
+        {"id": "lassalle-1863-wissenschaft-und-arbeiter", "slug": "die-wissenschaft-und-die-arbeiter", "title": "Die Wissenschaft und die Arbeiter", "subtitle": "Science and the Workingmen: his defence before the Berlin criminal court, January 1863. In the original German", "year": "1863", "kind": "hosted", "lang": "de", "edition": "German text of the Zurich reprint of 1887–88, with notes from Eduard Bernstein's edition, Berlin, 1919."},
+        {"id": "lassalle-1863-offenes-antwortschreiben", "slug": "offenes-antwortschreiben", "title": "Offenes Antwortschreiben", "subtitle": "The Open Letter of 1 March 1863 to the Leipzig workers' committee, from which the General German Workers' Association grew. In the original German", "year": "1863", "kind": "hosted", "key": true, "lang": "de", "edition": "German text from Eduard Bernstein's edition of the Gesammelte Reden und Schriften, vol. 3, Berlin, 1919, with his notes."},
+        {"id": "lassalle-1863-zur-arbeiterfrage", "slug": "zur-arbeiterfrage", "title": "Zur Arbeiterfrage", "subtitle": "His speech to the Leipzig workers' meeting of 16 April 1863. In the original German", "year": "1863", "kind": "hosted", "lang": "de", "edition": "German text from Eduard Bernstein's edition of the Reden und Schriften, Berlin, 1892–93, with Lassalle's own footnotes."},
+        {"id": "lassalle-1863-national-workshops", "slug": "the-french-national-workshops-of-1848", "title": "The French National Workshops of 1848", "subtitle": "A reply to the liberal press on what the Paris workshops of 1848 really were", "year": "1863", "kind": "hosted", "lang": "en", "edition": "An anonymous translation, with an editorial introduction, from the Social Democrat (London), April 1906."},
+        {"id": "lassalle-1863-voices-of-revolt", "title": "Voices of Revolt: Speeches", "year": "1862–1863", "kind": "link", "url": "https://www.marxists.org/archive/lassalle/revolt/index.html"},
+        {"id": "lassalle-1864-what-is-capital", "title": "What is Capital?", "year": "1864", "kind": "link", "url": "https://www.marxists.org/archive/lassalle/works/whatiscapital.htm"}
+      ]
+    },
+    {
       "slug": "kautsky",
       "mia": "https://www.marxists.org/archive/kautsky/index.htm",
       "works": [
@@ -117,6 +131,18 @@
         {"id": "bukharin-1915-imperialism-world-economy", "title": "Imperialism and World Economy", "year": "1915", "kind": "link", "key": true, "url": "https://www.marxists.org/archive/bukharin/library.htm", "cols": ["lenin-and-october"]},
         {"id": "bukharin-1919-abc-of-communism", "title": "The ABC of Communism", "subtitle": "With Evgenii Preobrazhensky", "year": "1919", "kind": "link", "key": true, "url": "https://www.marxists.org/archive/bukharin/works/1920/abc/index.htm", "cols": ["lenin-and-october"]},
         {"id": "bukharin-1920-economics-transformation", "title": "The Economics of the Transformation Period", "year": "1920", "kind": "link", "key": true, "url": "https://www.marxists.org/archive/bukharin/library.htm", "cols": ["lenin-and-october"]}
+      ]
+    },
+    {
+      "slug": "lukacs",
+      "mia": "https://www.marxists.org/archive/lukacs/index.htm",
+      "note": "Lukács died in 1971, so his writings stay under copyright in most countries until the end of 2041. Until then these entries link to the Marxists Internet Archive.",
+      "works": [
+        {"id": "lukacs-1916-theory-of-the-novel", "title": "The Theory of the Novel", "year": "1916", "kind": "link", "url": "https://www.marxists.org/archive/lukacs/works/theory-novel/index.htm"},
+        {"id": "lukacs-1919-tactics-and-ethics", "title": "Tactics and Ethics", "year": "1919", "kind": "link", "key": true, "url": "https://www.marxists.org/archive/lukacs/works/1919/tactics-ethics.htm"},
+        {"id": "lukacs-1923-history-and-class-consciousness", "title": "History and Class Consciousness", "year": "1923", "kind": "link", "key": true, "url": "https://www.marxists.org/archive/lukacs/works/history/index.htm"},
+        {"id": "lukacs-1924-lenin", "title": "Lenin: A Study on the Unity of His Thought", "year": "1924", "kind": "link", "key": true, "url": "https://www.marxists.org/archive/lukacs/works/1924/lenin/index.htm"},
+        {"id": "lukacs-1926-moses-hess", "title": "Moses Hess and the Problems of Idealist Dialectics", "year": "1926", "kind": "link", "url": "https://www.marxists.org/archive/lukacs/works/1926/moses-hess.htm"}
       ]
     },
     {

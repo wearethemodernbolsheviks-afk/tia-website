@@ -28,29 +28,31 @@ TPL = ROOT / 'tools' / 'templates'
 SITE = 'https://invariancetech.info'
 
 TENDENCY = {'PRECURSOR': 'precursor', 'FOUNDER': 'founders', 'SECOND INTERNATIONAL': 'second',
-            'BOLSHEVIK': 'bolsheviks', 'SPARTACIST': 'spartacists', 'COMMUNIST LEFT': 'left'}
+            'BOLSHEVIK': 'bolsheviks', 'SPARTACIST': 'spartacists', 'WESTERN MARXISM': 'western', 'COMMUNIST LEFT': 'left'}
 CHIPS = [('all', 'ALL'), ('precursor', 'PRECURSOR'), ('founders', 'FOUNDERS'),
          ('second', 'SECOND INTERNATIONAL'), ('bolsheviks', 'BOLSHEVIKS'),
-         ('spartacists', 'SPARTACISTS'), ('left', 'COMMUNIST LEFT')]
+         ('spartacists', 'SPARTACISTS'), ('western', 'WESTERN MARXISM'), ('left', 'COMMUNIST LEFT')]
 DISPLAY = {'hegel': 'G. W. F. Hegel', 'marx': 'Karl Marx', 'engels': 'Friedrich Engels',
-           'kautsky': 'Karl Kautsky', 'lenin': 'V. I. Lenin', 'trotsky': 'Leon Trotsky',
-           'luxemburg': 'Rosa Luxemburg', 'liebknecht': 'Karl Liebknecht', 'bukharin': 'N. I. Bukharin', 'bordiga': 'Amadeo Bordiga'}
+           'lassalle': 'Ferdinand Lassalle', 'kautsky': 'Karl Kautsky', 'lenin': 'V. I. Lenin', 'trotsky': 'Leon Trotsky',
+           'luxemburg': 'Rosa Luxemburg', 'liebknecht': 'Karl Liebknecht', 'bukharin': 'N. I. Bukharin', 'lukacs': 'Georg Lukács', 'bordiga': 'Amadeo Bordiga'}
 
 
 # Full-colour posters used as moving backgrounds (no duotone).
 POSTER = {'hegel': 'p_hp_napoleon', 'marx': 'p_mon_marx_chemnitz', 'engels': 'p_mon_magnitogorsk',
-          'kautsky': 'p_share_the_land', 'lenin': 'p_mon_lenin_head', 'trotsky': 'p_raise_it_higher',
-          'luxemburg': 'p_rom_romantics', 'liebknecht': 'p_rom_come_back', 'bukharin': 'p_mon_worker_kolkhoz', 'bordiga': 'p_audit_no_country'}
+          'lassalle': 'p_hp_marianne', 'kautsky': 'p_share_the_land', 'lenin': 'p_mon_lenin_head', 'trotsky': 'p_raise_it_higher',
+          'luxemburg': 'p_rom_romantics', 'liebknecht': 'p_rom_come_back', 'bukharin': 'p_mon_worker_kolkhoz', 'lukacs': 'p_mon_motherland_bw', 'bordiga': 'p_audit_no_country'}
 AUTHOR_WALL = {
     'hegel': ['p_hp_marianne', 'p_hp_napoleon', 'p_mon_moon', 'p_mon_motherland_bw'],
     'marx': ['p_mon_magnitogorsk', 'p_mon_worker_kolkhoz', 'p_mon_motherland_bw', 'p_audit_no_country'],
     'engels': ['p_mon_marx_chemnitz', 'p_rom_five_year', 'p_mon_magnitogorsk', 'p_share_the_land'],
+    'lassalle': ['p_hp_marianne', 'p_hp_napoleon', 'p_share_the_land', 'p_rom_romantics'],
     'kautsky': ['p_hp_marianne', 'p_share_the_land', 'p_rom_come_back', 'p_mon_worker_kolkhoz'],
     'lenin': ['p_nine_days', 'p_mon_motherland_flags', 'p_raise_it_higher', 'p_mon_moon'],
     'trotsky': ['p_mon_motherland_sunset', 'p_raise_it_higher', 'p_nine_days', 'p_mon_motherland_flags'],
     'luxemburg': ['p_rom_romantics', 'p_hp_marianne', 'p_rom_come_back', 'p_raise_it_higher'],
     'liebknecht': ['p_rom_come_back', 'p_raise_it_higher', 'p_hp_marianne', 'p_nine_days'],
     'bukharin': ['p_rom_five_year', 'p_mon_worker_kolkhoz', 'p_mon_towers', 'p_share_the_land'],
+    'lukacs': ['p_mon_motherland_bw', 'p_rom_five_year', 'p_mon_moon', 'p_hp_napoleon'],
     'bordiga': ['p_audit_no_country', 'p_mon_towers', 'p_mon_motherland_sunset', 'p_mon_moon'],
 }
 COL_WALL = {
@@ -435,7 +437,7 @@ def load():
         f = facts[a['slug']]
         a.update(f)
         a['display'] = DISPLAY[a['slug']]
-        a['short'] = a['slug'].upper()
+        a['short'] = DISPLAY.get(a['slug'], a['slug']).split()[-1].upper()
         a['url'] = f"/archive/{a['slug']}/"
         a['works'].sort(key=lambda w: (year0(w['year']), w['title']))
         for w in a['works']:
@@ -936,9 +938,9 @@ def build_index(authors, byslug, works, cols):
     nh, nl = len(hosted), len(works) - len(hosted)
     t = ARCH_TPL
     # hero: counts and a real search form
-    t = t.replace('SRC: TIA ARCHIVE · 10 SUBJECTS · 6 TENDENCIES · 1770 — 1970',
-                  f'SRC: TIA ARCHIVE · 10 SUBJECTS · {len(works)} WORKS · {nh} FULL TEXTS · 1770 — 1970')
-    t = t.replace('/// 1770 — 1970 ///', f'/// {len(works)} WORKS /// {nh} FULL TEXTS /// 1770 — 1970 ///')
+    t = t.replace('SRC: TIA ARCHIVE · 12 SUBJECTS · 7 TENDENCIES · 1770 — 1971',
+                  f'SRC: TIA ARCHIVE · 12 SUBJECTS · {len(works)} WORKS · {nh} FULL TEXTS · 1770 — 1971')
+    t = t.replace('/// 1770 — 1971 ///', f'/// {len(works)} WORKS /// {nh} FULL TEXTS /// 1770 — 1971 ///')
     t = t.replace('Every major thinker, filed by tendency. Open a dossier to read their works in order, from the first article to the last letter.',
                   'Every major thinker, filed by tendency. Open a dossier for their works in order. Texts in the public domain, and a few public-domain originals in freely licensed translations, are here in full and searchable; the rest link to the Marxists Internet Archive.')
     search = f"""<form role="search" id="ar-form" action="/archive/" method="get" style="flex: 1 1 360px; min-width: 0; padding: 20px; background: rgba(9, 5, 6, 0.82); border: 1px solid #3A2326">
@@ -1033,7 +1035,7 @@ def build_home(authors, works, cols):
   <div class="wrap" style="padding-top: clamp(56px, 7vw, 100px); padding-bottom: clamp(56px, 7vw, 100px)">
     <div class="it-rv" style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 20px">
       <div>
-        <span class="tag">FILE 05-B</span>
+        <span class="tag">FILE 03 · DISPATCHES</span>
         <h2 class="h2">DISPATCHES</h2>
         <p class="src">SRC: TIA ON SUBSTACK · BY EMAIL</p>
       </div>
@@ -1044,11 +1046,11 @@ def build_home(authors, works, cols):
   </div>
 </section>
 """
-    i = t.index('</section>', t.index('<section id="watch"')) + len('</section>')
+    i = t.index('</section>', t.index('<section id="arcade"')) + len('</section>')
     t = t[:i] + '\n' + section + t[i:]
     t = t.replace('</style>', DSP_CSS + ROOM_CSS + '</style>', 1)
     t = t.replace('</body>', '<script src="/assets/dispatches.js" defer></script>\n<script src="/assets/tia-media.js" defer></script>\n</body>', 1)
-    t = t.replace('SRC: TIA ARCHIVE · 10 SUBJECTS · 8 COLLECTIONS', f'SRC: TIA ARCHIVE · 10 SUBJECTS · {nh} FULL TEXTS · 8 COLLECTIONS')
+    t = t.replace('SRC: TIA ARCHIVE · 12 SUBJECTS · 8 COLLECTIONS', f'SRC: TIA ARCHIVE · 12 SUBJECTS · {nh} FULL TEXTS · 8 COLLECTIONS')
     t = re.sub(r'<div role="search" class="panel" style="padding: 22px">(.*?)</p>\n        </div>',
                lambda m: '<form role="search" class="panel" action="/archive/" method="get" style="padding: 22px">' + m.group(1) + '</p>\n        </form>',
                t, count=1, flags=re.S)
@@ -1091,6 +1093,8 @@ BIB_BASE = {
     'lenin': 'https://www.marxists.org/archive/lenin/works/',
     'trotsky': 'https://www.marxists.org/archive/trotsky/',
     'liebknecht': 'https://www.marxists.org/archive/liebknecht-k/',
+    'lassalle': 'https://www.marxists.org/archive/lassalle/',
+    'lukacs': 'https://www.marxists.org/archive/lukacs/',
 }
 BIB_SOURCE = {
     'hegel': 'Hegel\'s principal writings and lecture courses. Links open the Hegel section of the Marxists Internet Archive.',
@@ -1101,6 +1105,8 @@ BIB_SOURCE = {
     'trotsky': 'Every work in the Trotsky index of the Marxists Internet Archive.',
     'luxemburg': 'Every work in the Luxemburg section of the Marxists Internet Archive.',
     'liebknecht': 'Every work in the Liebknecht section of the Marxists Internet Archive.',
+    'lassalle': 'Every work in the Lassalle section of the Marxists Internet Archive, English and German.',
+    'lukacs': 'Every work in the Lukács section of the Marxists Internet Archive.',
     'bukharin': 'Every work in the Bukharin library of the Marxists Internet Archive.',
     'bordiga': 'Every English translation in the Bordiga section of the Marxists Internet Archive. His Italian writings run to thousands of articles; more will be filed here as they are translated.',
 }
@@ -1242,7 +1248,7 @@ def build_dispatches():
     body = f"""<section style="position: relative; border-bottom: 1px solid #2B1B1D">
   <div class="wrap" style="position: relative; z-index: 1; padding-top: 26px; padding-bottom: clamp(40px, 5vw, 64px)">
     {crumbs(('HOME', '/'), ('DISPATCHES', None))}
-    <span class="tag" style="margin-top: 22px">FILE 05-B · SUBSTACK</span>
+    <span class="tag" style="margin-top: 22px">FILE 03 · SUBSTACK</span>
     <h1 class="dh it-glitch shade" style="margin: 18px 0 0; font-size: clamp(38px, 5.2vw, 84px); line-height: 0.98; color: #F2ECE4">DISPATCHES</h1>
     <p class="src shade" data-dispatches-count>TECHNICAL INVARIANCE AUTHORITY ON SUBSTACK</p>
     <p class="shade" style="margin: 20px 0 0; max-width: 680px; padding: 14px 16px; background: rgba(9, 5, 6, 0.72); border-left: 2px solid #E8222A; font-size: 19px; color: #ECE4DC">Written dispatches from the Authority: analysis, history and the programme. Every post goes out by email first and is listed here, newest first.</p>

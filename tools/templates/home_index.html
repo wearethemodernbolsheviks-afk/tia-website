@@ -54,6 +54,12 @@ a.panel:hover { border-color: #E8222A; }
 .co.r i::after { right: auto; left: -1px; border-left: 0; border-right: 6px solid #F2ECE4; }
 .row { display: flex; align-items: baseline; gap: 14px; padding: 12px 0; border-bottom: 1px solid #241618; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 16px; letter-spacing: 0.06em; }
 .row .ld { flex: 1; min-width: 20px; border-bottom: 1px dotted #4A2B2E; transform: translateY(-4px); }
+.row .rn { flex: 0 1 auto; min-width: 0; text-align: right; font-size: 13px; letter-spacing: 0.1em; }
+.row > span:first-child { white-space: nowrap; }
+.row .tt { min-width: 0; }
+.row .tt small { display: block; margin-top: 3px; font-family: Inter, system-ui, sans-serif; font-size: 14px; letter-spacing: 0; color: #A89C95; }
+.row:hover .tt { color: #FF5A60; }
+@media (max-width: 640px) { .row .rn { display: none; } }
 .row:hover .ld { border-bottom-color: #E8222A; }
 .spec { background-color: #E3DED6; background-image: linear-gradient(rgba(11, 7, 8, 0.07) 1px, transparent 1px), linear-gradient(90deg, rgba(11, 7, 8, 0.07) 1px, transparent 1px); background-size: 24px 24px; }
 .sec { position: relative; overflow: hidden; }
@@ -188,8 +194,8 @@ a.panel:hover { border-color: #E8222A; }
 
 <div aria-hidden="true" class="mn" style="overflow: hidden; border-bottom: 1px solid #2B1B1D; background: #100A0B; font-size: 13px; letter-spacing: 0.16em; color: #A89C95; padding: 8px 0">
   <div class="it-ticker">
-    <span style="padding-right: 56px; white-space: nowrap">TIA // THE PROGRAMME HAS NOT CHANGED SINCE 1848 /// ARCHIVE OF WORLD MARXISM /// INDEX OF MARXISTS: 10 SUBJECTS /// COMMUNIST TECHNOLOGY /// SIM-01 PLAN/1 /// DROP 01: STORM HEAVEN /// REVISIONS SINCE 1848: 0 ///</span>
-    <span style="padding-right: 56px; white-space: nowrap">TIA // THE PROGRAMME HAS NOT CHANGED SINCE 1848 /// ARCHIVE OF WORLD MARXISM /// INDEX OF MARXISTS: 10 SUBJECTS /// COMMUNIST TECHNOLOGY /// SIM-01 PLAN/1 /// DROP 01: STORM HEAVEN /// REVISIONS SINCE 1848: 0 ///</span>
+    <span style="padding-right: 56px; white-space: nowrap">TIA // THE PROGRAMME HAS NOT CHANGED SINCE 1848 /// ARCHIVE OF WORLD MARXISM /// INDEX OF MARXISTS: 12 SUBJECTS /// COMMUNIST TECHNOLOGY /// SIM-01 PLAN/1 /// DROP 01: STORM HEAVEN /// REVISIONS SINCE 1848: 0 ///</span>
+    <span style="padding-right: 56px; white-space: nowrap">TIA // THE PROGRAMME HAS NOT CHANGED SINCE 1848 /// ARCHIVE OF WORLD MARXISM /// INDEX OF MARXISTS: 12 SUBJECTS /// COMMUNIST TECHNOLOGY /// SIM-01 PLAN/1 /// DROP 01: STORM HEAVEN /// REVISIONS SINCE 1848: 0 ///</span>
   </div>
 </div>
 
@@ -243,7 +249,7 @@ a.panel:hover { border-color: #E8222A; }
       <div style="flex: 1 1 560px; min-width: 0">
         <span class="tag">FILE 01</span>
         <h2 class="h2">THE ARCHIVE OF WORLD MARXISM</h2>
-        <p class="src">SRC: TIA ARCHIVE · 10 SUBJECTS · 8 COLLECTIONS</p>
+        <p class="src">SRC: TIA ARCHIVE · 12 SUBJECTS · 8 COLLECTIONS</p>
       </div>
       <p style="flex: 1 1 380px; min-width: 0; margin: 0; font-size: 19px; color: #CFC4BC">Every text from the Manifesto on. Free, searchable and in order. Read the sources, not someone's summary of them.</p>
     </div>
@@ -253,16 +259,18 @@ a.panel:hover { border-color: #E8222A; }
         <p class="mn" style="margin: 0; font-size: 18px; letter-spacing: 0.1em">INDEX OF MARXISTS</p>
         <a href="/archive/" class="mn" style="font-size: 14px; letter-spacing: 0.12em; color: #FF5A60">OPEN THE FULL INDEX →</a>
       </div>
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 100px), 1fr)); gap: 10px; margin-top: 18px">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 88px), 1fr)); gap: 10px; margin-top: 18px">
         <a href="/archive/" style="display: block; text-align: center"><div style="position: relative; overflow: hidden"><img loading="lazy" decoding="async" src="/assets/hex_hegel.png" alt="Hex bust of Hegel" style="width: 100%; aspect-ratio: 3 / 4; object-fit: contain"><span class="it-bscan" aria-hidden="true" style="position: absolute; left: 0; right: 0; height: 2px; background: #FF5A60; box-shadow: 0 0 10px rgba(232, 34, 42, 0.8)"></span></div><span class="mn" style="display: block; margin-top: 6px; font-size: 13px; letter-spacing: 0.08em">HEGEL</span></a>
         <a href="/archive/" style="display: block; text-align: center"><div style="position: relative; overflow: hidden"><img loading="lazy" decoding="async" src="/assets/hex_marx.png" alt="Hex bust of Marx" style="width: 100%; aspect-ratio: 3 / 4; object-fit: contain"><span class="it-bscan" aria-hidden="true" style="position: absolute; left: 0; right: 0; height: 2px; background: #FF5A60; box-shadow: 0 0 10px rgba(232, 34, 42, 0.8); animation-delay: 0.5s"></span></div><span class="mn" style="display: block; margin-top: 6px; font-size: 13px; letter-spacing: 0.08em">MARX</span></a>
         <a href="/archive/" style="display: block; text-align: center"><div style="position: relative; overflow: hidden"><img loading="lazy" decoding="async" src="/assets/hex_engels.png" alt="Hex bust of Engels" style="width: 100%; aspect-ratio: 3 / 4; object-fit: contain"><span class="it-bscan" aria-hidden="true" style="position: absolute; left: 0; right: 0; height: 2px; background: #FF5A60; box-shadow: 0 0 10px rgba(232, 34, 42, 0.8); animation-delay: 1s"></span></div><span class="mn" style="display: block; margin-top: 6px; font-size: 13px; letter-spacing: 0.08em">ENGELS</span></a>
+        <a href="/archive/" style="display: block; text-align: center"><div style="position: relative; overflow: hidden"><img loading="lazy" decoding="async" src="/assets/hex_lassalle.png" alt="Hex bust of Lassalle" style="width: 100%; aspect-ratio: 3 / 4; object-fit: contain"><span class="it-bscan" aria-hidden="true" style="position: absolute; left: 0; right: 0; height: 2px; background: #FF5A60; box-shadow: 0 0 10px rgba(232, 34, 42, 0.8); animation-delay: 1s"></span></div><span class="mn" style="display: block; margin-top: 6px; font-size: 13px; letter-spacing: 0.08em">LASSALLE</span></a>
         <a href="/archive/" style="display: block; text-align: center"><div style="position: relative; overflow: hidden"><img loading="lazy" decoding="async" src="/assets/hex_kautsky.png" alt="Hex bust of Kautsky" style="width: 100%; aspect-ratio: 3 / 4; object-fit: contain"><span class="it-bscan" aria-hidden="true" style="position: absolute; left: 0; right: 0; height: 2px; background: #FF5A60; box-shadow: 0 0 10px rgba(232, 34, 42, 0.8); animation-delay: 1.5s"></span></div><span class="mn" style="display: block; margin-top: 6px; font-size: 13px; letter-spacing: 0.08em">KAUTSKY</span></a>
         <a href="/archive/" style="display: block; text-align: center"><div style="position: relative; overflow: hidden"><img loading="lazy" decoding="async" src="/assets/hex_lenin.png" alt="Hex bust of Lenin" style="width: 100%; aspect-ratio: 3 / 4; object-fit: contain"><span class="it-bscan" aria-hidden="true" style="position: absolute; left: 0; right: 0; height: 2px; background: #FF5A60; box-shadow: 0 0 10px rgba(232, 34, 42, 0.8); animation-delay: 2s"></span></div><span class="mn" style="display: block; margin-top: 6px; font-size: 13px; letter-spacing: 0.08em">LENIN</span></a>
         <a href="/archive/" style="display: block; text-align: center"><div style="position: relative; overflow: hidden"><img loading="lazy" decoding="async" src="/assets/hex_luxemburg.png" alt="Hex bust of Rosa Luxemburg" style="width: 100%; aspect-ratio: 3 / 4; object-fit: contain"><span class="it-bscan" aria-hidden="true" style="position: absolute; left: 0; right: 0; height: 2px; background: #FF5A60; box-shadow: 0 0 10px rgba(232, 34, 42, 0.8); animation-delay: 2.5s"></span></div><span class="mn" style="display: block; margin-top: 6px; font-size: 13px; letter-spacing: 0.08em">LUXEMBURG</span></a>
         <a href="/archive/" style="display: block; text-align: center"><div style="position: relative; overflow: hidden"><img loading="lazy" decoding="async" src="/assets/hex_liebknecht.png" alt="Hex bust of Karl Liebknecht" style="width: 100%; aspect-ratio: 3 / 4; object-fit: contain"><span class="it-bscan" aria-hidden="true" style="position: absolute; left: 0; right: 0; height: 2px; background: #FF5A60; box-shadow: 0 0 10px rgba(232, 34, 42, 0.8); animation-delay: 2.5s"></span></div><span class="mn" style="display: block; margin-top: 6px; font-size: 13px; letter-spacing: 0.08em">LIEBKNECHT</span></a>
         <a href="/archive/" style="display: block; text-align: center"><div style="position: relative; overflow: hidden"><img loading="lazy" decoding="async" src="/assets/hex_trotsky.png" alt="Hex bust of Trotsky" style="width: 100%; aspect-ratio: 3 / 4; object-fit: contain"><span class="it-bscan" aria-hidden="true" style="position: absolute; left: 0; right: 0; height: 2px; background: #FF5A60; box-shadow: 0 0 10px rgba(232, 34, 42, 0.8); animation-delay: 3s"></span></div><span class="mn" style="display: block; margin-top: 6px; font-size: 13px; letter-spacing: 0.08em">TROTSKY</span></a>
         <a href="/archive/" style="display: block; text-align: center"><div style="position: relative; overflow: hidden"><img loading="lazy" decoding="async" src="/assets/hex_bukharin.png" alt="Hex bust of Bukharin" style="width: 100%; aspect-ratio: 3 / 4; object-fit: contain"><span class="it-bscan" aria-hidden="true" style="position: absolute; left: 0; right: 0; height: 2px; background: #FF5A60; box-shadow: 0 0 10px rgba(232, 34, 42, 0.8); animation-delay: 3.5s"></span></div><span class="mn" style="display: block; margin-top: 6px; font-size: 13px; letter-spacing: 0.08em">BUKHARIN</span></a>
+        <a href="/archive/" style="display: block; text-align: center"><div style="position: relative; overflow: hidden"><img loading="lazy" decoding="async" src="/assets/hex_lukacs.png" alt="Hex bust of Lukács" style="width: 100%; aspect-ratio: 3 / 4; object-fit: contain"><span class="it-bscan" aria-hidden="true" style="position: absolute; left: 0; right: 0; height: 2px; background: #FF5A60; box-shadow: 0 0 10px rgba(232, 34, 42, 0.8); animation-delay: 4s"></span></div><span class="mn" style="display: block; margin-top: 6px; font-size: 13px; letter-spacing: 0.08em">LUKÁCS</span></a>
         <a href="/archive/" style="display: block; text-align: center"><div style="position: relative; overflow: hidden"><img loading="lazy" decoding="async" src="/assets/hex_bordiga.png" alt="Hex bust of Bordiga" style="width: 100%; aspect-ratio: 3 / 4; object-fit: contain"><span class="it-bscan" aria-hidden="true" style="position: absolute; left: 0; right: 0; height: 2px; background: #FF5A60; box-shadow: 0 0 10px rgba(232, 34, 42, 0.8); animation-delay: 4s"></span></div><span class="mn" style="display: block; margin-top: 6px; font-size: 13px; letter-spacing: 0.08em">BORDIGA</span></a>
       </div>
     </div>
@@ -291,23 +299,33 @@ a.panel:hover { border-color: #E8222A; }
   </div>
 </section>
 
-<section id="labs" class="grid-bg" style="position: relative; overflow: hidden; background-color: #130809; border-top: 3px solid #C81D25; border-bottom: 1px solid #2B1B1D">
+<section id="arcade" class="grid-bg" style="position: relative; overflow: hidden; background-color: #130809; border-top: 3px solid #C81D25; border-bottom: 1px solid #2B1B1D">
   <div aria-hidden="true" class="sec-bg" style="background-image: url('/assets/bg_labs.webp')"></div>
   <div class="wrap" style="padding-top: clamp(56px, 7vw, 100px); padding-bottom: clamp(56px, 7vw, 100px)">
     <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 40px">
-      <div class="it-rv" style="flex: 1 1 400px; min-width: 0">
-        <span class="tag">FILE 02</span>
+      <div class="it-rv" style="flex: 1.2 1 520px; min-width: 0">
+        <span class="tag">FILE 02 · ARCADE AND LABS</span>
         <h2 class="h2">COMMUNIST <span class="glow-r" style="color: #E8222A">TECHNOLOGY</span></h2>
-        <p class="src">SRC: TIA LABS · 3 PROJECTS · OPEN SOURCE</p>
-        <p style="margin: 24px 0 0; max-width: 520px; font-size: 19px; color: #CFC4BC">Software built for use, not for sale. Everything the labs make is open source, with no ads and no tracking.</p>
-        <div style="margin-top: 28px; border-top: 1px solid #3A2326">
-          <div class="row"><span style="color: #FF5A60">LAB-01</span><span>PLAN/1</span><span class="ld"></span><span style="color: #A89C95">PLANNING IN PHYSICAL UNITS</span></div>
-          <div class="row"><span style="color: #FF5A60">LAB-02</span><span>READER</span><span class="ld"></span><span style="color: #A89C95">THE ARCHIVE, OFFLINE</span></div>
-          <div class="row"><span style="color: #FF5A60">LAB-03</span><span>ORGANISER</span><span class="ld"></span><span style="color: #A89C95">TOOLS FOR STRIKE COMMITTEES</span></div>
+        <p class="src">SRC: TIA ARCADE · 5 SIMULATIONS · 3 LAB PROJECTS · OPEN SOURCE</p>
+        <p style="margin: 24px 0 0; max-width: 560px; font-size: 19px; color: #CFC4BC">Software built for use, not for sale. Five simulations you can play in the browser now, and the tools the labs are building next. No ads, no tracking.</p>
+        <p class="mn" style="margin: 30px 0 0; font-size: 13px; letter-spacing: 0.14em; color: #A89C95">THE ARCADE</p>
+        <div style="margin-top: 8px; border-top: 1px solid #3A2326">
+          <a href="/arcade/plan1/" class="row"><span style="color: #FF5A60">SIM-01</span><span class="tt">PLAN/1<small>Run an economy with no money</small></span><span class="ld"></span><span style="color: #39D98A">[PLAY]</span></a>
+          <a href="/arcade/behind-jupiter/" class="row"><span style="color: #FF5A60">SIM-02</span><span class="tt">BEHIND JUPITER<small>An arcade shooter from USSR 2089</small></span><span class="ld"></span><span style="color: #39D98A">[PLAY]</span></a>
+          <a href="/arcade/red-moon/" class="row"><span style="color: #FF5A60">SIM-03</span><span class="tt">RED MOON TERMINAL<small>Decode the Red Moon files</small></span><span class="ld"></span><span style="color: #39D98A">[PLAY]</span></a>
+          <a href="/arcade/wither/" class="row"><span style="color: #FF5A60">SIM-04</span><span class="tt">WITHER<small>Make the state wither away</small></span><span class="ld"></span><span style="color: #39D98A">[PLAY]</span></a>
+          <a href="/arcade/all-power/" class="row"><span style="color: #FF5A60">SIM-05</span><span class="tt">ALL POWER<small>Collect sunlight up to the universe · new</small></span><span class="ld"></span><span style="color: #39D98A">[PLAY]</span></a>
         </div>
-        <a href="https://x.com/Invariance_Tech" style="display: inline-flex; align-items: center; gap: 10px; margin-top: 30px; min-height: 50px; padding: 0 24px; background: #C81D25; color: #FFFFFF; font-weight: 800">Follow the build on X
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
-        </a>
+        <p class="mn" style="margin: 30px 0 0; font-size: 13px; letter-spacing: 0.14em; color: #A89C95">THE LABS</p>
+        <div style="margin-top: 8px; border-top: 1px solid #3A2326">
+          <div class="row"><span style="color: #FF5A60">LAB-01</span><span>PLAN/1</span><span class="ld"></span><span class="rn" style="color: #A89C95">PLANNING IN PHYSICAL UNITS</span></div>
+          <div class="row"><span style="color: #FF5A60">LAB-02</span><span>READER</span><span class="ld"></span><span class="rn" style="color: #A89C95">THE ARCHIVE, OFFLINE</span></div>
+          <div class="row"><span style="color: #FF5A60">LAB-03</span><span>ORGANISER</span><span class="ld"></span><span class="rn" style="color: #A89C95">TOOLS FOR STRIKE COMMITTEES</span></div>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px">
+          <a href="/arcade/" style="display: inline-flex; align-items: center; gap: 10px; min-height: 48px; padding: 0 22px; background: #C81D25; color: #FFFFFF; font-weight: 800"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="7,4 20,12 7,20"></polygon></svg>Open the arcade</a>
+          <a href="https://x.com/Invariance_Tech" style="display: inline-flex; align-items: center; gap: 10px; min-height: 48px; padding: 0 22px; border: 2px solid #F2ECE4; font-weight: 800">Follow the build on X <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+        </div>
       </div>
       <figure class="it-rv" style="flex: 1 1 600px; min-width: 0; margin: 0">
         <svg viewBox="0 0 760 440" width="100%" role="img" aria-label="Technical drawing of the PLAN/1 network: six sector nodes linked to a central planning core, with labelled callouts for the core, the nodes and the material flows" style="display: block">
@@ -357,47 +375,14 @@ a.panel:hover { border-color: #E8222A; }
   </div>
 </section>
 
-<section id="arcade" class="sec" style="border-bottom: 1px solid #2B1B1D">
-  <div aria-hidden="true" class="sec-bg full" style="background-image: url('/assets/bg_arcade.webp')"></div>
-  <div class="wrap" style="padding-top: clamp(56px, 7vw, 100px); padding-bottom: clamp(56px, 7vw, 100px); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 520px), 1fr)); gap: 24px">
-    <a href="/arcade/plan1/" class="panel it-rv" style="display: flex; flex-direction: column; padding: clamp(22px, 3vw, 34px); gap: 16px">
-      <span class="tag" style="align-self: flex-start">FILE 03 · ARCADE</span>
-      <div aria-hidden="true" style="position: relative; height: 220px; background: #090506; border: 1px solid #3A2326; display: flex; align-items: flex-end; gap: 14px; padding: 46px 22px 18px; box-sizing: border-box">
-        <span class="mn" style="position: absolute; top: 12px; left: 16px; font-size: 13px; letter-spacing: 0.12em; color: #A89C95">SIM-01 · YEAR 3 / 5</span>
-        <span class="mn" style="position: absolute; top: 12px; right: 16px; font-size: 13px; letter-spacing: 0.12em; color: #39D98A">SHORTAGES 0</span>
-        <span class="it-bar" style="flex: 1; background: #E8222A; --h1: 60%; --h2: 82%; height: 60%"></span>
-        <span class="it-bar" style="flex: 1; background: #E8222A; --h1: 78%; --h2: 50%; height: 78%; animation-delay: 0.4s"></span>
-        <span class="it-bar" style="flex: 1; background: #39D98A; --h1: 40%; --h2: 70%; height: 40%; animation-delay: 0.8s"></span>
-        <span class="it-bar" style="flex: 1; background: #E8222A; --h1: 88%; --h2: 64%; height: 88%; animation-delay: 1.2s"></span>
-        <span class="it-bar" style="flex: 1; background: #F2B544; --h1: 26%; --h2: 14%; height: 26%; animation-delay: 1.6s"></span>
-        <span class="it-bar" style="flex: 1; background: #39D98A; --h1: 66%; --h2: 90%; height: 66%; animation-delay: 2s"></span>
-      </div>
-      <h2 class="dh glow-w" style="margin: 0; font-size: clamp(29px, 3.1vw, 45px); line-height: 1.04">PLAN/1: THE GAME</h2>
-      <p style="margin: 0; color: #CFC4BC">Run an economy with no money. Move workers between six sectors and keep every stockpile above zero for five years.</p>
-      <span style="display: inline-flex; align-self: flex-start; align-items: center; min-height: 48px; padding: 0 22px; background: #C81D25; color: #FFFFFF; font-weight: 800">Play now</span>
-    </a>
-    <a href="/shop/" id="shop" class="panel it-rv" style="display: flex; flex-direction: column; padding: clamp(22px, 3vw, 34px); gap: 16px">
-      <span class="tag" style="align-self: flex-start">FILE 04 · SHOP</span>
-      <div class="spec" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; height: 220px; padding: 10px; box-sizing: border-box; align-items: center">
-        <img loading="lazy" decoding="async" src="/assets/tee_storm_serpent.webp" alt="Storm Heaven serpent tee" style="width: 100%; height: 100%; object-fit: contain">
-        <img loading="lazy" decoding="async" src="/assets/tee_lenin_moon.webp" alt="Lenin Moon tee" style="width: 100%; height: 100%; object-fit: contain">
-        <img loading="lazy" decoding="async" src="/assets/tee_forge.webp" alt="The Forge tee" style="width: 100%; height: 100%; object-fit: contain">
-      </div>
-      <h2 class="dh glow-w" style="margin: 0; font-size: clamp(29px, 3.1vw, 45px); line-height: 1.04">TIA SUPPLY DEPOT</h2>
-      <p style="margin: 0; color: #CFC4BC">Drop 01, Storm Heaven, opens soon: four tees, the emblem cap and 19 poster prints, printed to order.</p>
-      <span style="display: inline-flex; align-self: flex-start; align-items: center; min-height: 48px; padding: 0 22px; border: 2px solid #F2ECE4; font-weight: 800">Open the depot</span>
-    </a>
-  </div>
-</section>
-
 <section id="watch" style="position: relative; overflow: hidden">
   <div aria-hidden="true" class="sec-bg" style="background-image: url('/assets/bg_watch.webp')"></div>
   <div class="wrap" style="padding-top: clamp(56px, 7vw, 100px); padding-bottom: clamp(56px, 7vw, 100px)">
     <div class="it-rv" style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 20px">
       <div>
-        <span class="tag">FILE 05</span>
+        <span class="tag">FILE 04 · WATCH</span>
         <h2 class="h2">BROADCASTS</h2>
-        <p class="src">SRC: TIA ON YOUTUBE · NOW SHOWING</p>
+        <p class="src">SRC: TIA ON YOUTUBE · EDITS, ESSAYS AND A SERIAL</p>
       </div>
       <a href="https://www.youtube.com/@Invariance_Tech" style="display: inline-flex; align-items: center; gap: 10px; min-height: 48px; padding: 0 22px; background: #C81D25; color: #FFFFFF; font-weight: 800">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="7,4 20,12 7,20"></polygon></svg>
@@ -414,12 +399,31 @@ a.panel:hover { border-color: #E8222A; }
         </span>
       </a>
       <div style="flex: 1 1 380px; min-width: 0">
-        <p class="mn" style="margin: 0 0 10px; font-size: 14px; letter-spacing: 0.14em; color: #A89C95">EXHIBIT 05-A · EDIT</p>
+        <p class="mn" style="margin: 0 0 10px; font-size: 14px; letter-spacing: 0.14em; color: #A89C95">EXHIBIT 04-A · EDIT</p>
         <h3 class="dh glow-w" style="margin: 0; font-size: clamp(33px, 3.6vw, 52px); line-height: 1.04">FEAR &amp; DELIGHT</h3>
         <p style="margin: 16px 0 0; color: #CFC4BC">The proletariat and the revolution, told as a love story. A history edit cut to the beat, from the barricades to the stars.</p>
         <a href="https://www.youtube.com/@Invariance_Tech" style="display: inline-flex; align-items: center; gap: 10px; margin-top: 26px; min-height: 48px; padding: 0 22px; border: 2px solid #F2ECE4; font-weight: 800">Watch now
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
         </a>
+      </div>
+    </div>
+    <div id="ussr2089" class="it-rv" style="scroll-margin-top: 90px; display: flex; flex-wrap: wrap; gap: 32px 48px; align-items: flex-start; margin-top: 64px; padding: clamp(22px, 3vw, 36px); background: rgba(19, 8, 9, 0.88); border: 1px solid #5A1E22; border-top: 3px solid #C81D25">
+      <div style="flex: 1 1 400px; min-width: 0">
+        <p class="mn" style="margin: 0; font-size: 14px; letter-spacing: 0.14em; color: #A89C95">EXHIBIT 04-B · THE SERIAL</p>
+        <p style="margin: 18px 0 0; font-weight: 500; font-size: 18px; letter-spacing: 0.2em">BUKHARIN'S</p>
+        <h3 class="dh glow-r" style="margin: 4px 0 0; font-size: clamp(42px, 4.8vw, 74px); line-height: 0.95; color: #E8222A">USSR 2089</h3>
+        <p style="margin: 20px 0 0; max-width: 520px; color: #CFC4BC">In our world, Stalin won and Bukharin was shot in 1938. In another world, he lived. In 2119, a physicist in Pasadena opened a channel between the worlds and received their history.</p>
+        <a href="https://www.youtube.com/@Invariance_Tech" style="display: inline-flex; align-items: center; gap: 10px; min-height: 48px; padding: 0 22px; border: 2px solid #F2ECE4; font-weight: 800; margin-top: 24px">Watch the serial <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+      </div>
+      <div style="flex: 1 1 420px; min-width: 0">
+        <a href="https://www.youtube.com/@Invariance_Tech" style="display: block; overflow: hidden; border: 1px solid #3A2326" class="it-card"><img loading="lazy" decoding="async" src="/assets/thumb_ussr_trailer.jpg" alt="USSR 2089 trailer thumbnail" style="width: 100%; aspect-ratio: 16 / 9; object-fit: cover"></a>
+        <div style="margin-top: 14px; border-top: 1px solid #3A2326">
+          <a href="https://www.youtube.com/@Invariance_Tech" class="row"><span style="color: #FF5A60">EP-01</span><span>THE DIVERGENCE</span><span class="ld"></span><span style="color: #39D98A">[PLAY]</span></a>
+          <a href="https://www.youtube.com/@Invariance_Tech" class="row"><span style="color: #FF5A60">EP-02</span><span>THE PARTY OF FORTY</span><span class="ld"></span><span style="color: #39D98A">[PLAY]</span></a>
+          <a href="https://www.youtube.com/@Invariance_Tech" class="row"><span style="color: #FF5A60">EP-03</span><span>ADMINISTRATION OF THINGS</span><span class="ld"></span><span style="color: #39D98A">[PLAY]</span></a>
+          <a href="https://www.youtube.com/@Invariance_Tech" class="row"><span style="color: #FF5A60">EP-04</span><span>BEHIND JUPITER</span><span class="ld"></span><span style="color: #39D98A">[PLAY]</span></a>
+          <a href="https://www.youtube.com/@Invariance_Tech" class="row"><span style="color: #A89C95">PRE</span><span>OPPIE'S AMERICA, 1985</span><span class="ld"></span><span style="color: #39D98A">[PLAY]</span></a>
+        </div>
       </div>
     </div>
     <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 26px 22px; margin-top: 56px">
@@ -431,100 +435,23 @@ a.panel:hover { border-color: #E8222A; }
   </div>
 </section>
 
-<section id="ussr2089" class="grid-bg" style="position: relative; overflow: hidden; background-color: #130809; border-top: 3px solid #C81D25; border-bottom: 1px solid #2B1B1D">
-  <div aria-hidden="true" class="sec-bg" style="background-image: url('/assets/bg_ussr.webp')"></div>
-  <div class="wrap" style="padding-top: clamp(56px, 7vw, 100px); padding-bottom: clamp(56px, 7vw, 100px); display: flex; flex-wrap: wrap; align-items: flex-start; gap: 40px">
-    <div class="it-rv" style="flex: 1 1 400px; min-width: 0">
-      <span class="tag">FILE 06 · THE SERIAL</span>
-      <p style="margin: 22px 0 0; font-weight: 500; font-size: 20px; letter-spacing: 0.2em">BUKHARIN'S</p>
-      <h2 class="dh glow-r" style="margin: 4px 0 0; font-size: clamp(48px, 5.5vw, 86px); line-height: 0.95; color: #E8222A">USSR 2089</h2>
-      <p style="margin: 24px 0 0; max-width: 520px; font-size: 19px; color: #CFC4BC">In our world, Stalin won and Bukharin was shot in 1938. In another world, he lived. In 2119, a physicist in Pasadena opened a channel between the worlds and received their history.</p>
-      <div style="margin-top: 30px; border-top: 1px solid #3A2326">
-        <a href="https://www.youtube.com/@Invariance_Tech" class="row"><span style="color: #FF5A60">EP-01</span><span>THE DIVERGENCE</span><span class="ld"></span><span style="color: #39D98A">[PLAY]</span></a>
-        <a href="https://www.youtube.com/@Invariance_Tech" class="row"><span style="color: #FF5A60">EP-02</span><span>THE PARTY OF FORTY</span><span class="ld"></span><span style="color: #39D98A">[PLAY]</span></a>
-        <a href="https://www.youtube.com/@Invariance_Tech" class="row"><span style="color: #FF5A60">EP-03</span><span>ADMINISTRATION OF THINGS</span><span class="ld"></span><span style="color: #39D98A">[PLAY]</span></a>
-        <a href="https://www.youtube.com/@Invariance_Tech" class="row"><span style="color: #FF5A60">EP-04</span><span>BEHIND JUPITER</span><span class="ld"></span><span style="color: #39D98A">[PLAY]</span></a>
-        <a href="https://www.youtube.com/@Invariance_Tech" class="row"><span style="color: #A89C95">PRE</span><span>OPPIE'S AMERICA, 1985</span><span class="ld"></span><span style="color: #39D98A">[PLAY]</span></a>
-      </div>
-      <a href="https://www.youtube.com/@Invariance_Tech" style="display: block; margin-top: 30px; overflow: hidden; border: 1px solid #3A2326" class="it-card">
-        <img loading="lazy" decoding="async" src="/assets/thumb_ussr_trailer.jpg" alt="USSR 2089 trailer thumbnail" style="width: 100%; aspect-ratio: 16 / 9; object-fit: cover">
-      </a>
-      <p class="mn" style="margin: 10px 0 0; font-size: 13px; letter-spacing: 0.12em; color: #A89C95">EXHIBIT 06-A · SERIES TRAILER</p>
-      <a href="https://www.youtube.com/@Invariance_Tech" style="display: inline-flex; align-items: center; gap: 10px; margin-top: 24px; min-height: 48px; padding: 0 22px; background: #C81D25; color: #FFFFFF; font-weight: 800">Watch the serial <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
-    </div>
-    <figure class="it-rv" style="flex: 1 1 420px; min-width: 0; margin: 0; display: flex; flex-direction: column; align-items: center">
-      <svg viewBox="0 0 420 760" width="100%" role="img" aria-label="Technical line drawing of a fictional R-2089 launcher with labelled callouts: escape tower, crew capsule, orbital module, upper stage, interstage, core stage, four strap-on boosters, tail fins and engines" style="display: block; max-width: 440px">
-        <defs><marker id="m-ar2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10Z" fill="#F2ECE4"></path></marker></defs>
-        <g fill="none" stroke="#F2ECE4" stroke-width="1.5" stroke-linejoin="round">
-          <path d="M210 46V18M204 26H216M205 34H215"></path>
-          <path d="M188 214L188 132L198 84Q210 46 222 84L232 132L232 214Z"></path>
-          <path d="M188 132H232M190 172H230M200 146H220V160H200Z"></path>
-          <path d="M188 186L178 202L188 206M232 186L242 202L232 206"></path>
-          <path d="M192 214H228V334H192Z"></path>
-          <path d="M198 220V328M222 220V328M192 252H228M192 300H228"></path>
-          <path d="M194 334H226V362H194Z"></path>
-          <path d="M194 334L226 362M226 334L194 362M210 334V362"></path>
-          <path d="M194 362L194 380L190 400L190 680L230 680L230 400L226 380L226 362"></path>
-          <path d="M200 410V670M220 410V670M190 470H230M190 560H230M190 640H230"></path>
-          <path d="M190 404L178 418L150 680L190 680"></path>
-          <path d="M182 440L168 676M167 520H190M158.5 600H190"></path>
-          <path d="M230 404L242 418L270 680L230 680"></path>
-          <path d="M238 440L252 676M230 520H253M230 600H261.5"></path>
-          <path d="M154 664L138 690L150 690M266 664L282 690L270 690"></path>
-          <path d="M198 680L194 704H206L202 680M218 680L214 704H226L222 680"></path>
-          <path d="M160 680L154 704H170L166 680M176 680L172 700H184L180 680M244 680L240 700H252L248 680M254 680L250 704H266L260 680"></path>
-        </g>
-        <path d="M100 722H320" stroke="#4A2B2E" stroke-width="1.5" stroke-dasharray="6 6"></path>
-        <polygon class="it-flame" points="194,704 200,744 206,704" fill="#E8222A"></polygon>
-        <polygon class="it-flame" points="214,704 220,748 226,704" fill="#E8222A" style="animation-delay: 0.12s"></polygon>
-        <polygon class="it-flame" points="154,704 162,738 170,704" fill="#E8222A" style="animation-delay: 0.2s"></polygon>
-        <polygon class="it-flame" points="250,704 258,740 266,704" fill="#E8222A" style="animation-delay: 0.06s"></polygon>
-        <circle class="it-led" cx="210" cy="153" r="3" fill="#39D98A"></circle>
-        <g stroke="#A89C95" stroke-width="1">
-          <path d="M60 18V704M54 18H66M54 704H66"></path>
-        </g>
-        <text x="52" y="370" fill="#A89C95" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="11" letter-spacing="1" transform="rotate(-90 52 370)" text-anchor="middle">H = 49.3 M</text>
-        <g fill="none" stroke="#F2ECE4" stroke-width="1" marker-end="url(#m-ar2)">
-          <path d="M124 28H204"></path>
-          <path d="M296 96H220"></path>
-          <path d="M296 152H234"></path>
-          <path d="M296 272H230"></path>
-          <path d="M296 348H228"></path>
-          <path d="M296 444H224"></path>
-          <path d="M124 556H162"></path>
-          <path d="M124 690H140"></path>
-          <path d="M296 700H262"></path>
-        </g>
-        <g font-family="'JetBrains Mono', ui-monospace, monospace" font-size="11" letter-spacing="1" fill="#F2ECE4">
-          <text x="120" y="32" text-anchor="end">ESCAPE TOWER</text>
-          <text x="302" y="100">CREW CAPSULE</text>
-          <text x="302" y="156">ORBITAL MODULE</text>
-          <text x="302" y="276">UPPER STAGE</text>
-          <text x="302" y="352">INTERSTAGE</text>
-          <text x="302" y="448">CORE STAGE</text>
-          <text x="120" y="552" text-anchor="end">4× STRAP-ON</text>
-          <text x="120" y="566" text-anchor="end">BOOSTERS</text>
-          <text x="120" y="694" text-anchor="end">TAIL FINS</text>
-          <text x="302" y="704">RD-2089 ENGINES</text>
-        </g>
-      </svg>
-      <figcaption class="mn" style="margin-top: 12px; text-align: center; font-size: 13px; letter-spacing: 0.14em; color: #A89C95">FIG. 06 · R-2089 LAUNCHER · FROM THE 2089 FILES</figcaption>
-    </figure>
-  </div>
-</section>
-
-<section id="posters" class="room">
+<section id="shop" class="room">
   <div class="wrap" style="padding-top: clamp(56px, 7vw, 100px)">
-    <div class="it-rv" style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 20px">
-      <div>
-        <span class="tag">FILE 07 · POSTERS</span>
-        <h2 style="margin: 16px 0 0; font-family: Lora, Georgia, serif; font-style: italic; font-weight: 600; font-size: clamp(56px, 6vw, 92px); line-height: 1">Monumental.</h2>
-        <p class="lede" style="margin: 18px 0 0; max-width: 560px">Four series: Monumental, Historically Progressive, Romantic and The Audit. Free to share, or buy a print in the depot.</p>
+    <div class="it-rv" style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 24px 48px">
+      <div style="flex: 1 1 520px; min-width: 0">
+        <span class="tag">FILE 05 · SHOP</span>
+        <h2 class="h2">TIA SUPPLY DEPOT</h2>
+        <p class="src">SRC: DROP 01 · STORM HEAVEN · PRINTED TO ORDER</p>
+        <p class="lede" style="margin: 20px 0 0; max-width: 580px; font-size: 19px">Four tees, the emblem cap and every poster as an A3 print, printed to order. The posters come in four series, Monumental, Historically Progressive, Romantic and The Audit, and are free to share.</p>
+        <div style="display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px">
+          <a href="/shop/" class="btn-p">Open the depot</a>
+        </div>
       </div>
-      <div style="display: flex; flex-wrap: wrap; gap: 12px">
-        <a href="#posters" class="btn-s">Download the set</a>
-        <a href="/shop/" class="btn-p">Buy a print</a>
-      </div>
+      <a href="/shop/" class="spec" style="flex: 1 1 420px; min-width: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; height: 220px; padding: 10px; box-sizing: border-box; align-items: center; border: 1px solid var(--pl)">
+        <img loading="lazy" decoding="async" src="/assets/tee_storm_serpent.webp" alt="Storm Heaven serpent tee" style="width: 100%; height: 100%; object-fit: contain">
+        <img loading="lazy" decoding="async" src="/assets/tee_lenin_moon.webp" alt="Lenin Moon tee" style="width: 100%; height: 100%; object-fit: contain">
+        <img loading="lazy" decoding="async" src="/assets/tee_forge.webp" alt="The Forge tee" style="width: 100%; height: 100%; object-fit: contain">
+      </a>
     </div>
   </div>
   <div class="pw" style="margin-top: 40px; padding-bottom: clamp(56px, 7vw, 100px); display: flex; flex-direction: column; gap: 16px">
@@ -539,54 +466,22 @@ a.panel:hover { border-color: #E8222A; }
   </div>
 </section>
 
-<section id="files" style="position: relative; overflow: hidden">
-  <div aria-hidden="true" class="sec-bg" style="background-image: url('/assets/bg_classified.webp')"></div>
-  <div class="wrap" style="padding-top: clamp(56px, 7vw, 100px); padding-bottom: clamp(56px, 7vw, 100px)">
-    <span class="tag">FILE 08 · CLASSIFIED</span>
-    <div class="it-rv" style="display: flex; flex-wrap: wrap; margin-top: 20px; border: 1px solid #5A1E22; background: #0C0708">
-      <div style="flex: 1 1 520px; min-width: 0; padding: clamp(28px, 4vw, 56px)">
-        <p class="mn" style="margin: 0; font-size: 15px; letter-spacing: 0.12em; line-height: 1.7; color: #A89C95">&gt; OBJECT: RED MOON · FILE 0001<br>&gt; CLEARANCE: OPEN<br>&gt; STATUS: <span class="glow-r" style="color: #FF5A60">GROWING</span></p>
-        <h2 class="dh glow-w" style="margin: 28px 0 0; font-size: clamp(29px, 3.6vw, 53px); line-height: 1.04">SEVEN WORLDS. SAME MOON. EVERY ONE WENT RED.</h2>
-        <p style="margin: 22px 0 0; max-width: 560px; color: #CFC4BC">Leaked memos, crew logs and decoded packets from the Red Moon files, playable in the Red Moon Terminal. Read them in order. Some of them are hiding things.</p>
-        <a href="/arcade/red-moon/" style="display: inline-flex; align-items: center; gap: 10px; margin-top: 28px; min-height: 48px; padding: 0 22px; background: #C81D25; color: #FFFFFF; font-weight: 800">Open the terminal
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
-        </a>
-      </div>
-      <a href="https://www.youtube.com/@Invariance_Tech" class="it-card" style="flex: 1 1 440px; min-width: 0; display: block; overflow: hidden; border-left: 1px solid #5A1E22">
-        <img loading="lazy" decoding="async" src="/assets/thumb_pattern.jpg" alt="" style="width: 100%; height: 100%; min-height: 280px; object-fit: cover">
-      </a>
-    </div>
-  </div>
-</section>
-
-<section id="about" class="grid-bg" style="position: relative; overflow: hidden; border-top: 1px solid #2B1B1D">
+<section id="about" style="position: relative; overflow: hidden; background: radial-gradient(ellipse 70% 120% at 50% 0%, #4A0D12 0%, #1A0809 55%, #090506 100%); border-top: 1px solid #2B1B1D">
   <div aria-hidden="true" class="sec-bg" style="background-image: url('/assets/bg_about.webp')"></div>
   <div class="wrap" style="padding-top: clamp(56px, 7vw, 100px); padding-bottom: clamp(56px, 7vw, 100px); display: flex; flex-wrap: wrap; gap: 48px">
     <div class="it-rv" style="flex: 1 1 460px; min-width: 0">
-      <span class="tag">FILE 09 · ABOUT</span>
+      <span class="tag">FILE 06 · ABOUT</span>
       <h2 class="h2">MARXISM WITHOUT MORALISM.</h2>
       <img loading="lazy" decoding="async" src="/assets/logo_tia_full.webp" alt="The TIA logo: the letters T I A above a red globe" style="width: 160px; height: auto; margin-top: 40px">
     </div>
     <div class="it-rv" style="flex: 1 1 520px; min-width: 0">
       <p style="margin: 0; font-size: 20px; color: #CFC4BC">The Technical Invariance Authority is two things. An open archive of world Marxism, from the Manifesto to now. And a workshop that builds communist technology, starting with tools for planning, organising and reading. The films are how most people find us.</p>
       <blockquote style="margin: 36px 0 0; padding: 4px 0 4px 24px; border-left: 3px solid #E8222A; font-size: clamp(24px, 2.4vw, 32px); font-weight: 700; line-height: 1.3; color: #F2ECE4">The theory was born whole in 1848. Every crisis since has been a confirmation.</blockquote>
-    </div>
-  </div>
-</section>
-
-<section style="position: relative; overflow: hidden; background: radial-gradient(ellipse 70% 120% at 50% 0%, #4A0D12 0%, #1A0809 55%, #090506 100%); border-top: 1px solid #2B1B1D">
-  <div aria-hidden="true" class="sec-bg full" style="background-image: url('/assets/bg_subscribe.webp')"></div>
-  <div class="wrap" style="padding-top: clamp(64px, 8vw, 120px); padding-bottom: clamp(64px, 8vw, 120px); text-align: center; display: flex; flex-direction: column; align-items: center; gap: 24px">
-    <img loading="lazy" decoding="async" src="/assets/emblem_globe.webp" alt="" aria-hidden="true" style="width: 200px; height: auto">
-    <h2 class="dh glow-w" style="margin: 0; font-size: clamp(38px, 6vw, 95px); line-height: 1">SUBSCRIBE.</h2>
-    <p style="margin: 0; max-width: 560px; font-size: 19px; color: #CFC4BC">New essays, edits and episodes go up on YouTube first. Labs news goes out on X.</p>
-    <a href="https://www.youtube.com/@Invariance_Tech" style="display: inline-flex; align-items: center; gap: 10px; min-height: 56px; padding: 0 30px; background: #C81D25; color: #FFFFFF; font-weight: 800; font-size: 18px; box-shadow: 0 0 22px rgba(232, 34, 42, 0.5)">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="7,4 20,12 7,20"></polygon></svg>
-      TIA on YouTube
-    </a>
-    <div class="mn" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 12px 28px; margin-top: 8px; font-size: 15px; letter-spacing: 0.08em">
-      <a href="https://x.com/AmadeusBolshev">X · @AmadeusBolshev</a>
-      <a href="https://x.com/Invariance_Tech">X · @Invariance_Tech</a>
+      <p style="margin: 40px 0 0; font-size: 18px; color: #CFC4BC">New essays, edits and episodes go up on YouTube first. Labs news goes out on X.</p>
+      <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 14px 28px; margin-top: 20px">
+        <a href="https://www.youtube.com/@Invariance_Tech" style="display: inline-flex; align-items: center; gap: 10px; min-height: 48px; padding: 0 22px; background: #C81D25; color: #FFFFFF; font-weight: 800; min-height: 54px; padding: 0 28px; font-size: 18px"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="7,4 20,12 7,20"></polygon></svg>Subscribe on YouTube</a>
+        <span class="mn" style="display: flex; flex-wrap: wrap; gap: 10px 24px; font-size: 15px; letter-spacing: 0.08em"><a href="https://x.com/AmadeusBolshev">X · @AmadeusBolshev</a><a href="https://x.com/Invariance_Tech">X · @Invariance_Tech</a></span>
+      </div>
     </div>
   </div>
 </section>
