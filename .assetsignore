@@ -6,3 +6,5 @@ wrangler.jsonc
 worker
 node_modules
 README.md
+content
+tools
