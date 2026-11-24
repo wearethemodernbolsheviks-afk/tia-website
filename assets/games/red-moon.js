@@ -326,7 +326,7 @@
       x ? wave.lineTo(x, y) : wave.moveTo(x, y);
     }
     wave.stroke();
-    wave.fillStyle = '#A89C95'; wave.font = "11px 'Share Tech Mono', monospace"; wave.fillText('ENTRY 4471 · PERIOD 9.0 S', 8, h - 8);
+    wave.fillStyle = '#A89C95'; wave.font = "11px 'JetBrains Mono', monospace"; wave.fillText('ENTRY 4471 · PERIOD 9.0 S', 8, h - 8);
     if (!G.reduced) requestAnimationFrame(drawWave);
   };
   requestAnimationFrame(drawWave);

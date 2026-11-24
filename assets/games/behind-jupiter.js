@@ -7,7 +7,7 @@
   const g = cv.getContext('2d');
   const W = 960, H = 540;
   let scale = 1, ox = 0, oy = 0, dpr = 1;
-  const MONO = "'Manolo Mono', 'Share Tech Mono', monospace";
+  const MONO = "'JetBrains Mono', ui-monospace, monospace";
   const RED = '#E8222A', RED2 = '#FF5A60', INK = '#F2ECE4', DIM = '#A89C95', AMBER = '#F2B33D', GREEN = '#39D98A';
 
   // overlay + touch buttons

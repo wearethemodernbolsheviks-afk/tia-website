@@ -21,23 +21,23 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@Invariance_Tech">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&amp;family=Share+Tech+Mono&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet">
 <style>
-@font-face { font-family: 'Manolo Mono'; src: local('Manolo Mono'), local('ManoloMono-Regular'), local('Manolo Mono Regular'); font-weight: 400; font-display: swap; }
 body { margin: 0; background: #090506; font-synthesis: none; }
 a { color: #F2ECE4; text-decoration: none; }
 a:hover { color: #FF5A60; }
 a:focus-visible, button:focus-visible { outline: 2px solid #FF5A60; outline-offset: 3px; }
 img { display: block; max-width: 100%; }
-.mn { font-family: 'Manolo Mono', 'Share Tech Mono', ui-monospace, monospace; font-weight: 400; }
+.mn { font-family: 'JetBrains Mono', ui-monospace, monospace; font-weight: 400; }
+.dh { font-family: Inter, system-ui, sans-serif; font-weight: 900; letter-spacing: -0.012em; text-transform: uppercase; }
 .wrap { max-width: 1360px; margin: 0 auto; padding-left: clamp(16px, 4vw, 60px); padding-right: clamp(16px, 4vw, 60px); box-sizing: border-box; }
 .grid-bg { background-image: linear-gradient(rgba(242, 236, 228, 0.045) 1px, transparent 1px), linear-gradient(90deg, rgba(242, 236, 228, 0.045) 1px, transparent 1px); background-size: 48px 48px; }
 .glow-r { text-shadow: 0 0 12px rgba(232, 34, 42, 0.65); }
 .glow-w { text-shadow: 0 0 16px rgba(242, 236, 228, 0.2); }
-.tag { display: inline-flex; align-items: center; gap: 8px; padding: 5px 10px; border: 1px solid #E8222A; font-family: 'Manolo Mono', 'Share Tech Mono', monospace; font-size: 14px; letter-spacing: 0.14em; color: #FF5A60; }
-.src { margin: 12px 0 0; font-family: 'Manolo Mono', 'Share Tech Mono', monospace; font-size: 13px; letter-spacing: 0.1em; color: #A89C95; }
+.tag { display: inline-flex; align-items: center; gap: 8px; padding: 5px 10px; border: 1px solid #4A2B2E; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 14px; letter-spacing: 0.14em; color: #B8ABA4; }
+.src { margin: 12px 0 0; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 13px; letter-spacing: 0.1em; color: #A89C95; }
 .dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #39D98A; box-shadow: 0 0 8px rgba(57, 217, 138, 0.8); animation: it-blink 2.4s ease-in-out infinite; }
-.chip { min-height: 42px; padding: 0 14px; border: 1px solid #3A2326; background: rgba(9, 5, 6, 0.7); color: #F2ECE4; font-family: 'Manolo Mono', 'Share Tech Mono', monospace; font-size: 13px; letter-spacing: 0.1em; cursor: pointer; }
+.chip { min-height: 42px; padding: 0 14px; border: 1px solid #3A2326; background: rgba(9, 5, 6, 0.7); color: #F2ECE4; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 13px; letter-spacing: 0.1em; cursor: pointer; }
 .chip span { color: #A89C95; margin-left: 6px; }
 .chip.on { background: #E8222A; border-color: #E8222A; color: #FFFFFF; }
 .chip.on span { color: #FFD9DA; }
@@ -146,6 +146,29 @@ img { display: block; max-width: 100%; }
 .cart-toast.in { transform: translate(-50%, 0); }
 .cart-toast button { border: 0; background: none; color: #39D98A; font: inherit; letter-spacing: 0.12em; white-space: nowrap; cursor: pointer; }
 @media (prefers-reduced-motion: reduce) { .cart-dr, .cart-ov, .cart-toast { transition: none; } }
+/* the product room: cream paper and red ink, as in Oppie's America and ALL POWER */
+.room { --pi: #3A0A0D; --pd: #7A4A47; --pr: #CE121E; --pl: #E2C8C2; --pp: #FBF6F3; position: relative; color: var(--pi); background-color: #F4ECE6; background-image: linear-gradient(rgba(110, 8, 14, 0.055) 1px, transparent 1px), linear-gradient(90deg, rgba(110, 8, 14, 0.055) 1px, transparent 1px); background-size: 48px 48px; border-top: 3px solid #CE121E; border-bottom: 3px solid #CE121E; }
+.room a { color: var(--pi); }
+.room a:hover { color: var(--pr); }
+.room .chip { background: var(--pp); border-color: var(--pl); color: var(--pi); }
+.room .chip span { color: var(--pd); }
+.room .chip.on { background: var(--pr); border-color: var(--pr); color: #FFFFFF; }
+.room .chip.on span { color: #FFE3E4; }
+.room .prod { background: var(--pp); border-color: var(--pl); color: var(--pi); }
+.room .prod:hover { border-color: var(--pr); }
+.room .ph { border-bottom-color: var(--pl); }
+/* prints keep their own colours and sit in a white mat, like prints on a wall */
+.room .ph.photo { background: #FFFFFF; padding: 12px; box-sizing: border-box; }
+.room .ph.photo img { outline: 1px solid #D9C9C3; box-shadow: 0 8px 18px -10px rgba(58, 10, 13, 0.5); }
+.room .ph.photo .pid { top: 16px; left: 18px; background: var(--pr); color: #FFFFFF; }
+.room .prod:hover .ph.photo img { transform: none; }
+.room .cat { color: var(--pr); }
+.room .pr { color: var(--pi); }
+.room .add { border-color: var(--pi); color: var(--pi); }
+.room .add:hover { background: var(--pi); color: var(--pp); }
+.room .add.ok { background: #1E8A55; border-color: #1E8A55; color: #FFFFFF; }
+.room .sz { background: var(--pp); border-color: var(--pl); color: var(--pi); }
+.room .sz:hover, .room .sz:focus-visible { border-color: var(--pr); color: var(--pr); }
 </style>
 </head>
 <body>
@@ -192,11 +215,11 @@ img { display: block; max-width: 100%; }
   <div class="wrap" style="padding-top: clamp(48px, 6vw, 88px); padding-bottom: clamp(40px, 5vw, 72px); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 32px 48px">
     <div style="flex: 1 1 520px; min-width: 0">
       <span class="tag">FILE 04 · SHOP</span>
-      <h1 class="mn it-glitch" style="margin: 18px 0 0; font-size: clamp(44px, 6.2vw, 100px); line-height: 1; color: #F2ECE4">TIA SUPPLY DEPOT</h1>
+      <h1 class="dh it-glitch" style="margin: 18px 0 0; font-size: clamp(38px, 5.2vw, 84px); line-height: 0.98; color: #F2ECE4">TIA SUPPLY DEPOT</h1>
       <p class="src">SRC: DROP 01 · 25 ITEMS · PRINTED TO ORDER, CHECKOUT BY FOURTHWALL</p>
       <div style="margin-top: 30px; padding: 22px; background: rgba(9, 5, 6, 0.82); border: 1px solid #5A1E22; max-width: 560px">
         <span id="shop-status" class="mn" style="display: inline-flex; align-items: center; gap: 8px; font-size: 13px; letter-spacing: 0.14em; color: #E8A33A"><span class="dot" style="background: #E8A33A; box-shadow: 0 0 8px rgba(232, 163, 58, 0.8)"></span>DROP 01 · STORE OPENING SOON</span>
-        <p class="mn glow-r" style="margin: 10px 0 0; font-size: clamp(30px, 3.4vw, 46px); line-height: 1.05; color: #FF5A60">STORM HEAVEN</p>
+        <p class="dh glow-r" style="margin: 10px 0 0; font-size: clamp(26px, 2.9vw, 40px); line-height: 1.05; color: #FF5A60">STORM HEAVEN</p>
         <p style="margin: 12px 0 0; color: #DCD2CA">The name is Marx's, from his 1871 letter on the Paris Commune. Four tees and the emblem cap, plus every poster as a print.</p>
       </div>
     </div>
@@ -207,7 +230,7 @@ img { display: block; max-width: 100%; }
   </div>
 </section>
 
-<section class="grid-bg" style="background-color: #0C0708">
+<section class="room">
   <div class="wrap" style="padding-top: 36px; padding-bottom: clamp(56px, 7vw, 96px)">
     <div role="group" aria-label="Filter products" style="display: flex; flex-wrap: wrap; gap: 8px">
       <button type="button" class="chip on" data-f="all" aria-pressed="true">ALL<span>25</span></button>
@@ -218,9 +241,9 @@ img { display: block; max-width: 100%; }
     </div>
 
     <div class="shop-grp">
-    <div style="display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 10px; margin-top: 36px; border-bottom: 1px solid #3A2326; padding-bottom: 10px">
+    <div style="display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 10px; margin-top: 36px; border-bottom: 2px solid var(--pi); padding-bottom: 10px">
       <p class="mn" style="margin: 0; font-size: 20px; letter-spacing: 0.1em">CLOTHING</p>
-      <p class="mn" style="margin: 0; font-size: 13px; letter-spacing: 0.12em; color: #A89C95">5 ITEMS · WASHED BLACK · S — XXL</p>
+      <p class="mn" style="margin: 0; font-size: 13px; letter-spacing: 0.12em; color: var(--pd)">5 ITEMS · WASHED BLACK · S — XXL</p>
     </div>
     <div class="g5" style="margin-top: 18px">
       <div class="prod it-rv" data-sku="tee-02" data-type="tee"><div class="ph spec"><img loading="lazy" decoding="async" src="/assets/tee_storm_serpent.webp" alt="Storm Heaven tee: a statue wrestling a serpent under the emblem"><span class="pid mn">ITEM 01</span></div><div class="bd"><span class="cat mn">TEE · STORM HEAVEN</span><span class="nm">Storm Heaven: Serpent</span><span class="pr mn">$35</span><button type="button" class="add">Choose size</button></div></div>
@@ -232,9 +255,9 @@ img { display: block; max-width: 100%; }
     </div>
 
     <div class="shop-grp">
-    <div style="display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 10px; margin-top: 56px; border-bottom: 1px solid #3A2326; padding-bottom: 10px">
+    <div style="display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 10px; margin-top: 56px; border-bottom: 2px solid var(--pi); padding-bottom: 10px">
       <p class="mn" style="margin: 0; font-size: 20px; letter-spacing: 0.1em">POSTER PRINTS</p>
-      <p class="mn" style="margin: 0; font-size: 13px; letter-spacing: 0.12em; color: #A89C95">19 PRINTS · A3 · MATTE</p>
+      <p class="mn" style="margin: 0; font-size: 13px; letter-spacing: 0.12em; color: var(--pd)">19 PRINTS · A3 · MATTE</p>
     </div>
     <div class="g5" style="margin-top: 18px">
       <div class="prod it-rv"><div class="ph photo"><img loading="lazy" decoding="async" src="/assets/p_mon_moon.webp" alt="Poster: Monumental, a Lenin head rising like the moon over apartment blocks"><span class="pid mn">PRT 01</span></div><div class="bd"><span class="cat mn">MONUMENTAL</span><span class="nm">Lenin Moon</span><span class="pr mn">$18</span><button type="button" class="add">Add to cart</button></div></div>
@@ -256,8 +279,8 @@ img { display: block; max-width: 100%; }
       <div class="prod it-rv"><div class="ph photo"><img loading="lazy" decoding="async" src="/assets/p_nine_days.webp" alt="Poster: Nine days, a red Lenin head over the city"><span class="pid mn">PRT 17</span></div><div class="bd"><span class="cat mn">SERIES 03</span><span class="nm">Nine Days</span><span class="pr mn">$18</span><button type="button" class="add">Add to cart</button></div></div>
       <div class="prod it-rv"><div class="ph photo"><img loading="lazy" decoding="async" src="/assets/p_raise_it_higher.webp" alt="Poster: Raise it higher, two workers raising a red flag"><span class="pid mn">PRT 18</span></div><div class="bd"><span class="cat mn">SERIES 03</span><span class="nm">Raise It Higher</span><span class="pr mn">$18</span><button type="button" class="add">Add to cart</button></div></div>
       <div class="prod it-rv"><div class="ph photo"><img loading="lazy" decoding="async" src="/assets/p_share_the_land.webp" alt="Poster: Share the land, the Technate of America map in red"><span class="pid mn">PRT 19</span></div><div class="bd"><span class="cat mn">SERIES 03</span><span class="nm">Share the Land</span><span class="pr mn">$18</span><button type="button" class="add">Add to cart</button></div></div>
-      <div class="prod it-rv" style="border-color: #5A1E22">
-        <div class="ph" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px; padding: 12px; box-sizing: border-box; background: #090506">
+      <div class="prod it-rv" style="border-color: var(--pr)">
+        <div class="ph" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px; padding: 12px; box-sizing: border-box; background: #FFFFFF">
           <img loading="lazy" decoding="async" src="/assets/p_mon_lenin_head.webp" alt="" style="object-fit: cover"><img loading="lazy" decoding="async" src="/assets/p_audit_no_country.webp" alt="" style="object-fit: cover"><img loading="lazy" decoding="async" src="/assets/p_rom_come_back.webp" alt="" style="object-fit: cover"><img loading="lazy" decoding="async" src="/assets/p_hp_napoleon.webp" alt="" style="object-fit: cover">
           <span class="mn" style="position: absolute; left: 20px; bottom: 20px; padding: 5px 9px; background: #C81D25; color: #FFFFFF; font-size: 12px; letter-spacing: 0.12em">ALL 19 · HI-RES</span>
         </div>
@@ -266,7 +289,7 @@ img { display: block; max-width: 100%; }
     </div>
     </div>
 
-    <div class="mn" style="display: flex; flex-wrap: wrap; gap: 12px 32px; margin-top: 40px; padding-top: 24px; border-top: 1px solid #2B1B1D; font-size: 14px; letter-spacing: 0.12em; color: #A89C95">
+    <div class="mn" style="display: flex; flex-wrap: wrap; gap: 12px 32px; margin-top: 40px; padding-top: 24px; border-top: 1px solid var(--pl); font-size: 14px; letter-spacing: 0.12em; color: var(--pd)">
       <span>PRINTED TO ORDER</span>
       <span>NO WASTE STOCK</span>
       <span>CHECKOUT BY FOURTHWALL</span>

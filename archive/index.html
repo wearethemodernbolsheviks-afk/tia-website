@@ -21,37 +21,37 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@Invariance_Tech">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&amp;family=Lora:ital,wght@0,400;0,600;1,400&amp;family=Share+Tech+Mono&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&amp;family=Lora:ital,wght@0,400;0,600;1,400&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet">
 <style>
-@font-face { font-family: 'Manolo Mono'; src: local('Manolo Mono'), local('ManoloMono-Regular'), local('Manolo Mono Regular'); font-weight: 400; font-display: swap; }
 body { margin: 0; background: #090506; font-synthesis: none; }
 a { color: #F2ECE4; text-decoration: none; }
 a:hover { color: #FF5A60; }
 a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid #FF5A60; outline-offset: 3px; }
 img { display: block; max-width: 100%; }
-.mn { font-family: 'Manolo Mono', 'Share Tech Mono', ui-monospace, monospace; font-weight: 400; }
+.mn { font-family: 'JetBrains Mono', ui-monospace, monospace; font-weight: 400; }
+.dh { font-family: Inter, system-ui, sans-serif; font-weight: 900; letter-spacing: -0.012em; text-transform: uppercase; }
 .wrap { max-width: 1360px; margin: 0 auto; padding-left: clamp(16px, 4vw, 60px); padding-right: clamp(16px, 4vw, 60px); box-sizing: border-box; }
 .grid-bg { background-image: linear-gradient(rgba(242, 236, 228, 0.045) 1px, transparent 1px), linear-gradient(90deg, rgba(242, 236, 228, 0.045) 1px, transparent 1px); background-size: 48px 48px; }
 .glow-r { text-shadow: 0 0 12px rgba(232, 34, 42, 0.65); }
 .glow-w { text-shadow: 0 0 16px rgba(242, 236, 228, 0.2); }
-.tag { display: inline-flex; align-items: center; gap: 8px; padding: 5px 10px; border: 1px solid #E8222A; font-family: 'Manolo Mono', 'Share Tech Mono', monospace; font-size: 14px; letter-spacing: 0.14em; color: #FF5A60; }
-.src { margin: 12px 0 0; font-family: 'Manolo Mono', 'Share Tech Mono', monospace; font-size: 13px; letter-spacing: 0.1em; color: #A89C95; }
+.tag { display: inline-flex; align-items: center; gap: 8px; padding: 5px 10px; border: 1px solid #4A2B2E; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 14px; letter-spacing: 0.14em; color: #B8ABA4; }
+.src { margin: 12px 0 0; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 13px; letter-spacing: 0.1em; color: #A89C95; }
 .dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #39D98A; box-shadow: 0 0 8px rgba(57, 217, 138, 0.8); animation: it-blink 2.4s ease-in-out infinite; }
 .hc { position: absolute; width: 18px; height: 18px; border: 0 solid #E8222A; }
 .hc.tl { top: 8px; left: 8px; border-top-width: 2px; border-left-width: 2px; }
 .hc.tr { top: 8px; right: 8px; border-top-width: 2px; border-right-width: 2px; }
 .hc.bl { bottom: 8px; left: 8px; border-bottom-width: 2px; border-left-width: 2px; }
 .hc.br { bottom: 8px; right: 8px; border-bottom-width: 2px; border-right-width: 2px; }
-.co { position: absolute; display: flex; align-items: center; gap: 6px; font-family: 'Manolo Mono', 'Share Tech Mono', monospace; font-size: 11px; letter-spacing: 0.1em; color: #F2ECE4; white-space: nowrap; z-index: 2; }
+.co { position: absolute; display: flex; align-items: center; gap: 6px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 0.1em; color: #F2ECE4; white-space: nowrap; z-index: 2; }
 .co b { font-weight: 400; padding: 2px 6px; background: rgba(9, 5, 6, 0.85); }
 .co i { position: relative; display: block; height: 1px; width: 40px; background: #F2ECE4; }
 .co i::after { content: ""; position: absolute; top: -3px; right: -1px; border-left: 6px solid #F2ECE4; border-top: 3.5px solid transparent; border-bottom: 3.5px solid transparent; }
 .co.r { flex-direction: row-reverse; }
 .co.r i::after { right: auto; left: -1px; border-left: 0; border-right: 6px solid #F2ECE4; }
-.row { display: flex; align-items: baseline; gap: 14px; padding: 12px 0; border-bottom: 1px solid #241618; font-family: 'Manolo Mono', 'Share Tech Mono', monospace; font-size: 16px; letter-spacing: 0.06em; }
+.row { display: flex; align-items: baseline; gap: 14px; padding: 12px 0; border-bottom: 1px solid #241618; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 16px; letter-spacing: 0.06em; }
 .row .ld { flex: 1; min-width: 20px; border-bottom: 1px dotted #4A2B2E; transform: translateY(-4px); }
 .row:hover .ld { border-bottom-color: #E8222A; }
-.chip { min-height: 42px; padding: 0 14px; border: 1px solid #3A2326; background: rgba(9, 5, 6, 0.7); color: #F2ECE4; font-family: 'Manolo Mono', 'Share Tech Mono', monospace; font-size: 13px; letter-spacing: 0.1em; cursor: pointer; }
+.chip { min-height: 42px; padding: 0 14px; border: 1px solid #3A2326; background: rgba(9, 5, 6, 0.7); color: #F2ECE4; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 13px; letter-spacing: 0.1em; cursor: pointer; }
 .chip span { color: #A89C95; margin-left: 6px; }
 .chip.on { background: #E8222A; border-color: #E8222A; color: #FFFFFF; }
 .chip.on span { color: #FFD9DA; }
@@ -62,12 +62,12 @@ img { display: block; max-width: 100%; }
 .dos-img { position: relative; overflow: hidden; height: 300px; display: flex; align-items: flex-end; justify-content: center; background-color: #090506; background-image: linear-gradient(rgba(242, 236, 228, 0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(242, 236, 228, 0.04) 1px, transparent 1px); background-size: 24px 24px; border-bottom: 1px solid #3A2326; }
 .dos-img img { height: 92%; width: auto; max-width: 92%; object-fit: contain; }
 .dos-body { padding: 18px 18px 20px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
-.dos-body h3 { margin: 0; font-family: 'Manolo Mono', 'Share Tech Mono', monospace; font-weight: 400; font-size: 28px; line-height: 1.05; color: #F2ECE4; text-shadow: 0 0 14px rgba(242, 236, 228, 0.18); }
-.dos-body .yr { margin: 0; font-family: 'Manolo Mono', 'Share Tech Mono', monospace; font-size: 13px; letter-spacing: 0.1em; color: #FF5A60; }
+.dos-body h3 { margin: 0; font-family: Inter, system-ui, sans-serif; font-weight: 900; letter-spacing: -0.005em; font-size: 25px; line-height: 1.05; color: #F2ECE4; text-shadow: 0 0 14px rgba(242, 236, 228, 0.18); }
+.dos-body .yr { margin: 0; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 13px; letter-spacing: 0.1em; color: #FF5A60; }
 .dos-body .role { margin: 4px 0 0; font-size: 15px; line-height: 1.5; color: #CFC4BC; }
-.dos-body ul { list-style: none; margin: 8px 0 0; padding: 10px 0 0; border-top: 1px dashed #3A2326; display: flex; flex-direction: column; gap: 4px; font-family: 'Manolo Mono', 'Share Tech Mono', monospace; font-size: 13px; letter-spacing: 0.04em; color: #DCD2CA; }
+.dos-body ul { list-style: none; margin: 8px 0 0; padding: 10px 0 0; border-top: 1px dashed #3A2326; display: flex; flex-direction: column; gap: 4px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 13px; letter-spacing: 0.04em; color: #DCD2CA; }
 .dos-body ul li::before { content: "> "; color: #E8222A; }
-.dos-body .open { margin-top: auto; padding-top: 14px; font-family: 'Manolo Mono', 'Share Tech Mono', monospace; font-size: 14px; letter-spacing: 0.12em; color: #FF5A60; }
+.dos-body .open { margin-top: auto; padding-top: 14px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 14px; letter-spacing: 0.12em; color: #FF5A60; }
 .sec-bg { position: absolute; inset: 0; background-size: cover; background-position: center; opacity: 0.32; animation: it-kb 28s ease-in-out infinite alternate; pointer-events: none; }
 .sec-bg ~ .wrap { position: relative; z-index: 1; }
 .tbar { position: sticky; top: 0; z-index: 55; background: rgba(9, 5, 6, 0.94); border-bottom: 1px solid #2B1B1D; }
@@ -135,7 +135,7 @@ img { display: block; max-width: 100%; }
 .dos-body ul a { color: #DCD2CA; border-bottom: 1px dotted #4A2B2E; }
 .dos-body ul a:hover { color: #FF5A60; border-bottom-color: #E8222A; }
 .dos-body ul .h { color: #39D98A; font-size: 11px; letter-spacing: 0.12em; margin-left: 6px; }
-.dos-body .cnt { margin: 6px 0 0; font-family: 'Manolo Mono', 'Share Tech Mono', monospace; font-size: 12px; letter-spacing: 0.12em; color: #A89C95; }
+.dos-body .cnt { margin: 6px 0 0; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; letter-spacing: 0.12em; color: #A89C95; }
 .dos-body .cnt b { font-weight: 400; color: #39D98A; }
 .dos h3 a { color: inherit; }
 .crumbs { font-size: 13px; letter-spacing: 0.14em; color: #A89C95; }
@@ -154,17 +154,17 @@ img { display: block; max-width: 100%; }
 .row.wk .ld { align-self: center; transform: none; }
 a.row:hover .ti { color: #FF5A60; }
 .note { margin: 0 0 32px; padding: 16px 18px; border: 1px solid #E8A33A; background: rgba(232, 163, 58, 0.07); font-size: 16px; color: #EADFCB; }
-.note b { font-family: 'Manolo Mono', 'Share Tech Mono', monospace; font-weight: 400; letter-spacing: 0.12em; color: #E8A33A; margin-right: 8px; }
+.note b { font-family: 'JetBrains Mono', ui-monospace, monospace; font-weight: 400; letter-spacing: 0.12em; color: #E8A33A; margin-right: 8px; }
 .btn { display: inline-flex; align-items: center; min-height: 48px; padding: 0 18px; box-sizing: border-box; background: #C81D25; color: #FFFFFF; font-family: Inter, sans-serif; font-weight: 800; font-size: 16px; }
 .btn:hover { background: #E8222A; color: #FFFFFF; }
-.btn.gh { background: transparent; border: 1px solid #3A2326; color: #F2ECE4; font-family: 'Manolo Mono', 'Share Tech Mono', monospace; font-weight: 400; font-size: 14px; letter-spacing: 0.1em; }
+.btn.gh { background: transparent; border: 1px solid #3A2326; color: #F2ECE4; font-family: 'JetBrains Mono', ui-monospace, monospace; font-weight: 400; font-size: 14px; letter-spacing: 0.1em; }
 .btn.gh:hover { border-color: #E8222A; color: #FF5A60; }
 .pn { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; margin-top: 48px; padding-top: 18px; border-top: 1px solid #3A2326; font-size: 14px; letter-spacing: 0.12em; }
 .pn a { color: #FF5A60; }
 .stats { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
 .stats div { min-width: 120px; padding: 12px 14px; border: 1px solid #3A2326; background: rgba(9, 5, 6, 0.8); }
 .stats b { display: block; font-family: Inter, sans-serif; font-weight: 900; font-size: 34px; line-height: 1; color: #F2ECE4; }
-.stats span { display: block; margin-top: 6px; font-family: 'Manolo Mono', 'Share Tech Mono', monospace; font-size: 12px; letter-spacing: 0.12em; color: #A89C95; }
+.stats span { display: block; margin-top: 6px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; letter-spacing: 0.12em; color: #A89C95; }
 .au-grid { display: grid; grid-template-columns: minmax(0, 380px) minmax(0, 1fr); gap: 40px; align-items: end; margin-top: 22px; }
 .au-img { height: 440px; border: 1px solid #3A2326; }
 @media (max-width: 860px) { .au-grid { grid-template-columns: 1fr; } .au-img { height: 340px; } }
@@ -174,7 +174,7 @@ a.row:hover .ti { color: #FF5A60; }
 .res-head b { font-weight: 400; color: #F2ECE4; }
 .hit-list { list-style: none; margin: 0; padding: 0; }
 .hit-list li { padding: 14px 0; border-bottom: 1px solid #241618; }
-.hit-list .hw { font-family: 'Manolo Mono', 'Share Tech Mono', monospace; font-size: 13px; letter-spacing: 0.1em; color: #A89C95; }
+.hit-list .hw { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 13px; letter-spacing: 0.1em; color: #A89C95; }
 .hit-list .hw a { color: #FF5A60; }
 .hit-list q { display: block; margin-top: 6px; quotes: none; font-family: Lora, Georgia, serif; font-size: 17px; line-height: 1.6; color: #DCD2CA; }
 .hit-list q::before { content: "… "; color: #7A4246; }
@@ -216,8 +216,8 @@ mark { background: rgba(232, 34, 42, 0.42); color: #FFFFFF; padding: 0 2px; }
 
 <div aria-hidden="true" class="mn" style="overflow: hidden; border-bottom: 1px solid #2B1B1D; background: #100A0B; font-size: 13px; letter-spacing: 0.16em; color: #A89C95; padding: 8px 0">
   <div class="it-ticker">
-    <span style="padding-right: 56px; white-space: nowrap">INDEX OF MARXISTS /// 9 SUBJECTS /// 6 TENDENCIES /// 53 WORKS /// 29 FULL TEXTS /// 1770 — 1970 /// HEGEL · MARX · ENGELS · KAUTSKY · LENIN · TROTSKY · LUXEMBURG · BUKHARIN · BORDIGA /// READ THE SOURCES ///</span>
-    <span style="padding-right: 56px; white-space: nowrap">INDEX OF MARXISTS /// 9 SUBJECTS /// 6 TENDENCIES /// 53 WORKS /// 29 FULL TEXTS /// 1770 — 1970 /// HEGEL · MARX · ENGELS · KAUTSKY · LENIN · TROTSKY · LUXEMBURG · BUKHARIN · BORDIGA /// READ THE SOURCES ///</span>
+    <span style="padding-right: 56px; white-space: nowrap">INDEX OF MARXISTS /// 10 SUBJECTS /// 6 TENDENCIES /// 57 WORKS /// 31 FULL TEXTS /// 1770 — 1970 /// HEGEL · MARX · ENGELS · KAUTSKY · LENIN · TROTSKY · LUXEMBURG · LIEBKNECHT · BUKHARIN · BORDIGA /// READ THE SOURCES ///</span>
+    <span style="padding-right: 56px; white-space: nowrap">INDEX OF MARXISTS /// 10 SUBJECTS /// 6 TENDENCIES /// 57 WORKS /// 31 FULL TEXTS /// 1770 — 1970 /// HEGEL · MARX · ENGELS · KAUTSKY · LENIN · TROTSKY · LUXEMBURG · LIEBKNECHT · BUKHARIN · BORDIGA /// READ THE SOURCES ///</span>
   </div>
 </div>
 
@@ -226,8 +226,8 @@ mark { background: rgba(232, 34, 42, 0.42); color: #FFFFFF; padding: 0 2px; }
   <div class="wrap" style="padding-top: clamp(48px, 6vw, 88px); padding-bottom: clamp(40px, 5vw, 72px); display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 28px 48px">
     <div style="flex: 1 1 600px; min-width: 0">
       <span class="tag">FILE 01 · THE ARCHIVE</span>
-      <h1 class="mn it-glitch shade" style="margin: 18px 0 0; font-size: clamp(46px, 6.6vw, 104px); line-height: 1; color: #F2ECE4">INDEX OF MARXISTS</h1>
-      <p class="src">SRC: TIA ARCHIVE · 9 SUBJECTS · 53 WORKS · 29 FULL TEXTS · 1770 — 1970</p>
+      <h1 class="dh it-glitch shade" style="margin: 18px 0 0; font-size: clamp(38px, 5.4vw, 86px); line-height: 1; color: #F2ECE4">INDEX OF MARXISTS</h1>
+      <p class="src">SRC: TIA ARCHIVE · 10 SUBJECTS · 57 WORKS · 31 FULL TEXTS · 1770 — 1970</p>
       <p style="margin: 22px 0 0; max-width: 620px; padding: 14px 16px; background: rgba(9, 5, 6, 0.72); border-left: 2px solid #E8222A; font-size: 19px; color: #ECE4DC">Every major thinker, filed by tendency. Open a dossier for their works in order. Texts in the public domain, and a few public-domain originals in freely licensed translations, are here in full and searchable; the rest link to the Marxists Internet Archive.</p>
     </div>
     <form role="search" id="ar-form" action="/archive/" method="get" style="flex: 1 1 360px; min-width: 0; padding: 20px; background: rgba(9, 5, 6, 0.82); border: 1px solid #3A2326">
@@ -236,7 +236,7 @@ mark { background: rgba(232, 34, 42, 0.42); color: #FFFFFF; padding: 0 2px; }
         <input id="ar-q" name="q" type="search" autocomplete="off" placeholder="Name, work, year or phrase" style="flex: 1; min-width: 0; min-height: 52px; box-sizing: border-box; padding: 0 14px; background: #090506; border: 2px solid #3A2326; color: #F2ECE4; font-family: Inter, sans-serif; font-size: 17px">
         <button type="submit" style="min-height: 52px; padding: 0 20px; border: 0; background: #C81D25; color: #FFFFFF; font-family: Inter, sans-serif; font-weight: 800; font-size: 16px; cursor: pointer">Search</button>
       </div>
-      <p class="mn" style="margin: 12px 0 0; font-size: 12px; letter-spacing: 0.1em; color: #A89C95">SEARCHES 10,951 TITLES AND THE FULL TEXT OF 29 WORKS</p>
+      <p class="mn" style="margin: 12px 0 0; font-size: 12px; letter-spacing: 0.1em; color: #A89C95">SEARCHES 10,964 TITLES AND THE FULL TEXT OF 31 WORKS</p>
     </form>
   </div>
 </section>
@@ -257,19 +257,19 @@ mark { background: rgba(232, 34, 42, 0.42); color: #FFFFFF; padding: 0 2px; }
 <section class="grid-bg" style="position: relative; overflow: hidden; background-color: rgba(12, 7, 8, 0.84)">
   <div class="wrap" style="padding-top: 36px; padding-bottom: clamp(56px, 7vw, 96px)">
     <div role="group" aria-label="Filter by tendency" style="display: flex; flex-wrap: wrap; gap: 8px">
-      <button type="button" class="chip on" data-f="all" aria-pressed="true">ALL<span>9</span></button>
+      <button type="button" class="chip on" data-f="all" aria-pressed="true">ALL<span>10</span></button>
       <button type="button" class="chip" data-f="precursor" aria-pressed="false">PRECURSOR<span>1</span></button>
       <button type="button" class="chip" data-f="founders" aria-pressed="false">FOUNDERS<span>2</span></button>
       <button type="button" class="chip" data-f="second" aria-pressed="false">SECOND INTERNATIONAL<span>1</span></button>
       <button type="button" class="chip" data-f="bolsheviks" aria-pressed="false">BOLSHEVIKS<span>3</span></button>
-      <button type="button" class="chip" data-f="spartacists" aria-pressed="false">SPARTACISTS<span>1</span></button>
+      <button type="button" class="chip" data-f="spartacists" aria-pressed="false">SPARTACISTS<span>2</span></button>
       <button type="button" class="chip" data-f="left" aria-pressed="false">COMMUNIST LEFT<span>1</span></button>
     </div>
 
     <figure class="it-rv" style="margin: 32px 0 0; padding: 18px 18px 10px; background: rgba(9, 5, 6, 0.85); border: 1px solid #3A2326; overflow-x: auto">
       <svg viewBox="0 0 1200 300" width="100%" role="img" aria-label="Timeline of lifespans from 1770 to 1970: Hegel 1770 to 1831, Marx 1818 to 1883, Engels 1820 to 1895, Kautsky 1854 to 1938, Lenin 1870 to 1924, Luxemburg 1871 to 1919, Trotsky 1879 to 1940, Bukharin 1888 to 1938, Bordiga 1889 to 1970, with markers at 1848, 1871 and 1917" style="display: block; min-width: 760px">
         <g stroke="#E8222A" stroke-width="1" stroke-dasharray="4 4"><path d="M489 30V258"></path><path d="M615.5 30V258"></path><path d="M868.5 30V258"></path></g>
-        <g font-family="'Manolo Mono', 'Share Tech Mono', monospace" font-size="10" letter-spacing="1" fill="#FF5A60" text-anchor="middle"><text x="489" y="22">1848 MANIFESTO</text><text x="615.5" y="22">1871 COMMUNE</text><text x="868.5" y="22">1917 OCTOBER</text></g>
+        <g font-family="'JetBrains Mono', ui-monospace, monospace" font-size="10" letter-spacing="1" fill="#FF5A60" text-anchor="middle"><text x="489" y="22">1848 MANIFESTO</text><text x="615.5" y="22">1871 COMMUNE</text><text x="868.5" y="22">1917 OCTOBER</text></g>
         <g stroke="#F2ECE4" stroke-width="2">
           <path d="M60 56H395.5"></path><path d="M324 80H681.5"></path><path d="M335 104H747.5"></path><path d="M522 128H984"></path><path d="M610 152H907"></path><path d="M615.5 176H879.5"></path><path d="M659.5 200H995"></path><path d="M709 224H984"></path><path d="M714.5 248H1160"></path>
         </g>
@@ -284,12 +284,12 @@ mark { background: rgba(232, 34, 42, 0.42); color: #FFFFFF; padding: 0 2px; }
           <circle cx="709" cy="224" r="3"></circle><circle cx="984" cy="224" r="3"></circle>
           <circle cx="714.5" cy="248" r="3"></circle><circle cx="1160" cy="248" r="3"></circle>
         </g>
-        <g font-family="'Manolo Mono', 'Share Tech Mono', monospace" font-size="10" letter-spacing="1" fill="#F2ECE4">
+        <g font-family="'JetBrains Mono', ui-monospace, monospace" font-size="10" letter-spacing="1" fill="#F2ECE4">
           <text x="60" y="50">HEGEL 1770–1831</text><text x="324" y="74">MARX 1818–1883</text><text x="335" y="98">ENGELS 1820–1895</text><text x="522" y="122">KAUTSKY 1854–1938</text><text x="610" y="146">LENIN 1870–1924</text><text x="615.5" y="170">LUXEMBURG 1871–1919</text><text x="659.5" y="194">TROTSKY 1879–1940</text><text x="709" y="218">BUKHARIN 1888–1938</text><text x="714.5" y="242">BORDIGA 1889–1970</text>
         </g>
         <path d="M60 268H1160" stroke="#A89C95" stroke-width="1"></path>
         <g stroke="#A89C95" stroke-width="1"><path d="M60 268V274M170 268V274M280 268V274M390 268V274M500 268V274M610 268V274M720 268V274M830 268V274M940 268V274M1050 268V274M1160 268V274"></path></g>
-        <g font-family="'Manolo Mono', 'Share Tech Mono', monospace" font-size="10" fill="#A89C95" text-anchor="middle"><text x="60" y="290">1770</text><text x="170" y="290">1790</text><text x="280" y="290">1810</text><text x="390" y="290">1830</text><text x="500" y="290">1850</text><text x="610" y="290">1870</text><text x="720" y="290">1890</text><text x="830" y="290">1910</text><text x="940" y="290">1930</text><text x="1050" y="290">1950</text><text x="1160" y="290">1970</text></g>
+        <g font-family="'JetBrains Mono', ui-monospace, monospace" font-size="10" fill="#A89C95" text-anchor="middle"><text x="60" y="290">1770</text><text x="170" y="290">1790</text><text x="280" y="290">1810</text><text x="390" y="290">1830</text><text x="500" y="290">1850</text><text x="610" y="290">1870</text><text x="720" y="290">1890</text><text x="830" y="290">1910</text><text x="940" y="290">1930</text><text x="1050" y="290">1950</text><text x="1160" y="290">1970</text></g>
         <g class="it-sweep"><path d="M60 36V262" stroke="#FF5A60" stroke-width="1.5" opacity="0.7"></path><path d="M54 262L60 254L66 262Z" fill="#FF5A60"></path></g>
       </svg>
       <figcaption class="mn" style="margin-top: 8px; font-size: 13px; letter-spacing: 0.14em; color: #A89C95">FIG. 01 · LIFESPANS OF THE INDEX, 1770 — 1970</figcaption>
@@ -388,9 +388,22 @@ mark { background: rgba(232, 34, 42, 0.42); color: #FFFFFF; padding: 0 2px; }
         </div>
       </article>
 
+      <article class="dos it-rv" id="liebknecht" data-t="spartacists">
+        <div class="dos-top mn"><span>SUBJECT 08</span><span class="tg">SPARTACIST</span></div>
+        <a href="/archive/liebknecht/" class="dos-img" tabindex="-1" aria-hidden="true"><img src="/assets/hex_liebknecht.png" alt=""><span class="hc tl"></span><span class="hc tr"></span><span class="hc bl"></span><span class="hc br"></span><span class="co r" style="top: 26%; right: 10px"><b>HEX 3,835</b><i></i></span><span class="it-bscan" style="position: absolute; left: 0; right: 0; height: 2px; background: #FF5A60; box-shadow: 0 0 10px rgba(232, 34, 42, 0.8); animation-delay: 3.5s"></span></a>
+        <div class="dos-body">
+          <h3><a href="/archive/liebknecht/">KARL LIEBKNECHT</a></h3>
+          <p class="yr">1871 — 1919 · LEIPZIG → BERLIN</p>
+          <p class="role">The only deputy to vote against war credits in December 1914. Murdered with Luxemburg in January 1919.</p>
+          <ul><li><a href="https://www.marxists.org/archive/liebknecht-k/works/1907/militarism-antimilitarism/index.htm" target="_blank" rel="noopener">Militarism and Anti-Militarism</a> (1907)</li><li><a href="/archive/liebknecht/the-main-enemy-is-at-home/">The Main Enemy Is at Home!</a> (1915)<span class="h">TXT</span></li><li><a href="https://www.marxists.org/archive/liebknecht-k/works/1919/01/inspite.html" target="_blank" rel="noopener">In Spite of Everything!</a> (1919)</li></ul>
+          <p class="cnt"><b>2 FULL TEXTS</b> · <a href="/archive/liebknecht/works/" style="color: inherit; border-bottom: 1px dotted #4A2B2E">13 ITEMS FILED</a></p>
+          <a href="/archive/liebknecht/" class="open">OPEN DOSSIER →</a>
+        </div>
+      </article>
+
       <article class="dos it-rv" id="bukharin" data-t="bolsheviks">
-        <div class="dos-top mn"><span>SUBJECT 08</span><span class="tg">BOLSHEVIK</span></div>
-        <a href="/archive/bukharin/" class="dos-img" tabindex="-1" aria-hidden="true"><img src="/assets/hex_bukharin.png" alt=""><span class="hc tl"></span><span class="hc tr"></span><span class="hc bl"></span><span class="hc br"></span><span class="co r" style="top: 26%; right: 10px"><b>HEX 4,654</b><i></i></span><span class="it-bscan" style="position: absolute; left: 0; right: 0; height: 2px; background: #FF5A60; box-shadow: 0 0 10px rgba(232, 34, 42, 0.8); animation-delay: 3.5s"></span></a>
+        <div class="dos-top mn"><span>SUBJECT 09</span><span class="tg">BOLSHEVIK</span></div>
+        <a href="/archive/bukharin/" class="dos-img" tabindex="-1" aria-hidden="true"><img src="/assets/hex_bukharin.png" alt=""><span class="hc tl"></span><span class="hc tr"></span><span class="hc bl"></span><span class="hc br"></span><span class="co r" style="top: 26%; right: 10px"><b>HEX 4,654</b><i></i></span><span class="it-bscan" style="position: absolute; left: 0; right: 0; height: 2px; background: #FF5A60; box-shadow: 0 0 10px rgba(232, 34, 42, 0.8); animation-delay: 4s"></span></a>
         <div class="dos-body">
           <h3><a href="/archive/bukharin/">N. I. BUKHARIN</a></h3>
           <p class="yr">1888 — 1938 · MOSCOW → MOSCOW</p>
@@ -402,8 +415,8 @@ mark { background: rgba(232, 34, 42, 0.42); color: #FFFFFF; padding: 0 2px; }
       </article>
 
       <article class="dos it-rv" id="bordiga" data-t="left">
-        <div class="dos-top mn"><span>SUBJECT 09</span><span class="tg">COMMUNIST LEFT</span></div>
-        <a href="/archive/bordiga/" class="dos-img" tabindex="-1" aria-hidden="true"><img src="/assets/hex_bordiga.png" alt=""><span class="hc tl"></span><span class="hc tr"></span><span class="hc bl"></span><span class="hc br"></span><span class="co r" style="top: 26%; right: 10px"><b>HEX 3,801</b><i></i></span><span class="it-bscan" style="position: absolute; left: 0; right: 0; height: 2px; background: #FF5A60; box-shadow: 0 0 10px rgba(232, 34, 42, 0.8); animation-delay: 4s"></span></a>
+        <div class="dos-top mn"><span>SUBJECT 10</span><span class="tg">COMMUNIST LEFT</span></div>
+        <a href="/archive/bordiga/" class="dos-img" tabindex="-1" aria-hidden="true"><img src="/assets/hex_bordiga.png" alt=""><span class="hc tl"></span><span class="hc tr"></span><span class="hc bl"></span><span class="hc br"></span><span class="co r" style="top: 26%; right: 10px"><b>HEX 3,801</b><i></i></span><span class="it-bscan" style="position: absolute; left: 0; right: 0; height: 2px; background: #FF5A60; box-shadow: 0 0 10px rgba(232, 34, 42, 0.8); animation-delay: 4.5s"></span></a>
         <div class="dos-body">
           <h3><a href="/archive/bordiga/">AMADEO BORDIGA</a></h3>
           <p class="yr">1889 — 1970 · RESINA → FORMIA</p>
@@ -417,7 +430,7 @@ mark { background: rgba(232, 34, 42, 0.42); color: #FFFFFF; padding: 0 2px; }
 
     <div class="it-rv" id="texts" style="margin-top: 56px">
       <div style="display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 10px; border-bottom: 1px solid #3A2326; padding-bottom: 10px">
-        <p class="mn" style="margin: 0; font-size: 18px; letter-spacing: 0.1em">READING ROOM · 29 FULL TEXTS</p>
+        <p class="mn" style="margin: 0; font-size: 18px; letter-spacing: 0.1em">READING ROOM · 31 FULL TEXTS</p>
         <span class="mn" style="font-size: 13px; letter-spacing: 0.1em; color: #A89C95">PUBLIC DOMAIN OR CC BY-SA · FREE TO READ AND DOWNLOAD</span>
       </div>
       <a href="/archive/hegel/history-of-philosophy-1/" class="row wk"><span class="y">1805–1831</span><span class="ti">Lectures on the History of Philosophy, Volume One<small>Greek philosophy to Plato</small></span><span class="ld"></span><span class="by">HEGEL</span><span class="st ok">[READ →]</span></a>
@@ -442,10 +455,12 @@ mark { background: rgba(232, 34, 42, 0.42); color: #FFFFFF; padding: 0 2px; }
       <a href="/archive/luxemburg/short-writings-1893-1911/" class="row wk"><span class="y">1893–1911</span><span class="ti">Short Writings, 1893–1911<small>The Zurich report and protest of 1893, and five pieces for the French socialist press</small></span><span class="ld"></span><span class="by">LUXEMBURG</span><span class="st ok">[READ →]</span></a>
       <a href="/archive/kautsky/short-writings-1895-1912/" class="row wk"><span class="y">1895–1912</span><span class="ti">Short Writings, 1895–1912<small>On Sorge and the American movement, a letter to the Belgian Marxist papers, and War and Revolution</small></span><span class="ld"></span><span class="by">KAUTSKY</span><span class="st ok">[READ →]</span></a>
       <a href="/archive/trotsky/our-revolution/" class="row wk"><span class="y">1904–1917</span><span class="ti">Our Revolution<small>Essays on Working-Class and International Revolution, 1904–1917, including Prospects of a Labor Dictatorship</small></span><span class="ld"></span><span class="by">TROTSKY</span><span class="st ok">[READ →]</span></a>
+      <a href="/archive/liebknecht/the-party-and-the-trade-unions/" class="row wk"><span class="y">1905</span><span class="ti">The Party and the Trade Unions<small>Speech in the May Day debate at the Jena party congress, 21 September 1905</small></span><span class="ld"></span><span class="by">LIEBKNECHT</span><span class="st ok">[READ →]</span></a>
       <a href="/archive/luxemburg/massenstreik/" class="row wk"><span class="y">1906</span><span class="ti">Massenstreik, Partei und Gewerkschaften<small>The Mass Strike, the Political Party and the Trade Unions, in the original German</small></span><span class="ld"></span><span class="by">LUXEMBURG</span><span class="st ok">[READ →]</span></a>
       <a href="/archive/kautsky/gold-paper-currency-and-commodity/" class="row wk"><span class="y">1912</span><span class="ti">Gold, Paper Currency and Commodity<small>Against Hilferding's theory of paper money and the value of gold</small></span><span class="ld"></span><span class="by">KAUTSKY</span><span class="st ok">[READ →]</span></a>
       <a href="/archive/trotsky/the-war-and-the-international/" class="row wk"><span class="y">1914</span><span class="ti">The War and the International<small>Published in English as The Bolsheviki and World Peace</small></span><span class="ld"></span><span class="by">TROTSKY</span><span class="st ok">[READ →]</span></a>
       <a href="/archive/luxemburg/junius-pamphlet/" class="row wk"><span class="y">1915</span><span class="ti">The Crisis in the German Social-Democracy<small>The Junius Pamphlet, written in prison in 1915</small></span><span class="ld"></span><span class="by">LUXEMBURG</span><span class="st ok">[READ →]</span></a>
+      <a href="/archive/liebknecht/the-main-enemy-is-at-home/" class="row wk"><span class="y">1915</span><span class="ti">The Main Enemy Is at Home!<small>The illegal leaflet of May 1915, written as Italy entered the war</small></span><span class="ld"></span><span class="by">LIEBKNECHT</span><span class="st ok">[READ →]</span></a>
       <a href="/archive/luxemburg/briefe-aus-dem-gefaengnis/" class="row wk"><span class="y">1916–1918</span><span class="ti">Briefe aus dem Gefängnis<small>Letters from prison to Sophie Liebknecht, 1916–1918, in the original German</small></span><span class="ld"></span><span class="by">LUXEMBURG</span><span class="st ok">[READ →]</span></a>
       <a href="/archive/lenin/letter-to-american-workingmen/" class="row wk"><span class="y">1918</span><span class="ti">A Letter to American Workingmen</span><span class="ld"></span><span class="by">LENIN</span><span class="st ok">[READ →]</span></a>
       <a href="/archive/trotsky/terrorism-and-communism/" class="row wk"><span class="y">1920</span><span class="ti">Terrorism and Communism<small>A Reply to Karl Kautsky. Published in English as Dictatorship vs. Democracy</small></span><span class="ld"></span><span class="by">TROTSKY</span><span class="st ok">[READ →]</span></a>
@@ -455,9 +470,9 @@ mark { background: rgba(232, 34, 42, 0.42); color: #FFFFFF; padding: 0 2px; }
       <p class="mn sec-h">COLLECTIONS</p>
       <a href="/archive/collections/the-programme/" class="row"><span style="color: #A89C95">COL-01</span><span>THE PROGRAMME</span><span class="ld"></span><span style="color: #FF5A60">1848 —</span><span style="color: #39D98A">[8 WORKS]</span></a>
       <a href="/archive/collections/marx-and-engels/" class="row"><span style="color: #A89C95">COL-02</span><span>MARX AND ENGELS</span><span class="ld"></span><span style="color: #FF5A60">1843 — 1895</span><span style="color: #39D98A">[14 WORKS]</span></a>
-      <a href="/archive/collections/second-international/" class="row"><span style="color: #A89C95">COL-03</span><span>SECOND INTERNATIONAL</span><span class="ld"></span><span style="color: #FF5A60">1889 — 1914</span><span style="color: #39D98A">[11 WORKS]</span></a>
+      <a href="/archive/collections/second-international/" class="row"><span style="color: #A89C95">COL-03</span><span>SECOND INTERNATIONAL</span><span class="ld"></span><span style="color: #FF5A60">1889 — 1914</span><span style="color: #39D98A">[12 WORKS]</span></a>
       <a href="/archive/collections/lenin-and-october/" class="row"><span style="color: #A89C95">COL-04</span><span>LENIN AND OCTOBER</span><span class="ld"></span><span style="color: #FF5A60">1894 — 1924</span><span style="color: #39D98A">[11 WORKS]</span></a>
-      <a href="/archive/collections/the-german-left/" class="row"><span style="color: #A89C95">COL-05</span><span>THE GERMAN LEFT</span><span class="ld"></span><span style="color: #FF5A60">1898 — 1919</span><span style="color: #39D98A">[7 WORKS]</span></a>
+      <a href="/archive/collections/the-german-left/" class="row"><span style="color: #A89C95">COL-05</span><span>THE GERMAN LEFT</span><span class="ld"></span><span style="color: #FF5A60">1898 — 1919</span><span style="color: #39D98A">[11 WORKS]</span></a>
       <a href="/archive/collections/the-communist-left/" class="row"><span style="color: #A89C95">COL-06</span><span>THE COMMUNIST LEFT</span><span class="ld"></span><span style="color: #FF5A60">1912 — 1970</span><span style="color: #39D98A">[3 WORKS]</span></a>
       <div class="row"><span style="color: #A89C95">COL-07</span><span>BEYOND EUROPE</span><span class="ld"></span><span style="color: #FF5A60">1919 —</span><span class="st wait">[COMPILING]</span></div>
       <a href="https://www.youtube.com/@Invariance_Tech" target="_blank" rel="noopener" class="row"><span style="color: #A89C95">COL-08</span><span>TIA BROADCASTS</span><span class="ld"></span><span style="color: #FF5A60">2026 —</span><span style="color: #39D98A">[YOUTUBE ↗]</span></a>

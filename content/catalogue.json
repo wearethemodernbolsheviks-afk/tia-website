@@ -101,6 +101,16 @@
       ]
     },
     {
+      "slug": "liebknecht",
+      "mia": "https://www.marxists.org/archive/liebknecht-k/index.htm",
+      "works": [
+        {"id": "liebknecht-1905-party-and-unions", "slug": "the-party-and-the-trade-unions", "title": "The Party and the Trade Unions", "subtitle": "Speech in the May Day debate at the Jena party congress, 21 September 1905", "year": "1905", "kind": "hosted", "lang": "en", "rights": "cc-by-sa", "edition": "Translated from the German by V. Mirkader for the Marxists Internet Archive, 2025.", "source": "https://www.marxists.org/archive/liebknecht-k/works/1905/09/party-unions.html", "cols": ["second-international", "the-german-left"]},
+        {"id": "liebknecht-1907-militarism", "title": "Militarism and Anti-Militarism", "year": "1907", "kind": "link", "key": true, "url": "https://www.marxists.org/archive/liebknecht-k/works/1907/militarism-antimilitarism/index.htm", "cols": ["the-german-left"]},
+        {"id": "liebknecht-1915-main-enemy", "slug": "the-main-enemy-is-at-home", "title": "The Main Enemy Is at Home!", "subtitle": "The illegal leaflet of May 1915, written as Italy entered the war", "year": "1915", "kind": "hosted", "key": true, "lang": "en", "rights": "cc-by-sa", "edition": "Translated from the German by John Wagner for the Marxists Internet Archive.", "source": "https://www.marxists.org/archive/liebknecht-k/works/1915/05/main-enemy-home.htm", "cols": ["the-german-left"]},
+        {"id": "liebknecht-1919-in-spite-of-everything", "title": "In Spite of Everything!", "year": "1919", "kind": "link", "key": true, "url": "https://www.marxists.org/archive/liebknecht-k/works/1919/01/inspite.html", "cols": ["the-german-left"]}
+      ]
+    },
+    {
       "slug": "bukharin",
       "mia": "https://www.marxists.org/archive/bukharin/library.htm",
       "works": [

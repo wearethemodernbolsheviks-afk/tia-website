@@ -34,13 +34,13 @@ CHIPS = [('all', 'ALL'), ('precursor', 'PRECURSOR'), ('founders', 'FOUNDERS'),
          ('spartacists', 'SPARTACISTS'), ('left', 'COMMUNIST LEFT')]
 DISPLAY = {'hegel': 'G. W. F. Hegel', 'marx': 'Karl Marx', 'engels': 'Friedrich Engels',
            'kautsky': 'Karl Kautsky', 'lenin': 'V. I. Lenin', 'trotsky': 'Leon Trotsky',
-           'luxemburg': 'Rosa Luxemburg', 'bukharin': 'N. I. Bukharin', 'bordiga': 'Amadeo Bordiga'}
+           'luxemburg': 'Rosa Luxemburg', 'liebknecht': 'Karl Liebknecht', 'bukharin': 'N. I. Bukharin', 'bordiga': 'Amadeo Bordiga'}
 
 
 # Full-colour posters used as moving backgrounds (no duotone).
 POSTER = {'hegel': 'p_hp_napoleon', 'marx': 'p_mon_marx_chemnitz', 'engels': 'p_mon_magnitogorsk',
           'kautsky': 'p_share_the_land', 'lenin': 'p_mon_lenin_head', 'trotsky': 'p_raise_it_higher',
-          'luxemburg': 'p_rom_romantics', 'bukharin': 'p_mon_worker_kolkhoz', 'bordiga': 'p_audit_no_country'}
+          'luxemburg': 'p_rom_romantics', 'liebknecht': 'p_rom_come_back', 'bukharin': 'p_mon_worker_kolkhoz', 'bordiga': 'p_audit_no_country'}
 AUTHOR_WALL = {
     'hegel': ['p_hp_marianne', 'p_hp_napoleon', 'p_mon_moon', 'p_mon_motherland_bw'],
     'marx': ['p_mon_magnitogorsk', 'p_mon_worker_kolkhoz', 'p_mon_motherland_bw', 'p_audit_no_country'],
@@ -49,6 +49,7 @@ AUTHOR_WALL = {
     'lenin': ['p_nine_days', 'p_mon_motherland_flags', 'p_raise_it_higher', 'p_mon_moon'],
     'trotsky': ['p_mon_motherland_sunset', 'p_raise_it_higher', 'p_nine_days', 'p_mon_motherland_flags'],
     'luxemburg': ['p_rom_romantics', 'p_hp_marianne', 'p_rom_come_back', 'p_raise_it_higher'],
+    'liebknecht': ['p_rom_come_back', 'p_raise_it_higher', 'p_hp_marianne', 'p_nine_days'],
     'bukharin': ['p_rom_five_year', 'p_mon_worker_kolkhoz', 'p_mon_towers', 'p_share_the_land'],
     'bordiga': ['p_audit_no_country', 'p_mon_towers', 'p_mon_motherland_sunset', 'p_mon_moon'],
 }
@@ -141,6 +142,36 @@ DSP_CSS = """
 .dsp-btn.gh { background: transparent; border: 2px solid #F2ECE4; color: #F2ECE4; }
 .dsp-btn.gh:hover { border-color: #FF5A60; color: #FF5A60; }
 """
+ROOM_CSS = """
+/* the household-terminal room: cream paper and red ink, as in Oppie's America and ALL POWER */
+.room { --pi: #3A0A0D; --pd: #7A4A47; --pr: #CE121E; --pl: #E2C8C2; --pp: #FBF6F3; position: relative; color: var(--pi); background-color: #F4ECE6; background-image: linear-gradient(rgba(110, 8, 14, 0.055) 1px, transparent 1px), linear-gradient(90deg, rgba(110, 8, 14, 0.055) 1px, transparent 1px); background-size: 48px 48px; border-top: 3px solid #CE121E; border-bottom: 3px solid #CE121E; }
+.room a { color: var(--pi); }
+.room a:hover { color: var(--pr); }
+.room .tag { border-color: var(--pr); color: var(--pr); background: var(--pp); }
+.room .h2, .room h2 { color: var(--pi) !important; text-shadow: none !important; }
+.room .src { color: var(--pd); }
+.room .lede { color: #5A3431; }
+.room .rbar { display: flex; justify-content: space-between; gap: 12px; margin: 0; padding: 7px 12px; background: var(--pr); color: #F6EEEA; font-size: 13px; letter-spacing: 0.14em; }
+.room .dsp-card { background: var(--pp); border-color: var(--pl); color: var(--pi); box-shadow: 0 1px 0 rgba(58, 10, 13, 0.06); }
+.room .dsp-card:hover { border-color: var(--pr); color: var(--pi); }
+.room .dsp-img { background-color: #EADBD5; background-image: linear-gradient(rgba(110, 8, 14, 0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(110, 8, 14, 0.06) 1px, transparent 1px); border-bottom-color: var(--pl); }
+.room .dsp-no { background: var(--pr); color: #F6EEEA; }
+.room .dsp-d { color: var(--pd); }
+.room .dsp-s { color: #5A3431; }
+.room .dsp-go { color: var(--pr); }
+.room .dsp-empty { border-color: var(--pl); background: var(--pp); }
+.room .dsp-empty p { color: var(--pi); }
+.room .dsp-empty a, .room .dsp-wait { color: var(--pr); }
+.room .dsp-btn { color: #FFFFFF; }
+.room .dsp-btn:hover { background: #A80E18; color: #FFFFFF; }
+.room .dsp-btn.gh { background: transparent; border-color: var(--pi); color: var(--pi); }
+.room .dsp-btn.gh:hover { border-color: var(--pr); color: var(--pr); }
+.room .btn-s { display: inline-flex; align-items: center; min-height: 48px; padding: 0 22px; border: 2px solid var(--pi); color: var(--pi); font-weight: 800; }
+.room .btn-s:hover { border-color: var(--pr); color: var(--pr); }
+.room .btn-p { display: inline-flex; align-items: center; min-height: 48px; padding: 0 22px; background: var(--pr); color: #FFFFFF; font-weight: 800; }
+.room .btn-p:hover { background: #A80E18; color: #FFFFFF; }
+"""
+
 DSP_WAIT = '<p class="dsp-wait mn">LOADING DISPATCHES FROM SUBSTACK…</p>'
 
 
@@ -151,7 +182,7 @@ FOOTER = re.search(r'(<footer.*?</footer>)', ARCH_TPL, re.S).group(1)
 TIMELINE = re.search(r'(<figure class="it-rv".*?</figure>)', ARCH_TPL, re.S).group(1)
 FONTS = ('<link rel="preconnect" href="https://fonts.googleapis.com">\n'
          '<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900'
-         '&amp;family=Lora:ital,wght@0,400;0,600;1,400&amp;family=Share+Tech+Mono&amp;display=swap" rel="stylesheet">')
+         '&amp;family=Lora:ital,wght@0,400;0,600;1,400&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet">')
 
 EXTRA_CSS = """
 @media (max-width: 1500px) { .tbar .wrap > span.mn:last-child { display: none; } }
@@ -178,7 +209,7 @@ EXTRA_CSS = """
 .dos-body ul a { color: #DCD2CA; border-bottom: 1px dotted #4A2B2E; }
 .dos-body ul a:hover { color: #FF5A60; border-bottom-color: #E8222A; }
 .dos-body ul .h { color: #39D98A; font-size: 11px; letter-spacing: 0.12em; margin-left: 6px; }
-.dos-body .cnt { margin: 6px 0 0; font-family: 'Manolo Mono', 'Share Tech Mono', monospace; font-size: 12px; letter-spacing: 0.12em; color: #A89C95; }
+.dos-body .cnt { margin: 6px 0 0; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; letter-spacing: 0.12em; color: #A89C95; }
 .dos-body .cnt b { font-weight: 400; color: #39D98A; }
 .dos h3 a { color: inherit; }
 .crumbs { font-size: 13px; letter-spacing: 0.14em; color: #A89C95; }
@@ -197,17 +228,17 @@ EXTRA_CSS = """
 .row.wk .ld { align-self: center; transform: none; }
 a.row:hover .ti { color: #FF5A60; }
 .note { margin: 0 0 32px; padding: 16px 18px; border: 1px solid #E8A33A; background: rgba(232, 163, 58, 0.07); font-size: 16px; color: #EADFCB; }
-.note b { font-family: 'Manolo Mono', 'Share Tech Mono', monospace; font-weight: 400; letter-spacing: 0.12em; color: #E8A33A; margin-right: 8px; }
+.note b { font-family: 'JetBrains Mono', ui-monospace, monospace; font-weight: 400; letter-spacing: 0.12em; color: #E8A33A; margin-right: 8px; }
 .btn { display: inline-flex; align-items: center; min-height: 48px; padding: 0 18px; box-sizing: border-box; background: #C81D25; color: #FFFFFF; font-family: Inter, sans-serif; font-weight: 800; font-size: 16px; }
 .btn:hover { background: #E8222A; color: #FFFFFF; }
-.btn.gh { background: transparent; border: 1px solid #3A2326; color: #F2ECE4; font-family: 'Manolo Mono', 'Share Tech Mono', monospace; font-weight: 400; font-size: 14px; letter-spacing: 0.1em; }
+.btn.gh { background: transparent; border: 1px solid #3A2326; color: #F2ECE4; font-family: 'JetBrains Mono', ui-monospace, monospace; font-weight: 400; font-size: 14px; letter-spacing: 0.1em; }
 .btn.gh:hover { border-color: #E8222A; color: #FF5A60; }
 .pn { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; margin-top: 48px; padding-top: 18px; border-top: 1px solid #3A2326; font-size: 14px; letter-spacing: 0.12em; }
 .pn a { color: #FF5A60; }
 .stats { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
 .stats div { min-width: 120px; padding: 12px 14px; border: 1px solid #3A2326; background: rgba(9, 5, 6, 0.8); }
 .stats b { display: block; font-family: Inter, sans-serif; font-weight: 900; font-size: 34px; line-height: 1; color: #F2ECE4; }
-.stats span { display: block; margin-top: 6px; font-family: 'Manolo Mono', 'Share Tech Mono', monospace; font-size: 12px; letter-spacing: 0.12em; color: #A89C95; }
+.stats span { display: block; margin-top: 6px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; letter-spacing: 0.12em; color: #A89C95; }
 .au-grid { display: grid; grid-template-columns: minmax(0, 380px) minmax(0, 1fr); gap: 40px; align-items: end; margin-top: 22px; }
 .au-img { height: 440px; border: 1px solid #3A2326; }
 @media (max-width: 860px) { .au-grid { grid-template-columns: 1fr; } .au-img { height: 340px; } }
@@ -217,7 +248,7 @@ a.row:hover .ti { color: #FF5A60; }
 .res-head b { font-weight: 400; color: #F2ECE4; }
 .hit-list { list-style: none; margin: 0; padding: 0; }
 .hit-list li { padding: 14px 0; border-bottom: 1px solid #241618; }
-.hit-list .hw { font-family: 'Manolo Mono', 'Share Tech Mono', monospace; font-size: 13px; letter-spacing: 0.1em; color: #A89C95; }
+.hit-list .hw { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 13px; letter-spacing: 0.1em; color: #A89C95; }
 .hit-list .hw a { color: #FF5A60; }
 .hit-list q { display: block; margin-top: 6px; quotes: none; font-family: Lora, Georgia, serif; font-size: 17px; line-height: 1.6; color: #DCD2CA; }
 .hit-list q::before { content: "… "; color: #7A4246; }
@@ -241,7 +272,7 @@ READER_CSS = """
 .rd-head { display: flex; flex-wrap: wrap; gap: 28px 40px; align-items: flex-end; margin-top: 22px; }
 .rd-head .bust { flex: 0 0 150px; height: 190px; position: relative; overflow: hidden; border: 1px solid #3A2326; background: #090506; display: flex; align-items: flex-end; justify-content: center; }
 .rd-head .bust img { height: 94%; width: auto; }
-.rd-h1 { margin: 16px 0 0; font-family: 'Manolo Mono', 'Share Tech Mono', monospace; font-weight: 400; font-size: clamp(32px, 4.4vw, 62px); line-height: 1.04; color: #F2ECE4; text-transform: uppercase; }
+.rd-h1 { margin: 16px 0 0; font-family: Inter, system-ui, sans-serif; font-weight: 900; letter-spacing: -0.012em; font-size: clamp(30px, 3.8vw, 54px); line-height: 1.02; color: #F2ECE4; text-transform: uppercase; }
 .rd-sub { margin: 12px 0 0; max-width: 760px; font-size: 18px; color: #CFC4BC; }
 .rd-ed { margin: 14px 0 0; max-width: 760px; font-size: 15px; color: #A89C95; }
 .rd-ed a, .text a { color: #FF8A8E; border-bottom: 1px dotted #6E3A3D; overflow-wrap: anywhere; }
@@ -262,21 +293,21 @@ READER_CSS = """
 .text:lang(de) { hyphens: auto; }
 .text > * { position: relative; margin: 0 0 1.05em; scroll-margin-top: 96px; }
 .text > [id] { counter-increment: pp; }
-.text > [id]::before { content: counter(pp); position: absolute; left: -64px; top: 0.45em; width: 46px; text-align: right; font-family: 'Manolo Mono', 'Share Tech Mono', monospace; font-size: 11px; line-height: 1; letter-spacing: 0.06em; color: #4A2B2E; }
+.text > [id]::before { content: counter(pp); position: absolute; left: -64px; top: 0.45em; width: 46px; text-align: right; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; line-height: 1; letter-spacing: 0.06em; color: #4A2B2E; }
 .text > [id]:hover::before { color: #E8222A; }
-.text h2 { margin: 2.2em 0 1em; padding-top: 18px; border-top: 1px solid #3A2326; font-family: 'Manolo Mono', 'Share Tech Mono', monospace; font-weight: 400; font-size: 21px; line-height: 1.35; letter-spacing: 0.08em; color: #FF5A60; }
+.text h2 { margin: 2.2em 0 1em; padding-top: 18px; border-top: 1px solid #3A2326; font-family: 'JetBrains Mono', ui-monospace, monospace; font-weight: 400; font-size: 21px; line-height: 1.35; letter-spacing: 0.08em; color: #FF5A60; }
 .text h2::before { top: 1.6em !important; }
-.text .cap { text-align: center; font-family: 'Manolo Mono', 'Share Tech Mono', monospace; font-size: 15px; line-height: 1.5; letter-spacing: 0.1em; color: #A89C95; margin-bottom: 0.6em; }
-.text .sig { text-align: right; font-family: 'Manolo Mono', 'Share Tech Mono', monospace; font-size: 15px; letter-spacing: 0.1em; color: #A89C95; }
+.text .cap { text-align: center; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 15px; line-height: 1.5; letter-spacing: 0.1em; color: #A89C95; margin-bottom: 0.6em; }
+.text .sig { text-align: right; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 15px; letter-spacing: 0.1em; color: #A89C95; }
 .text .lb { white-space: pre-line; }
 .text .ctr { white-space: pre-line; text-align: center; color: #CFC4BC; }
 .text .q { padding-left: 22px; border-left: 2px solid #4A2B2E; color: #D3C9BF; }
 .text .q::before { left: -64px; }
 .text .fn { font-size: 16px; color: #BFB3AA; }
 .text .tn { padding: 12px 16px; border: 1px dashed #3A2326; font-family: Inter, system-ui, sans-serif; font-size: 14px; color: #A89C95; }
-.text pre { overflow-x: auto; font-family: 'Manolo Mono', 'Share Tech Mono', monospace; font-size: 14px; line-height: 1.5; color: #CFC4BC; white-space: pre; }
+.text pre { overflow-x: auto; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 14px; line-height: 1.5; color: #CFC4BC; white-space: pre; }
 .text hr { border: 0; height: auto; text-align: center; margin: 2em 0; }
-.text hr::after { content: "*   *   *"; font-family: 'Manolo Mono', 'Share Tech Mono', monospace; color: #7A4246; }
+.text hr::after { content: "*   *   *"; font-family: 'JetBrains Mono', ui-monospace, monospace; color: #7A4246; }
 .text em { font-style: italic; color: #F2ECE4; }
 .text .flash { animation: rd-flash 3s ease-out 1; }
 @keyframes rd-flash { 0%, 30% { background: rgba(232, 34, 42, 0.16); box-shadow: 0 0 0 10px rgba(232, 34, 42, 0.16); } 100% { background: transparent; box-shadow: 0 0 0 10px transparent; } }
@@ -284,6 +315,38 @@ READER_CSS = """
 .rd-end { margin-top: 56px; padding-top: 18px; border-top: 1px solid #3A2326; font-size: 14px; letter-spacing: 0.12em; color: #A89C95; }
 @media (max-width: 760px) { .tbar { position: static; } .text > * { scroll-margin-top: 16px; } .toc-m { position: sticky; top: 0; z-index: 5; } }
 @media (prefers-reduced-motion: reduce) { .rd-prog, .text .flash { animation: none !important; } }
+/* paper reading mode: the text section turns to cream paper with dark ink; the CRT overlays step aside */
+.rd-paper-t { display: inline-flex; align-items: center; gap: 8px; cursor: pointer; }
+.rd-paper-f { position: fixed; right: 64px; bottom: 18px; z-index: 66; min-height: 40px; padding: 0 12px; border: 1px solid #3A2326; background: rgba(9, 5, 6, 0.92); color: #F2ECE4; font-size: 12px; letter-spacing: 0.12em; }
+.rd-paper-f:hover { border-color: #E8222A; color: #FF5A60; }
+html.paper .rd-paper-f { background: #FBF6F3; border-color: #C9B1A8; color: #3A0A0D; }
+html.paper .rd-paper-f:hover { border-color: #CE121E; color: #CE121E; }
+@media (max-width: 760px) { .rd-paper-f { right: 12px; bottom: 12px; } }
+.rd-paper-t i { display: inline-block; width: 14px; height: 14px; border: 1px solid currentColor; background: linear-gradient(135deg, #F4ECE6 50%, #090506 50%); }
+html.paper .rd-body { background: #F4ECE6 !important; border-top: 3px solid #CE121E; }
+html.paper .rd-body .text { color: #2B1A17; }
+html.paper .rd-body .text em { color: #1E100E; }
+html.paper .rd-body .text h2 { color: #B3121B; border-top-color: #D8C3BB; }
+html.paper .rd-body .text > [id]::before { color: #C9B1A8; }
+html.paper .rd-body .text > [id]:hover::before { color: #CE121E; }
+html.paper .rd-body .text .cap, html.paper .rd-body .text .sig, html.paper .rd-body .text .tn { color: #7A4A47; }
+html.paper .rd-body .text .ctr { color: #4A2F2B; }
+html.paper .rd-body .text .q { color: #3A2622; border-left-color: #D8B5AD; }
+html.paper .rd-body .text .fn { color: #5A403B; }
+html.paper .rd-body .text pre { color: #3A2622; }
+html.paper .rd-body .text hr::after { color: #C08A84; }
+html.paper .rd-body .text a { color: #B3121B; border-bottom-color: #D8A9A3; }
+html.paper .rd-body .toc p, html.paper .rd-body .toc-m summary { color: #7A4A47; }
+html.paper .rd-body .toc ol, html.paper .rd-body .toc-m ol { border-left-color: #D8C3BB; }
+html.paper .rd-body .toc li a, html.paper .rd-body .toc-m li a { color: #4A2F2B; }
+html.paper .rd-body .toc li a:hover, html.paper .rd-body .toc li a.on { color: #CE121E; border-left-color: #CE121E; }
+html.paper .rd-body .toc-m { background: #FBF6F3; border-color: #D8C3BB; }
+html.paper .rd-body .rd-end { color: #7A4A47; border-top-color: #D8C3BB; }
+html.paper .rd-body .pn a { color: #B3121B; }
+html.paper .rd-body .hit, html.paper .rd-body mark { background: #F7D6D2; color: #1E100E; }
+html.paper .ov-lines, html.paper .ov-grain, html.paper .ov-band, html.paper .rd-poster, html.paper .inst-x { display: none; }
+html.paper .text .flash { animation-name: rd-flash-p; }
+@keyframes rd-flash-p { 0%, 30% { background: rgba(206, 18, 30, 0.12); box-shadow: 0 0 0 10px rgba(206, 18, 30, 0.12); } 100% { background: transparent; box-shadow: 0 0 0 10px transparent; } }
 """
 
 
@@ -720,7 +783,8 @@ def build_reader(a, w, byslug, others):
     pn += '</div>'
 
     sub = f'<p class="rd-sub">{esc(w["subtitle"])}</p>' if w.get('subtitle') else ''
-    body = f"""<div class="rd-prog" aria-hidden="true"></div>
+    body = f"""<script>try {{ if (localStorage.getItem('tia-read') === 'paper') document.documentElement.classList.add('paper'); }} catch (e) {{}}</script>
+<div class="rd-prog" aria-hidden="true"></div>
 <div class="rd-poster" aria-hidden="true" style="--ar: {poster_ar(POSTER[a['slug']])}; background-image: url('/assets/bgp/{POSTER[a['slug']]}-1x.webp'); background-image: image-set(url('/assets/bgp/{POSTER[a['slug']]}-1x.webp') 1x, url('/assets/bgp/{POSTER[a['slug']]}.webp') 2x)"></div>
 <section style="position: relative; border-bottom: 1px solid #2B1B1D">
   <div class="wrap rd-hero-wrap" style="padding-top: 26px; padding-bottom: clamp(32px, 4vw, 52px)">
@@ -733,13 +797,13 @@ def build_reader(a, w, byslug, others):
         {sub}
         <p class="src">{esc(by.upper())} · {esc(w['year'])} · {words(nwords)} WORDS · {rt} · {'ENGLISH' if lang == 'en' else 'DEUTSCH'}</p>
         <p class="rd-ed">{esc(w['edition'])} {rights_html(w)}</p>
-        <div class="rd-act"><a class="btn" href="#p1">Start reading</a><a class="btn gh" href="{w['slug']}.txt" download>DOWNLOAD .TXT</a><a class="btn gh" href="{a['url']}">{a['short']} DOSSIER</a></div>
+        <div class="rd-act"><a class="btn" href="#p1">Start reading</a><a class="btn gh" href="{w['slug']}.txt" download>DOWNLOAD .TXT</a><button type="button" class="btn gh rd-paper-t" data-paper aria-pressed="false"><i aria-hidden="true"></i><span>PAPER MODE</span></button><a class="btn gh" href="{a['url']}">{a['short']} DOSSIER</a></div>
       </div>
     </div>
   </div>
 </section>
 
-<section style="background: rgba(12, 7, 8, 0.6)">
+<section class="rd-body" style="background: rgba(12, 7, 8, 0.6)">
   <div class="wrap {layout}">
     {aside}
     <div style="min-width: 0">
@@ -751,7 +815,20 @@ def build_reader(a, w, byslug, others):
       {pn}
     </div>
   </div>
-</section>"""
+</section>
+<button type="button" class="rd-paper-t rd-paper-f mn" data-paper aria-pressed="false"><i aria-hidden="true"></i><span>PAPER MODE</span></button>
+<script>
+(function () {{
+  var root = document.documentElement, btns = document.querySelectorAll('[data-paper]');
+  function show(on) {{ btns.forEach(function (b) {{ b.setAttribute('aria-pressed', on ? 'true' : 'false'); b.querySelector('span').textContent = on ? 'DARK MODE' : 'PAPER MODE'; }}); }}
+  show(root.classList.contains('paper'));
+  btns.forEach(function (b) {{ b.addEventListener('click', function () {{
+    var on = !root.classList.contains('paper');
+    root.classList.toggle('paper', on); show(on);
+    try {{ localStorage.setItem('tia-read', on ? 'paper' : 'dark'); }} catch (e) {{}}
+  }}); }});
+}})();
+</script>"""
     title = f'{w["title"]} · {by} · TIA Archive'
     desc = f'Full text of {w["title"]} ({w["year"]}) by {by}. {w["edition"]} Free to read and download.'
     out = page(title, desc, w['path'], body, css=READER_CSS, current_label=f'/ARCHIVE/{a["short"]}',
@@ -784,7 +861,7 @@ def build_author(a, prev_a, next_a, byslug, cols):
       <div class="dos-img au-img"><img src="{a['img']}" alt="{attr(a['alt'])}"><span class="hc tl"></span><span class="hc tr"></span><span class="hc bl"></span><span class="hc br"></span><span class="co r" aria-hidden="true" style="top: 22%; right: 10px"><b>{a['hex']}</b><i></i></span><span class="it-bscan" aria-hidden="true" style="position: absolute; left: 0; right: 0; height: 2px; background: #FF5A60; box-shadow: 0 0 10px rgba(232, 34, 42, 0.8)"></span></div>
       <div style="min-width: 0">
         <span class="tag">SUBJECT {a['num']} · {a['tg']}</span>
-        <h1 class="mn it-glitch shade" style="margin: 18px 0 0; font-size: clamp(42px, 6vw, 92px); line-height: 1; color: #F2ECE4">{a['name']}</h1>
+        <h1 class="dh it-glitch shade" style="margin: 18px 0 0; font-size: clamp(36px, 5vw, 78px); line-height: 0.98; color: #F2ECE4">{a['name']}</h1>
         <p class="src shade">{a['yr']}</p>
         <p class="shade" style="margin: 20px 0 0; max-width: 640px; font-size: 19px; color: #ECE4DC">{a['role']}</p>
         <div class="stats"><div><b>{len(a['bib']):,}</b><span>ITEMS FILED</span></div><div><b>{nh}</b><span>FULL TEXTS HERE</span></div><div><b>{bib_y0}</b><span>FIRST ITEM</span></div><div><b>{bib_y1}</b><span>LAST ITEM</span></div></div>
@@ -828,7 +905,7 @@ def build_collection(c, byslug, cols):
   <div class="wrap" style="padding-top: 26px; padding-bottom: clamp(40px, 5vw, 64px)">
     {crumbs(('ARCHIVE', '/archive/'), ('COLLECTIONS', '/archive/#collections'), (c['title'], None))}
     <span class="tag" style="margin-top: 24px">{c['code']} · COLLECTION</span>
-    <h1 class="mn it-glitch shade" style="margin: 18px 0 0; font-size: clamp(42px, 6vw, 92px); line-height: 1; color: #F2ECE4">{c['title']}</h1>
+    <h1 class="dh it-glitch shade" style="margin: 18px 0 0; font-size: clamp(36px, 5vw, 78px); line-height: 0.98; color: #F2ECE4">{c['title']}</h1>
     <p class="src shade">{c['span']} · {len(c['works'])} WORKS · {nh} FULL TEXTS</p>
     <p class="shade" style="margin: 20px 0 0; max-width: 700px; padding: 14px 16px; background: rgba(9, 5, 6, 0.72); border-left: 2px solid #E8222A; font-size: 19px; color: #ECE4DC">{esc(c['desc'])}</p>
   </div>
@@ -859,8 +936,8 @@ def build_index(authors, byslug, works, cols):
     nh, nl = len(hosted), len(works) - len(hosted)
     t = ARCH_TPL
     # hero: counts and a real search form
-    t = t.replace('SRC: TIA ARCHIVE · 9 SUBJECTS · 6 TENDENCIES · 1770 — 1970',
-                  f'SRC: TIA ARCHIVE · 9 SUBJECTS · {len(works)} WORKS · {nh} FULL TEXTS · 1770 — 1970')
+    t = t.replace('SRC: TIA ARCHIVE · 10 SUBJECTS · 6 TENDENCIES · 1770 — 1970',
+                  f'SRC: TIA ARCHIVE · 10 SUBJECTS · {len(works)} WORKS · {nh} FULL TEXTS · 1770 — 1970')
     t = t.replace('/// 1770 — 1970 ///', f'/// {len(works)} WORKS /// {nh} FULL TEXTS /// 1770 — 1970 ///')
     t = t.replace('Every major thinker, filed by tendency. Open a dossier to read their works in order, from the first article to the last letter.',
                   'Every major thinker, filed by tendency. Open a dossier for their works in order. Texts in the public domain, and a few public-domain originals in freely licensed translations, are here in full and searchable; the rest link to the Marxists Internet Archive.')
@@ -888,7 +965,7 @@ def build_index(authors, byslug, works, cols):
 """
     t = t.replace('<div aria-hidden="true" class="sec-bg" style="background-image: url(\'/assets/bg_archivepage.webp\')"></div>',
                   '', 1)
-    t = t.replace('<h1 class="mn it-glitch" style="margin: 18px 0 0; font-size: clamp(46px, 6.6vw, 104px)', '<h1 class="mn it-glitch shade" style="margin: 18px 0 0; font-size: clamp(46px, 6.6vw, 104px)', 1)
+    t = t.replace('<h1 class="dh it-glitch" style="margin: 18px 0 0; font-size: clamp(38px, 5.4vw, 86px)', '<h1 class="dh it-glitch shade" style="margin: 18px 0 0; font-size: clamp(38px, 5.4vw, 86px)', 1)
     t = t.replace('<p style="margin: 22px 0 0; max-width: 620px; font-size: 19px; color: #DCD2CA">', '<p style="margin: 22px 0 0; max-width: 620px; padding: 14px 16px; background: rgba(9, 5, 6, 0.72); border-left: 2px solid #E8222A; font-size: 19px; color: #ECE4DC">', 1)
     hero_end = t.index('</section>', t.index('id="ar-form"')) + len('</section>')
     t = t[:hero_end] + '\n' + results + t[hero_end:]
@@ -952,8 +1029,7 @@ def build_home(authors, works, cols):
             t = t.replace(old.group(), collection_row(c))
     t = t.replace('<a href="#watch">WATCH</a>', '<a href="#watch">WATCH</a>\n      <a href="#dispatches">DISPATCHES</a>', 1)
     section = f"""
-<section id="dispatches" class="grid-bg" style="position: relative; overflow: hidden; background-color: #0C0708; border-top: 1px solid #2B1B1D">
-  <div aria-hidden="true" class="sec-bg" style="left: auto; width: min(620px, 48%); height: 100%; background-image: url('/assets/bgp/p_mon_tiananmen.webp'); background-size: cover; background-position: center top; background-repeat: no-repeat; opacity: 0.32; -webkit-mask-image: linear-gradient(to right, transparent, #000 55%), linear-gradient(to bottom, #000 60%, transparent); mask-image: linear-gradient(to right, transparent, #000 55%), linear-gradient(to bottom, #000 60%, transparent); -webkit-mask-composite: source-in; mask-composite: intersect"></div>
+<section id="dispatches" class="room" style="overflow: hidden">
   <div class="wrap" style="padding-top: clamp(56px, 7vw, 100px); padding-bottom: clamp(56px, 7vw, 100px)">
     <div class="it-rv" style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 20px">
       <div>
@@ -963,16 +1039,16 @@ def build_home(authors, works, cols):
       </div>
       <div style="display: flex; flex-wrap: wrap; gap: 10px"><a class="dsp-btn" href="{SUBSTACK}/subscribe" target="_blank" rel="noopener">Subscribe on Substack</a><a class="dsp-btn gh" href="/dispatches/">All dispatches →</a></div>
     </div>
-    <p class="it-rv" style="margin: 22px 0 0; max-width: 660px; font-size: 19px; color: #CFC4BC">Written dispatches from the Authority: analysis, history and the programme, sent out by email and filed here as they go out.</p>
+    <p class="it-rv lede" style="margin: 22px 0 0; max-width: 660px; font-size: 19px">Written dispatches from the Authority: analysis, history and the programme, sent out by email and filed here as they go out.</p>
     <div class="dsp-grid" data-dispatches data-limit="3" aria-busy="true">{DSP_WAIT}</div>
   </div>
 </section>
 """
     i = t.index('</section>', t.index('<section id="watch"')) + len('</section>')
     t = t[:i] + '\n' + section + t[i:]
-    t = t.replace('</style>', DSP_CSS + '</style>', 1)
+    t = t.replace('</style>', DSP_CSS + ROOM_CSS + '</style>', 1)
     t = t.replace('</body>', '<script src="/assets/dispatches.js" defer></script>\n<script src="/assets/tia-media.js" defer></script>\n</body>', 1)
-    t = t.replace('SRC: TIA ARCHIVE · 9 SUBJECTS · 8 COLLECTIONS', f'SRC: TIA ARCHIVE · 9 SUBJECTS · {nh} FULL TEXTS · 8 COLLECTIONS')
+    t = t.replace('SRC: TIA ARCHIVE · 10 SUBJECTS · 8 COLLECTIONS', f'SRC: TIA ARCHIVE · 10 SUBJECTS · {nh} FULL TEXTS · 8 COLLECTIONS')
     t = re.sub(r'<div role="search" class="panel" style="padding: 22px">(.*?)</p>\n        </div>',
                lambda m: '<form role="search" class="panel" action="/archive/" method="get" style="padding: 22px">' + m.group(1) + '</p>\n        </form>',
                t, count=1, flags=re.S)
@@ -1014,6 +1090,7 @@ BIB_BASE = {
     'hegel': 'https://www.marxists.org/reference/archive/hegel/',
     'lenin': 'https://www.marxists.org/archive/lenin/works/',
     'trotsky': 'https://www.marxists.org/archive/trotsky/',
+    'liebknecht': 'https://www.marxists.org/archive/liebknecht-k/',
 }
 BIB_SOURCE = {
     'hegel': 'Hegel\'s principal writings and lecture courses. Links open the Hegel section of the Marxists Internet Archive.',
@@ -1023,6 +1100,7 @@ BIB_SOURCE = {
     'lenin': 'Every entry in the date index of the Lenin Internet Archive, which follows the Collected Works. Works in several parts are listed once.',
     'trotsky': 'Every work in the Trotsky index of the Marxists Internet Archive.',
     'luxemburg': 'Every work in the Luxemburg section of the Marxists Internet Archive.',
+    'liebknecht': 'Every work in the Liebknecht section of the Marxists Internet Archive.',
     'bukharin': 'Every work in the Bukharin library of the Marxists Internet Archive.',
     'bordiga': 'Every English translation in the Bordiga section of the Marxists Internet Archive. His Italian writings run to thousands of articles; more will be filed here as they are translated.',
 }
@@ -1077,20 +1155,20 @@ CW_CSS = """
 .cw-jump a { padding: 5px 9px; border: 1px solid #3A2326; background: rgba(9, 5, 6, 0.7); font-size: 12px; letter-spacing: 0.1em; color: #CFC4BC; }
 .cw-jump a:hover { border-color: #E8222A; color: #FF5A60; }
 .cw-y { margin-top: 36px; scroll-margin-top: 150px; }
-.cw-y h2 { margin: 0; display: flex; justify-content: space-between; align-items: baseline; gap: 12px; border-bottom: 1px solid #3A2326; padding-bottom: 8px; font-family: 'Manolo Mono', 'Share Tech Mono', monospace; font-weight: 400; font-size: 28px; color: #FF5A60; }
+.cw-y h2 { margin: 0; display: flex; justify-content: space-between; align-items: baseline; gap: 12px; border-bottom: 1px solid #3A2326; padding-bottom: 8px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-weight: 400; font-size: 28px; color: #FF5A60; }
 .cw-y h2 span { font-size: 12px; letter-spacing: 0.12em; color: #A89C95; }
 .cw { list-style: none; margin: 0; padding: 0; columns: 2 440px; column-gap: 44px; }
 .cw li { break-inside: avoid; display: flex; gap: 12px; padding: 7px 0; border-bottom: 1px solid #1E1214; font-size: 15.5px; line-height: 1.4; }
-.cw li .d { flex: 0 0 56px; padding-top: 3px; font-family: 'Manolo Mono', 'Share Tech Mono', monospace; font-size: 12px; letter-spacing: 0.04em; color: #8A7B75; }
+.cw li .d { flex: 0 0 56px; padding-top: 3px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; letter-spacing: 0.04em; color: #8A7B75; }
 .cw li a { color: #E6DDD3; }
 .cw li a:hover { color: #FF5A60; }
 .cw li.l a { color: #B3A79F; }
-.cw li b { margin-left: 8px; font-family: 'Manolo Mono', 'Share Tech Mono', monospace; font-weight: 400; font-size: 11px; letter-spacing: 0.12em; color: #39D98A; }
+.cw li b { margin-left: 8px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-weight: 400; font-size: 11px; letter-spacing: 0.12em; color: #39D98A; }
 .no-letters .cw li.l { display: none; }
 .cw-y[hidden], .cw li[hidden] { display: none; }
 .au-cw { display: inline-flex; align-items: center; gap: 12px; margin-top: 22px; min-height: 52px; padding: 0 20px; background: #C81D25; color: #FFFFFF; font-family: Inter, sans-serif; font-weight: 800; font-size: 17px; }
 .au-cw:hover { background: #E8222A; color: #FFFFFF; }
-.au-cw small { font-family: 'Manolo Mono', 'Share Tech Mono', monospace; font-weight: 400; font-size: 13px; letter-spacing: 0.1em; opacity: 0.85; }
+.au-cw small { font-family: 'JetBrains Mono', ui-monospace, monospace; font-weight: 400; font-size: 13px; letter-spacing: 0.1em; opacity: 0.85; }
 """
 
 
@@ -1118,7 +1196,7 @@ def build_complete_works(a, byslug):
   <div class="wrap" style="position: relative; z-index: 1; padding-top: 26px; padding-bottom: clamp(36px, 4vw, 56px)">
     {crumbs(('ARCHIVE', '/archive/'), (a['short'], a['url']), ('COMPLETE WORKS', None))}
     <span class="tag" style="margin-top: 22px">SUBJECT {a['num']} · COMPLETE WORKS</span>
-    <h1 class="mn it-glitch shade" style="margin: 18px 0 0; font-size: clamp(40px, 5.6vw, 86px); line-height: 1; color: #F2ECE4">{a['name']}</h1>
+    <h1 class="dh it-glitch shade" style="margin: 18px 0 0; font-size: clamp(34px, 4.6vw, 72px); line-height: 0.98; color: #F2ECE4">{a['name']}</h1>
     <p class="src shade">{len(items):,} ITEMS · {len(items) - nl:,} WORKS{f' · {nl:,} LETTERS' if nl else ''} · {years[0]} — {years[-1]}</p>
     <p class="shade" style="margin: 20px 0 0; max-width: 760px; padding: 14px 16px; background: rgba(9, 5, 6, 0.72); border-left: 2px solid #E8222A; font-size: 17px; color: #ECE4DC">{esc(BIB_SOURCE.get(a['slug'], ''))}</p>
     <nav class="cw-jump mn" aria-label="Jump to decade">{jump}</nav>
@@ -1165,21 +1243,22 @@ def build_dispatches():
   <div class="wrap" style="position: relative; z-index: 1; padding-top: 26px; padding-bottom: clamp(40px, 5vw, 64px)">
     {crumbs(('HOME', '/'), ('DISPATCHES', None))}
     <span class="tag" style="margin-top: 22px">FILE 05-B · SUBSTACK</span>
-    <h1 class="mn it-glitch shade" style="margin: 18px 0 0; font-size: clamp(44px, 6.2vw, 100px); line-height: 1; color: #F2ECE4">DISPATCHES</h1>
+    <h1 class="dh it-glitch shade" style="margin: 18px 0 0; font-size: clamp(38px, 5.2vw, 84px); line-height: 0.98; color: #F2ECE4">DISPATCHES</h1>
     <p class="src shade" data-dispatches-count>TECHNICAL INVARIANCE AUTHORITY ON SUBSTACK</p>
     <p class="shade" style="margin: 20px 0 0; max-width: 680px; padding: 14px 16px; background: rgba(9, 5, 6, 0.72); border-left: 2px solid #E8222A; font-size: 19px; color: #ECE4DC">Written dispatches from the Authority: analysis, history and the programme. Every post goes out by email first and is listed here, newest first.</p>
     <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px"><a class="dsp-btn" href="{SUBSTACK}/subscribe" target="_blank" rel="noopener">Subscribe by email</a><a class="dsp-btn gh" href="{SUBSTACK}/" target="_blank" rel="noopener">Open on Substack ↗</a></div>
   </div>
 </section>
 
-<section class="grid-bg" style="position: relative; background-color: rgba(12, 7, 8, 0.86)">
-  <div class="wrap" style="padding-top: 12px; padding-bottom: clamp(56px, 7vw, 96px)">
-    <div class="dsp-grid" data-dispatches aria-busy="true">{DSP_WAIT}</div>
+<section class="room">
+  <div class="wrap" style="padding-top: clamp(28px, 4vw, 48px); padding-bottom: clamp(56px, 7vw, 96px)">
+    <p class="rbar mn"><span>DISPATCH FILE · NEWEST FIRST</span><span>TIA / SUBSTACK</span></p>
+    <div class="dsp-grid" data-dispatches aria-busy="true" style="margin-top: 22px">{DSP_WAIT}</div>
   </div>
 </section>"""
     out = page('Dispatches · Technical Invariance Authority',
                'Written dispatches from the Technical Invariance Authority on Substack: analysis, history and the programme, newest first.',
-               '/dispatches/', body, css=DSP_CSS, ticker='DISPATCHES /// TIA ON SUBSTACK /// ANALYSIS · HISTORY · THE PROGRAMME /// SUBSCRIBE BY EMAIL ///',
+               '/dispatches/', body, css=DSP_CSS + ROOM_CSS, ticker='DISPATCHES /// TIA ON SUBSTACK /// ANALYSIS · HISTORY · THE PROGRAMME /// SUBSCRIBE BY EMAIL ///',
                current_label='/DISPATCHES', bg=DISPATCH_POSTER, script=False)
     out = out.replace('aria-current="page" style="color: #FF5A60; border-bottom: 2px solid #E8222A">ARCHIVE</a>', '>ARCHIVE</a>', 1)
     out = out.replace('<a href="/dispatches/">DISPATCHES</a>', '<a href="/dispatches/" aria-current="page" style="color: #FF5A60; border-bottom: 2px solid #E8222A">DISPATCHES</a>', 1)

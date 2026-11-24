@@ -21,37 +21,37 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@Invariance_Tech">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&amp;family=Share+Tech+Mono&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet">
 <style>
-@font-face { font-family: 'Manolo Mono'; src: local('Manolo Mono'), local('ManoloMono-Regular'), local('Manolo Mono Regular'); font-weight: 400; font-display: swap; }
 body { margin: 0; background: #090506; font-synthesis: none; }
 a { color: #F2ECE4; text-decoration: none; }
 a:hover { color: #FF5A60; }
 a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid #FF5A60; outline-offset: 3px; }
 img { display: block; max-width: 100%; }
-.mn { font-family: 'Manolo Mono', 'Share Tech Mono', ui-monospace, monospace; font-weight: 400; }
+.mn { font-family: 'JetBrains Mono', ui-monospace, monospace; font-weight: 400; }
+.dh { font-family: Inter, system-ui, sans-serif; font-weight: 900; letter-spacing: -0.012em; text-transform: uppercase; }
 .wrap { max-width: 1360px; margin: 0 auto; padding-left: clamp(16px, 4vw, 60px); padding-right: clamp(16px, 4vw, 60px); box-sizing: border-box; }
 .grid-bg { background-image: linear-gradient(rgba(242, 236, 228, 0.045) 1px, transparent 1px), linear-gradient(90deg, rgba(242, 236, 228, 0.045) 1px, transparent 1px); background-size: 48px 48px; }
 .glow-r { text-shadow: 0 0 12px rgba(232, 34, 42, 0.65); }
 .glow-w { text-shadow: 0 0 16px rgba(242, 236, 228, 0.2); }
-.tag { display: inline-flex; align-items: center; gap: 8px; padding: 5px 10px; border: 1px solid #E8222A; font-family: 'Manolo Mono', 'Share Tech Mono', monospace; font-size: 14px; letter-spacing: 0.14em; color: #FF5A60; }
-.src { margin: 12px 0 0; font-family: 'Manolo Mono', 'Share Tech Mono', monospace; font-size: 13px; letter-spacing: 0.1em; color: #A89C95; }
+.tag { display: inline-flex; align-items: center; gap: 8px; padding: 5px 10px; border: 1px solid #4A2B2E; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 14px; letter-spacing: 0.14em; color: #B8ABA4; }
+.src { margin: 12px 0 0; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 13px; letter-spacing: 0.1em; color: #A89C95; }
 .dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #39D98A; box-shadow: 0 0 8px rgba(57, 217, 138, 0.8); animation: it-blink 2.4s ease-in-out infinite; }
 .hc { position: absolute; width: 18px; height: 18px; border: 0 solid #E8222A; }
 .hc.tl { top: 8px; left: 8px; border-top-width: 2px; border-left-width: 2px; }
 .hc.tr { top: 8px; right: 8px; border-top-width: 2px; border-right-width: 2px; }
 .hc.bl { bottom: 8px; left: 8px; border-bottom-width: 2px; border-left-width: 2px; }
 .hc.br { bottom: 8px; right: 8px; border-bottom-width: 2px; border-right-width: 2px; }
-.co { position: absolute; display: flex; align-items: center; gap: 6px; font-family: 'Manolo Mono', 'Share Tech Mono', monospace; font-size: 11px; letter-spacing: 0.1em; color: #F2ECE4; white-space: nowrap; z-index: 2; }
+.co { position: absolute; display: flex; align-items: center; gap: 6px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 0.1em; color: #F2ECE4; white-space: nowrap; z-index: 2; }
 .co b { font-weight: 400; padding: 2px 6px; background: rgba(9, 5, 6, 0.85); }
 .co i { position: relative; display: block; height: 1px; width: 40px; background: #F2ECE4; }
 .co i::after { content: ""; position: absolute; top: -3px; right: -1px; border-left: 6px solid #F2ECE4; border-top: 3.5px solid transparent; border-bottom: 3.5px solid transparent; }
 .co.r { flex-direction: row-reverse; }
 .co.r i::after { right: auto; left: -1px; border-left: 0; border-right: 6px solid #F2ECE4; }
-.row { display: flex; align-items: baseline; gap: 14px; padding: 12px 0; border-bottom: 1px solid #241618; font-family: 'Manolo Mono', 'Share Tech Mono', monospace; font-size: 16px; letter-spacing: 0.06em; }
+.row { display: flex; align-items: baseline; gap: 14px; padding: 12px 0; border-bottom: 1px solid #241618; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 16px; letter-spacing: 0.06em; }
 .row .ld { flex: 1; min-width: 20px; border-bottom: 1px dotted #4A2B2E; transform: translateY(-4px); }
 .row:hover .ld { border-bottom-color: #E8222A; }
-.chip { min-height: 42px; padding: 0 14px; border: 1px solid #3A2326; background: rgba(9, 5, 6, 0.7); color: #F2ECE4; font-family: 'Manolo Mono', 'Share Tech Mono', monospace; font-size: 13px; letter-spacing: 0.1em; cursor: pointer; }
+.chip { min-height: 42px; padding: 0 14px; border: 1px solid #3A2326; background: rgba(9, 5, 6, 0.7); color: #F2ECE4; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 13px; letter-spacing: 0.1em; cursor: pointer; }
 .chip span { color: #A89C95; margin-left: 6px; }
 .chip.on { background: #E8222A; border-color: #E8222A; color: #FFFFFF; }
 .chip.on span { color: #FFD9DA; }
@@ -62,12 +62,12 @@ img { display: block; max-width: 100%; }
 .dos-img { position: relative; overflow: hidden; height: 300px; display: flex; align-items: flex-end; justify-content: center; background-color: #090506; background-image: linear-gradient(rgba(242, 236, 228, 0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(242, 236, 228, 0.04) 1px, transparent 1px); background-size: 24px 24px; border-bottom: 1px solid #3A2326; }
 .dos-img img { height: 92%; width: auto; max-width: 92%; object-fit: contain; }
 .dos-body { padding: 18px 18px 20px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
-.dos-body h3 { margin: 0; font-family: 'Manolo Mono', 'Share Tech Mono', monospace; font-weight: 400; font-size: 28px; line-height: 1.05; color: #F2ECE4; text-shadow: 0 0 14px rgba(242, 236, 228, 0.18); }
-.dos-body .yr { margin: 0; font-family: 'Manolo Mono', 'Share Tech Mono', monospace; font-size: 13px; letter-spacing: 0.1em; color: #FF5A60; }
+.dos-body h3 { margin: 0; font-family: Inter, system-ui, sans-serif; font-weight: 900; letter-spacing: -0.005em; font-size: 25px; line-height: 1.05; color: #F2ECE4; text-shadow: 0 0 14px rgba(242, 236, 228, 0.18); }
+.dos-body .yr { margin: 0; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 13px; letter-spacing: 0.1em; color: #FF5A60; }
 .dos-body .role { margin: 4px 0 0; font-size: 15px; line-height: 1.5; color: #CFC4BC; }
-.dos-body ul { list-style: none; margin: 8px 0 0; padding: 10px 0 0; border-top: 1px dashed #3A2326; display: flex; flex-direction: column; gap: 4px; font-family: 'Manolo Mono', 'Share Tech Mono', monospace; font-size: 13px; letter-spacing: 0.04em; color: #DCD2CA; }
+.dos-body ul { list-style: none; margin: 8px 0 0; padding: 10px 0 0; border-top: 1px dashed #3A2326; display: flex; flex-direction: column; gap: 4px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 13px; letter-spacing: 0.04em; color: #DCD2CA; }
 .dos-body ul li::before { content: "> "; color: #E8222A; }
-.dos-body .open { margin-top: auto; padding-top: 14px; font-family: 'Manolo Mono', 'Share Tech Mono', monospace; font-size: 14px; letter-spacing: 0.12em; color: #FF5A60; }
+.dos-body .open { margin-top: auto; padding-top: 14px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 14px; letter-spacing: 0.12em; color: #FF5A60; }
 .sec-bg { position: absolute; inset: 0; background-size: cover; background-position: center; opacity: 0.32; animation: it-kb 28s ease-in-out infinite alternate; pointer-events: none; }
 .sec-bg ~ .wrap { position: relative; z-index: 1; }
 .tbar { position: sticky; top: 0; z-index: 55; background: rgba(9, 5, 6, 0.94); border-bottom: 1px solid #2B1B1D; }
@@ -142,8 +142,8 @@ img { display: block; max-width: 100%; }
 
 <div aria-hidden="true" class="mn" style="overflow: hidden; border-bottom: 1px solid #2B1B1D; background: #100A0B; font-size: 13px; letter-spacing: 0.16em; color: #A89C95; padding: 8px 0">
   <div class="it-ticker">
-    <span style="padding-right: 56px; white-space: nowrap">INDEX OF MARXISTS /// 9 SUBJECTS /// 6 TENDENCIES /// 1770 — 1970 /// HEGEL · MARX · ENGELS · KAUTSKY · LENIN · TROTSKY · LUXEMBURG · BUKHARIN · BORDIGA /// READ THE SOURCES ///</span>
-    <span style="padding-right: 56px; white-space: nowrap">INDEX OF MARXISTS /// 9 SUBJECTS /// 6 TENDENCIES /// 1770 — 1970 /// HEGEL · MARX · ENGELS · KAUTSKY · LENIN · TROTSKY · LUXEMBURG · BUKHARIN · BORDIGA /// READ THE SOURCES ///</span>
+    <span style="padding-right: 56px; white-space: nowrap">INDEX OF MARXISTS /// 10 SUBJECTS /// 6 TENDENCIES /// 1770 — 1970 /// HEGEL · MARX · ENGELS · KAUTSKY · LENIN · TROTSKY · LUXEMBURG · LIEBKNECHT · BUKHARIN · BORDIGA /// READ THE SOURCES ///</span>
+    <span style="padding-right: 56px; white-space: nowrap">INDEX OF MARXISTS /// 10 SUBJECTS /// 6 TENDENCIES /// 1770 — 1970 /// HEGEL · MARX · ENGELS · KAUTSKY · LENIN · TROTSKY · LUXEMBURG · LIEBKNECHT · BUKHARIN · BORDIGA /// READ THE SOURCES ///</span>
   </div>
 </div>
 
@@ -152,8 +152,8 @@ img { display: block; max-width: 100%; }
   <div class="wrap" style="padding-top: clamp(48px, 6vw, 88px); padding-bottom: clamp(40px, 5vw, 72px); display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 28px 48px">
     <div style="flex: 1 1 600px; min-width: 0">
       <span class="tag">FILE 01 · THE ARCHIVE</span>
-      <h1 class="mn it-glitch" style="margin: 18px 0 0; font-size: clamp(46px, 6.6vw, 104px); line-height: 1; color: #F2ECE4">INDEX OF MARXISTS</h1>
-      <p class="src">SRC: TIA ARCHIVE · 9 SUBJECTS · 6 TENDENCIES · 1770 — 1970</p>
+      <h1 class="dh it-glitch" style="margin: 18px 0 0; font-size: clamp(38px, 5.4vw, 86px); line-height: 1; color: #F2ECE4">INDEX OF MARXISTS</h1>
+      <p class="src">SRC: TIA ARCHIVE · 10 SUBJECTS · 6 TENDENCIES · 1770 — 1970</p>
       <p style="margin: 22px 0 0; max-width: 620px; font-size: 19px; color: #DCD2CA">Every major thinker, filed by tendency. Open a dossier to read their works in order, from the first article to the last letter.</p>
     </div>
     <div role="search" style="flex: 1 1 360px; min-width: 0; padding: 20px; background: rgba(9, 5, 6, 0.82); border: 1px solid #3A2326">
@@ -181,7 +181,7 @@ img { display: block; max-width: 100%; }
     <figure class="it-rv" style="margin: 32px 0 0; padding: 18px 18px 10px; background: rgba(9, 5, 6, 0.85); border: 1px solid #3A2326; overflow-x: auto">
       <svg viewBox="0 0 1200 300" width="100%" role="img" aria-label="Timeline of lifespans from 1770 to 1970: Hegel 1770 to 1831, Marx 1818 to 1883, Engels 1820 to 1895, Kautsky 1854 to 1938, Lenin 1870 to 1924, Luxemburg 1871 to 1919, Trotsky 1879 to 1940, Bukharin 1888 to 1938, Bordiga 1889 to 1970, with markers at 1848, 1871 and 1917" style="display: block; min-width: 760px">
         <g stroke="#E8222A" stroke-width="1" stroke-dasharray="4 4"><path d="M489 30V258"></path><path d="M615.5 30V258"></path><path d="M868.5 30V258"></path></g>
-        <g font-family="'Manolo Mono', 'Share Tech Mono', monospace" font-size="10" letter-spacing="1" fill="#FF5A60" text-anchor="middle"><text x="489" y="22">1848 MANIFESTO</text><text x="615.5" y="22">1871 COMMUNE</text><text x="868.5" y="22">1917 OCTOBER</text></g>
+        <g font-family="'JetBrains Mono', ui-monospace, monospace" font-size="10" letter-spacing="1" fill="#FF5A60" text-anchor="middle"><text x="489" y="22">1848 MANIFESTO</text><text x="615.5" y="22">1871 COMMUNE</text><text x="868.5" y="22">1917 OCTOBER</text></g>
         <g stroke="#F2ECE4" stroke-width="2">
           <path d="M60 56H395.5"></path><path d="M324 80H681.5"></path><path d="M335 104H747.5"></path><path d="M522 128H984"></path><path d="M610 152H907"></path><path d="M615.5 176H879.5"></path><path d="M659.5 200H995"></path><path d="M709 224H984"></path><path d="M714.5 248H1160"></path>
         </g>
@@ -196,12 +196,12 @@ img { display: block; max-width: 100%; }
           <circle cx="709" cy="224" r="3"></circle><circle cx="984" cy="224" r="3"></circle>
           <circle cx="714.5" cy="248" r="3"></circle><circle cx="1160" cy="248" r="3"></circle>
         </g>
-        <g font-family="'Manolo Mono', 'Share Tech Mono', monospace" font-size="10" letter-spacing="1" fill="#F2ECE4">
+        <g font-family="'JetBrains Mono', ui-monospace, monospace" font-size="10" letter-spacing="1" fill="#F2ECE4">
           <text x="60" y="50">HEGEL 1770–1831</text><text x="324" y="74">MARX 1818–1883</text><text x="335" y="98">ENGELS 1820–1895</text><text x="522" y="122">KAUTSKY 1854–1938</text><text x="610" y="146">LENIN 1870–1924</text><text x="615.5" y="170">LUXEMBURG 1871–1919</text><text x="659.5" y="194">TROTSKY 1879–1940</text><text x="709" y="218">BUKHARIN 1888–1938</text><text x="714.5" y="242">BORDIGA 1889–1970</text>
         </g>
         <path d="M60 268H1160" stroke="#A89C95" stroke-width="1"></path>
         <g stroke="#A89C95" stroke-width="1"><path d="M60 268V274M170 268V274M280 268V274M390 268V274M500 268V274M610 268V274M720 268V274M830 268V274M940 268V274M1050 268V274M1160 268V274"></path></g>
-        <g font-family="'Manolo Mono', 'Share Tech Mono', monospace" font-size="10" fill="#A89C95" text-anchor="middle"><text x="60" y="290">1770</text><text x="170" y="290">1790</text><text x="280" y="290">1810</text><text x="390" y="290">1830</text><text x="500" y="290">1850</text><text x="610" y="290">1870</text><text x="720" y="290">1890</text><text x="830" y="290">1910</text><text x="940" y="290">1930</text><text x="1050" y="290">1950</text><text x="1160" y="290">1970</text></g>
+        <g font-family="'JetBrains Mono', ui-monospace, monospace" font-size="10" fill="#A89C95" text-anchor="middle"><text x="60" y="290">1770</text><text x="170" y="290">1790</text><text x="280" y="290">1810</text><text x="390" y="290">1830</text><text x="500" y="290">1850</text><text x="610" y="290">1870</text><text x="720" y="290">1890</text><text x="830" y="290">1910</text><text x="940" y="290">1930</text><text x="1050" y="290">1950</text><text x="1160" y="290">1970</text></g>
         <g class="it-sweep"><path d="M60 36V262" stroke="#FF5A60" stroke-width="1.5" opacity="0.7"></path><path d="M54 262L60 254L66 262Z" fill="#FF5A60"></path></g>
       </svg>
       <figcaption class="mn" style="margin-top: 8px; font-size: 13px; letter-spacing: 0.14em; color: #A89C95">FIG. 01 · LIFESPANS OF THE INDEX, 1770 — 1970</figcaption>
@@ -294,7 +294,19 @@ img { display: block; max-width: 100%; }
       </article>
 
       <article class="dos it-rv">
-        <div class="dos-top mn"><span>SUBJECT 08</span><span class="tg">BOLSHEVIK</span></div>
+        <div class="dos-top mn"><span>SUBJECT 08</span><span class="tg">SPARTACIST</span></div>
+        <div class="dos-img"><img src="/assets/hex_liebknecht.png" alt="Hex-pixel bust of Karl Liebknecht"><span class="hc tl"></span><span class="hc tr"></span><span class="hc bl"></span><span class="hc br"></span><span class="co r" aria-hidden="true" style="top: 26%; right: 10px"><b>HEX 3,835</b><i></i></span><span class="it-bscan" aria-hidden="true" style="position: absolute; left: 0; right: 0; height: 2px; background: #FF5A60; box-shadow: 0 0 10px rgba(232, 34, 42, 0.8); animation-delay: 3.2s"></span></div>
+        <div class="dos-body">
+          <h3>KARL LIEBKNECHT</h3>
+          <p class="yr">1871 — 1919 · LEIPZIG → BERLIN</p>
+          <p class="role">The only deputy to vote against war credits in December 1914. Murdered with Luxemburg in January 1919.</p>
+          <ul><li>Militarism and Anti-Militarism (1907)</li><li>The Main Enemy Is at Home! (1915)</li><li>In Spite of Everything! (1919)</li></ul>
+          <a href="#" class="open">OPEN DOSSIER →</a>
+        </div>
+      </article>
+
+      <article class="dos it-rv">
+        <div class="dos-top mn"><span>SUBJECT 09</span><span class="tg">BOLSHEVIK</span></div>
         <div class="dos-img"><img src="/assets/hex_bukharin.png" alt="Hex-pixel bust of Bukharin"><span class="hc tl"></span><span class="hc tr"></span><span class="hc bl"></span><span class="hc br"></span><span class="co r" aria-hidden="true" style="top: 26%; right: 10px"><b>HEX 4,654</b><i></i></span><span class="it-bscan" aria-hidden="true" style="position: absolute; left: 0; right: 0; height: 2px; background: #FF5A60; box-shadow: 0 0 10px rgba(232, 34, 42, 0.8); animation-delay: 3.5s"></span></div>
         <div class="dos-body">
           <h3>N. I. BUKHARIN</h3>
@@ -306,7 +318,7 @@ img { display: block; max-width: 100%; }
       </article>
 
       <article class="dos it-rv">
-        <div class="dos-top mn"><span>SUBJECT 09</span><span class="tg">COMMUNIST LEFT</span></div>
+        <div class="dos-top mn"><span>SUBJECT 10</span><span class="tg">COMMUNIST LEFT</span></div>
         <div class="dos-img"><img src="/assets/hex_bordiga.png" alt="Hex-pixel bust of Bordiga"><span class="hc tl"></span><span class="hc tr"></span><span class="hc bl"></span><span class="hc br"></span><span class="co r" aria-hidden="true" style="top: 26%; right: 10px"><b>HEX 3,801</b><i></i></span><span class="it-bscan" aria-hidden="true" style="position: absolute; left: 0; right: 0; height: 2px; background: #FF5A60; box-shadow: 0 0 10px rgba(232, 34, 42, 0.8); animation-delay: 4s"></span></div>
         <div class="dos-body">
           <h3>AMADEO BORDIGA</h3>

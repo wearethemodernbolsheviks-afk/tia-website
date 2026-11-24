@@ -21,37 +21,37 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@Invariance_Tech">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&amp;family=Lora:ital,wght@0,400;0,600;1,400&amp;family=Share+Tech+Mono&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&amp;family=Lora:ital,wght@0,400;0,600;1,400&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet">
 <style>
-@font-face { font-family: 'Manolo Mono'; src: local('Manolo Mono'), local('ManoloMono-Regular'), local('Manolo Mono Regular'); font-weight: 400; font-display: swap; }
 body { margin: 0; background: #090506; font-synthesis: none; }
 a { color: #F2ECE4; text-decoration: none; }
 a:hover { color: #FF5A60; }
 a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid #FF5A60; outline-offset: 3px; }
 img { display: block; max-width: 100%; }
-.mn { font-family: 'Manolo Mono', 'Share Tech Mono', ui-monospace, monospace; font-weight: 400; }
+.mn { font-family: 'JetBrains Mono', ui-monospace, monospace; font-weight: 400; }
+.dh { font-family: Inter, system-ui, sans-serif; font-weight: 900; letter-spacing: -0.012em; text-transform: uppercase; }
 .wrap { max-width: 1360px; margin: 0 auto; padding-left: clamp(16px, 4vw, 60px); padding-right: clamp(16px, 4vw, 60px); box-sizing: border-box; }
 .grid-bg { background-image: linear-gradient(rgba(242, 236, 228, 0.045) 1px, transparent 1px), linear-gradient(90deg, rgba(242, 236, 228, 0.045) 1px, transparent 1px); background-size: 48px 48px; }
 .glow-r { text-shadow: 0 0 12px rgba(232, 34, 42, 0.65); }
 .glow-w { text-shadow: 0 0 16px rgba(242, 236, 228, 0.2); }
-.tag { display: inline-flex; align-items: center; gap: 8px; padding: 5px 10px; border: 1px solid #E8222A; font-family: 'Manolo Mono', 'Share Tech Mono', monospace; font-size: 14px; letter-spacing: 0.14em; color: #FF5A60; }
-.src { margin: 12px 0 0; font-family: 'Manolo Mono', 'Share Tech Mono', monospace; font-size: 13px; letter-spacing: 0.1em; color: #A89C95; }
+.tag { display: inline-flex; align-items: center; gap: 8px; padding: 5px 10px; border: 1px solid #4A2B2E; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 14px; letter-spacing: 0.14em; color: #B8ABA4; }
+.src { margin: 12px 0 0; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 13px; letter-spacing: 0.1em; color: #A89C95; }
 .dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #39D98A; box-shadow: 0 0 8px rgba(57, 217, 138, 0.8); animation: it-blink 2.4s ease-in-out infinite; }
 .hc { position: absolute; width: 18px; height: 18px; border: 0 solid #E8222A; }
 .hc.tl { top: 8px; left: 8px; border-top-width: 2px; border-left-width: 2px; }
 .hc.tr { top: 8px; right: 8px; border-top-width: 2px; border-right-width: 2px; }
 .hc.bl { bottom: 8px; left: 8px; border-bottom-width: 2px; border-left-width: 2px; }
 .hc.br { bottom: 8px; right: 8px; border-bottom-width: 2px; border-right-width: 2px; }
-.co { position: absolute; display: flex; align-items: center; gap: 6px; font-family: 'Manolo Mono', 'Share Tech Mono', monospace; font-size: 11px; letter-spacing: 0.1em; color: #F2ECE4; white-space: nowrap; z-index: 2; }
+.co { position: absolute; display: flex; align-items: center; gap: 6px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 0.1em; color: #F2ECE4; white-space: nowrap; z-index: 2; }
 .co b { font-weight: 400; padding: 2px 6px; background: rgba(9, 5, 6, 0.85); }
 .co i { position: relative; display: block; height: 1px; width: 40px; background: #F2ECE4; }
 .co i::after { content: ""; position: absolute; top: -3px; right: -1px; border-left: 6px solid #F2ECE4; border-top: 3.5px solid transparent; border-bottom: 3.5px solid transparent; }
 .co.r { flex-direction: row-reverse; }
 .co.r i::after { right: auto; left: -1px; border-left: 0; border-right: 6px solid #F2ECE4; }
-.row { display: flex; align-items: baseline; gap: 14px; padding: 12px 0; border-bottom: 1px solid #241618; font-family: 'Manolo Mono', 'Share Tech Mono', monospace; font-size: 16px; letter-spacing: 0.06em; }
+.row { display: flex; align-items: baseline; gap: 14px; padding: 12px 0; border-bottom: 1px solid #241618; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 16px; letter-spacing: 0.06em; }
 .row .ld { flex: 1; min-width: 20px; border-bottom: 1px dotted #4A2B2E; transform: translateY(-4px); }
 .row:hover .ld { border-bottom-color: #E8222A; }
-.chip { min-height: 42px; padding: 0 14px; border: 1px solid #3A2326; background: rgba(9, 5, 6, 0.7); color: #F2ECE4; font-family: 'Manolo Mono', 'Share Tech Mono', monospace; font-size: 13px; letter-spacing: 0.1em; cursor: pointer; }
+.chip { min-height: 42px; padding: 0 14px; border: 1px solid #3A2326; background: rgba(9, 5, 6, 0.7); color: #F2ECE4; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 13px; letter-spacing: 0.1em; cursor: pointer; }
 .chip span { color: #A89C95; margin-left: 6px; }
 .chip.on { background: #E8222A; border-color: #E8222A; color: #FFFFFF; }
 .chip.on span { color: #FFD9DA; }
@@ -62,12 +62,12 @@ img { display: block; max-width: 100%; }
 .dos-img { position: relative; overflow: hidden; height: 300px; display: flex; align-items: flex-end; justify-content: center; background-color: #090506; background-image: linear-gradient(rgba(242, 236, 228, 0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(242, 236, 228, 0.04) 1px, transparent 1px); background-size: 24px 24px; border-bottom: 1px solid #3A2326; }
 .dos-img img { height: 92%; width: auto; max-width: 92%; object-fit: contain; }
 .dos-body { padding: 18px 18px 20px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
-.dos-body h3 { margin: 0; font-family: 'Manolo Mono', 'Share Tech Mono', monospace; font-weight: 400; font-size: 28px; line-height: 1.05; color: #F2ECE4; text-shadow: 0 0 14px rgba(242, 236, 228, 0.18); }
-.dos-body .yr { margin: 0; font-family: 'Manolo Mono', 'Share Tech Mono', monospace; font-size: 13px; letter-spacing: 0.1em; color: #FF5A60; }
+.dos-body h3 { margin: 0; font-family: Inter, system-ui, sans-serif; font-weight: 900; letter-spacing: -0.005em; font-size: 25px; line-height: 1.05; color: #F2ECE4; text-shadow: 0 0 14px rgba(242, 236, 228, 0.18); }
+.dos-body .yr { margin: 0; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 13px; letter-spacing: 0.1em; color: #FF5A60; }
 .dos-body .role { margin: 4px 0 0; font-size: 15px; line-height: 1.5; color: #CFC4BC; }
-.dos-body ul { list-style: none; margin: 8px 0 0; padding: 10px 0 0; border-top: 1px dashed #3A2326; display: flex; flex-direction: column; gap: 4px; font-family: 'Manolo Mono', 'Share Tech Mono', monospace; font-size: 13px; letter-spacing: 0.04em; color: #DCD2CA; }
+.dos-body ul { list-style: none; margin: 8px 0 0; padding: 10px 0 0; border-top: 1px dashed #3A2326; display: flex; flex-direction: column; gap: 4px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 13px; letter-spacing: 0.04em; color: #DCD2CA; }
 .dos-body ul li::before { content: "> "; color: #E8222A; }
-.dos-body .open { margin-top: auto; padding-top: 14px; font-family: 'Manolo Mono', 'Share Tech Mono', monospace; font-size: 14px; letter-spacing: 0.12em; color: #FF5A60; }
+.dos-body .open { margin-top: auto; padding-top: 14px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 14px; letter-spacing: 0.12em; color: #FF5A60; }
 .sec-bg { position: absolute; inset: 0; background-size: cover; background-position: center; opacity: 0.32; animation: it-kb 28s ease-in-out infinite alternate; pointer-events: none; }
 .sec-bg ~ .wrap { position: relative; z-index: 1; }
 .tbar { position: sticky; top: 0; z-index: 55; background: rgba(9, 5, 6, 0.94); border-bottom: 1px solid #2B1B1D; }
@@ -135,7 +135,7 @@ img { display: block; max-width: 100%; }
 .dos-body ul a { color: #DCD2CA; border-bottom: 1px dotted #4A2B2E; }
 .dos-body ul a:hover { color: #FF5A60; border-bottom-color: #E8222A; }
 .dos-body ul .h { color: #39D98A; font-size: 11px; letter-spacing: 0.12em; margin-left: 6px; }
-.dos-body .cnt { margin: 6px 0 0; font-family: 'Manolo Mono', 'Share Tech Mono', monospace; font-size: 12px; letter-spacing: 0.12em; color: #A89C95; }
+.dos-body .cnt { margin: 6px 0 0; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; letter-spacing: 0.12em; color: #A89C95; }
 .dos-body .cnt b { font-weight: 400; color: #39D98A; }
 .dos h3 a { color: inherit; }
 .crumbs { font-size: 13px; letter-spacing: 0.14em; color: #A89C95; }
@@ -154,17 +154,17 @@ img { display: block; max-width: 100%; }
 .row.wk .ld { align-self: center; transform: none; }
 a.row:hover .ti { color: #FF5A60; }
 .note { margin: 0 0 32px; padding: 16px 18px; border: 1px solid #E8A33A; background: rgba(232, 163, 58, 0.07); font-size: 16px; color: #EADFCB; }
-.note b { font-family: 'Manolo Mono', 'Share Tech Mono', monospace; font-weight: 400; letter-spacing: 0.12em; color: #E8A33A; margin-right: 8px; }
+.note b { font-family: 'JetBrains Mono', ui-monospace, monospace; font-weight: 400; letter-spacing: 0.12em; color: #E8A33A; margin-right: 8px; }
 .btn { display: inline-flex; align-items: center; min-height: 48px; padding: 0 18px; box-sizing: border-box; background: #C81D25; color: #FFFFFF; font-family: Inter, sans-serif; font-weight: 800; font-size: 16px; }
 .btn:hover { background: #E8222A; color: #FFFFFF; }
-.btn.gh { background: transparent; border: 1px solid #3A2326; color: #F2ECE4; font-family: 'Manolo Mono', 'Share Tech Mono', monospace; font-weight: 400; font-size: 14px; letter-spacing: 0.1em; }
+.btn.gh { background: transparent; border: 1px solid #3A2326; color: #F2ECE4; font-family: 'JetBrains Mono', ui-monospace, monospace; font-weight: 400; font-size: 14px; letter-spacing: 0.1em; }
 .btn.gh:hover { border-color: #E8222A; color: #FF5A60; }
 .pn { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; margin-top: 48px; padding-top: 18px; border-top: 1px solid #3A2326; font-size: 14px; letter-spacing: 0.12em; }
 .pn a { color: #FF5A60; }
 .stats { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
 .stats div { min-width: 120px; padding: 12px 14px; border: 1px solid #3A2326; background: rgba(9, 5, 6, 0.8); }
 .stats b { display: block; font-family: Inter, sans-serif; font-weight: 900; font-size: 34px; line-height: 1; color: #F2ECE4; }
-.stats span { display: block; margin-top: 6px; font-family: 'Manolo Mono', 'Share Tech Mono', monospace; font-size: 12px; letter-spacing: 0.12em; color: #A89C95; }
+.stats span { display: block; margin-top: 6px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; letter-spacing: 0.12em; color: #A89C95; }
 .au-grid { display: grid; grid-template-columns: minmax(0, 380px) minmax(0, 1fr); gap: 40px; align-items: end; margin-top: 22px; }
 .au-img { height: 440px; border: 1px solid #3A2326; }
 @media (max-width: 860px) { .au-grid { grid-template-columns: 1fr; } .au-img { height: 340px; } }
@@ -174,7 +174,7 @@ a.row:hover .ti { color: #FF5A60; }
 .res-head b { font-weight: 400; color: #F2ECE4; }
 .hit-list { list-style: none; margin: 0; padding: 0; }
 .hit-list li { padding: 14px 0; border-bottom: 1px solid #241618; }
-.hit-list .hw { font-family: 'Manolo Mono', 'Share Tech Mono', monospace; font-size: 13px; letter-spacing: 0.1em; color: #A89C95; }
+.hit-list .hw { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 13px; letter-spacing: 0.1em; color: #A89C95; }
 .hit-list .hw a { color: #FF5A60; }
 .hit-list q { display: block; margin-top: 6px; quotes: none; font-family: Lora, Georgia, serif; font-size: 17px; line-height: 1.6; color: #DCD2CA; }
 .hit-list q::before { content: "… "; color: #7A4246; }
@@ -190,20 +190,20 @@ mark { background: rgba(232, 34, 42, 0.42); color: #FFFFFF; padding: 0 2px; }
 .cw-jump a { padding: 5px 9px; border: 1px solid #3A2326; background: rgba(9, 5, 6, 0.7); font-size: 12px; letter-spacing: 0.1em; color: #CFC4BC; }
 .cw-jump a:hover { border-color: #E8222A; color: #FF5A60; }
 .cw-y { margin-top: 36px; scroll-margin-top: 150px; }
-.cw-y h2 { margin: 0; display: flex; justify-content: space-between; align-items: baseline; gap: 12px; border-bottom: 1px solid #3A2326; padding-bottom: 8px; font-family: 'Manolo Mono', 'Share Tech Mono', monospace; font-weight: 400; font-size: 28px; color: #FF5A60; }
+.cw-y h2 { margin: 0; display: flex; justify-content: space-between; align-items: baseline; gap: 12px; border-bottom: 1px solid #3A2326; padding-bottom: 8px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-weight: 400; font-size: 28px; color: #FF5A60; }
 .cw-y h2 span { font-size: 12px; letter-spacing: 0.12em; color: #A89C95; }
 .cw { list-style: none; margin: 0; padding: 0; columns: 2 440px; column-gap: 44px; }
 .cw li { break-inside: avoid; display: flex; gap: 12px; padding: 7px 0; border-bottom: 1px solid #1E1214; font-size: 15.5px; line-height: 1.4; }
-.cw li .d { flex: 0 0 56px; padding-top: 3px; font-family: 'Manolo Mono', 'Share Tech Mono', monospace; font-size: 12px; letter-spacing: 0.04em; color: #8A7B75; }
+.cw li .d { flex: 0 0 56px; padding-top: 3px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; letter-spacing: 0.04em; color: #8A7B75; }
 .cw li a { color: #E6DDD3; }
 .cw li a:hover { color: #FF5A60; }
 .cw li.l a { color: #B3A79F; }
-.cw li b { margin-left: 8px; font-family: 'Manolo Mono', 'Share Tech Mono', monospace; font-weight: 400; font-size: 11px; letter-spacing: 0.12em; color: #39D98A; }
+.cw li b { margin-left: 8px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-weight: 400; font-size: 11px; letter-spacing: 0.12em; color: #39D98A; }
 .no-letters .cw li.l { display: none; }
 .cw-y[hidden], .cw li[hidden] { display: none; }
 .au-cw { display: inline-flex; align-items: center; gap: 12px; margin-top: 22px; min-height: 52px; padding: 0 20px; background: #C81D25; color: #FFFFFF; font-family: Inter, sans-serif; font-weight: 800; font-size: 17px; }
 .au-cw:hover { background: #E8222A; color: #FFFFFF; }
-.au-cw small { font-family: 'Manolo Mono', 'Share Tech Mono', monospace; font-weight: 400; font-size: 13px; letter-spacing: 0.1em; opacity: 0.85; }
+.au-cw small { font-family: 'JetBrains Mono', ui-monospace, monospace; font-weight: 400; font-size: 13px; letter-spacing: 0.1em; opacity: 0.85; }
 </style>
 </head>
 <body>
@@ -238,8 +238,8 @@ mark { background: rgba(232, 34, 42, 0.42); color: #FFFFFF; padding: 0 2px; }
 
 <div aria-hidden="true" class="mn" style="overflow: hidden; border-bottom: 1px solid #2B1B1D; background: #100A0B; font-size: 13px; letter-spacing: 0.16em; color: #A89C95; padding: 8px 0">
   <div class="it-ticker">
-    <span style="padding-right: 56px; white-space: nowrap">DOSSIER 08 /// N. I. BUKHARIN /// 1888 — 1938 · MOSCOW → MOSCOW /// 61 ITEMS FILED /// 0 FULL TEXTS /// BOLSHEVIK ///</span>
-    <span style="padding-right: 56px; white-space: nowrap">DOSSIER 08 /// N. I. BUKHARIN /// 1888 — 1938 · MOSCOW → MOSCOW /// 61 ITEMS FILED /// 0 FULL TEXTS /// BOLSHEVIK ///</span>
+    <span style="padding-right: 56px; white-space: nowrap">DOSSIER 09 /// N. I. BUKHARIN /// 1888 — 1938 · MOSCOW → MOSCOW /// 61 ITEMS FILED /// 0 FULL TEXTS /// BOLSHEVIK ///</span>
+    <span style="padding-right: 56px; white-space: nowrap">DOSSIER 09 /// N. I. BUKHARIN /// 1888 — 1938 · MOSCOW → MOSCOW /// 61 ITEMS FILED /// 0 FULL TEXTS /// BOLSHEVIK ///</span>
   </div>
 </div>
 <section style="position: relative; overflow: hidden; border-bottom: 1px solid #2B1B1D">
@@ -248,8 +248,8 @@ mark { background: rgba(232, 34, 42, 0.42); color: #FFFFFF; padding: 0 2px; }
     <div class="au-grid">
       <div class="dos-img au-img"><img src="/assets/hex_bukharin.png" alt="Hex-pixel bust of Bukharin"><span class="hc tl"></span><span class="hc tr"></span><span class="hc bl"></span><span class="hc br"></span><span class="co r" aria-hidden="true" style="top: 22%; right: 10px"><b>HEX 4,654</b><i></i></span><span class="it-bscan" aria-hidden="true" style="position: absolute; left: 0; right: 0; height: 2px; background: #FF5A60; box-shadow: 0 0 10px rgba(232, 34, 42, 0.8)"></span></div>
       <div style="min-width: 0">
-        <span class="tag">SUBJECT 08 · BOLSHEVIK</span>
-        <h1 class="mn it-glitch shade" style="margin: 18px 0 0; font-size: clamp(42px, 6vw, 92px); line-height: 1; color: #F2ECE4">N. I. BUKHARIN</h1>
+        <span class="tag">SUBJECT 09 · BOLSHEVIK</span>
+        <h1 class="dh it-glitch shade" style="margin: 18px 0 0; font-size: clamp(36px, 5vw, 78px); line-height: 0.98; color: #F2ECE4">N. I. BUKHARIN</h1>
         <p class="src shade">1888 — 1938 · MOSCOW → MOSCOW</p>
         <p class="shade" style="margin: 20px 0 0; max-width: 640px; font-size: 19px; color: #ECE4DC">Bolshevik theorist and editor of Pravda. Shot in 1938 after the third Moscow trial. In USSR 2089, he lives.</p>
         <div class="stats"><div><b>61</b><span>ITEMS FILED</span></div><div><b>0</b><span>FULL TEXTS HERE</span></div><div><b>1915</b><span>FIRST ITEM</span></div><div><b>1938</b><span>LAST ITEM</span></div></div>
@@ -275,7 +275,7 @@ mark { background: rgba(232, 34, 42, 0.42); color: #FFFFFF; padding: 0 2px; }
       <p class="mn sec-h">FILED IN COLLECTIONS</p>
       <a href="/archive/collections/lenin-and-october/" class="row"><span style="color: #A89C95">COL-04</span><span>LENIN AND OCTOBER</span><span class="ld"></span><span style="color: #FF5A60">1894 — 1924</span><span style="color: #39D98A">[11 WORKS]</span></a>
     </div>
-    <div class="pn mn"><a href="/archive/luxemburg/">← SUBJECT 07 · LUXEMBURG</a><a href="/archive/">INDEX</a><a href="/archive/bordiga/">SUBJECT 09 · BORDIGA →</a></div>
+    <div class="pn mn"><a href="/archive/liebknecht/">← SUBJECT 08 · LIEBKNECHT</a><a href="/archive/">INDEX</a><a href="/archive/bordiga/">SUBJECT 10 · BORDIGA →</a></div>
   </div>
 </section>
 

@@ -1,6 +1,5 @@
 /* Shared shell for the TIA Arcade games */
-@font-face { font-family: 'Manolo Mono'; src: local('Manolo Mono'), local('ManoloMono-Regular'), local('Manolo Mono Regular'); font-weight: 400; font-display: swap; }
-:root { --bg: #090506; --panel: #0F0A0B; --line: #3A2326; --line2: #2A1A1C; --ink: #F2ECE4; --dim: #A89C95; --mute: #8A7B75; --red: #E8222A; --red2: #FF5A60; --green: #39D98A; --amber: #F2B33D; --mono: 'Manolo Mono', 'Share Tech Mono', ui-monospace, monospace; }
+:root { --bg: #090506; --panel: #0F0A0B; --line: #3A2326; --line2: #2A1A1C; --ink: #F2ECE4; --dim: #A89C95; --mute: #8A7B75; --red: #E8222A; --red2: #FF5A60; --green: #39D98A; --amber: #F2B33D; --mono: 'JetBrains Mono', ui-monospace, monospace; }
 * { box-sizing: border-box; }
 html, body { margin: 0; height: 100%; background: var(--bg); color: var(--ink); font-family: Inter, system-ui, sans-serif; font-synthesis: none; }
 body { display: flex; flex-direction: column; min-height: 100vh; min-height: 100dvh; }

@@ -9,7 +9,7 @@
   };
   const el = (tag, attrs = {}, html = '') => { const e = document.createElement(tag); for (const k in attrs) e.setAttribute(k, attrs[k]); if (html) e.innerHTML = html; return e; };
   const fmt = s => { s = Math.max(0, Math.floor(s || 0)); return Math.floor(s / 60) + ':' + String(s % 60).padStart(2, '0'); };
-  const MONO = "'Manolo Mono', 'Share Tech Mono', ui-monospace, monospace";
+  const MONO = "'JetBrains Mono', ui-monospace, monospace";
 
   const css = `
 .tts-bar { position: fixed; left: 50%; transform: translateX(-50%); bottom: 16px; z-index: 71; display: none; align-items: center; gap: 8px; flex-wrap: wrap; justify-content: center; padding: 10px 12px; width: min(860px, calc(100vw - 32px)); background: rgba(12, 7, 8, 0.97); border: 1px solid #3A2326; box-shadow: 0 18px 50px rgba(0, 0, 0, 0.6); font: 12px/1 ${MONO}; letter-spacing: 0.1em; color: #A89C95; }
