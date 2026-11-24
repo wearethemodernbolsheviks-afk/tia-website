@@ -47,9 +47,9 @@ SHELL = """<!doctype html>
 <meta name="description" content="{desc}">
 <link rel="canonical" href="{site}/arcade/{slug}/">
 <meta name="theme-color" content="#090506">
-<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon_32.png?v=2">
-<link rel="icon" type="image/png" sizes="512x512" href="/assets/favicon_512.png?v=2">
-<link rel="apple-touch-icon" href="/assets/favicon_180.png?v=2">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon_32.png?v=3">
+<link rel="icon" type="image/png" sizes="512x512" href="/assets/favicon_512.png?v=3">
+<link rel="apple-touch-icon" href="/assets/favicon_180.png?v=3">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Technical Invariance Authority">
 <meta property="og:title" content="{title_txt} · TIA Arcade">
