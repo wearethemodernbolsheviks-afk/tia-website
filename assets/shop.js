@@ -5,8 +5,8 @@
   var $ = function (s, r) { return (r || document).querySelector(s); };
   var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
   var KEY = 'tia-cart-v1';
-  var SIZES = { tee: ['S', 'M', 'L', 'XL', 'XXL'], cap: ['One size'], print: ['A3', 'A2'], digital: ['Digital'] };
-  var PRICE = { tee: { _: 35 }, cap: { _: 28 }, print: { A3: 18, A2: 26 }, digital: { _: 9 } };
+  var SIZES = { tee: ['S', 'M', 'L', 'XL', 'XXL'], cap: ['One size'], print: ['A3'], digital: ['Digital'] };
+  var PRICE = { tee: { _: 35 }, cap: { _: 28 }, print: { A3: 18 }, digital: { _: 9 } };
   var LABEL = { tee: 'TEE', cap: 'CAP', print: 'PRINT', digital: 'DIGITAL' };
 
   function money(n) { return '$' + n.toFixed(0); }
@@ -18,7 +18,9 @@
   $$('.prod').forEach(function (el) {
     var pid = $('.pid', el), id = pid ? pid.textContent.trim() : '';
     var type, sku, m;
-    if ((m = id.match(/^ITEM (\d+)$/))) {
+    if (el.getAttribute('data-sku')) {
+      sku = el.getAttribute('data-sku'); type = el.getAttribute('data-type');
+    } else if ((m = id.match(/^ITEM (\d+)$/))) {
       var n = parseInt(m[1], 10);
       type = n <= 9 ? 'tee' : 'cap';
       sku = n <= 9 ? 'tee-' + m[1] : 'cap';
@@ -80,7 +82,7 @@
 
   /* ---------- cart state ---------- */
   var cart = [];
-  try { cart = JSON.parse(localStorage.getItem(KEY) || '[]').filter(function (l) { return products[l.sku]; }); } catch (e) { cart = []; }
+  try { cart = JSON.parse(localStorage.getItem(KEY) || '[]').filter(function (l) { return products[l.sku] && SIZES[products[l.sku].type].indexOf(l.size) >= 0; }); } catch (e) { cart = []; }
   function save() { try { localStorage.setItem(KEY, JSON.stringify(cart)); } catch (e) {} }
   function count() { return cart.reduce(function (n, l) { return n + l.qty; }, 0); }
   function total() { return cart.reduce(function (n, l) { return n + l.qty * price(products[l.sku], l.size); }, 0); }

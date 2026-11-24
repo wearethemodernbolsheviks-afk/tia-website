@@ -249,7 +249,7 @@
     drawJupiter(W * 0.86 - prog * 120, H * 0.5, 60 + prog * 240 + (S && S.ending ? Math.min(220, S.ending * 40) : 0), t);
     // stars
     stars.forEach((layer, l) => {
-      g.fillStyle = l === 2 ? INK : l === 1 ? '#CFC4BC' : '#6E5F5A';
+      g.fillStyle = l === 2 ? INK : l === 1 ? '#CFC4BC' : '#8A7B75';
       layer.forEach(s => {
         if (S && !S.paused) { s.x -= (40 + l * 90) * s.z * (1 / 60) * (S.ending ? 0.3 : 1); if (s.x < 0) { s.x = W; s.y = rnd(0, H); } }
         g.fillRect(s.x, s.y, l + 1, l === 2 ? 2 : 1);
@@ -442,7 +442,6 @@
     if (qs.get('god')) S.inv = 1e9;
     if (qs.get('win')) setTimeout(() => { if (S.boss) S.boss.hp = 1; }, 4000);
     banner('SECTOR 1 · THE BELT', 'Clear the belt. Reach the fleet.');
-    G.music('/assets/radio/behind-jupiter.mp3');
     cv.focus && cv.focus();
   }
   function endScreen(win) {

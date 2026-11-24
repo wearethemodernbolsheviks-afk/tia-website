@@ -339,9 +339,5 @@
   }
   paintSide();
   boot();
-  let musicStarted = false;
-  const startMusic = () => { if (musicStarted) return; musicStarted = true; G.music('/assets/radio/red-moon-carrier.mp3'); };
-  root.addEventListener('pointerdown', startMusic, { once: true });
-  input.addEventListener('keydown', startMusic, { once: true });
   setTimeout(() => input.focus({ preventScroll: true }), 300);
 })();

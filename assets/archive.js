@@ -108,7 +108,7 @@
           var ext = url.indexOf('http') === 0;
           h += '<li style="padding: 10px 0"><span class="hw">' + row[1] + ' · <a href="/archive/' + slug + '/works/#y' + row[1] + '">' + escHTML(a ? a.short : slug.toUpperCase()) + '</a> · ' +
             '<a href="' + escHTML(url) + '"' + (ext ? ' target="_blank" rel="noopener"' : '') + ' style="color: #F2ECE4">' + markAll(row[2], tokens.length === 1 ? tokens[0] : '') + (ext ? ' ↗' : ' [READ →]') + '</a>' +
-            (row[4] ? ' <span style="color: #7A6A64">LETTER</span>' : '') + '</span></li>';
+            (row[4] ? ' <span style="color: #8A7B75">LETTER</span>' : '') + '</span></li>';
         });
         h += '</ul>';
         if (hits.length > 40) h += '<p class="mn" style="margin: 10px 0 0; font-size: 13px; letter-spacing: 0.1em; color: #A89C95">+ ' + (hits.length - 40) + ' MORE · ADD A WORD OR A YEAR TO NARROW IT DOWN</p>';

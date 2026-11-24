@@ -164,7 +164,6 @@
     clearInterval(timer);
     timer = setInterval(tick, speed);
     render();
-    G.music('/assets/radio/plan-fulfilled.mp3');
   };
   const tick = () => {
     if (paused || !m) return;

@@ -28,7 +28,13 @@ GAMES = [
         'slug': 'red-moon', 'sim': 'SIM-03', 'title': 'RED MOON TERMINAL',
         'desc': 'Red Moon Terminal: the Red Moon files, playable. Decode the packets from Entry 4471, unlock the crew logs and find what Helios-Orbital redacted.',
         'help': '<span><b>HELP</b> LIST COMMANDS</span><span><b>TAB</b> COMPLETE</span><span><b>↑ ↓</b> HISTORY</span><span><b>TAP</b> ANY UNDERLINED NAME TO RUN IT</span>',
-        'body': '<div class="rm" id="game"></div>',
+        'body': '<h1 class="sr-only">Red Moon Terminal</h1><div class="rm" id="game"></div>',
+    },
+    {
+        'slug': 'all-power', 'sim': 'SIM-05', 'title': 'ALL POWER', 'js': 'allpower', 'pre': ['allpower-model'],
+        'desc': 'All Power: an incremental game from Oppie\'s America. Start with one rooftop panel in Berkeley, 1985, and collect sunlight until you have all of it: the continent, the Sun, the galaxy, the universe.',
+        'help': '<span><b>C</b> COLLECT SUNLIGHT</span><span><b>CLICK / TAP</b> TO BUILD AND PLAN</span><span><b>1 SECOND</b> = 1 HOUR OF GRID TIME</span>',
+        'body': '<div class="ap" id="game"></div>',
     },
     {
         'slug': 'wither', 'sim': 'SIM-04', 'title': 'WITHER',
@@ -60,11 +66,11 @@ SHELL = """<!doctype html>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&amp;family=Share+Tech+Mono&amp;display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/games/game.css">
-<link rel="stylesheet" href="/assets/games/{slug}.css">
+<link rel="stylesheet" href="/assets/games/{js}.css">
 </head>
-<body data-no-radio-dock>
+<body>
 <header class="g-top">
-  <a href="/" aria-label="Technical Invariance Authority home"><img src="/assets/logo_tia_full.png" alt=""></a>
+  <a href="/" aria-label="Technical Invariance Authority home"><img src="/assets/logo_tia_full.webp" alt=""></a>
   <a class="g-back" href="/arcade/">← ARCADE</a>
   <span class="g-title"><b>{sim}</b> · {title_txt}</span>
   <span class="g-sp"></span>
@@ -74,9 +80,8 @@ SHELL = """<!doctype html>
 {body}
 </main>
 <footer class="g-help">{help}</footer>
-<script src="/assets/tia-media.js" defer></script>
 <script src="/assets/games/common.js" defer></script>
-<script src="/assets/games/{slug}.js" defer></script>
+{pre}<script src="/assets/games/{js}.js" defer></script>
 </body>
 </html>
 """
@@ -84,7 +89,8 @@ SHELL = """<!doctype html>
 
 def main():
     for g in GAMES:
-        out = SHELL.format(site=SITE, slug=g['slug'], sim=g['sim'], title_txt=html.escape(g['title']),
+        pre = ''.join(f'<script src="/assets/games/{p}.js" defer></script>\n' for p in g.get('pre', []))
+        out = SHELL.format(site=SITE, slug=g['slug'], js=g.get('js', g['slug']), pre=pre, sim=g['sim'], title_txt=html.escape(g['title']),
                            desc=html.escape(g['desc'], quote=True), body=g['body'], help=g['help'])
         d = ROOT / 'arcade' / g['slug']
         d.mkdir(parents=True, exist_ok=True)

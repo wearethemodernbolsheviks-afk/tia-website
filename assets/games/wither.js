@@ -168,7 +168,6 @@
     S = { turn: 0, m: Object.assign({}, START), used: new Set(), done: false };
     $('log').innerHTML = '';
     $('over').hidden = true;
-    G.music('/assets/radio/long-generation.mp3');
     deal();
   }
   document.addEventListener('keydown', e => {

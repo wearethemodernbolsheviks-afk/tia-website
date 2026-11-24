@@ -1,4 +1,4 @@
-/* Shared helpers for the TIA Arcade games: sound switch, a tiny synth for effects, music, best scores. */
+/* Shared helpers for the TIA Arcade games: sound switch, a tiny synth for effects, best scores. */
 (() => {
   'use strict';
   const store = {
@@ -19,17 +19,12 @@
     if (ac && ac.state === 'suspended') ac.resume();
     return ac;
   };
-  const music = new Audio();
-  music.loop = true;
-  music.volume = 0.45;
-  let musicWanted = false;
 
   const btn = document.getElementById('g-sound');
   const paint = () => { if (btn) { btn.textContent = on ? 'SOUND ON' : 'SOUND OFF'; btn.setAttribute('aria-pressed', on); } };
   const set = (v) => {
     on = v; store.set('tia-game-sound', on); paint();
     if (master) master.gain.value = on ? 0.5 : 0;
-    if (!on) music.pause(); else if (musicWanted) music.play().catch(() => {});
     listeners.forEach(f => f(on));
   };
   if (btn) btn.addEventListener('click', () => { ctx(); set(!on); });
@@ -69,14 +64,6 @@
     onSound(f) { listeners.push(f); },
     unlock() { ctx(); },
     tone, noise, NOTES,
-    music(src) {
-      musicWanted = true;
-      if (music.src.indexOf(src) < 0) music.src = src;
-      const R = window.TIAMedia && window.TIAMedia.Radio;
-      if (R && R.playing) R.pause();
-      if (on) music.play().catch(() => {});
-    },
-    stopMusic() { musicWanted = false; music.pause(); },
     best(key, score) {
       const k = 'tia-best-' + key;
       const b = store.get(k, 0);

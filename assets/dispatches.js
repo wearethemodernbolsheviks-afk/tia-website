@@ -12,7 +12,7 @@
   function card(p, i) {
     var img = p.image
       ? '<img src="' + esc(p.image) + '" alt="" loading="lazy">'
-      : '<span class="dsp-ph" aria-hidden="true"><img src="/assets/emblem_globe.png" alt=""></span>';
+      : '<span class="dsp-ph" aria-hidden="true"><img src="/assets/emblem_globe.webp" alt=""></span>';
     return '<a class="dsp-card" href="' + esc(p.url) + '" target="_blank" rel="noopener">' +
       '<div class="dsp-img">' + img + '<span class="dsp-no mn">DISPATCH ' + String(i + 1).padStart(2, '0') + '</span></div>' +
       '<div class="dsp-bd"><span class="dsp-d mn">' + esc(day(p.date)) + (p.paid ? ' · SUBSCRIBERS' : '') + '</span>' +
