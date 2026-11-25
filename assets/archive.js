@@ -116,6 +116,116 @@
         bibBox.innerHTML = h;
       }).catch(function () {});
     };
+    /* German originals (Marx-Engels-Werke): titles always, full text when asked for */
+    var deBox = $('#ar-de'), deFull = $('#ar-defull');
+    var autoDe = new URLSearchParams(location.search).get('de') === '1';
+    var werke = null, bands = {};
+    var WHO = { marx: 'MARX', engels: 'ENGELS', kautsky: 'KAUTSKY' };
+    var getWerke = function () {
+      if (werke) return Promise.resolve(werke);
+      return fetch('/archive/werke/titles.json').then(function (r) { return r.json(); }).then(function (t) {
+        t.f = t.w.map(function (row) { return fold(row[3]); });
+        werke = t;
+        return t;
+      });
+    };
+    var getBand = function (b) {
+      if (bands[b]) return Promise.resolve(bands[b]);
+      return fetch('/archive/werke/text/' + (b < 10 ? '0' : '') + b + '.json').then(function (r) { return r.json(); }).then(function (t) {
+        t.f = t.p.map(function (p) { return fold(p[2]); });
+        bands[b] = t;
+        return t;
+      });
+    };
+    var head = function (label, extra) {
+      return '<p class="mn" style="margin: 0; padding-bottom: 8px; border-bottom: 1px solid #3A2326; font-size: 14px; letter-spacing: 0.1em">' + label + ' <span style="color: #A89C95">· ' + extra + '</span></p>';
+    };
+    var searchWerke = function (my, tokens) {
+      if (!deBox) return;
+      getWerke().then(function (t) {
+        if (my !== run) return;
+        var hits = [];
+        for (var i = 0; i < t.f.length; i++) {
+          var ok = true;
+          for (var k = 0; k < tokens.length; k++) { if (t.f[i].indexOf(tokens[k]) === -1) { ok = false; break; } }
+          if (ok) hits.push(t.w[i]);
+        }
+        if (!hits.length) { deBox.innerHTML = ''; return; }
+        var h = '<div style="margin-top: 22px">' + head('<a href="/archive/werke/" style="color: #F2ECE4">IN GERMAN</a>', hits.length + ' TITLE' + (hits.length === 1 ? '' : 'S') + ' FROM THE MARX-ENGELS-WERKE') + '<ul class="hit-list">';
+        hits.slice(0, 40).forEach(function (row) {
+          h += '<li style="padding: 10px 0"><span class="hw">' + row[1] + ' · MEW ' + row[2] + ' · ' + row[4].map(function (a) { return WHO[a] || a.toUpperCase(); }).join(' & ') + ' · ' +
+            '<a href="/archive/werke/' + row[0] + '/" lang="de" style="color: #F2ECE4">' + markAll(row[3], tokens.length === 1 ? tokens[0] : '') + ' [READ →]</a></span></li>';
+        });
+        h += '</ul>';
+        if (hits.length > 40) h += '<p class="mn" style="margin: 10px 0 0; font-size: 13px; letter-spacing: 0.1em; color: #A89C95">+ ' + (hits.length - 40) + ' MORE · <a href="/archive/werke/" style="color: #FF5A60">ALL GERMAN TEXTS →</a></p>';
+        deBox.innerHTML = h + '</div>';
+      }).catch(function () {});
+    };
+    var offerDe = function (my, needles) {
+      if (!deFull) return;
+      if (autoDe) { scanDe(my, needles); return; }
+      deFull.innerHTML = '<div style="margin-top: 28px; padding: 16px; border: 1px dashed #3A2326"><p class="mn" style="margin: 0 0 12px; font-size: 14px; letter-spacing: 0.1em; color: #CFC4BC">THE GERMAN ORIGINALS · ' +
+        (werke ? werke.w.length : 739) + ' TEXTS BY MARX AND ENGELS</p><button type="button" class="chip" id="ar-de-go">SEARCH INSIDE THEM TOO →</button></div>';
+      $('#ar-de-go').addEventListener('click', function () { autoDe = true; scanDe(my, needles); });
+    };
+    var scanDe = function (my, needles) {
+      getWerke().then(function (t) {
+        if (my !== run) return;
+        deFull.innerHTML = '<div style="margin-top: 28px"><p class="mn" id="ar-de-st" style="margin: 0; font-size: 14px; letter-spacing: 0.1em; color: #CFC4BC">SCANNING THE GERMAN TEXTS</p><div class="scan-bar" aria-hidden="true" style="margin-top: 10px"><i id="ar-de-bar" style="width: 3%"></i></div><div id="ar-de-res"></div></div>';
+        var st = $('#ar-de-st'), dbar = $('#ar-de-bar'), res = $('#ar-de-res');
+        var done = 0, hits = 0, nworks = 0, shown = 0, MAX = 60;
+        var chain = Promise.resolve();
+        t.bands.forEach(function (b) {
+          chain = chain.then(function () {
+            if (my !== run) return;
+            return getBand(b).then(function (bt) {
+              if (my !== run) return;
+              var found = {}, order = [];
+              for (var i = 0; i < bt.f.length; i++) {
+                for (var v = 0; v < needles.length; v++) {
+                  var nd = needles[v], at = bt.f[i].indexOf(nd);
+                  if (at === -1) continue;
+                  var k = at;
+                  while (k !== -1) { hits++; k = bt.f[i].indexOf(nd, k + nd.length); }
+                  var wid = bt.w[bt.p[i][0]];
+                  if (!found[wid]) { found[wid] = []; order.push(wid); }
+                  found[wid].push([bt.p[i][1], bt.p[i][2], at, nd]);
+                  break;
+                }
+              }
+              order.forEach(function (wid) {
+                nworks++;
+                if (shown >= MAX) return;
+                shown++;
+                var row = t.w.filter(function (r) { return r[0] === wid; })[0];
+                var f0 = found[wid], url = '/archive/werke/' + wid + '/';
+                var h = '<div style="margin-top: 22px">' + head('<a href="' + url + '" lang="de" style="color: #F2ECE4">' + escHTML(row[3].toUpperCase()) + '</a>',
+                  row[4].map(function (a) { return WHO[a] || a.toUpperCase(); }).join(' & ') + ' · ' + row[1] + ' · MEW ' + row[2] + ' · ' + f0.length + ' PASSAGE' + (f0.length === 1 ? '' : 'S')) + '<ul class="hit-list">';
+                f0.slice(0, 3).forEach(function (f) {
+                  var sn = snippet(f[1], f[2], f[3].length);
+                  h += '<li><span class="hw"><a href="' + url + '?hl=' + encodeURIComponent(f[3]) + '#p' + f[0] + '">¶ ' + f[0] + ' →</a></span><q lang="de">' + markAll(sn.s, f[3]) + '</q></li>';
+                });
+                h += '</ul>';
+                if (f0.length > 3) h += '<p class="mn" style="margin: 10px 0 0; font-size: 13px; letter-spacing: 0.1em; color: #A89C95">+ ' + (f0.length - 3) + ' MORE · <a href="' + url + '?hl=' + encodeURIComponent(f0[3][3]) + '#p' + f0[3][0] + '" style="color: #FF5A60">CONTINUE IN THE TEXT →</a></p>';
+                var div = document.createElement('div');
+                div.innerHTML = h + '</div>';
+                res.appendChild(div);
+              });
+              done++;
+              dbar.style.width = Math.round(3 + 97 * done / t.bands.length) + '%';
+              st.innerHTML = 'SCANNING THE GERMAN TEXTS ' + done + '/' + t.bands.length + ' VOLUMES · <b>' + hits + '</b> MATCHES IN ' + nworks + ' TEXT' + (nworks === 1 ? '' : 'S');
+            });
+          });
+        });
+        chain.then(function () {
+          if (my !== run) return;
+          st.innerHTML = 'IN GERMAN · <b>' + hits + '</b> PASSAGE' + (hits === 1 ? '' : 'S') + ' IN ' + nworks + ' TEXT' + (nworks === 1 ? '' : 'S') +
+            (nworks > shown ? ' · SHOWING THE FIRST ' + shown + ' · ADD A WORD TO NARROW IT DOWN' : '');
+          if (!nworks) res.innerHTML = '<p style="margin: 12px 0 0; color: #CFC4BC">No German passage has that. German spells many words differently: try the German word.</p>';
+        }).catch(function () { if (my === run) st.textContent = 'GERMAN INDEX UNAVAILABLE · TRY AGAIN'; });
+      }).catch(function () {});
+    };
+
     var getText = function (id) {
       if (texts[id]) return Promise.resolve(texts[id]);
       return fetch('/archive/text/' + id + '.json').then(function (r) { return r.json(); }).then(function (t) {
@@ -142,6 +252,8 @@
       catBox.innerHTML = '';
       fullBox.innerHTML = '';
       if (bibBox) bibBox.innerHTML = '';
+      if (deBox) deBox.innerHTML = '';
+      if (deFull) deFull.innerHTML = '';
       var tokens = needle.split(' ');
       // German umlauts are often spelled out in old English editions (Dühring, Duehring)
       var needles = [needle];
@@ -164,12 +276,13 @@
             var ext = w.kind !== 'hosted';
             html += '<li><span class="hw">' + escHTML(w.year) + ' · ' + escHTML(w.names.toUpperCase()) + ' · ' +
               '<a href="' + escHTML(w.url) + '"' + (ext ? ' target="_blank" rel="noopener"' : '') + '>' +
-              markAll(w.title, tokens.length === 1 ? tokens[0] : '') + (ext ? ' [MIA ↗]' : ' [READ →]') + '</a></span></li>';
+              markAll(w.title, tokens.length === 1 ? tokens[0] : '') + (ext ? (/marxists\.org/.test(w.url) ? ' [MIA ↗]' : ' [LINK ↗]') : ' [READ →]') + '</a></span></li>';
           });
           html += '</ul>';
         }
         catBox.innerHTML = html;
         searchBib(my, tokens, q);
+        searchWerke(my, tokens);
         var hosted = c.works.filter(function (w) { return w.kind === 'hosted'; });
         if (needle.length < 3) {
           finish(authors.length + works.length, 0, 0, q);
@@ -218,7 +331,7 @@
             });
           });
         });
-        chain.then(function () { if (my === run) finish(authors.length + works.length, hits, inTexts, q); })
+        chain.then(function () { if (my === run) { finish(authors.length + works.length, hits, inTexts, q); offerDe(my, needles); } })
           .catch(function () { if (my === run) status.textContent = 'FULL-TEXT INDEX UNAVAILABLE · TRY AGAIN'; });
       }).catch(function () { status.textContent = 'INDEX UNAVAILABLE · CHECK YOUR CONNECTION'; });
     };
@@ -229,7 +342,7 @@
       parts.push('<b>' + nCat + '</b> IN THE CATALOGUE');
       if (fold(q.trim()).length >= 3) parts.push('<b>' + hits + '</b> PASSAGES IN ' + inTexts + ' FULL TEXT' + (inTexts === 1 ? '' : 'S'));
       status.innerHTML = '“' + escHTML(q.trim()) + '” · ' + parts.join(' · ');
-      if (!nCat && !hits && !(bibBox && bibBox.innerHTML)) {
+      if (!nCat && !hits && !(bibBox && bibBox.innerHTML) && !(deBox && deBox.innerHTML)) {
         catBox.innerHTML = '<p style="margin: 16px 0 0; color: #CFC4BC">Nothing filed under that yet. Try a surname, a year or a phrase from the text, or browse the dossiers below.</p>';
       }
     };
@@ -240,6 +353,8 @@
       catBox.innerHTML = '';
       fullBox.innerHTML = '';
       if (bibBox) bibBox.innerHTML = '';
+      if (deBox) deBox.innerHTML = '';
+      if (deFull) deFull.innerHTML = '';
       input.value = '';
       try { history.replaceState(null, '', location.pathname); } catch (e) {}
     };
@@ -247,7 +362,7 @@
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       var q = input.value;
-      try { history.replaceState(null, '', q.trim() ? '?q=' + encodeURIComponent(q.trim()) : location.pathname); } catch (err) {}
+      try { history.replaceState(null, '', q.trim() ? '?q=' + encodeURIComponent(q.trim()) + (autoDe ? '&de=1' : '') : location.pathname); } catch (err) {}
       search(q);
     });
     $('#ar-clear').addEventListener('click', function () { clear(); input.focus(); });

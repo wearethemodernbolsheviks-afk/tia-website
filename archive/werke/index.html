@@ -207,6 +207,11 @@ mark { background: rgba(232, 34, 42, 0.42); color: #FFFFFF; padding: 0 2px; }
 .au-wk:hover { background: rgba(200, 29, 37, 0.18); }
 @media (max-width: 560px) { .au-wk { margin-left: 0; } }
 .au-cw small { font-family: 'JetBrains Mono', ui-monospace, monospace; font-weight: 400; font-size: 13px; letter-spacing: 0.1em; opacity: 0.85; }
+.wk-ft { margin-top: 22px; max-width: 760px; padding: 16px; background: rgba(9, 5, 6, 0.82); border: 1px solid #3A2326; }
+.wk-ft label { display: block; font-size: 13px; letter-spacing: 0.14em; color: #A89C95; }
+.wk-ft div { display: flex; gap: 10px; margin-top: 10px; }
+.wk-ft input { flex: 1; min-width: 0; min-height: 50px; box-sizing: border-box; padding: 0 14px; background: #090506; border: 2px solid #3A2326; color: #F2ECE4; font-family: Inter, sans-serif; font-size: 17px; }
+.wk-ft button { min-height: 50px; padding: 0 18px; border: 0; background: #C81D25; color: #FFFFFF; font-family: Inter, sans-serif; font-weight: 800; font-size: 16px; cursor: pointer; }
 .cw li a { min-width: 0; overflow-wrap: break-word; hyphens: auto; }
 .cw li b.wk-who { flex: 0 0 auto; margin-left: auto; padding-left: 8px; color: #A89C95; white-space: nowrap; }
 </style>
@@ -248,6 +253,11 @@ mark { background: rgba(232, 34, 42, 0.42); color: #FFFFFF; padding: 0 2px; }
     <h1 class="dh it-glitch shade" style="margin: 18px 0 0; font-size: clamp(34px, 4.6vw, 72px); line-height: 0.98; color: #F2ECE4">Marx and Engels in German</h1>
     <p class="src shade">739 TEXTS · 3,387,198 WORDS · MARX 432 · ENGELS 434 · 1842 — 1895</p>
     <p class="shade" style="margin: 20px 0 0; max-width: 760px; padding: 14px 16px; background: rgba(9, 5, 6, 0.72); border-left: 2px solid #E8222A; font-size: 17px; color: #ECE4DC">What Marx and Engels wrote in German, from the Marx-Engels-Werke (MEW, Dietz Verlag, Berlin). Writings they composed in English, French or another language appear in the MEW only in its editors' translation, so they are left out here, and so are the editors' introductions and notes. The page numbers of the MEW are kept in the text so that passages can be cited.</p>
+    <form action="/archive/" method="get" role="search" class="wk-ft">
+      <input type="hidden" name="de" value="1">
+      <label for="wk-ft" class="mn">SEARCH INSIDE THE TEXTS</label>
+      <div><input id="wk-ft" name="q" type="search" lang="de" autocomplete="off" placeholder="e.g. Mehrwert"><button type="submit">Search</button></div>
+    </form>
     <nav class="cw-jump mn" aria-label="Jump to decade"><a href="#y1842">1840s</a><a href="#y1850">1850s</a><a href="#y1860">1860s</a><a href="#y1870">1870s</a><a href="#y1880">1880s</a><a href="#y1890">1890s</a></nav>
   </div>
 </section>

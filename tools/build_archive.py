@@ -700,7 +700,8 @@ def work_row(w, byslug, show_author=False, me=None):
         small.append('With ' + ' and '.join(byslug[s]['display'] for s in others))
     sm = f'<small>{" · ".join(small)}</small>' if small else ''
     by = f'<span class="by">{" + ".join(byslug[s]["short"] for s in w["authors"])}</span>' if show_author else ''
-    st = '<span class="st ok">[READ →]</span>' if w['kind'] == 'hosted' else '<span class="st ln">[MIA ↗]</span>'
+    st = ('<span class="st ok">[READ →]</span>' if w['kind'] == 'hosted' else
+          '<span class="st ln">[MIA ↗]</span>' if 'marxists.org' in w.get('url', '') else '<span class="st ln">[LINK ↗]</span>')
     return (f'<a {work_link_attrs(w)} class="row wk"><span class="y">{esc(w["year"])}</span>'
             f'<span class="ti">{title}{sm}</span><span class="ld"></span>{by}{st}</a>')
 
@@ -886,7 +887,7 @@ def build_author(a, prev_a, next_a, byslug, cols):
       <p class="mn sec-h">KEY WORKS · IN ORDER</p>
       {rows}
       {cw_more}
-      <p class="mn" style="margin: 14px 0 0; font-size: 13px; letter-spacing: 0.1em; color: #A89C95"><span style="color: #39D98A">[READ →]</span> FULL TEXT ON THIS SITE · <span>[MIA ↗]</span> OPENS THE MARXISTS INTERNET ARCHIVE</p>
+      <p class="mn" style="margin: 14px 0 0; font-size: 13px; letter-spacing: 0.1em; color: #A89C95"><span style="color: #39D98A">[READ →]</span> FULL TEXT ON THIS SITE · <span>[MIA ↗]</span> OPENS THE MARXISTS INTERNET ARCHIVE{' · <span>[LINK ↗]</span> OPENS ANOTHER SITE' if any('marxists.org' not in w.get('url', 'marxists.org') for w in allw if w['kind'] == 'link') else ''}</p>
     </div>
     <div class="it-rv" style="margin-top: 48px">
       <p class="mn sec-h">FILED IN COLLECTIONS</p>
@@ -965,7 +966,9 @@ def build_index(authors, byslug, works, cols):
       <div class="scan-bar" aria-hidden="true"><i id="ar-bar"></i></div>
       <div id="ar-cat"></div>
       <div id="ar-bib"></div>
+      <div id="ar-de"></div>
       <div id="ar-full"></div>
+      <div id="ar-defull"></div>
     </div>
   </div>
 </section>
@@ -1363,7 +1366,7 @@ def wk_load():
 
 
 def wk_body(w):
-    out, toc, plain_parts = [], [], []
+    out, toc, plain_parts, index = [], [], [], []
     n = 0
     multi = len(w['parts']) > 1
     for pi, pt in enumerate(w['parts']):
@@ -1386,12 +1389,14 @@ def wk_body(w):
                 rows = ''.join('<tr>' + ''.join(f'<td>{wk_clean(c, pre)}</td>' for c in r) + '</tr>' for r in h)
                 out.append(f'<div id="p{n}" class="wk-tab"><table>{rows}</table></div>')
                 plain_parts.append('\n'.join('\t'.join(wk_text(c) for c in r) for r in h))
+                index.append([n, ' '.join(' '.join(wk_text(c) for c in r) for r in h)])
                 continue
             t = wk_text(h)
             if WK_JUNK.match(t) or (not t and '<img' not in h):
                 continue
             n += 1
             x = wk_clean(h, pre).strip()
+            index.append([n, t])
             if k == 'h':
                 out.append(f'<h2 id="p{n}">{x}</h2>')
                 toc.append((f'p{n}', t))
@@ -1404,7 +1409,7 @@ def wk_body(w):
     while out and out[-1] == '<hr>':
         out.pop()
     plain_txt = '\n\n'.join(plain_parts)
-    return wk_links('\n'.join(out)), toc, plain_txt
+    return wk_links('\n'.join(out)), toc, plain_txt, index
 
 
 def wk_links(h):
@@ -1412,8 +1417,8 @@ def wk_links(h):
     seen = set()
 
     def pg(m):
-        if m.group(1) in seen:
-            return m.group(0)
+        if m.group(1) in seen:      # the mirror repeats some markers
+            return '<span>'
         seen.add(m.group(1))
         return f'<span class="pg" data-p="{m.group(1)}" id="s{m.group(1)}">'
     h = re.sub(r'<span class="pg" data-p="(\d+)">', pg, h)
@@ -1436,7 +1441,7 @@ def wk_by(w, byslug):
 
 
 def build_werk(w, prv, nxt, byslug, english):
-    body_html, toc, plain_txt = wk_body(w)
+    body_html, toc, plain_txt, index = wk_body(w)
     nwords = w['words']
     mins = max(1, round(nwords / 230))
     rt = f'{mins // 60} H {mins % 60:02d} MIN' if mins >= 60 else f'{mins} MIN'
@@ -1520,6 +1525,22 @@ def build_werk(w, prv, nxt, byslug, english):
     out = page(title, desc, w['path'], body, css=READER_CSS + WK_CSS, current_label='/ARCHIVE/WERKE',
                foot_label=f'INVARIANCETECH.INFO/ARCHIVE/WERKE/{w["id"]}')
     (folder / 'index.html').write_text(out, encoding='utf-8')
+    return index
+
+
+def build_werke_search(ws, indexes):
+    """Titles for the archive search, and the full text split by MEW volume so a search loads it piece by piece."""
+    d = ROOT / 'archive' / 'werke' / 'text'
+    d.mkdir(parents=True, exist_ok=True)
+    bands = sorted({w['band'] for w in ws})
+    for b in bands:
+        mine = [w for w in ws if w['band'] == b]
+        rows = [[i, n, t] for i, w in enumerate(mine) for n, t in indexes[w['id']]]
+        (d / f'{b:02d}.json').write_text(json.dumps({'w': [w['id'] for w in mine], 'p': rows}, ensure_ascii=False,
+                                                    separators=(',', ':')), encoding='utf-8')
+    titles = {'bands': bands, 'w': [[w['id'], w['year'], w['band'], w['title'], w['authors']] for w in ws]}
+    (ROOT / 'archive' / 'werke' / 'titles.json').write_text(json.dumps(titles, ensure_ascii=False, separators=(',', ':')),
+                                                            encoding='utf-8')
 
 
 def build_werke_index(ws, byslug):
@@ -1540,7 +1561,12 @@ def build_werke_index(ws, byslug):
     total = sum(w['words'] for w in ws)
     nm = sum(1 for w in ws if 'marx' in w['authors'])
     ne = sum(1 for w in ws if 'engels' in w['authors'])
-    css = CW_CSS + ('.cw li a { min-width: 0; overflow-wrap: break-word; hyphens: auto; }\n'
+    css = CW_CSS + ('.wk-ft { margin-top: 22px; max-width: 760px; padding: 16px; background: rgba(9, 5, 6, 0.82); border: 1px solid #3A2326; }\n'
+                    '.wk-ft label { display: block; font-size: 13px; letter-spacing: 0.14em; color: #A89C95; }\n'
+                    '.wk-ft div { display: flex; gap: 10px; margin-top: 10px; }\n'
+                    '.wk-ft input { flex: 1; min-width: 0; min-height: 50px; box-sizing: border-box; padding: 0 14px; background: #090506; border: 2px solid #3A2326; color: #F2ECE4; font-family: Inter, sans-serif; font-size: 17px; }\n'
+                    '.wk-ft button { min-height: 50px; padding: 0 18px; border: 0; background: #C81D25; color: #FFFFFF; font-family: Inter, sans-serif; font-weight: 800; font-size: 16px; cursor: pointer; }\n'
+                    '.cw li a { min-width: 0; overflow-wrap: break-word; hyphens: auto; }\n'
                     '.cw li b.wk-who { flex: 0 0 auto; margin-left: auto; padding-left: 8px; color: #A89C95; white-space: nowrap; }\n')
     body = f"""<section style="position: relative; border-bottom: 1px solid #2B1B1D">
   <div class="wrap" style="position: relative; z-index: 1; padding-top: 26px; padding-bottom: clamp(36px, 4vw, 56px)">
@@ -1549,6 +1575,11 @@ def build_werke_index(ws, byslug):
     <h1 class="dh it-glitch shade" style="margin: 18px 0 0; font-size: clamp(34px, 4.6vw, 72px); line-height: 0.98; color: #F2ECE4">Marx and Engels in German</h1>
     <p class="src shade">{len(ws):,} TEXTS · {total:,} WORDS · MARX {nm} · ENGELS {ne} · {years[0]} — {years[-1]}</p>
     <p class="shade" style="margin: 20px 0 0; max-width: 760px; padding: 14px 16px; background: rgba(9, 5, 6, 0.72); border-left: 2px solid #E8222A; font-size: 17px; color: #ECE4DC">{esc(WK_INTRO)}</p>
+    <form action="/archive/" method="get" role="search" class="wk-ft">
+      <input type="hidden" name="de" value="1">
+      <label for="wk-ft" class="mn">SEARCH INSIDE THE TEXTS</label>
+      <div><input id="wk-ft" name="q" type="search" lang="de" autocomplete="off" placeholder="e.g. Mehrwert"><button type="submit">Search</button></div>
+    </form>
     <nav class="cw-jump mn" aria-label="Jump to decade">{jump}</nav>
   </div>
 </section>
@@ -1577,9 +1608,11 @@ def build_werke(ws, byslug, works):
     if not ws:
         return 0
     english = {w['de']: w for w in works.values() if w.get('de') and w['kind'] == 'hosted'}
+    indexes = {}
     for i, w in enumerate(ws):
-        build_werk(w, ws[i - 1] if i else None, ws[i + 1] if i + 1 < len(ws) else None, byslug, english)
+        indexes[w['id']] = build_werk(w, ws[i - 1] if i else None, ws[i + 1] if i + 1 < len(ws) else None, byslug, english)
     build_werke_index(ws, byslug)
+    build_werke_search(ws, indexes)
     img = ROOT / 'archive' / 'werke' / 'img'
     img.mkdir(parents=True, exist_ok=True)
     for f in (WERKE / 'img').glob('*'):
