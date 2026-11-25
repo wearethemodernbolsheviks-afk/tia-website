@@ -802,7 +802,7 @@ def build_reader(a, w, byslug, others):
         {sub}
         <p class="src">{esc(by.upper())} · {esc(w['year'])} · {words(nwords)} WORDS · {rt} · {'ENGLISH' if lang == 'en' else 'DEUTSCH'}</p>
         <p class="rd-ed">{esc(w['edition'])} {rights_html(w)}</p>
-        <div class="rd-act"><a class="btn" href="#p1">Start reading</a><a class="btn gh" href="{w['slug']}.txt" download>DOWNLOAD .TXT</a><button type="button" class="btn gh rd-paper-t" data-paper aria-pressed="false"><i aria-hidden="true"></i><span>PAPER MODE</span></button><a class="btn gh" href="{a['url']}">{a['short']} DOSSIER</a></div>
+        <div class="rd-act"><a class="btn" href="#p1">Start reading</a>{f'<a class="btn gh" href="{WK_URL}{w["de"]}/">DEUTSCHES ORIGINAL</a>' if w.get('de') else ''}<a class="btn gh" href="{w['slug']}.txt" download>DOWNLOAD .TXT</a><button type="button" class="btn gh rd-paper-t" data-paper aria-pressed="false"><i aria-hidden="true"></i><span>PAPER MODE</span></button><a class="btn gh" href="{a['url']}">{a['short']} DOSSIER</a></div>
       </div>
     </div>
   </div>
@@ -858,6 +858,8 @@ def build_author(a, prev_a, next_a, byslug, cols):
     bib_years = [i['y'] for i in a['bib']] or years
     bib_y0, bib_y1 = min(bib_years + years), max(bib_years + years)
     cw_link = (f'<a class="au-cw" href="{a["url"]}works/">Complete works <small>{len(a["bib"]):,} ITEMS →</small></a>' if a['bib'] else '')
+    if a.get('wk'):
+        cw_link += (f'<a class="au-cw au-wk" href="{WK_URL}">In German <small>{a["wk"]:,} ORIGINAL TEXTS →</small></a>')
     cw_more = (f'<a class="row" href="{a["url"]}works/" style="color: #FF5A60"><span>ALL {len(a["bib"]):,} WORKS AND LETTERS, BY DATE</span><span class="ld"></span><span>[COMPLETE WORKS →]</span></a>' if a['bib'] else '')
     body = f"""<section style="position: relative; overflow: hidden; border-bottom: 1px solid #2B1B1D">
   <div class="wrap" style="padding-top: 26px; padding-bottom: clamp(40px, 5vw, 64px)">
@@ -1076,12 +1078,14 @@ def build_catalogue_json(authors, byslug, works, cols):
     (ROOT / 'archive' / 'catalogue.json').write_text(json.dumps(data, ensure_ascii=False, separators=(',', ':')), encoding='utf-8')
 
 
-def build_sitemap(authors, works, cols):
+def build_sitemap(authors, works, cols, ws=()):
     urls = ['/', '/archive/', '/dispatches/', '/arcade/', '/arcade/plan1/', '/arcade/behind-jupiter/', '/arcade/red-moon/', '/arcade/wither/', '/arcade/all-power/', '/shop/']
     urls += [a['url'] for a in authors]
     urls += [a['url'] + 'works/' for a in authors if a.get('bib')]
     urls += [w['path'] for w in sorted(works.values(), key=lambda w: w['id']) if w['kind'] == 'hosted']
     urls += [c['url'] for c in cols if c.get('url', '').startswith('/')]
+    if ws:
+        urls += [WK_URL] + [w['path'] for w in ws]
     body = '\n'.join(f'  <url><loc>{SITE}{u}</loc></url>' for u in urls)
     (ROOT / 'sitemap.xml').write_text(
         f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n{body}\n</urlset>\n',
@@ -1177,6 +1181,9 @@ CW_CSS = """
 .cw-y[hidden], .cw li[hidden] { display: none; }
 .au-cw { display: inline-flex; align-items: center; gap: 12px; margin-top: 22px; min-height: 52px; padding: 0 20px; background: #C81D25; color: #FFFFFF; font-family: Inter, sans-serif; font-weight: 800; font-size: 17px; }
 .au-cw:hover { background: #E8222A; color: #FFFFFF; }
+.au-wk { margin-left: 10px; background: transparent; border: 2px solid #C81D25; }
+.au-wk:hover { background: rgba(200, 29, 37, 0.18); }
+@media (max-width: 560px) { .au-wk { margin-left: 0; } }
 .au-cw small { font-family: 'JetBrains Mono', ui-monospace, monospace; font-weight: 400; font-size: 13px; letter-spacing: 0.1em; opacity: 0.85; }
 """
 
@@ -1208,6 +1215,7 @@ def build_complete_works(a, byslug):
     <h1 class="dh it-glitch shade" style="margin: 18px 0 0; font-size: clamp(34px, 4.6vw, 72px); line-height: 0.98; color: #F2ECE4">{a['name']}</h1>
     <p class="src shade">{len(items):,} ITEMS · {len(items) - nl:,} WORKS{f' · {nl:,} LETTERS' if nl else ''} · {years[0]} — {years[-1]}</p>
     <p class="shade" style="margin: 20px 0 0; max-width: 760px; padding: 14px 16px; background: rgba(9, 5, 6, 0.72); border-left: 2px solid #E8222A; font-size: 17px; color: #ECE4DC">{esc(BIB_SOURCE.get(a['slug'], ''))}</p>
+    {f'<p class="mn shade" style="margin: 14px 0 0; font-size: 14px; letter-spacing: 0.1em"><a href="{WK_URL}" style="color: #FF5A60">THE GERMAN ORIGINALS · {a["wk"]:,} TEXTS →</a></p>' if a.get('wk') else ''}
     <nav class="cw-jump mn" aria-label="Jump to decade">{jump}</nav>
   </div>
 </section>
@@ -1277,6 +1285,308 @@ def build_dispatches():
     (d / 'index.html').write_text(out, encoding='utf-8')
 
 
+# ---------------------------------------------------------------- German originals (Marx-Engels-Werke)
+
+WERKE = CONTENT / 'werke'
+WK_URL = '/archive/werke/'
+WK_TAGS = {'i', 'b', 'sup', 'sub', 'br', 'span', 'a', 'img'}
+# two images the mirror lacks, set as text: a formula in Anti-Dühring, Nero Caesar in Hebrew letters
+WK_IMG_TEXT = {'term_1.gif': 'A<sup>½</sup> = √A', 'me22_468.gif': '<span lang="he" dir="rtl">נרון קסר</span>'}
+WK_JUNK = re.compile(r'^\s*(Pfad:|Zurück zum Gesamtverzeichnis)')
+WK_CSS = """
+.rd-h1 { hyphens: auto; overflow-wrap: break-word; }
+.text > p { overflow-wrap: break-word; }
+.text .pg::before { content: attr(data-p); display: inline-block; margin: 0 4px; padding: 0 4px; border: 1px solid #3A2326; font-family: 'JetBrains Mono', ui-monospace, monospace; font-style: normal; font-weight: 400; font-size: 11px; line-height: 1.5; letter-spacing: 0.04em; color: #8A7B75; vertical-align: 2px; }
+.text .wk-src { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 13px; line-height: 1.5; letter-spacing: 0.04em; color: #A89C95; }
+.text .wk-tab { overflow-x: auto; }
+.text .wk-tab table { border-collapse: collapse; font-size: 16px; line-height: 1.45; }
+.text .wk-tab td { padding: 4px 12px 4px 0; vertical-align: top; border-bottom: 1px solid #2B1B1D; }
+.text img { max-width: 100%; height: auto; vertical-align: middle; background: #F2ECE4; }
+.text sup { font-size: 0.7em; line-height: 0; }
+.text a[href^="#t"], .text a[href^="#Anm"], .text a[href^="#Z"] { border-bottom: 0; }
+html.paper .rd-body .text .pg::before { color: #8A6A64; border-color: #D8C3BB; }
+html.paper .rd-body .text .wk-src { color: #7A4A47; }
+html.paper .rd-body .text .wk-tab td { border-bottom-color: #E2D2CB; }
+"""
+WK_INTRO = ('What Marx and Engels wrote in German, from the Marx-Engels-Werke (MEW, Dietz Verlag, Berlin). '
+            'Writings they composed in English, French or another language appear in the MEW only in its editors\' '
+            'translation, so they are left out here, and so are the editors\' introductions and notes. '
+            'The page numbers of the MEW are kept in the text so that passages can be cited.')
+
+
+def wk_text(h):
+    return html.unescape(re.sub(r'\s+', ' ', re.sub(r'<[^>]*>', ' ', h))).strip()
+
+
+def wk_plain(h):
+    h = re.sub(r'<span class="pg" data-p="([^"]+)"></span>', r'|\1|', h)
+    h = re.sub(r'<[^>]*>', '', re.sub(r'<br\s*/?>', '\n', h))
+    return '\n'.join(re.sub(r'\s+', ' ', x).strip() for x in html.unescape(h).split('\n')).strip()
+
+
+def wk_clean(h, pre):
+    """Keep the markup a reader needs; drop what the mirror's broken angle brackets left behind."""
+    def tag(m):
+        close, name, rest = m.group(1), m.group(2).lower(), m.group(3)
+        if name not in WK_TAGS:
+            return ''
+        if close:
+            return '' if name in ('br', 'img') else f'</{name}>'
+        if name == 'span':
+            pg = re.search(r'data-p="([^"]+)"', rest)
+            if pg:
+                return f'<span class="pg" data-p="{attr(pg.group(1))}">'
+            i = re.search(r'id="([^"]+)"', rest)
+            return f'<span id="{pre}{attr(i.group(1))}">' if i else '<span>'
+        if name == 'a':
+            href = re.search(r'href="#([^"]+)"', rest)
+            return f'<a href="#{pre}{attr(href.group(1))}">' if href else '<a>'
+        if name == 'img':
+            src = re.search(r'src="([^"]+)"', rest)
+            f = src.group(1).split('/')[-1] if src else ''
+            if f in WK_IMG_TEXT:
+                return WK_IMG_TEXT[f]
+            return f'<img src="{WK_URL}img/{attr(f)}" alt="">' if f and (WERKE / 'img' / f).exists() else ''
+        return f'<{name}>'
+    h = re.sub(r'<(/?)([^\s<>/]+)([^<>]*)>', tag, h)
+    # a bare < in the text (a table's "<=", a quotation mark the mirror mangled)
+    return re.sub(r'<(?!/?(?:i|b|sup|sub|br|span|a|img)[\s>])', '&lt;', h)
+
+
+def wk_load():
+    if not (WERKE / 'index.json').exists():
+        return []
+    ws = json.loads((WERKE / 'index.json').read_text(encoding='utf-8'))['works']
+    for w in ws:
+        w['path'] = f'{WK_URL}{w["id"]}/'
+    return ws
+
+
+def wk_body(w):
+    out, toc, plain_parts = [], [], []
+    n = 0
+    multi = len(w['parts']) > 1
+    for pi, pt in enumerate(w['parts']):
+        body = json.loads((WERKE / f'{w["band"]:02d}' / f'{pt["id"]}.json').read_text(encoding='utf-8'))['body']
+        # a contents page of links in front of a book's chapters
+        if multi and pi == 0 and pt['words'] <= 60 and 'class="pg"' not in json.dumps(body):
+            continue
+        pre = f't{pi}-' if multi else 't-'
+        if multi and pi == 0:
+            # the MEW's own contents tables in front of the first page of a book
+            first = next((i for i, (k, h) in enumerate(body) if k != 'table' and 'class="pg"' in h), len(body))
+            body = [x for i, x in enumerate(body) if not (x[0] == 'table' and i < first)]
+        for k, h in body:
+            if k in ('hr', 'fnh'):
+                if out and out[-1] != '<hr>':
+                    out.append('<hr>')
+                continue
+            if k == 'table':
+                n += 1
+                rows = ''.join('<tr>' + ''.join(f'<td>{wk_clean(c, pre)}</td>' for c in r) + '</tr>' for r in h)
+                out.append(f'<div id="p{n}" class="wk-tab"><table>{rows}</table></div>')
+                plain_parts.append('\n'.join('\t'.join(wk_text(c) for c in r) for r in h))
+                continue
+            t = wk_text(h)
+            if WK_JUNK.match(t) or (not t and '<img' not in h):
+                continue
+            n += 1
+            x = wk_clean(h, pre).strip()
+            if k == 'h':
+                out.append(f'<h2 id="p{n}">{x}</h2>')
+                toc.append((f'p{n}', t))
+                plain_parts.append(t.upper())
+                continue
+            cls = {'q': 'q', 'fn': 'fn', 'src': 'wk-src', 'ctr': 'ctr', 'lt': 'ctr'}.get(k, '')
+            c = f' class="{cls}"' if cls else ''
+            out.append(f'<p id="p{n}"{c}>{x}</p>')
+            plain_parts.append(wk_plain(h))
+    while out and out[-1] == '<hr>':
+        out.pop()
+    plain_txt = '\n\n'.join(plain_parts)
+    return wk_links('\n'.join(out)), toc, plain_txt
+
+
+def wk_links(h):
+    """Page markers become targets; links to the editors' notes, which are left out, become plain text."""
+    seen = set()
+
+    def pg(m):
+        if m.group(1) in seen:
+            return m.group(0)
+        seen.add(m.group(1))
+        return f'<span class="pg" data-p="{m.group(1)}" id="s{m.group(1)}">'
+    h = re.sub(r'<span class="pg" data-p="(\d+)">', pg, h)
+    ids = set(re.findall(r' id="([^"]+)"', h))
+
+    def link(m):
+        t = m.group(1)
+        if t in ids:
+            return m.group(0)
+        page = re.match(r't\d*-S(\d+)$', t)
+        if page and f's{page.group(1)}' in ids:
+            return f'<a href="#s{page.group(1)}">'
+        return '<a data-x>'
+    h = re.sub(r'<a href="#([^"]+)">', link, h)
+    return re.sub(r'<a data-x>(.*?)</a>', r'\1', h, flags=re.S)
+
+
+def wk_by(w, byslug):
+    return ' and '.join(byslug[s]['display'] for s in w['authors'])
+
+
+def build_werk(w, prv, nxt, byslug, english):
+    body_html, toc, plain_txt = wk_body(w)
+    nwords = w['words']
+    mins = max(1, round(nwords / 230))
+    rt = f'{mins // 60} H {mins % 60:02d} MIN' if mins >= 60 else f'{mins} MIN'
+    a = byslug[w['authors'][0]]
+    by = wk_by(w, byslug)
+    pages = f', S. {w["pages"][0]}–{w["pages"][1]}' if w.get('pages') else ''
+    ed_bits = list(w.get('facts', []))
+    if w.get('note'):
+        ed_bits.append(w['note'])
+    if w.get('brackets'):
+        ed_bits.append(w['brackets'])
+    ed_bits.append(f'Text: Marx-Engels-Werke, Band {w["band"]}{pages}. Page numbers of the MEW are shown in the text.')
+    edition = ' '.join(ed_bits)
+    folder = ROOT / 'archive' / 'werke' / w['id']
+    folder.mkdir(parents=True, exist_ok=True)
+    txt_name = f'mew-{w["id"]}.txt'
+    head = '\n'.join([w['title'].upper(), '', by, str(w['year']), '', edition,
+                      'Public domain. Prepared for the TIA archive: ' + SITE + w['path'], '-' * 60])
+    (folder / txt_name).write_text(head + '\n\n' + plain_txt.strip() + '\n', encoding='utf-8')
+
+    toc_items = ''.join(f'<li><a href="#{pid}">{esc(label)}</a></li>' for pid, label in toc)
+    if len(toc) >= 2:
+        aside = f'<aside class="toc mn" aria-label="Inhalt"><p>INHALT · {len(toc)}</p><ol>{toc_items}</ol></aside>'
+        mobile = f'<details class="toc-m mn"><summary>INHALT · {len(toc)} ABSCHNITTE</summary><ol>{toc_items}</ol></details>'
+        layout = 'rd-layout'
+    else:
+        aside, mobile, layout = '', '', 'rd-layout solo'
+    pn = '<div class="pn mn">'
+    pn += f'<a href="{prv["path"]}">← {esc(prv["title"].upper())}</a>' if prv else f'<a href="{WK_URL}">← ALL GERMAN TEXTS</a>'
+    pn += f'<a href="{nxt["path"]}">{esc(nxt["title"].upper())} →</a>' if nxt else f'<a href="{WK_URL}">ALL GERMAN TEXTS →</a>'
+    pn += '</div>'
+    en = english.get(w['id'])
+    en_btn = f'<a class="btn gh" href="{en["path"]}">ENGLISH TRANSLATION</a>' if en else ''
+    body = f"""<script>try {{ if (localStorage.getItem('tia-read') === 'paper') document.documentElement.classList.add('paper'); }} catch (e) {{}}</script>
+<div class="rd-prog" aria-hidden="true"></div>
+<div class="rd-poster" aria-hidden="true" style="--ar: {poster_ar(POSTER[a['slug']])}; background-image: url('/assets/bgp/{POSTER[a['slug']]}-1x.webp'); background-image: image-set(url('/assets/bgp/{POSTER[a['slug']]}-1x.webp') 1x, url('/assets/bgp/{POSTER[a['slug']]}.webp') 2x)"></div>
+<section style="position: relative; border-bottom: 1px solid #2B1B1D">
+  <div class="wrap rd-hero-wrap" style="padding-top: 26px; padding-bottom: clamp(32px, 4vw, 52px)">
+    {crumbs(('ARCHIVE', '/archive/'), ('IN GERMAN', WK_URL), (w['title'].upper(), None))}
+    <div class="rd-head">
+      <a href="{a['url']}" class="bust" aria-label="{attr(a['display'])} dossier"><img src="{a['img']}" alt=""><span class="hc tl"></span><span class="hc tr"></span><span class="hc bl"></span><span class="hc br"></span><span class="it-bscan" aria-hidden="true" style="position: absolute; left: 0; right: 0; height: 2px; background: #FF5A60; box-shadow: 0 0 10px rgba(232, 34, 42, 0.8)"></span></a>
+      <div style="flex: 1 1 520px; min-width: 0">
+        <span class="tag">ORIGINAL · MEW {w['band']} · {w['year']}</span>
+        <h1 class="rd-h1 it-glitch" lang="de">{esc(w['title'])}</h1>
+        <p class="src">{esc(by.upper())} · {w['year']} · {words(nwords)} WORDS · {rt} · DEUTSCH</p>
+        <p class="rd-ed" lang="de">{esc(edition)} <span lang="en">Public domain.</span></p>
+        <div class="rd-act"><a class="btn" href="#p1">Start reading</a>{en_btn}<a class="btn gh" href="{txt_name}" download>DOWNLOAD .TXT</a><button type="button" class="btn gh rd-paper-t" data-paper aria-pressed="false"><i aria-hidden="true"></i><span>PAPER MODE</span></button><a class="btn gh" href="{WK_URL}">ALL GERMAN TEXTS</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="rd-body" style="background: rgba(12, 7, 8, 0.6)">
+  <div class="wrap {layout}">
+    {aside}
+    <div style="min-width: 0">
+      {mobile}
+      <article class="text" lang="de">
+{body_html}
+      </article>
+      <p class="rd-end mn">ENDE · {esc(w['title'].upper())} · {esc(by.upper())}</p>
+      {pn}
+    </div>
+  </div>
+</section>
+<button type="button" class="rd-paper-t rd-paper-f mn" data-paper aria-pressed="false"><i aria-hidden="true"></i><span>PAPER MODE</span></button>
+<script>
+(function () {{
+  var root = document.documentElement, btns = document.querySelectorAll('[data-paper]');
+  function show(on) {{ btns.forEach(function (b) {{ b.setAttribute('aria-pressed', on ? 'true' : 'false'); b.querySelector('span').textContent = on ? 'DARK MODE' : 'PAPER MODE'; }}); }}
+  show(root.classList.contains('paper'));
+  btns.forEach(function (b) {{ b.addEventListener('click', function () {{
+    var on = !root.classList.contains('paper');
+    root.classList.toggle('paper', on); show(on);
+    try {{ localStorage.setItem('tia-read', on ? 'paper' : 'dark'); }} catch (e) {{}}
+  }}); }});
+}})();
+</script>"""
+    title = f'{w["title"]} · {by} · TIA Archive'
+    desc = f'{w["title"]} ({w["year"]}) by {by}, the German original from the Marx-Engels-Werke, Band {w["band"]}. Free to read and download.'
+    out = page(title, desc, w['path'], body, css=READER_CSS + WK_CSS, current_label='/ARCHIVE/WERKE',
+               foot_label=f'INVARIANCETECH.INFO/ARCHIVE/WERKE/{w["id"]}')
+    (folder / 'index.html').write_text(out, encoding='utf-8')
+
+
+def build_werke_index(ws, byslug):
+    years = sorted({w['year'] for w in ws})
+    groups = {}
+    for w in ws:
+        groups.setdefault(w['year'], []).append(w)
+    secs = []
+    for y in years:
+        rows = []
+        for w in groups[y]:
+            who = ' & '.join(byslug[s]['short'] for s in w['authors'])
+            rows.append(f'<li><span class="d">MEW {w["band"]}</span><a href="{w["path"]}" lang="de">{esc(w["title"])}</a>'
+                        f'<b class="wk-who">{esc(who)}</b></li>')
+        secs.append(f'<section class="cw-y" id="y{y}"><h2>{y}<span>{len(groups[y])} TEXT{"S" if len(groups[y]) != 1 else ""}</span></h2><ul class="cw">{"".join(rows)}</ul></section>')
+    decades = sorted({y // 10 * 10 for y in years})
+    jump = ''.join(f'<a href="#y{next(y for y in years if y // 10 * 10 == d)}">{d}s</a>' for d in decades)
+    total = sum(w['words'] for w in ws)
+    nm = sum(1 for w in ws if 'marx' in w['authors'])
+    ne = sum(1 for w in ws if 'engels' in w['authors'])
+    css = CW_CSS + ('.cw li a { min-width: 0; overflow-wrap: break-word; hyphens: auto; }\n'
+                    '.cw li b.wk-who { flex: 0 0 auto; margin-left: auto; padding-left: 8px; color: #A89C95; white-space: nowrap; }\n')
+    body = f"""<section style="position: relative; border-bottom: 1px solid #2B1B1D">
+  <div class="wrap" style="position: relative; z-index: 1; padding-top: 26px; padding-bottom: clamp(36px, 4vw, 56px)">
+    {crumbs(('ARCHIVE', '/archive/'), ('IN GERMAN', None))}
+    <span class="tag" style="margin-top: 22px">MARX · ENGELS · DEUTSCH</span>
+    <h1 class="dh it-glitch shade" style="margin: 18px 0 0; font-size: clamp(34px, 4.6vw, 72px); line-height: 0.98; color: #F2ECE4">Marx and Engels in German</h1>
+    <p class="src shade">{len(ws):,} TEXTS · {total:,} WORDS · MARX {nm} · ENGELS {ne} · {years[0]} — {years[-1]}</p>
+    <p class="shade" style="margin: 20px 0 0; max-width: 760px; padding: 14px 16px; background: rgba(9, 5, 6, 0.72); border-left: 2px solid #E8222A; font-size: 17px; color: #ECE4DC">{esc(WK_INTRO)}</p>
+    <nav class="cw-jump mn" aria-label="Jump to decade">{jump}</nav>
+  </div>
+</section>
+
+<section class="grid-bg" style="position: relative; background-color: rgba(12, 7, 8, 0.9)">
+  <div class="wrap" style="padding-bottom: clamp(56px, 7vw, 96px)">
+    <div class="cw-bar mn" role="search">
+      <label for="cw-q" class="sr" style="position: absolute; left: -9999px">Filter titles</label>
+      <input id="cw-q" type="search" placeholder="Filter {len(ws):,} titles, or type Marx or Engels" autocomplete="off">
+      <span class="cnt" id="cw-count" aria-live="polite">{len(ws):,} SHOWN</span>
+    </div>
+    {''.join(secs)}
+    <div class="pn mn"><a href="{byslug['marx']['url']}">← MARX DOSSIER</a><a href="{byslug['engels']['url']}">ENGELS DOSSIER →</a></div>
+  </div>
+</section>"""
+    title = 'Marx and Engels in German · TIA Archive'
+    desc = f'{len(ws):,} texts that Marx and Engels wrote in German, {years[0]}–{years[-1]}, from the Marx-Engels-Werke, free to read.'
+    out = page(title, desc, WK_URL, body, css=css, current_label='/ARCHIVE/WERKE', bg=POSTER['marx'])
+    d = ROOT / 'archive' / 'werke'
+    d.mkdir(parents=True, exist_ok=True)
+    (d / 'index.html').write_text(out, encoding='utf-8')
+
+
+def build_werke(ws, byslug, works):
+    shutil.rmtree(ROOT / 'archive' / 'werke', ignore_errors=True)
+    if not ws:
+        return 0
+    english = {w['de']: w for w in works.values() if w.get('de') and w['kind'] == 'hosted'}
+    for i, w in enumerate(ws):
+        build_werk(w, ws[i - 1] if i else None, ws[i + 1] if i + 1 < len(ws) else None, byslug, english)
+    build_werke_index(ws, byslug)
+    img = ROOT / 'archive' / 'werke' / 'img'
+    img.mkdir(parents=True, exist_ok=True)
+    for f in (WERKE / 'img').glob('*'):
+        shutil.copy(f, img / f.name)
+    return len(ws)
+
+
 def main():
     authors, byslug, works, cols = load()
     # clear old generated output so removed works disappear
@@ -1286,6 +1596,14 @@ def main():
     shutil.rmtree(ROOT / 'archive' / 'text', ignore_errors=True)
     for a in authors:
         a['bib'] = load_bibliography(a, byslug)
+    ws = wk_load()
+    wk_ids = {w['id'] for w in ws}
+    for w in works.values():
+        if w.get('de') and w['de'] not in wk_ids:
+            print(f'  warning: {w["id"]}: no German text {w["de"]}')
+            del w['de']
+    for a in authors:
+        a['wk'] = sum(1 for w in ws if a['slug'] in w['authors']) if a['slug'] in ('marx', 'engels') else 0
     total = 0
     for a in authors:
         for w in a['works']:
@@ -1305,7 +1623,9 @@ def main():
     build_catalogue_json(authors, byslug, works, cols)
     nb = build_bibliography_json(authors)
     print(f'  complete works: {nb:,} items ' + ', '.join(f"{a['slug']} {len(a['bib']):,}" for a in authors))
-    n = build_sitemap(authors, works, cols)
+    nw = build_werke(ws, byslug, works)
+    print(f'  german originals: {nw:,} texts')
+    n = build_sitemap(authors, works, cols, ws)
     nh = sum(1 for w in works.values() if w['kind'] == 'hosted')
     print(f'{len(authors)} authors, {len(works)} works ({nh} full texts, {total:,} words), '
           f'{sum(1 for c in cols if c.get("url", "").startswith("/"))} collection pages, {n} sitemap URLs')

@@ -107,7 +107,10 @@ def set_catalogue():
     old = json.dumps(w, ensure_ascii=False)
     assert old in src, 'catalogue entry not on one line'
     new = {'id': TID, 'slug': 'origin-of-the-family', 'title': w['title'], 'year': w['year'], 'kind': 'hosted',
-           'key': w.get('key', False), 'lang': 'en', 'edition': EDITION, 'pg': EBOOK, 'cols': w['cols']}
+           'key': w.get('key', False), 'lang': 'en', 'edition': EDITION, 'pg': EBOOK}
+    if w.get('de'):
+        new['de'] = w['de']      # the German original in the Marx-Engels-Werke pages
+    new['cols'] = w['cols']
     if not new['key']:
         del new['key']
     open(p, 'w', encoding='utf-8').write(src.replace(old, json.dumps(new, ensure_ascii=False)))

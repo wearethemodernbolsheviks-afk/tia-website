@@ -508,36 +508,13 @@
 "origin": "de-venue"
 },
 {
-"id": "01-413",
-"band": 1,
-"title": "Briefe aus dem Wuppertal",
-"authors": [
-"engels"
-],
-"year": 1839,
-"facts": [
-"Geschrieben im Mrz 1839."
-],
-"pages": null,
-"words": 7132,
-"parts": [
-{
-"id": "me01_413",
-"title": "I",
-"pages": null,
-"words": 7132
-}
-],
-"origin": "unknown"
-},
-{
 "id": "01-433",
 "band": 1,
 "title": "Alexander Jung, Vorlesungen über die moderne Literatur der Deutschen",
 "authors": [
 "engels"
 ],
-"year": 1842,
+"year": 1843,
 "facts": [],
 "pages": [
 433,
@@ -17552,13 +17529,60 @@
 "origin": "unknown"
 },
 {
+"id": "19-177",
+"band": 19,
+"title": "Die Entwicklung des Sozialismus von der Utopie zur Wissenschaft",
+"authors": [
+"engels"
+],
+"year": 1880,
+"facts": [
+"Geschrieben von Januar bis Mitte März 1880."
+],
+"pages": null,
+"words": 14534,
+"parts": [
+{
+"id": "me19_177",
+"title": "",
+"pages": null,
+"words": 36
+},
+{
+"id": "me19_186",
+"title": "Vorwort zur ersten Auflage in deutscher Sprache (1882)",
+"pages": null,
+"words": 743
+},
+{
+"id": "me19_189",
+"title": "I",
+"pages": null,
+"words": 4435
+},
+{
+"id": "me19_202",
+"title": "II",
+"pages": null,
+"words": 2736
+},
+{
+"id": "me19_210",
+"title": "III",
+"pages": null,
+"words": 6584
+}
+],
+"origin": "de-historic"
+},
+{
 "id": "19-291",
 "band": 19,
 "title": "Jenny Marx, geb. v. Westphalen",
 "authors": [
 "engels"
 ],
-"year": 1877,
+"year": 1880,
 "facts": [],
 "pages": null,
 "words": 597,
@@ -21351,33 +21375,6 @@
 438
 ],
 "words": 667
-}
-],
-"origin": "unknown"
-},
-{
-"id": "40-003",
-"band": 40,
-"title": "[Brief an den Vater in Trier]",
-"authors": [
-"marx"
-],
-"year": 1837,
-"facts": [],
-"pages": [
-3,
-12
-],
-"words": 2741,
-"parts": [
-{
-"id": "me40_003",
-"title": "",
-"pages": [
-3,
-12
-],
-"words": 2741
 }
 ],
 "origin": "unknown"

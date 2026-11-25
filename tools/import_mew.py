@@ -539,7 +539,12 @@ def preamble(raw):
 # checked by hand: written in English, French or Italian, or made up largely of the editors' translations
 EXCLUDE = {'12-347', '17-129', '17-146', '17-180', '17-367', '17-412', '17-418', '17-572', '18-314', '18-597', '19-033',
            '19-407', '22-331', '22-407', '22-408', '22-439', '31-597', '40-013'}
-EXCLUDE_PARTS = {'me02_229'}      # Engels wrote the dedication of the Condition of the Working Class in English
+EXCLUDE_PARTS = {'me02_229',      # Engels wrote the dedication of the Condition of the Working Class in English
+                 'me19_181'}      # Marx wrote his preface to the French edition of Socialism, Utopian and Scientific in French
+# the mirror's copies of these lost every umlaut (Nhe, schnste); left out until a sound copy is found
+DAMAGED = {'01-413', '40-003'}
+# first printed in another language, but the MEW text is the author's own German edition (Engels, 1882 and 1891)
+FORCE_DE = {'19-177'}
 TITLE_FIX = {'02-229': 'Die Lage der arbeitenden Klasse in England', '03-011': 'Die deutsche Ideologie', '23-000': 'Das Kapital. Erster Band', '24-000': 'Das Kapital. Zweiter Band', '25-000': 'Das Kapital. Dritter Band'}
 YEAR_FIX = {'40-003': 1837, '40-013': 1839, '01-172': 1843, '24-000': 1885, '25-000': 1894}
 MARKER = re.compile(r'^(Geschrieben[^.]{0,160}\.\s*)?(Aus dem (' + LANGS + r')|Übersetzung aus dem \w+)\b')
@@ -687,7 +692,9 @@ def main(src):
         wid0 = f"{w['band']:02d}-{w['first'][5:8]}"
         if wid0 in EXCLUDE:
             reason = 'checked by hand: not a German original'
-        elif w['translated']:
+        elif wid0 in DAMAGED:
+            reason = 'umlauts lost in the mirror'
+        elif w['translated'] and wid0 not in FORCE_DE:
             reason = 'translated by the MEW editors'
         elif not who:
             reason = 'author not Marx or Engels: ' + (w['author_raw'] or w['ititle'])[:60]
@@ -704,7 +711,7 @@ def main(src):
             first = ' '.join(clean_text(h) for f in w['files'][:1] for k, h in f['body'][:8] if k in ('src', 'lt'))
             yrs = [int(y) for y in YEAR.findall(first + ' ' + w['title']) if ok(int(y))][:1]
         srcs = ' '.join(f['first_src'] for f in w['files'][:3])
-        w['origin'] = 'de-venue' if GERMAN_VENUE.search(srcs) or GERMAN_VENUE.search(' '.join(w['facts'])) else \
+        w['origin'] = 'de-historic' if wid0 in FORCE_DE else 'de-venue' if GERMAN_VENUE.search(srcs) or GERMAN_VENUE.search(' '.join(w['facts'])) else \
             ('de-historic' if HISTORIC_DE.search(w['pre']) else 'unknown')
         w['who'] = who
         w['note'] = note
