@@ -13,6 +13,7 @@
   "authors": [
     {
       "slug": "hegel",
+      "filed": "NM-01",
       "mia": "https://www.marxists.org/reference/archive/hegel/index.htm",
       "works": [
         {"id": "hegel-1807-phenomenology", "title": "The Phenomenology of Spirit", "year": "1807", "kind": "link", "key": true, "url": "https://www.marxists.org/reference/archive/hegel/phindex.htm"},
@@ -73,7 +74,7 @@
     },
     {
       "slug": "kautsky",
-      "filed": "NM-05",
+      "filed": "NM-06",
       "mia": "https://www.marxists.org/archive/kautsky/index.htm",
       "works": [
         {"id": "kautsky-1887-frederick-engels", "slug": "frederick-engels", "title": "Frederick Engels: His Life, His Work and His Writings", "year": "1887", "kind": "hosted", "key": true, "lang": "en", "edition": "Translated by May Wood Simons. Library of Progress No. 32, Charles H. Kerr & Company, Chicago, 1899. Kautsky's portrait of 1887, framed by an account of Engels's last years written after his death in 1895.", "cols": ["marx-and-engels", "second-international"]},
@@ -86,6 +87,7 @@
     },
     {
       "slug": "plekhanov",
+      "filed": "NM-06",
       "mia": "https://www.marxists.org/archive/plekhanov/index.htm",
       "works": [
         {"id": "plekhanov-1883-political-struggle", "title": "Socialism and the Political Struggle", "year": "1883", "kind": "link", "url": "https://www.marxists.org/archive/plekhanov/1883/struggle/index.htm", "cols": ["second-international"]},
@@ -168,7 +170,7 @@
     },
     {
       "slug": "gramsci",
-      "filed": "NM-06",
+      "filed": "NM-07",
       "mia": "https://www.marxists.org/archive/gramsci/index.htm",
       "note": "Gramsci's own writings are in the public domain in Italian. Thirty-one of the English translations on the Marxists Internet Archive are freely licensed (CC BY-SA) and are here in full as his Short Writings; the other entries link to the Marxists Internet Archive.",
       "works": [
@@ -224,6 +226,84 @@
         {"id": "gsp-2013-demokratie", "title": "Demokratie: Die perfekte Form bürgerlicher Herrschaft", "year": "2013", "kind": "link", "edition": "Edited by Peter Decker.", "url": "https://de.gegenstandpunkt.com/publikationen/buecher/demokratie"},
         {"id": "gsp-2014-work-wealth", "title": "Work and Wealth", "year": "2014", "kind": "link", "key": true, "edition": "English edition of Arbeit und Reichtum.", "url": "https://en.gegenstandpunkt.com/books/work-and-wealth-2nd-revised-edition"},
         {"id": "gsp-2016-finance-capital", "title": "Finance Capital", "year": "2016", "kind": "link", "key": true, "edition": "Peter Decker, Konrad Hecker and Joseph Patrick. English edition of Das Finanzkapital.", "url": "https://en.gegenstandpunkt.com/books/finance-capital-2nd-revised-edition"}
+      ]
+    },
+    {
+      "slug": "zetkin",
+      "mia": "https://www.marxists.org/archive/zetkin/index.htm",
+      "note": "Zetkin died in 1933 and her writings are in the public domain. The English versions printed in her lifetime are here in full; later translations, such as those in John Riddell's editions of the Comintern congresses, link to the Marxists Internet Archive.",
+      "works": [
+        {"id": "zetkin-1896-proletarian-woman", "title": "Only in Conjunction With the Proletarian Woman Will Socialism Be Victorious", "subtitle": "Speech at the party congress at Gotha", "year": "1896", "kind": "link", "key": true, "url": "https://www.marxists.org/archive/zetkin/1896/10/women.htm"},
+        {"id": "zetkin-1899-articles-speeches", "slug": "articles-and-speeches-1899-1924", "title": "Articles and Speeches, 1899–1924", "subtitle": "From the women's movement before 1914 to the Communist International", "year": "1899–1924", "kind": "hosted", "lang": "en", "edition": "Twenty-seven pieces as they were printed in English at the time, in Justice, The Labour Woman, The British Socialist, The Communist International, International Press Correspondence and other papers; the translators are not named.", "source": "https://www.marxists.org/archive/zetkin/index.htm", "cols": ["the-german-left"]},
+        {"id": "zetkin-1906-woman-suffrage", "slug": "social-democracy-and-woman-suffrage", "title": "Social-Democracy and Woman Suffrage", "year": "1906", "kind": "hosted", "key": true, "lang": "en", "edition": "Translated by \"Jacques Bonhomme\", London, 1906.", "source": "https://www.marxists.org/archive/zetkin/1906/xx/womansuffrage.htm", "cols": ["second-international"]},
+        {"id": "zetkin-1919-dictatorship-democracy", "title": "Through Dictatorship to Democracy", "year": "1919", "kind": "link", "url": "https://www.marxists.org/archive/zetkin/1919/xx/dictdem.htm"},
+        {"id": "zetkin-1923-struggle-against-fascism", "slug": "the-struggle-against-fascism", "title": "The Struggle Against Fascism", "subtitle": "Report to the enlarged Executive of the Communist International, June 1923", "year": "1923", "kind": "hosted", "key": true, "lang": "en", "edition": "International Press Correspondence, 12 July 1923; the translator is not named.", "source": "https://www.marxists.org/archive/zetkin/1923/06/ecci-fascism.htm"},
+        {"id": "zetkin-1924-reminiscences-lenin", "title": "Reminiscences of Lenin", "year": "1924", "kind": "link", "key": true, "url": "https://www.marxists.org/archive/zetkin/1924/reminiscences-of-lenin.htm"}
+      ]
+    },
+    {
+      "slug": "kollontai",
+      "mia": "https://www.marxists.org/archive/kollonta/index.htm",
+      "note": "Kollontai died in 1952 and her writings are in the public domain, but most English translations of them were made in the 1970s and 1980s and are still under copyright. Those printed in her lifetime are here in full; the rest link to the Marxists Internet Archive.",
+      "works": [
+        {"id": "kollontai-1909-social-basis", "title": "The Social Basis of the Woman Question", "year": "1909", "kind": "link", "key": true, "url": "https://www.marxists.org/archive/kollonta/1909/social-basis.htm"},
+        {"id": "kollontai-1916-articles-letters", "slug": "articles-and-letters-1916-1921", "title": "Articles and Letters, 1916–1921", "year": "1916–1921", "kind": "hosted", "lang": "en", "edition": "As printed in English at the time, in the International Socialist Review, The Communist, The Workers' Dreadnought and International Press Correspondence; the translators are not named.", "source": "https://www.marxists.org/archive/kollonta/index.htm"},
+        {"id": "kollontai-1920-communism-family", "title": "Communism and the Family", "year": "1920", "kind": "link", "key": true, "url": "https://www.marxists.org/archive/kollonta/1920/communism-family.htm"},
+        {"id": "kollontai-1921-workers-opposition", "slug": "the-workers-opposition", "title": "The Workers' Opposition", "year": "1921", "kind": "hosted", "key": true, "lang": "en", "edition": "Industrial Workers of the World, Chicago, 1921, with the publishers' introduction; the translator is not named.", "source": "https://www.marxists.org/archive/kollonta/1921/workers-opp-alt/index.html", "cols": ["lenin-and-october"]},
+        {"id": "kollontai-1921-sexual-relations", "title": "Sexual Relations and the Class Struggle", "year": "1921", "kind": "link", "url": "https://www.marxists.org/archive/kollonta/1921/sex-class-struggle.htm"},
+        {"id": "kollontai-1923-winged-eros", "title": "Make Way for Winged Eros", "subtitle": "A letter to working youth", "year": "1923", "kind": "link", "key": true, "url": "https://www.marxists.org/archive/kollonta/1923/winged-eros.htm"},
+        {"id": "kollontai-1926-autobiography", "title": "The Autobiography of a Sexually Emancipated Communist Woman", "year": "1926", "kind": "link", "url": "https://www.marxists.org/archive/kollonta/1926/autobiography.htm"}
+      ]
+    },
+    {
+      "slug": "gorter",
+      "mia": "https://www.marxists.org/archive/gorter/index.htm",
+      "note": "Gorter died in 1927 and his writings are in the public domain. The English versions printed in his lifetime are here in full; later translations link to the Marxists Internet Archive.",
+      "works": [
+        {"id": "gorter-1903-articles", "slug": "articles-1903-1924", "title": "Articles, 1903–1924", "year": "1903–1924", "kind": "hosted", "lang": "en", "edition": "Seven articles as printed in English in the International Socialist Review (1903, translated by A. M. Simons) and The Workers' Dreadnought (1920–1924), whose translators are not named.", "source": "https://www.marxists.org/archive/gorter/index.htm"},
+        {"id": "gorter-1914-imperialism", "title": "Imperialism, the World War and Social Democracy", "year": "1914", "kind": "link", "key": true, "url": "https://www.marxists.org/archive/gorter/1914/imperialism.htm"},
+        {"id": "gorter-1918-world-revolution", "title": "The World Revolution", "year": "1918", "kind": "link", "key": true, "url": "https://www.marxists.org/archive/gorter/1918/world-revolution.htm"},
+        {"id": "gorter-1920-open-letter", "slug": "open-letter-to-comrade-lenin", "title": "Open Letter to Comrade Lenin", "subtitle": "A reply to \"Left-Wing\" Communism, an Infantile Disorder", "year": "1920", "kind": "hosted", "key": true, "lang": "en", "edition": "The Workers' Dreadnought, London, 12 March to 11 June 1921; the translator is not named.", "source": "https://www.marxists.org/archive/gorter/1920/open-letter.htm"},
+        {"id": "gorter-1920-historical-materialism", "title": "Historical Materialism", "year": "1920", "kind": "link", "url": "https://www.marxists.org/archive/gorter/1920/historical-materialism.htm"},
+        {"id": "gorter-1921-class-struggle", "title": "The Organisation of the Proletariat's Class Struggle", "year": "1921", "kind": "link", "url": "https://www.marxists.org/archive/gorter/1921/class-struggle.htm"}
+      ]
+    },
+    {
+      "slug": "pannekoek",
+      "mia": "https://www.marxists.org/archive/pannekoe/index.htm",
+      "note": "Pannekoek died in 1960, so his writings stay under copyright in most countries until the end of 2030. Until then these entries link to the Marxists Internet Archive.",
+      "works": [
+        {"id": "pannekoek-1909-marxism-darwinism", "title": "Marxism and Darwinism", "year": "1909", "kind": "link", "key": true, "url": "https://www.marxists.org/archive/pannekoe/1912/marxism-darwinism.htm"},
+        {"id": "pannekoek-1912-tactics", "title": "Marxist Theory and Revolutionary Tactics", "year": "1912", "kind": "link", "key": true, "url": "https://www.marxists.org/archive/pannekoe/1912/tactics.htm"},
+        {"id": "pannekoek-1920-world-revolution", "title": "World Revolution and Communist Tactics", "year": "1920", "kind": "link", "key": true, "url": "https://www.marxists.org/archive/pannekoe/1920/communist-tactics.htm"},
+        {"id": "pannekoek-1936-party-working-class", "title": "Party and Working Class", "year": "1936", "kind": "link", "url": "https://www.marxists.org/archive/pannekoe/1936/party-working-class.htm"},
+        {"id": "pannekoek-1938-lenin-philosopher", "title": "Lenin as Philosopher", "year": "1938", "kind": "link", "key": true, "url": "https://www.marxists.org/archive/pannekoe/1938/lenin/index.htm"},
+        {"id": "pannekoek-1947-workers-councils", "title": "Workers' Councils", "year": "1947", "kind": "link", "key": true, "url": "https://www.marxists.org/archive/pannekoe/1947/workers-councils.htm"}
+      ]
+    },
+    {
+      "slug": "mattick",
+      "mia": "https://www.marxists.org/archive/mattick-paul/index.htm",
+      "note": "Mattick died in 1981, so his writings are under copyright. These entries link to the Marxists Internet Archive.",
+      "works": [
+        {"id": "mattick-1935-lenin-legend", "title": "The Lenin Legend", "year": "1935", "kind": "link", "url": "https://www.marxists.org/archive/mattick-paul/1935/lenin-legend.htm"},
+        {"id": "mattick-1939-council-communism", "title": "Council Communism", "year": "1939", "kind": "link", "key": true, "url": "https://www.marxists.org/archive/mattick-paul/1939/council-communism.htm"},
+        {"id": "mattick-1969-marx-keynes", "title": "Marx and Keynes", "subtitle": "The Limits of the Mixed Economy", "year": "1969", "kind": "link", "key": true, "url": "https://www.marxists.org/archive/mattick-paul/1969/marx-keynes/index.htm"},
+        {"id": "mattick-1974-economic-crisis", "title": "Economic Crisis and Crisis Theory", "year": "1974", "kind": "link", "key": true, "url": "https://www.marxists.org/archive/mattick-paul/1974/crisis/index.htm"},
+        {"id": "mattick-1978-anti-bolshevik", "title": "Anti-Bolshevik Communism", "year": "1978", "kind": "link", "key": true, "url": "https://www.marxists.org/archive/mattick-paul/1978/introduction.htm"},
+        {"id": "mattick-1983-bourgeois-economics", "title": "Marxism and Bourgeois Economics", "year": "1983", "kind": "link", "url": "https://www.marxists.org/archive/mattick-paul/1983/bourgeois-economics/index.htm"}
+      ]
+    },
+    {
+      "slug": "hilferding",
+      "filed": "NM-06",
+      "mia": "https://www.marxists.org/archive/hilferding/index.htm",
+      "note": "Hilferding died in 1941 and his writings are in the public domain, but the English translations of Finance Capital and of his critique of Böhm-Bawerk are still under copyright. Those entries link to the Marxists Internet Archive.",
+      "works": [
+        {"id": "hilferding-1904-bohm-bawerk", "title": "Böhm-Bawerk's Criticism of Marx", "year": "1904", "kind": "link", "key": true, "url": "https://www.marxists.org/archive/hilferding/1904/criticism/index.htm"},
+        {"id": "hilferding-1905-parliamentarianism-general-strike", "slug": "parliamentarianism-and-the-general-strike", "title": "Parliamentarianism and the General Strike", "year": "1905", "kind": "hosted", "lang": "en", "edition": "The Social Democrat, London, November 1905, an English version partly summarised and partly translated by \"Jacques Bonhomme\".", "source": "https://www.marxists.org/archive/hilferding/1905/11/parliamentarianism-strike.htm", "cols": ["second-international"]},
+        {"id": "hilferding-1910-finance-capital", "title": "Finance Capital", "subtitle": "A Study of the Latest Phase of Capitalist Development", "year": "1910", "kind": "link", "key": true, "url": "https://www.marxists.org/archive/hilferding/1910/finkap/index.htm"},
+        {"id": "hilferding-1940-state-capitalism", "title": "State Capitalism or Totalitarian State Economy", "year": "1940", "kind": "link", "key": true, "url": "https://www.marxists.org/archive/hilferding/1940/statecapitalism.htm"}
       ]
     }
   ]

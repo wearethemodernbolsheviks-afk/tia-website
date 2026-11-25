@@ -1,12 +1,12 @@
 {
  "_about": "The Non-Marxists section of the archive: thinkers and leaders filed outside the Index of Marxists. Works are 'hosted' (a text in content/texts/<id>.txt, in the public domain) or 'link' (the Marxists Internet Archive or another site). Each person needs a group code from 'groups'.",
- "intro": "Filed outside the Index of Marxists: the philosophers and economists Marx worked from, the utopians and anarchists he argued with, the revisionists, and the leaders who governed in Lenin's name after him. Read them to know what Marxism answered.",
+ "intro": "Filed outside the Index of Marxists: the philosophers and economists Marx worked from, the utopians and anarchists he argued with, the revisionists and the orthodox centre of the Second International, and the leaders who governed in Lenin's name after him. Read them to know what Marxism answered.",
  "groups": [
   {
    "code": "NM-01",
    "slug": "philosophers",
    "title": "The Philosophers",
-   "blurb": "Spinoza, Kant and the Young Hegelians: the philosophy Marx came out of and broke with, outside Hegel himself."
+   "blurb": "Spinoza, Kant, Hegel and the Young Hegelians: the philosophy Marx came out of and broke with."
   },
   {
    "code": "NM-02",
@@ -30,31 +30,31 @@
    "code": "NM-05",
    "slug": "revisionists",
    "title": "The Revisionists",
-   "blurb": "Socialism by gradual reform, inside the Second International."
+   "blurb": "Socialism by gradual reform: Lassalle's workers' cooperatives backed by the state, and Bernstein's revision of Marx inside the Second International."
   },
   {
    "code": "NM-06",
+   "slug": "orthodox-centre",
+   "title": "The Orthodox Centre",
+   "blurb": "The orthodox Marxists of the Second International, who defended Marx's theory against Bernstein's revision: Plekhanov, Kautsky and Hilferding. In 1914 Plekhanov backed Russia's war and Kautsky looked for a middle course; all three opposed the October revolution."
+  },
+  {
+   "code": "NM-07",
    "slug": "stalinist-line",
    "title": "The Stalinist Line",
    "blurb": "Stalin; Antonio Gramsci, who led the Communist Party of Italy within the Comintern from 1924; and the two leaders who kept Stalin's model of party and state longest after Moscow turned from it in 1956, Enver Hoxha in Albania and Kim Il-sung in North Korea."
   },
   {
-   "code": "NM-07",
+   "code": "NM-08",
    "slug": "chinese-line",
    "title": "The Chinese Line",
    "blurb": "Mao Zedong, who led the Chinese revolution to power in 1949, and the leaders of the party after him, from Deng Xiaoping's reform and opening to Xi Jinping."
   },
   {
-   "code": "NM-08",
+   "code": "NM-09",
    "slug": "national-liberation",
    "title": "National Liberation",
-   "blurb": "Leaders of anti-colonial revolutions who took up Lenin's name: Ho Chi Minh in Vietnam, Fidel Castro and Che Guevara in Cuba."
-  },
-  {
-   "code": "NM-09",
-   "slug": "yugoslav-road",
-   "title": "The Yugoslav Road",
-   "blurb": "Tito, whose Yugoslavia was expelled from the Cominform in 1948 for going its own way, and the workers' self-management and non-alignment it took up afterwards."
+   "blurb": "Leaders of anti-colonial and partisan revolutions who took up Lenin's name: Ho Chi Minh in Vietnam, Tito in Yugoslavia, Fidel Castro and Che Guevara in Cuba."
   }
  ],
  "people": [
@@ -591,7 +591,7 @@
    "name": "Joseph Stalin",
    "years": "1878 — 1953",
    "place": "Gori → Moscow",
-   "group": "NM-06",
+   "group": "NM-07",
    "role": "General Secretary of the Soviet Communist Party from 1922 and ruler of the USSR until his death in 1953; author of the doctrine of socialism in one country.",
    "mia": "https://www.marxists.org/reference/archive/stalin/index.htm",
    "note": "Linked, not hosted: the English translations here are not clearly in the public domain everywhere.",
@@ -652,7 +652,7 @@
    "name": "Enver Hoxha",
    "years": "1908 — 1985",
    "place": "Gjirokastër → Tirana",
-   "group": "NM-06",
+   "group": "NM-07",
    "role": "Leader of Albania from 1944 until his death in 1985, who broke in turn with Yugoslavia, the Soviet Union and China.",
    "mia": "https://www.marxists.org/reference/archive/hoxha/index.htm",
    "note": "In copyright: these links open the Marxists Internet Archive.",
@@ -685,7 +685,7 @@
    "name": "Kim Il-sung",
    "years": "1912 — 1994",
    "place": "Mangyongdae → Pyongyang",
-   "group": "NM-06",
+   "group": "NM-07",
    "role": "Leader of North Korea from its founding in 1948 until his death in 1994, and author of its state doctrine of Juche.",
    "mia": "https://www.marxists.org/archive/kim-il-sung/index.htm",
    "note": "In copyright: these links open the Marxists Internet Archive.",
@@ -725,7 +725,7 @@
    "name": "Mao Zedong",
    "years": "1893 — 1976",
    "place": "Shaoshan → Beijing",
-   "group": "NM-07",
+   "group": "NM-08",
    "role": "Chairman of the Chinese Communist Party, who led it to power in 1949 and ruled the People's Republic of China until his death in 1976.",
    "mia": "https://www.marxists.org/reference/archive/mao/index.htm",
    "note": "In copyright: these links open the Marxists Internet Archive.",
@@ -772,7 +772,7 @@
    "name": "Deng Xiaoping",
    "years": "1904 — 1997",
    "place": "Guang'an → Beijing",
-   "group": "NM-07",
+   "group": "NM-08",
    "role": "Leader of China from 1978 into the 1990s, who opened its economy to the market under the name of socialism with Chinese characteristics.",
    "mia": "https://www.marxists.org/reference/archive/deng-xiaoping/index.htm",
    "note": "In copyright: these links open the Marxists Internet Archive.",
@@ -819,7 +819,7 @@
    "name": "Xi Jinping",
    "years": "1953 —",
    "place": "Beijing",
-   "group": "NM-07",
+   "group": "NM-08",
    "role": "General Secretary of the Chinese Communist Party since 2012 and President of China since 2013. His doctrine is written into the party constitution as Xi Jinping Thought on Socialism with Chinese Characteristics for a New Era.",
    "note": "In copyright: these links open the published English texts on other sites.",
    "works": [
@@ -844,7 +844,7 @@
    "name": "Ho Chi Minh",
    "years": "1890 — 1969",
    "place": "Kim Liên → Hanoi",
-   "group": "NM-08",
+   "group": "NM-09",
    "role": "Founder of the Indochinese Communist Party in 1930, who declared Vietnam's independence in 1945 and led North Vietnam until his death in 1969.",
    "mia": "https://www.marxists.org/reference/archive/ho-chi-minh/index.htm",
    "note": "In copyright: these links open the Marxists Internet Archive.",
@@ -884,7 +884,7 @@
    "name": "Fidel Castro",
    "years": "1926 — 2016",
    "place": "Birán → Havana",
-   "group": "NM-08",
+   "group": "NM-09",
    "role": "Lawyer who led the Cuban revolution of 1959, declared it socialist in 1961 and governed Cuba until 2008.",
    "mia": "https://www.marxists.org/history/cuba/archive/castro/index.htm",
    "note": "In copyright: these links open the Marxists Internet Archive.",
@@ -924,7 +924,7 @@
    "name": "Che Guevara",
    "years": "1928 — 1967",
    "place": "Rosario → La Higuera",
-   "group": "NM-08",
+   "group": "NM-09",
    "role": "Argentine doctor who fought in the Cuban revolution, ran Cuba's national bank and its ministry of industry, and was killed in Bolivia in 1967 while leading a guerrilla campaign.",
    "mia": "https://www.marxists.org/archive/guevara/index.htm",
    "note": "In copyright: these links open the Marxists Internet Archive.",

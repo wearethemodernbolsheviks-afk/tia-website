@@ -29,22 +29,24 @@ SITE = 'https://invariancetech.info'
 
 TENDENCY = {'PRECURSOR': 'precursor', 'FOUNDER': 'founders', 'SECOND INTERNATIONAL': 'second',
             'BOLSHEVIK': 'bolsheviks', 'SPARTACIST': 'spartacists', 'WESTERN MARXISM': 'western', 'COMMUNIST LEFT': 'left',
-            'MARXISTISCHE GRUPPE': 'mg'}
+            'COUNCIL COMMUNISM': 'council', 'MARXISTISCHE GRUPPE': 'mg'}
 CHIPS = [('all', 'ALL'), ('precursor', 'PRECURSOR'), ('founders', 'FOUNDERS'),
          ('second', 'SECOND INTERNATIONAL'), ('bolsheviks', 'BOLSHEVIKS'),
          ('spartacists', 'SPARTACISTS'), ('western', 'WESTERN MARXISM'), ('left', 'COMMUNIST LEFT'),
-         ('mg', 'MARXISTISCHE GRUPPE')]
+         ('council', 'COUNCIL COMMUNISM'), ('mg', 'MARXISTISCHE GRUPPE')]
 DISPLAY = {'hegel': 'G. W. F. Hegel', 'marx': 'Karl Marx', 'engels': 'Friedrich Engels',
            'lassalle': 'Ferdinand Lassalle', 'kautsky': 'Karl Kautsky', 'plekhanov': 'G. V. Plekhanov', 'lenin': 'V. I. Lenin', 'trotsky': 'Leon Trotsky',
            'luxemburg': 'Rosa Luxemburg', 'liebknecht': 'Karl Liebknecht', 'bukharin': 'N. I. Bukharin', 'lukacs': 'Georg Lukács', 'gramsci': 'Antonio Gramsci', 'bordiga': 'Amadeo Bordiga',
-           'gegenstandpunkt': 'GegenStandpunkt'}
+           'gegenstandpunkt': 'GegenStandpunkt', 'zetkin': 'Clara Zetkin', 'kollontai': 'Alexandra Kollontai',
+           'gorter': 'Herman Gorter', 'pannekoek': 'Anton Pannekoek', 'mattick': 'Paul Mattick', 'hilferding': 'Rudolf Hilferding'}
 
 
 # Full-colour posters used as moving backgrounds (no duotone).
 POSTER = {'hegel': 'p_hp_napoleon', 'marx': 'p_mon_marx_chemnitz', 'engels': 'p_mon_magnitogorsk',
           'lassalle': 'p_hp_marianne', 'kautsky': 'p_share_the_land', 'plekhanov': 'p_nine_days', 'lenin': 'p_mon_lenin_head', 'trotsky': 'p_raise_it_higher',
           'luxemburg': 'p_rom_romantics', 'liebknecht': 'p_rom_come_back', 'bukharin': 'p_mon_worker_kolkhoz', 'lukacs': 'p_mon_motherland_bw', 'gramsci': 'p_mon_motherland_bw', 'bordiga': 'p_audit_no_country',
-          'gegenstandpunkt': 'p_mon_towers'}
+          'gegenstandpunkt': 'p_mon_towers', 'zetkin': 'p_hp_marianne', 'kollontai': 'p_mon_motherland_flags',
+          'gorter': 'p_mon_moon', 'pannekoek': 'p_rom_five_year', 'mattick': 'p_mon_towers', 'hilferding': 'p_share_the_land'}
 AUTHOR_WALL = {
     'hegel': ['p_hp_marianne', 'p_hp_napoleon', 'p_mon_moon', 'p_mon_motherland_bw'],
     'marx': ['p_mon_magnitogorsk', 'p_mon_worker_kolkhoz', 'p_mon_motherland_bw', 'p_audit_no_country'],
@@ -1143,11 +1145,12 @@ def build_index(authors, byslug, works, cols, nm=None):
     t = ARCH_TPL
     # hero: counts and a real search form
     t = t.replace('SRC: TIA ARCHIVE · 12 SUBJECTS · 7 TENDENCIES · 1770 — 1971',
-                  f'SRC: TIA ARCHIVE · {len(authors)} MARXISTS · {len(mworks)} WORKS · {mh} FULL TEXTS · {len(CHIPS) - 1} TENDENCIES')
+                  f'SRC: TIA ARCHIVE · {len(authors)} MARXISTS · {len(mworks)} WORKS · {mh} FULL TEXTS · {len({a["tendency"] for a in authors})} TENDENCIES')
     t = t.replace('/// 1770 — 1971 ///', f'/// {len(mworks)} WORKS /// {mh} FULL TEXTS /// {len(nm_people)} NON-MARXISTS ///')
     for a in every:
         if a.get('nm'):
             t = re.sub(r'(INDEX OF MARXISTS ///[^<]*?) · ' + re.escape(a['short']) + r'(?= ·)', r'\1', t)
+            t = re.sub(r'(INDEX OF MARXISTS ///[^<]*?/// )' + re.escape(a['short']) + r' · ', r'\1', t)
     t = t.replace('/// 12 SUBJECTS ///', f'/// {len(authors)} SUBJECTS ///')
     t = t.replace('Every major thinker, filed by tendency. Open a dossier to read their works in order, from the first article to the last letter.',
                   'Every major Marxist, filed by tendency. Open a dossier for their works in order. Texts in the public domain, and a few public-domain originals in freely licensed translations, are here in full and searchable; the rest link to the Marxists Internet Archive.')
@@ -1301,7 +1304,7 @@ def build_home(authors, works, cols, nm=None):
         if a.get('nm'):
             t, k = re.subn(r'\n\s*<a href="[^"]*" style="display: block; text-align: center"><div style="position: relative; overflow: hidden">'
                            r'<img [^>]*src="/assets/hex_' + a['slug'] + r'\.png".*?</a>', '', t, count=1)
-            assert k == 1, a['slug']
+            assert k == 1 or f"hex_{a['slug']}.png" not in t, a['slug']
     t = re.sub(r'<div role="search" class="panel" style="padding: 22px">(.*?)</p>\n        </div>',
                lambda m: '<form role="search" class="panel" action="/archive/" method="get" style="padding: 22px">' + m.group(1) + '</p>\n        </form>',
                t, count=1, flags=re.S)
@@ -1384,6 +1387,9 @@ BIB_BASE = {
     'lassalle': 'https://www.marxists.org/archive/lassalle/',
     'lukacs': 'https://www.marxists.org/archive/lukacs/',
     'plekhanov': 'https://www.marxists.org/archive/plekhanov/',
+    'pannekoek': 'https://www.marxists.org/archive/pannekoe/',
+    'mattick': 'https://www.marxists.org/archive/mattick-paul/',
+    'kollontai': 'https://www.marxists.org/archive/kollonta/',
 }
 BIB_SOURCE = {
     'gramsci': 'Gramsci\'s writings in English on the Marxists Internet Archive, from his articles of 1916 to the letters from prison, with selections from the Prison Notebooks. Links open the Marxists Internet Archive.',
@@ -1400,6 +1406,12 @@ BIB_SOURCE = {
     'lassalle': 'Every work in the Lassalle section of the Marxists Internet Archive, English and German.',
     'lukacs': 'Every work in the Lukács section of the Marxists Internet Archive.',
     'bukharin': 'Every work in the Bukharin library of the Marxists Internet Archive.',
+    'zetkin': 'Every work in the Zetkin section of the Marxists Internet Archive. Those printed in English in her lifetime are here in full, most of them in her Articles and Speeches.',
+    'kollontai': 'Every work in the Kollontai section of the Marxists Internet Archive.',
+    'gorter': 'Every work in the Gorter section of the Marxists Internet Archive. Those printed in English in his lifetime are here in full.',
+    'pannekoek': 'Every work in the Pannekoek section of the Marxists Internet Archive.',
+    'mattick': 'Every work in the Mattick section of the Marxists Internet Archive.',
+    'hilferding': 'Every work in the Hilferding section of the Marxists Internet Archive.',
     'bordiga': 'Every English translation in the Bordiga section of the Marxists Internet Archive, the major post-war texts translated on the International Communist Party\'s site and on libcom, and the Italian originals on the Marxists Internet Archive that have no English version yet. His writings run to thousands of articles; more will be filed here as they are translated.',
 }
 MONTHS = {m: i for i, m in enumerate(['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'], 1)}
@@ -1917,7 +1929,7 @@ TL_RED, TL_WHITE = '#E8222A', '#F2ECE4'
 # one colour per band of the timeline; black lines get a grey edge so they show on the dark ground
 TL_COLOUR = {'marxists': TL_RED, 'philosophers': '#B48CFF', 'economists': '#4DA3FF', 'utopians': '#34CFB0',
              'anarchists': '#000000', 'revisionists': '#F2C14E', 'stalinist-line': '#C9824A', 'chinese-line': '#FF6FB5',
-             'national-liberation': '#4CC96B', 'yugoslav-road': TL_WHITE}
+             'national-liberation': '#4CC96B', 'orthodox-centre': TL_WHITE}
 TL_EDGE = '#9A908A'
 
 
@@ -2077,8 +2089,8 @@ AR_CSS = """
 .tl-p a:hover text, .tl-p a:focus text { fill: #FF5A60; }
 """
 NM_POSTER = {'NM-01': 'p_mon_moon', 'NM-02': 'p_mon_towers', 'NM-03': 'p_rom_five_year', 'NM-04': 'p_hp_marianne',
-             'NM-05': 'p_share_the_land', 'NM-06': 'p_mon_worker_kolkhoz', 'NM-07': 'p_mon_tiananmen',
-             'NM-08': 'p_raise_it_higher', 'NM-09': 'p_mon_motherland_bw'}
+             'NM-05': 'p_share_the_land', 'NM-06': 'p_mon_motherland_bw', 'NM-07': 'p_mon_worker_kolkhoz',
+             'NM-08': 'p_mon_tiananmen', 'NM-09': 'p_raise_it_higher'}
 NM_INDEX_POSTER = 'p_mon_motherland_sunset'
 NM_CSS = """
 .nm-grp { margin-top: 52px; scroll-margin-top: 90px; }
@@ -2225,7 +2237,7 @@ def build_nm_person(p, prev_p, next_p, byslug):
 
 
 def nm_file_dossiers(d, authors):
-    """Put the full dossiers marked "filed" (Lassalle and Kautsky) among the non-Marxists of their group."""
+    """Put the full dossiers marked "filed" (Hegel, Lassalle, Kautsky and others) among the non-Marxists of their group."""
     groups = {g['code']: g for g in d['groups']}
     order = {g['code']: i for i, g in enumerate(d['groups'])}
     for a in authors:

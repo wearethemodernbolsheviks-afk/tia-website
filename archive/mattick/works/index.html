@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Paul Mattick: Complete Works · TIA Archive</title>
+<meta name="description" content="All 128 works and letters by Paul Mattick, 1934–1983, listed by date with links to every text.">
+<link rel="canonical" href="https://invariancetech.info/archive/mattick/works/">
+<meta name="theme-color" content="#090506">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon_32.png?v=3">
+<link rel="icon" type="image/png" sizes="512x512" href="/assets/favicon_512.png?v=3">
+<link rel="apple-touch-icon" href="/assets/favicon_180.png?v=3">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Technical Invariance Authority">
+<meta property="og:title" content="Paul Mattick: Complete Works · TIA Archive">
+<meta property="og:description" content="All 128 works and letters by Paul Mattick, 1934–1983, listed by date with links to every text.">
+<meta property="og:url" content="https://invariancetech.info/archive/mattick/works/">
+<meta property="og:image" content="https://invariancetech.info/assets/og_tia.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@Invariance_Tech">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&amp;family=Lora:ital,wght@0,400;0,600;1,400&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet">
+<style>
+body { margin: 0; background: #090506; font-synthesis: none; }
+a { color: #F2ECE4; text-decoration: none; }
+a:hover { color: #FF5A60; }
+a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid #FF5A60; outline-offset: 3px; }
+img { display: block; max-width: 100%; }
+.mn { font-family: 'JetBrains Mono', ui-monospace, monospace; font-weight: 400; }
+.dh { font-family: Inter, system-ui, sans-serif; font-weight: 900; letter-spacing: -0.012em; text-transform: uppercase; }
+.wrap { max-width: 1360px; margin: 0 auto; padding-left: clamp(16px, 4vw, 60px); padding-right: clamp(16px, 4vw, 60px); box-sizing: border-box; }
+.grid-bg { background-image: linear-gradient(rgba(242, 236, 228, 0.045) 1px, transparent 1px), linear-gradient(90deg, rgba(242, 236, 228, 0.045) 1px, transparent 1px); background-size: 48px 48px; }
+.glow-r { text-shadow: 0 0 12px rgba(232, 34, 42, 0.65); }
+.glow-w { text-shadow: 0 0 16px rgba(242, 236, 228, 0.2); }
+.tag { display: inline-flex; align-items: center; gap: 8px; padding: 5px 10px; border: 1px solid #4A2B2E; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 14px; letter-spacing: 0.14em; color: #B8ABA4; }
+.src { margin: 12px 0 0; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 13px; letter-spacing: 0.1em; color: #A89C95; }
+.dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #39D98A; box-shadow: 0 0 8px rgba(57, 217, 138, 0.8); animation: it-blink 2.4s ease-in-out infinite; }
+.hc { position: absolute; width: 18px; height: 18px; border: 0 solid #E8222A; }
+.hc.tl { top: 8px; left: 8px; border-top-width: 2px; border-left-width: 2px; }
+.hc.tr { top: 8px; right: 8px; border-top-width: 2px; border-right-width: 2px; }
+.hc.bl { bottom: 8px; left: 8px; border-bottom-width: 2px; border-left-width: 2px; }
+.hc.br { bottom: 8px; right: 8px; border-bottom-width: 2px; border-right-width: 2px; }
+.co { position: absolute; display: flex; align-items: center; gap: 6px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 0.1em; color: #F2ECE4; white-space: nowrap; z-index: 2; }
+.co b { font-weight: 400; padding: 2px 6px; background: rgba(9, 5, 6, 0.85); }
+.co i { position: relative; display: block; height: 1px; width: 40px; background: #F2ECE4; }
+.co i::after { content: ""; position: absolute; top: -3px; right: -1px; border-left: 6px solid #F2ECE4; border-top: 3.5px solid transparent; border-bottom: 3.5px solid transparent; }
+.co.r { flex-direction: row-reverse; }
+.co.r i::after { right: auto; left: -1px; border-left: 0; border-right: 6px solid #F2ECE4; }
+.row { display: flex; align-items: baseline; gap: 14px; padding: 12px 0; border-bottom: 1px solid #241618; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 16px; letter-spacing: 0.06em; }
+.row .ld { flex: 1; min-width: 20px; border-bottom: 1px dotted #4A2B2E; transform: translateY(-4px); }
+.row:hover .ld { border-bottom-color: #E8222A; }
+.chip { min-height: 42px; padding: 0 14px; border: 1px solid #3A2326; background: rgba(9, 5, 6, 0.7); color: #F2ECE4; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 13px; letter-spacing: 0.1em; cursor: pointer; }
+.chip span { color: #A89C95; margin-left: 6px; }
+.chip.on { background: #E8222A; border-color: #E8222A; color: #FFFFFF; }
+.chip.on span { color: #FFD9DA; }
+.dos { display: flex; flex-direction: column; background: #0F0A0B; border: 1px solid #3A2326; transition: border-color 200ms ease; }
+.dos:hover { border-color: #E8222A; }
+.dos-top { display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 10px 14px; border-bottom: 1px solid #3A2326; font-size: 12px; letter-spacing: 0.12em; color: #A89C95; }
+.dos-top .tg { color: #FF5A60; }
+.dos-img { position: relative; overflow: hidden; height: 300px; display: flex; align-items: flex-end; justify-content: center; background-color: #090506; background-image: linear-gradient(rgba(242, 236, 228, 0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(242, 236, 228, 0.04) 1px, transparent 1px); background-size: 24px 24px; border-bottom: 1px solid #3A2326; }
+.dos-img img { height: 92%; width: auto; max-width: 92%; object-fit: contain; }
+.dos-body { padding: 18px 18px 20px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+.dos-body h3 { margin: 0; font-family: Inter, system-ui, sans-serif; font-weight: 900; letter-spacing: -0.005em; font-size: 25px; line-height: 1.05; color: #F2ECE4; text-shadow: 0 0 14px rgba(242, 236, 228, 0.18); }
+.dos-body .yr { margin: 0; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 13px; letter-spacing: 0.1em; color: #FF5A60; }
+.dos-body .role { margin: 4px 0 0; font-size: 15px; line-height: 1.5; color: #CFC4BC; }
+.dos-body ul { list-style: none; margin: 8px 0 0; padding: 10px 0 0; border-top: 1px dashed #3A2326; display: flex; flex-direction: column; gap: 4px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 13px; letter-spacing: 0.04em; color: #DCD2CA; }
+.dos-body ul li::before { content: "> "; color: #E8222A; }
+.dos-body .open { margin-top: auto; padding-top: 14px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 14px; letter-spacing: 0.12em; color: #FF5A60; }
+.sec-bg { position: absolute; inset: 0; background-size: cover; background-position: center; opacity: 0.32; animation: it-kb 28s ease-in-out infinite alternate; pointer-events: none; }
+.sec-bg ~ .wrap { position: relative; z-index: 1; }
+.tbar { position: sticky; top: 0; z-index: 55; background: rgba(9, 5, 6, 0.94); border-bottom: 1px solid #2B1B1D; }
+
+.ov-lines { position: fixed; inset: 0; pointer-events: none; z-index: 60; background: repeating-linear-gradient(to bottom, rgba(0, 0, 0, 0) 0px, rgba(0, 0, 0, 0) 2px, rgba(0, 0, 0, 0.26) 3px, rgba(0, 0, 0, 0) 4px); animation: it-flk 0.18s steps(2) infinite; }
+.ov-grain { position: fixed; inset: -160px; pointer-events: none; z-index: 59; background-image: url('/assets/grain.png'); opacity: 0.55; animation: it-grain 0.5s steps(1, end) infinite; }
+.ov-band { position: fixed; left: 0; right: 0; top: 0; height: 180px; pointer-events: none; z-index: 58; background: linear-gradient(to bottom, rgba(232, 34, 42, 0), rgba(232, 34, 42, 0.06) 50%, rgba(232, 34, 42, 0)); animation: it-band 9s linear infinite; }
+.inst { position: fixed; pointer-events: none; z-index: 57; }
+.inst-ruler { top: 0; bottom: 0; left: 0; width: 22px; border-right: 1px solid #2B1B1D; background-image: repeating-linear-gradient(to bottom, #4A2B2E 0px, #4A2B2E 1px, transparent 1px, transparent 10px), repeating-linear-gradient(to bottom, #9A4A4E 0px, #9A4A4E 1px, transparent 1px, transparent 100px); background-size: 8px 100%, 16px 100%; background-repeat: repeat-y; background-position: right top, right top; }
+.inst-ruler i { position: absolute; right: 0; border-right: 7px solid #E8222A; border-top: 5px solid transparent; border-bottom: 5px solid transparent; animation: it-mark 7s ease-in-out infinite alternate; }
+.inst-hex { top: 0; bottom: 0; right: 0; width: 46px; overflow: hidden; border-left: 1px solid #2B1B1D; font-size: 10px; line-height: 18px; color: #7A4246; text-align: center; }
+.inst-hex > div { animation: it-hexup 36s linear infinite; }
+.inst-x { left: 0; top: 0; width: 72px; height: 72px; margin: -36px 0 0 -36px; opacity: 0.28; animation: it-drift 40s ease-in-out infinite; }
+.inst-x::before { content: ""; position: absolute; left: 0; right: 0; top: 50%; height: 1px; background: #FF5A60; }
+.inst-x::after { content: ""; position: absolute; top: 0; bottom: 0; left: 50%; width: 1px; background: #FF5A60; }
+.inst-x i { position: absolute; inset: 18px; border: 1px solid #FF5A60; border-radius: 50%; }
+
+@keyframes it-flk { 0% { opacity: 0.85; } 100% { opacity: 1; } }
+@keyframes it-grain { 0% { transform: translate(0, 0); } 20% { transform: translate(-40px, 30px); } 40% { transform: translate(30px, -50px); } 60% { transform: translate(-60px, -20px); } 80% { transform: translate(20px, 60px); } 100% { transform: translate(0, 0); } }
+@keyframes it-band { from { transform: translateY(-180px); } to { transform: translateY(100vh); } }
+@keyframes it-mark { from { top: 15%; } to { top: 85%; } }
+@keyframes it-hexup { from { transform: translateY(0); } to { transform: translateY(-50%); } }
+@keyframes it-drift { 0% { transform: translate(22vw, 30vh); } 25% { transform: translate(72vw, 22vh); } 50% { transform: translate(64vw, 74vh); } 75% { transform: translate(28vw, 62vh); } 100% { transform: translate(22vw, 30vh); } }
+@keyframes it-ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+.it-ticker { display: flex; width: max-content; animation: it-ticker 70s linear infinite; }
+@keyframes it-blink { 0%, 100% { opacity: 0.3; } 50% { opacity: 1; } }
+@keyframes it-kb { from { transform: scale(1); } to { transform: scale(1.08) translateX(-1.5%); } }
+@keyframes it-glitch { 0% { opacity: 0; } 12% { opacity: 1; text-shadow: 4px 0 rgba(232, 34, 42, 0.9), -4px 0 rgba(79, 209, 232, 0.8); } 24% { opacity: 0.55; text-shadow: -3px 0 rgba(232, 34, 42, 0.9), 3px 0 rgba(79, 209, 232, 0.8); } 40% { opacity: 1; text-shadow: 1px 0 rgba(232, 34, 42, 0.5), -1px 0 rgba(79, 209, 232, 0.4); } 100% { opacity: 1; text-shadow: 0 0 16px rgba(242, 236, 228, 0.2); } }
+.it-glitch { animation: it-glitch 0.9s steps(1, end) 0.15s both; }
+@keyframes it-bscan { 0% { top: -4%; opacity: 0; } 10% { opacity: 1; } 90% { opacity: 1; } 100% { top: 100%; opacity: 0; } }
+.it-bscan { animation: it-bscan 4s linear infinite; }
+@keyframes it-sweep { from { transform: translateX(0); } to { transform: translateX(1100px); } }
+.it-sweep { animation: it-sweep 14s linear infinite; }
+@supports (animation-timeline: view()) {
+  @keyframes it-rv { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: none; } }
+  .it-rv { animation: it-rv linear both; animation-timeline: view(); animation-range: entry 0% entry 70%; }
+}
+@media (max-width: 760px) { .inst { display: none; } }
+@media (prefers-reduced-motion: reduce) {
+  .ov-lines, .ov-grain, .ov-band, .inst-ruler i, .inst-hex > div, .inst-x, .it-ticker, .dot, .sec-bg, .it-glitch, .it-bscan, .it-sweep, .it-rv { animation: none !important; }
+  .ov-band, .inst-x, .it-bscan, .it-sweep { display: none; }
+}
+
+/* no scan lines: the CRT line overlay, the rolling band and the red bars across the portraits are off */
+.ov-lines, .ov-band, .it-bscan { display: none !important; }
+
+@media (max-width: 1500px) { .tbar .wrap > span.mn:last-child { display: none; } }
+/* the whole poster, shown no bigger than the sharp 2x copy allows, set against the dark page on the right */
+.page-bg { position: fixed; top: 0; right: 0; width: min(58vw, calc(100vh * var(--ar, 0.8)), 1440px); aspect-ratio: var(--ar, 0.8); max-height: 100vh; z-index: -1; pointer-events: none; background-image: var(--p1); background-image: image-set(var(--p1) 1x, var(--p2) 2x); background-size: cover; background-position: center top; -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.55) 22%, #000 48%), linear-gradient(to bottom, #000 70%, transparent); mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.55) 22%, #000 48%), linear-gradient(to bottom, #000 70%, transparent); -webkit-mask-composite: source-in; mask-composite: intersect; }
+.page-bg::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(9, 5, 6, 0.25), rgba(9, 5, 6, 0.1) 40%, rgba(9, 5, 6, 0.55)); }
+@media (max-width: 760px) { .page-bg { left: 0; width: 100%; max-height: none; -webkit-mask-image: linear-gradient(to bottom, #000 30%, transparent); mask-image: linear-gradient(to bottom, #000 30%, transparent); opacity: 0.5; } }
+.wall { position: absolute; inset: 0; overflow: hidden; pointer-events: none; opacity: var(--o, 0.2); -webkit-mask-image: linear-gradient(to bottom, transparent, #000 10%, #000 90%, transparent); mask-image: linear-gradient(to bottom, transparent, #000 10%, #000 90%, transparent); }
+.wall-in { position: absolute; left: 0; right: 0; top: -19.444vw; bottom: 0; background-repeat: repeat-y; background-size: 25% auto; background-position: 0 0, 33.333% 41%, 66.667% 17%, 100% 63%; animation: it-wall 150s linear infinite; }
+@keyframes it-wall { from { transform: translateY(0); } to { transform: translateY(19.444vw); } }
+@keyframes it-wall-m { from { transform: translateY(0); } to { transform: translateY(38.889vw); } }
+.wall ~ .wrap, .side-poster ~ .wrap { position: relative; z-index: 1; }
+.side-poster { position: absolute; top: 0; bottom: 0; right: 0; width: min(54%, 720px); background-size: cover; background-position: center top; opacity: 0.62; -webkit-mask-image: linear-gradient(to right, transparent, #000 62%); mask-image: linear-gradient(to right, transparent, #000 62%); pointer-events: none; }
+.shade { text-shadow: 0 2px 18px rgba(9, 5, 6, 0.95), 0 0 2px rgba(9, 5, 6, 0.9); }
+.dos-bg { position: absolute; inset: 0; background-size: cover; background-position: center; opacity: 0.22; transition: opacity 300ms ease; }
+.dos:hover .dos-bg { opacity: 0.42; }
+.dos-img img { position: relative; z-index: 1; }
+@media (max-width: 760px) {
+  .wall-in { top: -38.889vw; background-size: 50% auto; background-position: 0 0, 100% 45%, 0 0, 100% 45%; animation-name: it-wall-m; }
+  .side-poster { width: 100%; opacity: 0.28; -webkit-mask-image: linear-gradient(to bottom, #000 30%, transparent); mask-image: linear-gradient(to bottom, #000 30%, transparent); }
+}
+@media (prefers-reduced-motion: reduce) { .wall-in, .side-poster { animation: none !important; } }
+.dos[hidden] { display: none; }
+.dos-body ul a { color: #DCD2CA; border-bottom: 1px dotted #4A2B2E; }
+.dos-body ul a:hover { color: #FF5A60; border-bottom-color: #E8222A; }
+.dos-body ul .h { color: #39D98A; font-size: 11px; letter-spacing: 0.12em; margin-left: 6px; }
+.dos-body .cnt { margin: 6px 0 0; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; letter-spacing: 0.12em; color: #A89C95; }
+.dos-body .cnt b { font-weight: 400; color: #39D98A; }
+.dos h3 a { color: inherit; }
+.crumbs { font-size: 13px; letter-spacing: 0.14em; color: #A89C95; }
+.crumbs a { color: #A89C95; border-bottom: 1px solid #3A2326; }
+.crumbs a:hover { color: #FF5A60; }
+.sec-h { margin: 0; font-size: 18px; letter-spacing: 0.1em; border-bottom: 1px solid #3A2326; padding-bottom: 10px; }
+.row.wk { align-items: flex-start; }
+.row .y { flex: 0 0 auto; min-width: 92px; color: #FF5A60; }
+.row .ti { min-width: 0; flex: 0 1 auto; color: #F2ECE4; }
+.row .ti small { display: block; margin-top: 3px; font-family: Inter, system-ui, sans-serif; font-size: 14px; letter-spacing: 0; color: #A89C95; }
+.row .by { flex: 0 0 auto; color: #A89C95; }
+.row .st { flex: 0 0 auto; white-space: nowrap; }
+.row .st.ok { color: #39D98A; }
+.row .st.ln { color: #A89C95; }
+.row .st.sn { color: #F5B83D; }
+.soon-box { margin: 0 0 44px; padding: 18px 18px 8px; border: 1px solid #5A4520; background: rgba(40, 28, 8, 0.55); }
+.soon-box .sec-h { color: #F5B83D; }
+.soon-box .sec-h span { color: #CFC4BC; }
+.soon-box > p.lede { margin: 0 0 10px; max-width: 760px; font-size: 16px; color: #ECE4DC; }
+.soon-item { display: flex; gap: 16px; padding: 14px 0; border-top: 1px solid #5A4520; color: #F2ECE4; }
+.soon-item .y { flex: 0 0 64px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 15px; color: #F5B83D; padding-top: 2px; }
+.soon-item .t { min-width: 0; }
+.soon-item b { display: block; font-family: 'JetBrains Mono', ui-monospace, monospace; font-weight: 400; font-size: 18px; line-height: 1.3; letter-spacing: 0.02em; }
+.soon-item small { display: block; margin-top: 4px; font-size: 14px; line-height: 1.45; color: #B3A79F; }
+.soon-item i { display: block; margin-top: 6px; font-style: normal; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; letter-spacing: 0.1em; color: #A89C95; }
+.soon-item:hover b, .soon-item:hover i { color: #F5B83D; }
+.row .st.wait { color: #E8A33A; }
+.row.wk .ld { align-self: center; transform: none; }
+a.row:hover .ti { color: #FF5A60; }
+.note { margin: 0 0 32px; padding: 16px 18px; border: 1px solid #E8A33A; background: rgba(232, 163, 58, 0.07); font-size: 16px; color: #EADFCB; }
+.note b { font-family: 'JetBrains Mono', ui-monospace, monospace; font-weight: 400; letter-spacing: 0.12em; color: #E8A33A; margin-right: 8px; }
+.btn { display: inline-flex; align-items: center; min-height: 48px; padding: 0 18px; box-sizing: border-box; background: #C81D25; color: #FFFFFF; font-family: Inter, sans-serif; font-weight: 800; font-size: 16px; }
+.btn:hover { background: #E8222A; color: #FFFFFF; }
+.btn.gh { background: transparent; border: 1px solid #3A2326; color: #F2ECE4; font-family: 'JetBrains Mono', ui-monospace, monospace; font-weight: 400; font-size: 14px; letter-spacing: 0.1em; }
+.btn.gh:hover { border-color: #E8222A; color: #FF5A60; }
+.pn { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; margin-top: 48px; padding-top: 18px; border-top: 1px solid #3A2326; font-size: 14px; letter-spacing: 0.12em; }
+.pn a { color: #FF5A60; }
+.stats { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
+.stats div { min-width: 120px; padding: 12px 14px; border: 1px solid #3A2326; background: rgba(9, 5, 6, 0.8); }
+.stats b { display: block; font-family: Inter, sans-serif; font-weight: 900; font-size: 34px; line-height: 1; color: #F2ECE4; }
+.stats span { display: block; margin-top: 6px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; letter-spacing: 0.12em; color: #A89C95; }
+.au-grid { display: grid; grid-template-columns: minmax(0, 380px) minmax(0, 1fr); gap: 40px; align-items: end; margin-top: 22px; }
+.au-img { height: 440px; border: 1px solid #3A2326; }
+@media (max-width: 860px) { .au-grid { grid-template-columns: 1fr; } .au-img { height: 340px; } }
+#ar-results { scroll-margin-top: 90px; }
+.res-box { padding: 18px; border: 1px solid #3A2326; background: rgba(9, 5, 6, 0.85); }
+.res-head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; font-size: 14px; letter-spacing: 0.12em; color: #A89C95; }
+.res-head b { font-weight: 400; color: #F2ECE4; }
+.hit-list { list-style: none; margin: 0; padding: 0; }
+.hit-list li { padding: 14px 0; border-bottom: 1px solid #241618; }
+.hit-list .hw { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 13px; letter-spacing: 0.1em; color: #A89C95; }
+.hit-list .hw a { color: #FF5A60; }
+.hit-list q { display: block; margin-top: 6px; quotes: none; font-family: Lora, Georgia, serif; font-size: 17px; line-height: 1.6; color: #DCD2CA; }
+.hit-list q::before { content: "… "; color: #7A4246; }
+.hit-list q::after { content: " …"; color: #7A4246; }
+mark { background: rgba(232, 34, 42, 0.42); color: #FFFFFF; padding: 0 2px; }
+.scan-bar { height: 2px; margin-top: 10px; background: #241618; overflow: hidden; }
+.scan-bar i { display: block; height: 100%; width: 0; background: #E8222A; box-shadow: 0 0 8px rgba(232, 34, 42, 0.8); transition: width 160ms linear; }
+
+.cw-bar { position: sticky; top: 68px; z-index: 5; display: flex; flex-wrap: wrap; gap: 10px; align-items: center; padding: 14px 0; background: rgba(12, 7, 8, 0.96); border-bottom: 1px solid #3A2326; }
+.cw-bar input { flex: 1 1 280px; min-width: 0; min-height: 48px; box-sizing: border-box; padding: 0 14px; background: #090506; border: 2px solid #3A2326; color: #F2ECE4; font-family: Inter, sans-serif; font-size: 17px; }
+.cw-bar .cnt { font-size: 13px; letter-spacing: 0.12em; color: #A89C95; }
+.cw-jump { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 18px; }
+.cw-jump a { padding: 5px 9px; border: 1px solid #3A2326; background: rgba(9, 5, 6, 0.7); font-size: 12px; letter-spacing: 0.1em; color: #CFC4BC; }
+.cw-jump a:hover { border-color: #E8222A; color: #FF5A60; }
+.cw-y { margin-top: 36px; scroll-margin-top: 150px; }
+.cw-y h2 { margin: 0; display: flex; justify-content: space-between; align-items: baseline; gap: 12px; border-bottom: 1px solid #3A2326; padding-bottom: 8px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-weight: 400; font-size: 28px; color: #FF5A60; }
+.cw-y h2 span { font-size: 12px; letter-spacing: 0.12em; color: #A89C95; }
+.cw { list-style: none; margin: 0; padding: 0; columns: 2 440px; column-gap: 44px; }
+.cw li { break-inside: avoid; display: flex; gap: 12px; padding: 7px 0; border-bottom: 1px solid #1E1214; font-size: 15.5px; line-height: 1.4; }
+.cw li .d { flex: 0 0 56px; padding-top: 3px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; letter-spacing: 0.04em; color: #8A7B75; }
+.cw li a { color: #E6DDD3; }
+.cw li a:hover { color: #FF5A60; }
+.cw li.l a { color: #B3A79F; }
+.cw li b { margin-left: 8px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-weight: 400; font-size: 11px; letter-spacing: 0.12em; color: #39D98A; }
+.no-letters .cw li.l { display: none; }
+.cw-y[hidden], .cw li[hidden] { display: none; }
+.au-cw { display: inline-flex; align-items: center; gap: 12px; margin-top: 22px; min-height: 52px; padding: 0 20px; background: #C81D25; color: #FFFFFF; font-family: Inter, sans-serif; font-weight: 800; font-size: 17px; }
+.au-cw:hover { background: #E8222A; color: #FFFFFF; }
+.au-wk { margin-left: 10px; background: transparent; border: 2px solid #C81D25; }
+.au-wk:hover { background: rgba(200, 29, 37, 0.18); }
+@media (max-width: 560px) { .au-wk { margin-left: 0; } }
+.au-cw small { font-family: 'JetBrains Mono', ui-monospace, monospace; font-weight: 400; font-size: 13px; letter-spacing: 0.1em; opacity: 0.85; }
+</style>
+</head>
+<body>
+<div class="page-bg" aria-hidden="true" style="--ar: 1.0667; --p1: url('/assets/bgp/p_mon_towers-1x.webp'); --p2: url('/assets/bgp/p_mon_towers.webp')"></div>
+<div style="position: relative; color: #F2ECE4; font-family: Inter, system-ui, sans-serif; font-size: 17px; line-height: 1.55">
+
+<div aria-hidden="true">
+  <div class="ov-lines"></div>
+  <div class="ov-grain"></div>
+  <div class="ov-band"></div>
+  <div class="inst inst-ruler"><i></i></div>
+  <div class="inst inst-hex mn"><div>1770<br>1831<br>1818<br>1883<br>1820<br>1895<br>1854<br>1938<br>1870<br>1924<br>1871<br>1919<br>1879<br>1940<br>1888<br>1938<br>1889<br>1970<br>A3E1<br>5D07<br>C0DE<br>77F1<br>0B2E<br>9A4C<br>1770<br>1831<br>1818<br>1883<br>1820<br>1895<br>1854<br>1938<br>1870<br>1924<br>1871<br>1919<br>1879<br>1940<br>1888<br>1938<br>1889<br>1970<br>A3E1<br>5D07<br>C0DE<br>77F1<br>0B2E<br>9A4C</div></div>
+  <div class="inst inst-x"><i></i></div>
+</div>
+
+<header class="tbar">
+  <div class="wrap" style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px 32px; padding-top: 12px; padding-bottom: 12px">
+    <a href="/" style="display: flex; align-items: center; gap: 14px">
+      <img src="/assets/logo_tia_full.webp" alt="TIA logo" style="width: 54px; height: auto">
+      <span class="mn" style="font-size: 17px; line-height: 1.15; letter-spacing: 0.06em">TECHNICAL INVARIANCE<br>AUTHORITY</span>
+    </a>
+    <nav aria-label="Main" class="mn" style="display: flex; flex-wrap: wrap; gap: 8px 22px; font-size: 15px; letter-spacing: 0.1em">
+      <a href="/archive/" aria-current="page" style="color: #FF5A60; border-bottom: 2px solid #E8222A">ARCHIVE</a>
+      <a href="/arcade/">ARCADE</a>
+      <a href="/watch/">WATCH</a>
+      <a href="/dispatches/">DISPATCHES</a>
+      <a href="/shop/">SHOP</a>
+    </nav>
+    <span class="mn" style="display: inline-flex; align-items: center; gap: 10px; font-size: 13px; letter-spacing: 0.12em; color: #A89C95"><span class="dot"></span>TERMINAL 01 · /ARCHIVE/MATTICK/WORKS</span>
+  </div>
+</header>
+
+<section style="position: relative; border-bottom: 1px solid #2B1B1D">
+  <div class="wrap" style="position: relative; z-index: 1; padding-top: 26px; padding-bottom: clamp(36px, 4vw, 56px)">
+    <nav class="crumbs mn" aria-label="Breadcrumb"><a href="/archive/">ARCHIVE</a> / <a href="/archive/mattick/">MATTICK</a> / <span style="color: #F2ECE4">COMPLETE WORKS</span></nav>
+    <span class="tag" style="margin-top: 22px">SUBJECT 13 · COMPLETE WORKS</span>
+    <h1 class="dh it-glitch shade" style="margin: 18px 0 0; font-size: clamp(34px, 4.6vw, 72px); line-height: 0.98; color: #F2ECE4">PAUL MATTICK</h1>
+    <p class="src shade">128 ITEMS · 128 WORKS · 1934 — 1983</p>
+    <p class="shade" style="margin: 20px 0 0; max-width: 760px; padding: 14px 16px; background: rgba(9, 5, 6, 0.72); border-left: 2px solid #E8222A; font-size: 17px; color: #ECE4DC">Every work in the Mattick section of the Marxists Internet Archive.</p>
+    
+    <nav class="cw-jump mn" aria-label="Jump to decade"><a href="#y1934">1930s</a><a href="#y1940">1940s</a><a href="#y1950">1950s</a><a href="#y1960">1960s</a><a href="#y1971">1970s</a><a href="#y1983">1980s</a></nav>
+  </div>
+</section>
+
+<section class="grid-bg" style="position: relative; background-color: rgba(12, 7, 8, 0.9)">
+  <div class="wrap" style="padding-bottom: clamp(56px, 7vw, 96px)">
+    <div class="cw-bar mn" role="search">
+      <label for="cw-q" class="sr" style="position: absolute; left: -9999px">Filter titles</label>
+      <input id="cw-q" type="search" placeholder="Filter 128 titles" autocomplete="off">
+      
+      <span class="cnt" id="cw-count" aria-live="polite">128 SHOWN</span>
+    </div>
+    <section class="cw-y" id="y1934"><h2>1934<span>1 ITEM</span></h2><ul class="cw"><li><span class="d"></span><a href="https://www.marxists.org/archive/mattick-paul/1934/fascism-revolution.htm">World-wide Fascism or World Revolution?</a></li></ul></section><section class="cw-y" id="y1935"><h2>1935<span>5 ITEMS</span></h2><ul class="cw"><li><span class="d"></span><a href="https://www.marxists.org/archive/mattick-paul/1935/07/aldred.htm">Guy Aldred’s "Mission"</a></li><li><span class="d"></span><a href="https://www.marxists.org/archive/mattick-paul/1935/09/germany.htm">Germany Today</a></li><li><span class="d"></span><a href="https://www.marxists.org/archive/mattick-paul/1935/09/fascism.htm">The Competitors of Fascism</a></li><li><span class="d"></span><a href="https://www.marxists.org/archive/mattick-paul/1935/war-america.htm">What will I do when America goes to War?</a></li><li><span class="d"></span><a href="https://www.marxists.org/archive/mattick-paul/1935/lenin-legend.htm">The Lenin Legend</a></li></ul></section><section class="cw-y" id="y1936"><h2>1936<span>7 ITEMS</span></h2><ul class="cw"><li><span class="d"></span><a href="https://www.marxists.org/archive/mattick-paul/1936/inevitability.htm">The Inevitability of Communism: A critique of Sidney Hook's interpretation of Marx</a></li><li><span class="d"></span><a href="https://www.marxists.org/archive/mattick-paul/1936/01/war.htm">Notes on the war question</a></li><li><span class="d"></span><a href="https://www.marxists.org/archive/mattick-paul/1936/04/election-year.htm">Election Year</a></li><li><span class="d"></span><a href="https://www.marxists.org/archive/mattick-paul/1936/04/spain.htm">The "Victory" in Spain</a></li><li><span class="d"></span><a href="https://www.marxists.org/archive/mattick-paul/1936/luxemburg-lenin.htm">Luxemburg versus Lenin</a></li><li><span class="d"></span><a href="https://www.marxists.org/archive/mattick-paul/1936/10/spain.htm">The Civil War in Spain</a></li><li><span class="d"></span><a href="https://www.marxists.org/archive/mattick-paul/1936/japanese-imperialism.htm">The Story of Japanese Imperialism</a></li></ul></section><section class="cw-y" id="y1937"><h2>1937<span>14 ITEMS</span></h2><ul class="cw"><li><span class="d"></span><a href="https://www.marxists.org/archive/mattick-paul/1937/kautsky-engels-letters.htm">On the Engels-Kautsky Correspondence</a></li><li><span class="d"></span><a href="https://www.marxists.org/archive/mattick-paul/1937/strachey.htm">John Strachey Confesses</a></li><li><span class="d"></span><a href="https://www.marxists.org/archive/mattick-paul/1937/01/unemployment.htm">Notes on the Question of Unemployment</a></li><li><span class="d"></span><a href="https://www.marxists.org/archive/mattick-paul/1937/03/spain.htm">What Next in Spain?</a></li><li><span class="d"></span><a href="https://www.marxists.org/archive/mattick-paul/1937/04/child-labor.htm">Child Labor – A Class Issue</a></li><li><span class="d"></span><a href="https://www.marxists.org/archive/mattick-paul/1937/06/overproduction.htm">Nature and Significance of "Overproduction"</a></li><li><span class="d"></span><a href="https://www.marxists.org/archive/mattick-paul/1937/06/catalonia.htm">Civil War in Catalonia</a></li><li><span class="d"></span><a href="https://www.marxists.org/archive/mattick-paul/1937/spain.htm">“The Barricades Must Be Torn Down.” Moscow-Fascism in Spain</a></li><li><span class="d"></span><a href="https://www.marxists.org/archive/mattick-paul/1937/08/nonsense-planning.htm">The Nonsense of Planning</a></li><li><span class="d"></span><a href="https://www.marxists.org/archive/mattick-paul/1937/08/brookings.htm">Marxism and Brookings Institution</a></li><li><span class="d"></span><a href="https://www.marxists.org/archive/mattick-paul/1937/10/santillan.htm">Review: After the Revolution: Economic Reconstruction in Spain Today, by D.A. Santillan</a></li><li><span class="d"></span><a href="https://www.marxists.org/archive/mattick-paul/1937/10/james.htm">Review: World Revolution 1917-1936, by C.L.R. James</a></li><li><span class="d"></span><a href="https://www.marxists.org/archive/mattick-paul/1937/11/revolution-betrayed.htm">Review: Revolution Betrayed, by Trotsky</a></li><li><span class="d"></span><a href="https://www.marxists.org/archive/mattick-paul/1937/12/rocker.htm">Review: The Tragedy of Spain, by Rudolph Rocker</a></li></ul></section><section class="cw-y" id="y1938"><h2>1938<span>6 ITEMS</span></h2><ul class="cw"><li><span class="d"></span><a href="https://www.marxists.org/archive/mattick-paul/1938/02/future-unemployment.htm">The Future of Unemployment</a></li><li><span class="d"></span><a href="https://www.marxists.org/archive/mattick-paul/1938/03/unemployed.htm">What Can the Unemployed Do?</a></li><li><span class="d"></span><a href="https://www.marxists.org/archive/mattick-paul/1938/05/unemployed.htm">What Can the Unemployed Do? Part 2</a></li><li><span class="d"></span><a href="https://www.marxists.org/archive/mattick-paul/1938/08/unemployed.htm">Organizations of the Unemployed</a></li><li><span class="d"></span><a href="https://www.marxists.org/archive/mattick-paul/1938/mass-vanguard.htm">The Masses &amp; The Vanguard</a></li><li><span class="d"></span><a href="https://www.marxists.org/archive/mattick-paul/1938/revolution-failure.htm">Was the Bolshevik Revolution a Failure?</a></li></ul></section><section class="cw-y" id="y1939"><h2>1939<span>6 ITEMS</span></h2><ul class="cw"><li><span class="d"></span><a href="https://www.marxists.org/archive/mattick-paul/1939/council-communism.htm">Council Communism</a></li><li><span class="d"></span><a href="https://www.marxists.org/archive/mattick-paul/1939/korsch.htm">Review: Karl Marx, by Karl Korsch</a></li><li><span class="d"></span><a href="https://www.marxists.org/archive/mattick-paul/1939/04/balabanoff.htm">Review: My Life as a Rebel, by Angelica Balabanoff</a></li><li><span class="d"></span><a href="https://www.marxists.org/archive/mattick-paul/1939/kautsky.htm">Karl Kautsky: From Marx to Hitler</a></li><li><span class="d"></span><a href="https://www.marxists.org/archive/mattick-paul/1939/marginal.htm">Marxism and Marginal Utility Economics</a></li><li><span class="d"></span><a href="https://www.marxists.org/archive/mattick-paul/1939/11/new-new-deal.htm">Roosevelt’s New “New Deal”</a></li></ul></section><section class="cw-y" id="y1940"><h2>1940<span>3 ITEMS</span></h2><ul class="cw"><li><span class="d"></span><a href="https://www.marxists.org/archive/mattick-paul/1940/war-permanent.htm">The War is Permanent</a></li><li><span class="d"></span><a href="https://www.marxists.org/archive/mattick-paul/1940/trotsky.htm">Leon Trotsky</a></li><li><span class="d"></span><a href="https://www.marxists.org/archive/mattick-paul/1940/war.htm">Long Live the War</a></li></ul></section><section class="cw-y" id="y1941"><h2>1941<span>5 ITEMS</span></h2><ul class="cw"><li><span class="d"></span><a href="https://www.marxists.org/archive/mattick-paul/1941/pannekoek.htm">Pannekoek’s “The Party and the Working Class”</a></li><li><span class="d"></span><a href="https://www.marxists.org/archive/mattick-paul/1941/fascism-usa.htm">Fascism Made in the U.S.A.</a></li><li><span class="d"></span><a href="https://www.marxists.org/archive/mattick-paul/1941/liberalism-fascism.htm">From Liberalism to Fascism</a></li><li><span class="d"></span><a href="https://www.marxists.org/archive/mattick-paul/1941/new-order.htm">How New is the ‘New Order’ of Fascism</a></li><li><span class="d"></span><a href="https://www.marxists.org/archive/mattick-paul/1941/eight-points.htm">Two Men in a Boat – Not to Speak of the Eight Points</a></li></ul></section><section class="cw-y" id="y1942"><h2>1942<span>1 ITEM</span></h2><ul class="cw"><li><span class="d"></span><a href="https://www.marxists.org/archive/mattick-paul/1942/dialectic.htm">The Marxian Dialectic and Its Recent Critics</a></li></ul></section><section class="cw-y" id="y1943"><h2>1943<span>3 ITEMS</span></h2><ul class="cw"><li><span class="d"></span><a href="https://www.marxists.org/archive/mattick-paul/1943/competition.htm">Competition and Monopoly</a></li><li><span class="d"></span><a href="https://www.marxists.org/archive/mattick-paul/1943/philosophy-state.htm">Philosophy and the State</a></li><li><span class="d"></span><a href="https://www.marxists.org/archive/mattick-paul/1943/machiavellians.htm">James Burnham’s “The Modern Machiavellians”</a></li></ul></section><section class="cw-y" id="y1944"><h2>1944<span>3 ITEMS</span></h2><ul class="cw"><li><span class="d"></span><a href="https://www.marxists.org/archive/mattick-paul/1944/06/petersen.htm">Review: Karl Marx and Marxian Science, by Arnold Petersen</a></li><li><span class="d"></span><a href="https://www.marxists.org/archive/mattick-paul/1944/06/reflections-revolution.htm">Reflections on the Revolution of Our Times</a></li><li><span class="d"></span><a href="https://www.marxists.org/archive/mattick-paul/1944/08/american-thought.htm">The Growth of American Thought</a></li></ul></section><section class="cw-y" id="y1945"><h2>1945<span>2 ITEMS</span></h2><ul class="cw"><li><span class="d"></span><a href="https://www.marxists.org/archive/mattick-paul/1945/otto-ruhle.htm">Otto Rühle And The German Labour Movement</a></li><li><span class="d"></span><a href="https://www.marxists.org/archive/mattick-paul/1945/lerner.htm">Remember the Wrapper</a></li></ul></section><section class="cw-y" id="y1946"><h2>1946<span>2 ITEMS</span></h2><ul class="cw"><li><span class="d"></span><a href="https://www.marxists.org/archive/mattick-paul/1946/07/between-wars.htm">Between two wars</a></li><li><span class="d"></span><a href="https://www.marxists.org/archive/mattick-paul/1946/09/serfdom.htm">Serfdom in a Free Society</a></li></ul></section><section class="cw-y" id="y1947"><h2>1947<span>3 ITEMS</span></h2><ul class="cw"><li><span class="d"></span><a href="https://www.marxists.org/archive/mattick-paul/1947/bolshevism-stalinism.htm">Trotsky on Bolshevism and Stalinism</a></li><li><span class="d"></span><a href="https://www.marxists.org/archive/mattick-paul/1947/07/german-workers.htm">The Story of the German Working-Class Movement</a></li><li><span class="d"></span><a href="https://www.marxists.org/archive/mattick-paul/1947/germany.htm">Anti-Bolshevist Communism in Germany</a></li></ul></section><section class="cw-y" id="y1948"><h2>1948<span>1 ITEM</span></h2><ul class="cw"><li><span class="d"></span><a href="https://www.marxists.org/archive/mattick-paul/1948/10/berlin.htm">Obsessions of Berlin</a></li></ul></section><section class="cw-y" id="y1949"><h2>1949<span>2 ITEMS</span></h2><ul class="cw"><li><span class="d"></span><a href="https://www.marxists.org/archive/mattick-paul/1949/stalin-german-communism.htm">Stalin and German Communism</a></li><li><span class="d"></span><a href="https://www.marxists.org/archive/mattick-paul/1949/spontaneity.htm">Spontaneity and Organisation</a></li></ul></section><section class="cw-y" id="y1950"><h2>1950<span>1 ITEM</span></h2><ul class="cw"><li><span class="d"></span><a href="https://www.marxists.org/archive/mattick-paul/1950/06/america-europe.htm">America and Europe</a></li></ul></section><section class="cw-y" id="y1951"><h2>1951<span>2 ITEMS</span></h2><ul class="cw"><li><span class="d"></span><a href="https://www.marxists.org/archive/mattick-paul/1951/01/moscow-trials.htm">Stalin’s Frame-Up System and the Moscow Trials</a></li><li><span class="d"></span><a href="https://www.marxists.org/archive/mattick-paul/1951/keynesian.htm">The Keynesian International</a></li></ul></section><section class="cw-y" id="y1955"><h2>1955<span>2 ITEMS</span></h2><ul class="cw"><li><span class="d"></span><a href="https://www.marxists.org/archive/mattick-paul/1955/keynes.htm">Marx and Keynes</a></li><li><span class="d"></span><a href="https://www.marxists.org/archive/mattick-paul/1955/sweezy.htm">Review: The Present As History, by Paul Sweezy</a></li></ul></section><section class="cw-y" id="y1956"><h2>1956<span>9 ITEMS</span></h2><ul class="cw"><li><span class="d"></span><a href="https://www.marxists.org/archive/mattick-paul/1956/monopoly.htm">Review: Monopoly in America, by Adams and Gray</a></li><li><span class="d"></span><a href="https://www.marxists.org/archive/mattick-paul/1956/kropotkin.htm">Review: Mutual Aid, by Peter Kropotkin</a></li><li><span class="d"></span><a href="https://www.marxists.org/archive/mattick-paul/1956/marcuse.htm">Review: Eros and Civilization, by Herbert Marcuse</a></li><li><span class="d"></span><a href="https://www.marxists.org/archive/mattick-paul/1956/war-economics.htm">The Economics of War and Peace</a></li><li><span class="d"></span><a href="https://www.marxists.org/archive/mattick-paul/1956/new-look-economics.htm">The “new look” in economics</a></li><li><span class="d"></span><a href="https://www.marxists.org/archive/mattick-paul/1956/fromm.htm">Review: The Sane Society, by Erich Fromm</a></li><li><span class="d"></span><a href="https://www.marxists.org/archive/mattick-paul/1956/c-wright-mills.htm">Review: “The Uses of Power”</a></li><li><span class="d"></span><a href="https://www.marxists.org/archive/mattick-paul/1956/russian-nationalism.htm">Review: Barghoorn on Soviet Russian Nationalism</a></li><li><span class="d"></span><a href="https://www.marxists.org/archive/mattick-paul/1956/toynbee-history.htm">Arnold Toynbee and History</a></li></ul></section><section class="cw-y" id="y1957"><h2>1957<span>1 ITEM</span></h2><ul class="cw"><li><span class="d"></span><a href="https://www.marxists.org/archive/mattick-paul/1957/strachey.htm">Marxism and the Latest Stage of Capitalism</a></li></ul></section><section class="cw-y" id="y1958"><h2>1958<span>2 ITEMS</span></h2><ul class="cw"><li><span class="d"></span><a href="https://www.marxists.org/archive/mattick-paul/1958/dunayevskaya.htm">A Marxian Oddity — Review of Marxism and Freedom by Dunayevskaya</a></li><li><span class="d"></span><a href="https://www.marxists.org/archive/mattick-paul/1958/04/wittfogel.htm">Review: Oriental Despotism, by Karl A. Wittfogel</a></li></ul></section><section class="cw-y" id="y1959"><h2>1959<span>4 ITEMS</span></h2><ul class="cw"><li><span class="d"></span><a href="https://www.marxists.org/archive/mattick-paul/1959/value-price.htm">Value and Price</a></li><li><span class="d"></span><a href="https://www.marxists.org/archive/mattick-paul/1959/value-theory.htm">Value Theory and Capital Accumulation</a></li><li><span class="d"></span><a href="https://www.marxists.org/archive/mattick-paul/1959/war-economy.htm">Economics of the War Economy</a></li><li><span class="d"></span><a href="https://www.marxists.org/archive/mattick-paul/1959/09/nationalism.htm">Nationalism and Socialism</a></li></ul></section><section class="cw-y" id="y1960"><h2>1960<span>3 ITEMS</span></h2><ul class="cw"><li><span class="d"></span><a href="https://www.marxists.org/archive/mattick-paul/1960/new-physics.htm">Marxism and the New Physics</a></li><li><span class="d"></span><a href="https://www.marxists.org/archive/mattick-paul/1960/waldman.htm">Review: The Spartacus Uprising and the Crisis of the German Socialist Movement, by Eric Waldman</a></li><li><span class="d"></span><a href="https://www.marxists.org/archive/mattick-paul/1960/pannekoek.htm">Anton Pannekoek</a></li></ul></section><section class="cw-y" id="y1961"><h2>1961<span>1 ITEM</span></h2><ul class="cw"><li><span class="d"></span><a href="https://www.marxists.org/archive/mattick-paul/1961/nomad.htm">Review: Aspects of Revolt, by Max Nomad</a></li></ul></section><section class="cw-y" id="y1962"><h2>1962<span>3 ITEMS</span></h2><ul class="cw"><li><span class="d"></span><a href="https://www.marxists.org/archive/mattick-paul/1962/foreign-trade.htm">Capital Formation and Foreign Trade</a></li><li><span class="d"></span><a href="https://www.marxists.org/archive/mattick-paul/1962/korsch.htm">Karl Korsch: His Contribution to Marxism</a></li><li><span class="d"></span><a href="https://www.marxists.org/archive/mattick-paul/1962/cybernation.htm">The Economics of Cybernation</a></li></ul></section><section class="cw-y" id="y1964"><h2>1964<span>2 ITEMS</span></h2><ul class="cw"><li><span class="d"></span><a href="https://www.marxists.org/archive/mattick-paul/1964/dynamics-mixed.htm">Dynamics of the Mixed Economy</a></li><li><span class="d"></span><a href="https://www.marxists.org/archive/mattick-paul/1964/korsch.htm">The Marxism of Karl Korsch</a></li></ul></section><section class="cw-y" id="y1965"><h2>1965<span>1 ITEM</span></h2><ul class="cw"><li><span class="d"></span><a href="https://www.marxists.org/archive/mattick-paul/1965/humanism.htm">Humanism and Socialism</a></li></ul></section><section class="cw-y" id="y1966"><h2>1966<span>3 ITEMS</span></h2><ul class="cw"><li><span class="d"></span><a href="https://www.marxists.org/archive/mattick-paul/1966/monopoly-capital.htm">Baran and Sweezy’s “Monopoly Capital”</a></li><li><span class="d"></span><a href="https://www.marxists.org/archive/mattick-paul/1966/crisis.htm">Prosperity In Crisis: A Review</a></li><li><span class="d"></span><a href="https://www.marxists.org/archive/mattick-paul/1966/humanism.htm">Humanism and Socialism</a></li></ul></section><section class="cw-y" id="y1967"><h2>1967<span>3 ITEMS</span></h2><ul class="cw"><li><span class="d"></span><a href="https://www.marxists.org/archive/mattick-paul/1967/nettl.htm">Review: Rosa Luxemburg, by J.P. Nettl</a></li><li><span class="d"></span><a href="https://www.marxists.org/archive/mattick-paul/1967/wolfson-reappraisal.htm">Review: A Reappraisal of Marxian Economics, by Murray Wolfson</a></li><li><span class="d"></span><a href="https://www.marxists.org/archive/mattick-paul/1967/workers-control.htm">Workers’ Control</a></li></ul></section><section class="cw-y" id="y1968"><h2>1968<span>3 ITEMS</span></h2><ul class="cw"><li><span class="d"></span><a href="https://www.marxists.org/archive/mattick-paul/1968/kidron.htm">Arms and Capital</a></li><li><span class="d"></span><a href="https://www.marxists.org/archive/mattick-paul/1968/poverty-nations.htm">Review: “An Inquiry into the Poverty of Nations.”</a></li><li><span class="d"></span><a href="https://www.marxists.org/archive/mattick-paul/1968/ryder.htm">Review: The German Revolution of 1918, by A. J. Ryder</a></li></ul></section><section class="cw-y" id="y1969"><h2>1969<span>3 ITEMS</span></h2><ul class="cw"><li><span class="d"></span><a href="https://www.marxists.org/archive/mattick-paul/1969/kolko.htm">Review: The Politics of War and The Roots of American Foreign Policy, by Gabriel Kolko</a></li><li><span class="d"></span><a href="https://www.marxists.org/archive/mattick-paul/1969/mandel.htm">Mandel’s Economics</a></li><li><span class="d"></span><a href="https://www.marxists.org/archive/mattick-paul/1969/marx-keynes/index.htm">Marx and Keynes. The Limits of the Mixed Economy</a></li></ul></section><section class="cw-y" id="y1971"><h2>1971<span>3 ITEMS</span></h2><ul class="cw"><li><span class="d"></span><a href="https://www.marxists.org/archive/mattick-paul/1971/american-economy.htm">The American Economy: Crisis and Policy</a></li><li><span class="d"></span><a href="https://www.marxists.org/archive/mattick-paul/1971/indochina-war.htm">America’s War in Indochina</a></li><li><span class="d"></span><a href="https://www.marxists.org/archive/mattick-paul/1971/mclellan-marx.htm">Review: Marx Before Marxism, by David McLellan</a></li></ul></section><section class="cw-y" id="y1972"><h2>1972<span>3 ITEMS</span></h2><ul class="cw"><li><span class="d"></span><a href="https://www.marxists.org/archive/mattick-paul/1972/hellmann-dominance.htm">Review: The Challenge to U.S. Dominance of the International Corporations, by Rainer Hellmann</a></li><li><span class="d"></span><a href="https://www.marxists.org/archive/mattick-paul/1972/marcuse.htm">Marcuse: One Dimensional Man In Class Society</a></li><li><span class="d"></span><a href="https://www.marxists.org/archive/mattick-paul/1972/samuelson.htm">Samuelson’s “Transformation” of Marxism into Bourgeois Economics</a></li></ul></section><section class="cw-y" id="y1974"><h2>1974<span>2 ITEMS</span></h2><ul class="cw"><li><span class="d"></span><a href="https://www.marxists.org/archive/mattick-paul/1974/crisis/index.htm">Economic Crisis and Crisis Theory</a></li><li><span class="d"></span><a href="https://www.marxists.org/archive/mattick-paul/1974/dobb-theories.htm">Review: Theories of Value and Distribution Since Adam Smith, by Maurice Dobb</a></li></ul></section><section class="cw-y" id="y1975"><h2>1975<span>2 ITEMS</span></h2><ul class="cw"><li><span class="d"></span><a href="https://www.marxists.org/archive/mattick-paul/1975/lebel.htm">On Pannekoek and Workers Councils</a></li><li><span class="d"></span><a href="https://www.marxists.org/archive/mattick-paul/1975/us-indochina.htm">The United States and Indochina</a></li></ul></section><section class="cw-y" id="y1976"><h2>1976<span>2 ITEMS</span></h2><ul class="cw"><li><span class="d"></span><a href="https://www.marxists.org/archive/mattick-paul/1976/new-capitalism.htm">The New Capitalism And The Old Class Struggle</a></li><li><span class="d"></span><a href="https://www.marxists.org/archive/mattick-paul/1976/ecology.htm">Capitalism and ecology: from the decline of capital to the decline of the world</a></li></ul></section><section class="cw-y" id="y1977"><h2>1977<span>3 ITEMS</span></h2><ul class="cw"><li><span class="d"></span><a href="https://www.marxists.org/archive/mattick-paul/1977/inflation/index.htm">Economics, Politics and The Age of Inflation</a></li><li><span class="d"></span><a href="https://www.marxists.org/archive/mattick-paul/1977/spontaneity.htm">Spontaneity and Organisation</a></li><li><span class="d"></span><a href="https://www.marxists.org/archive/mattick-paul/1977/lotta-continua.htm">On Crisis and Political Activity</a></li></ul></section><section class="cw-y" id="y1978"><h2>1978<span>3 ITEMS</span></h2><ul class="cw"><li><span class="d"></span><a href="https://www.marxists.org/archive/mattick-paul/1978/marxism.htm">Marxism: Yesterday, Today, and Tomorrow</a></li><li><span class="d"></span><a href="https://www.marxists.org/archive/mattick-paul/1978/introduction.htm">Anti-Bolshevik Communism: Introduction</a></li><li><span class="d"></span><a href="https://www.marxists.org/archive/mattick-paul/1978/luxemburg.htm">Rosa Luxemburg In Retrospect</a></li></ul></section><section class="cw-y" id="y1979"><h2>1979<span>1 ITEM</span></h2><ul class="cw"><li><span class="d"></span><a href="https://www.marxists.org/archive/mattick-paul/1979/authority-democracy.htm">Authority and Democracy in the United States</a></li></ul></section><section class="cw-y" id="y1983"><h2>1983<span>2 ITEMS</span></h2><ul class="cw"><li><span class="d"></span><a href="https://www.marxists.org/archive/mattick-paul/1983/reform/index.htm">Reform and Revolution</a></li><li><span class="d"></span><a href="https://www.marxists.org/archive/mattick-paul/1983/bourgeois-economics/index.htm">Marxism and Bourgeois Economics</a></li></ul></section>
+    <div class="pn mn"><a href="/archive/mattick/">← MATTICK DOSSIER</a><a href="/archive/">INDEX OF MARXISTS →</a></div>
+  </div>
+</section>
+
+<footer style="border-top: 1px solid #2B1B1D; background: #090506">
+  <div class="wrap mn" style="padding-top: 28px; padding-bottom: 28px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; font-size: 14px; letter-spacing: 0.1em; color: #A89C95">
+    <span style="display: flex; align-items: center; gap: 12px"><img src="/assets/emblem_globe.webp" alt="" aria-hidden="true" style="width: 48px; height: auto">© 2026 TECHNICAL INVARIANCE AUTHORITY</span>
+    <span style="overflow-wrap: anywhere; min-width: 0">INVARIANCETECH.INFO/ARCHIVE/MATTICK/WORKS</span>
+  </div>
+</footer>
+
+</div>
+<script src="/assets/archive.js?v=50232b05" defer></script>
+<script src="/assets/tia-media.js" defer></script>
+</body>
+</html>
