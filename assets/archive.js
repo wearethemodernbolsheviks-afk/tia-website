@@ -459,3 +459,50 @@
     $$('.toc-m a').forEach(function (a) { a.addEventListener('click', function () { a.closest('details').open = false; }); });
   }
 })();
+
+/* note markers: on touch screens, where there is no hover, a tap opens the note in a box over the text,
+   as Wikipedia's mobile pages do; "go to the note" still jumps there */
+(function () {
+  'use strict';
+  if (!document.querySelector('.text sup.fr a')) return;
+  var touch = window.matchMedia && window.matchMedia('(hover: none)').matches;
+  var box = null, from = null;
+  function close() {
+    if (!box) return;
+    box.parentNode.removeChild(box); box = null;
+    if (from) { try { from.focus({ preventScroll: true }); } catch (e) {} from = null; }
+  }
+  function open(a) {
+    var id = a.getAttribute('href').slice(1), note = document.getElementById(id);
+    if (!note) return false;
+    close();
+    from = a;
+    box = document.createElement('div');
+    box.className = 'fn-pop';
+    box.setAttribute('role', 'dialog');
+    box.setAttribute('aria-label', 'Note ' + a.textContent);
+    var x = document.createElement('button');
+    x.type = 'button'; x.className = 'fn-pop-x'; x.setAttribute('aria-label', 'Close the note'); x.textContent = '×';
+    x.addEventListener('click', close);
+    var t = note.cloneNode(true);
+    t.removeAttribute('id'); t.className = 'fn-pop-t';
+    var fb = t.querySelector('a.fb');
+    if (fb) { var b = document.createElement('b'); b.textContent = fb.textContent; fb.parentNode.replaceChild(b, fb); }
+    var go = document.createElement('a');
+    go.href = '#' + id; go.className = 'fn-pop-go'; go.textContent = 'GO TO THE NOTE ↓';
+    go.addEventListener('click', close);
+    box.appendChild(x); box.appendChild(t); box.appendChild(go);
+    document.body.appendChild(box);
+    x.focus();
+    return true;
+  }
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest ? e.target.closest('.text sup.fr a') : null;
+    if (a) {
+      if (touch && open(a)) e.preventDefault();
+      return;
+    }
+    if (box && !box.contains(e.target)) close();
+  });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
+})();

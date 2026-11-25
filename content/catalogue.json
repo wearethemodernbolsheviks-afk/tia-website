@@ -115,7 +115,9 @@
         {"id": "trotsky-1914-bolsheviki-world-peace", "slug": "the-war-and-the-international", "title": "The War and the International", "subtitle": "Published in English as The Bolsheviki and World Peace", "year": "1914", "kind": "hosted", "lang": "en", "edition": "English edition, New York, 1918, with an introduction by Lincoln Steffens.", "pg": 40273, "cols": ["second-international"]},
         {"id": "trotsky-1930-history-russian-revolution", "title": "The History of the Russian Revolution", "year": "1930–1932", "kind": "link", "key": true, "url": "https://www.marxists.org/archive/trotsky/1930/hrr/index.htm", "cols": ["lenin-and-october"]},
         {"id": "trotsky-1936-revolution-betrayed", "title": "The Revolution Betrayed", "year": "1936", "kind": "link", "key": true, "url": "https://www.marxists.org/archive/trotsky/1936/revbet/index.htm"},
-        {"id": "trotsky-1920-terrorism-communism", "slug": "terrorism-and-communism", "title": "Terrorism and Communism", "subtitle": "A Reply to Karl Kautsky. Published in English as Dictatorship vs. Democracy", "year": "1920", "kind": "hosted", "key": true, "lang": "en", "edition": "English edition, Workers Party of America, New York, 1922. The foreword and preface added to that edition by other writers are left out.", "cols": ["lenin-and-october"], "pg": 38982}
+        {"id": "trotsky-1920-terrorism-communism", "slug": "terrorism-and-communism", "title": "Terrorism and Communism", "subtitle": "A Reply to Karl Kautsky. Published in English as Dictatorship vs. Democracy", "year": "1920", "kind": "hosted", "key": true, "lang": "en", "edition": "English edition, Workers Party of America, New York, 1922. The foreword and preface added to that edition by other writers are left out.", "cols": ["lenin-and-october"], "pg": 38982},
+        {"id": "trotsky-1922-between-red-and-white", "slug": "between-red-and-white", "title": "Between Red and White", "subtitle": "A Study of Some Fundamental Questions of Revolution, with Particular Reference to Georgia", "year": "1922", "kind": "hosted", "lang": "en", "edition": "Communist Party of Great Britain, London, 1922; the translator is not named.", "cols": ["lenin-and-october"]},
+        {"id": "trotsky-1925-lenin", "slug": "lenin", "title": "Lenin", "subtitle": "A memoir of Lenin, from the old Iskra to his death", "year": "1924", "kind": "hosted", "key": true, "lang": "en", "edition": "Authorised translation, New York, 1925; the translator is not named.", "cols": ["lenin-and-october"]}
       ]
     },
     {
@@ -145,7 +147,9 @@
       "slug": "bukharin",
       "mia": "https://www.marxists.org/archive/bukharin/library.htm",
       "works": [
-        {"id": "bukharin-1915-imperialism-world-economy", "title": "Imperialism and World Economy", "year": "1915", "kind": "link", "key": true, "url": "https://www.marxists.org/archive/bukharin/works/1917/imperial/index.htm", "cols": ["lenin-and-october"]},
+        {"id": "bukharin-1915-imperialism-world-economy", "slug": "imperialism-and-world-economy", "title": "Imperialism and World Economy", "year": "1915", "kind": "hosted", "key": true, "lang": "en", "edition": "International Publishers, New York, 1929, with an introduction by Lenin; the translator is not named.", "cols": ["lenin-and-october"]},
+        {"id": "bukharin-1914-leisure-class", "slug": "economic-theory-of-the-leisure-class", "title": "The Economic Theory of the Leisure Class", "year": "1914", "kind": "hosted", "lang": "en", "edition": "International Publishers, New York, 1927; the translator is not named.", "cols": []},
+        {"id": "bukharin-1921-historical-materialism", "slug": "historical-materialism", "title": "Historical Materialism", "subtitle": "A System of Sociology", "year": "1921", "kind": "hosted", "key": true, "lang": "en", "edition": "International Publishers, New York, 1925, from the third Russian edition; the translator is not named.", "cols": ["lenin-and-october"]},
         {"id": "bukharin-1919-abc-of-communism", "title": "The ABC of Communism", "subtitle": "With Evgenii Preobrazhensky", "year": "1919", "kind": "link", "key": true, "url": "https://www.marxists.org/archive/bukharin/works/1920/abc/index.htm", "cols": ["lenin-and-october"]},
         {"id": "bukharin-1920-economics-transformation", "title": "The Economics of the Transformation Period", "year": "1920", "kind": "link", "key": true, "url": "https://www.marxists.org/archive/bukharin/library.htm", "cols": ["lenin-and-october"]}
       ]
@@ -166,8 +170,9 @@
       "slug": "gramsci",
       "filed": "NM-06",
       "mia": "https://www.marxists.org/archive/gramsci/index.htm",
-      "note": "Gramsci's own writings are in the public domain in Italian. These entries link to the English translations on the Marxists Internet Archive.",
+      "note": "Gramsci's own writings are in the public domain in Italian. Thirty-one of the English translations on the Marxists Internet Archive are freely licensed (CC BY-SA) and are here in full as his Short Writings; the other entries link to the Marxists Internet Archive.",
       "works": [
+        {"id": "gramsci-1916-short-writings", "slug": "short-writings-1916-1936", "title": "Short Writings, 1916–1936", "subtitle": "Articles, speeches and letters, from the war years and L'Ordine Nuovo to the letters from prison", "year": "1916–1936", "kind": "hosted", "key": true, "lang": "en", "rights": "cc-by-sa", "edition": "Translated for the Marxists Internet Archive by Mitchell Abidor, Natalie Campbell, Michael Carley and Mark Camilleri.", "source": "https://www.marxists.org/archive/gramsci/index.htm"},
         {"id": "gramsci-1917-revolution-against-capital", "title": "The Revolution Against 'Capital'", "year": "1917", "kind": "link", "key": true, "url": "https://www.marxists.org/archive/gramsci/1917/12/revolution-against-capital.htm"},
         {"id": "gramsci-1919-workers-democracy", "title": "Workers' Democracy", "year": "1919", "kind": "link", "key": true, "url": "https://www.marxists.org/archive/gramsci/1919/06/workers-democracy.htm"},
         {"id": "gramsci-1919-unions-councils", "title": "Unions and Councils", "year": "1919", "kind": "link", "url": "https://www.marxists.org/archive/gramsci/1919/10/unions-councils.htm"},
@@ -183,7 +188,23 @@
       "works": [
         {"id": "bordiga-1922-rome-theses", "title": "The Rome Theses", "year": "1922", "kind": "link", "key": true, "url": "https://www.international-communist-party.org/BasicTexts/English/22TeRome.htm", "cols": ["the-programme", "the-communist-left"]},
         {"id": "bordiga-1926-lyon-theses", "title": "The Lyon Theses", "year": "1926", "kind": "link", "key": true, "url": "https://www.marxists.org/archive/bordiga/works/1926/lyons-theses.htm", "cols": ["the-programme", "the-communist-left"]},
-        {"id": "bordiga-1952-dialogue-with-stalin", "title": "Dialogue with Stalin", "year": "1952", "kind": "link", "key": true, "url": "https://www.marxists.org/archive/bordiga/works/1952/stalin.htm", "cols": ["the-communist-left"]}
+        {"id": "bordiga-1952-dialogue-with-stalin", "title": "Dialogue with Stalin", "year": "1952", "kind": "link", "key": true, "url": "https://www.marxists.org/archive/bordiga/works/1952/stalin.htm", "cols": ["the-communist-left"]},
+        {"id": "bordiga-1920-abstentionist-theses", "title": "Theses of the Abstentionist Communist Faction of the Socialist Party", "year": "1920", "kind": "link", "key": true, "url": "https://www.marxists.org/archive/bordiga/works/1920/abstentionists.htm", "cols": ["the-communist-left"]},
+        {"id": "bordiga-1921-party-and-class", "title": "Party and Class", "year": "1921", "kind": "link", "key": true, "url": "https://www.marxists.org/archive/bordiga/works/1921/party-class.htm", "cols": ["the-programme", "the-communist-left"]},
+        {"id": "bordiga-1922-democratic-principle", "title": "The Democratic Principle", "year": "1922", "kind": "link", "key": true, "url": "https://www.marxists.org/archive/bordiga/works/1922/democratic-principle.htm", "cols": ["the-communist-left"]},
+        {"id": "bordiga-1926-left-in-third-international", "title": "The Communist Left in the Third International", "year": "1926", "kind": "link", "url": "https://www.marxists.org/archive/bordiga/works/1926/comintern.htm", "cols": ["the-communist-left"]},
+        {"id": "bordiga-1946-orientation", "title": "The Fundamentals for a Marxist Orientation", "year": "1946", "kind": "link", "url": "https://www.marxists.org/archive/bordiga/works/1946/orientation.htm", "cols": ["the-communist-left"]},
+        {"id": "bordiga-1951-theory-and-action", "title": "Theory and Action in Marxist Doctrine", "year": "1951", "kind": "link", "url": "https://libcom.org/library/theory-action-marxist-doctrine-amadeo-bordiga", "cols": ["the-communist-left"]},
+        {"id": "bordiga-1951-lessons-counter-revolutions", "title": "Lessons of the Counter-Revolutions", "year": "1951", "kind": "link", "key": true, "url": "https://libcom.org/article/lessons-counterrevolutions-amadeo-bordiga", "cols": ["the-communist-left"]},
+        {"id": "bordiga-1951-characteristic-theses", "title": "Characteristic Theses of the Party", "year": "1951", "kind": "link", "key": true, "url": "https://www.marxists.org/archive/bordiga/works/1951/charthes.htm", "cols": ["the-programme", "the-communist-left"]},
+        {"id": "bordiga-1951-murder-of-the-dead", "title": "Murder of the Dead", "year": "1951", "kind": "link", "url": "https://www.marxists.org/archive/bordiga/works/1951/murder.htm", "cols": ["the-communist-left"]},
+        {"id": "bordiga-1951-doctrine-body-possessed", "title": "Doctrine of the Body Possessed by the Devil", "year": "1951", "kind": "link", "url": "https://www.marxists.org/archive/bordiga/works/1951/doctrine.htm", "cols": ["the-communist-left"]},
+        {"id": "bordiga-1952-human-species-earths-crust", "title": "The Human Species and the Earth's Crust", "year": "1952", "kind": "link", "key": true, "url": "https://libcom.org/article/human-species-and-earths-crust-amadeo-bordiga", "cols": ["the-communist-left"]},
+        {"id": "bordiga-1953-race-and-nation", "title": "Factors of Race and Nation in Marxist Theory", "year": "1953", "kind": "link", "key": true, "url": "https://www.international-communist-party.org/English/Texts/53FaRNen.htm", "cols": ["the-communist-left"]},
+        {"id": "bordiga-1957-fundamentals", "title": "The Fundamentals of Revolutionary Communism", "year": "1957", "kind": "link", "key": true, "url": "https://www.marxists.org/archive/bordiga/works/1957/fundamentals.htm", "cols": ["the-communist-left"]},
+        {"id": "bordiga-1958-original-content", "title": "The Original Content of the Communist Programme", "year": "1958", "kind": "link", "url": "https://www.marxists.org/archive/bordiga/works/1958/marxism-property.htm", "cols": ["the-communist-left"]},
+        {"id": "bordiga-1965-naples-theses", "title": "The Naples Theses", "subtitle": "Theses on the Historic Task, Action and Structure of the World Communist Party", "year": "1965", "kind": "link", "key": true, "url": "https://www.international-communist-party.org/BasicTexts/English/65Naples.htm", "cols": ["the-programme", "the-communist-left"]},
+        {"id": "bordiga-1965-historically-unfavourable", "title": "When the Party's General Situation Is Historically Unfavourable", "subtitle": "Considerations on the party's organic activity", "year": "1965", "kind": "link", "url": "https://www.marxists.org/archive/bordiga/works/1965/consider.htm", "cols": ["the-communist-left"]}
       ]
     },
     {

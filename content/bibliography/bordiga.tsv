@@ -1,4 +1,4 @@
-# Bordiga: works in the Bordiga archive of the Marxists Internet Archive. url: "~" = https://www.marxists.org/archive/bordiga/
+# Bordiga: works in the Bordiga archive of the Marxists Internet Archive, with English texts on the International Communist Party's site and libcom, and Italian originals that have no English version. url: "~" = https://www.marxists.org/archive/bordiga/
 1912	The Balkan War	~works/1912/balkan.htm
 1919	In the Red Light of Sacrifice: Karl Liebknecht, Rosa Luxemburg	~works/1919/01/redlight-ll.html
 1919	The System of Communist Representation	~works/1919/representation.htm
@@ -10,7 +10,7 @@
 1921	Party and Class	~works/1921/party-class.htm
 1921	Party and Class Action	~works/1921/classact.htm
 1921	The Meeting of the National Council of the Italian C.G.L. at Verona	~works/1921/12/cgl.html
-1922	The Rome Theses	~index.htm
+1922	The Rome Theses	https://www.international-communist-party.org/BasicTexts/English/22TeRome.htm
 1922	The 1st of May in Italy	~works/1922/05/1stmay.html
 1922	The Significance of the Socialist Split in Italy	~works/1922/10/split.htm
 1922	Speech in Discussion of Executive Committee Report (Fourth Comintern Congress)	~works/1922/bordiga01.htm
@@ -45,3 +45,32 @@
 1961	In Janitzio Death Is Not Scary	~works/1961/janitzio.htm
 1963	The Legend of the Piave	~works/1963/legend.htm
 1965	When the Party's General Situation Is Historically Unfavourable	~works/1965/consider.htm
+1951	Theory and Action in Marxist Doctrine	https://libcom.org/library/theory-action-marxist-doctrine-amadeo-bordiga
+1951	Lessons of the Counter-Revolutions	https://libcom.org/article/lessons-counterrevolutions-amadeo-bordiga
+1952	The Human Species and the Earth's Crust	https://libcom.org/article/human-species-and-earths-crust-amadeo-bordiga
+1953	Factors of Race and Nation in Marxist Theory	https://www.international-communist-party.org/English/Texts/53FaRNen.htm
+1965	The Naples Theses: Theses on the Historic Task, Action and Structure of the World Communist Party	https://www.international-communist-party.org/BasicTexts/English/65Naples.htm
+1919	Nella torbida vigilia elettorale (in Italian)	https://www.marxists.org/italiano/bordiga/1919/4/29-vigilia.htm
+1921	Speech at the Socialist congress in Livorno (in Italian)	https://www.marxists.org/italiano/bordiga/1921/1/20-inter.htm
+1921	Un partito in decomposizione (in Italian)	https://www.marxists.org/italiano/bordiga/1921/3/10-decomposizione.htm
+1921	Serenità mistificatrice (in Italian)	https://www.marxists.org/italiano/bordiga/1921/3/16-serenita.htm
+1921	Contro la reazione (in Italian)	https://www.marxists.org/italiano/bordiga/1921/3/26-reazione.htm
+1921	Come un partito muore (in Italian)	https://www.marxists.org/italiano/bordiga/1921/3/27-partito.htm
+1921	La filosofia del rimedio (in Italian)	https://www.marxists.org/italiano/bordiga/1921/4/3-filosofia.htm
+1921	Speculazioni! (in Italian)	https://www.marxists.org/italiano/bordiga/1921/4/11-speculazioni.htm
+1921	Il Partito Comunista (in Italian)	https://www.marxists.org/italiano/bordiga/1921/5/1-partit.htm
+1921	Ipocrisia (in Italian)	https://www.marxists.org/italiano/bordiga/1921/5/15-ipocrisia.htm
+1921	Il PSI e il Congresso di Mosca (in Italian)	https://www.marxists.org/italiano/bordiga/1921/6/23-congresso.htm
+1921	Come matura il "noskismo" (in Italian)	https://www.marxists.org/italiano/bordiga/1921/7/20-noskismo.htm
+1921	Il tira e molla dell'opportunismo italiano (in Italian)	https://www.marxists.org/italiano/bordiga/1921/7/24-opportunismo.htm
+1921	I socialisti italiani e il comunismo (in Italian)	https://www.marxists.org/italiano/bordiga/1921/8/21-comunismo.htm
+1922	La Rivoluzione Russa (in Italian)	https://www.marxists.org/italiano/bordiga/1922/1/11-rivol.htm
+1922	La tattica dell'Internazionale Comunista (in Italian)	https://www.marxists.org/italiano/bordiga/1922/1/22-tatti.htm
+1922	Il problema del potere (in Italian)	https://www.marxists.org/italiano/bordiga/1922/2/14-probl.htm
+1922	La discussione sulla tattica (in Italian)	https://www.marxists.org/italiano/bordiga/1922/2/24-discu.htm
+1922	Difesa Proletaria (in Italian)	https://www.marxists.org/italiano/bordiga/1922/3/8-difesa.htm
+1922	Il compito del nostro partito (in Italian)	https://www.marxists.org/italiano/bordiga/1922/3/19-compit.htm
+1922	Manifestazioni comuniste per il fronte unico in Germania (in Italian)	https://www.marxists.org/italiano/bordiga/1922/4/16-manif.htm
+1922	C'è uno spettro in Europa (in Italian)	https://www.marxists.org/italiano/bordiga/1922/5/1-europa.htm
+1924	...Se De Nicola non fosse fuggito (in Italian)	https://www.marxists.org/italiano/bordiga/1924/4/denicola.htm
+1955	Le grandi questioni storiche della Rivoluzione in Russia (in Italian)	https://www.marxists.org/italiano/bordiga/1955/8/rivrus.htm

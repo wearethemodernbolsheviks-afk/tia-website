@@ -181,6 +181,8 @@ ROOM_CSS = """
 DSP_WAIT = '<p class="dsp-wait mn">LOADING DISPATCHES FROM SUBSTACK…</p>'
 
 
+# the archive script's address changes with its contents, so browsers never keep an old copy
+ARCHIVE_JS_V = __import__('hashlib').sha1((ROOT / 'assets' / 'archive.js').read_bytes()).hexdigest()[:8]
 BASE_CSS = re.search(r'<style>\n(.*?)</style>', ARCH_TPL, re.S).group(1)
 OVERLAYS = re.search(r'(<div aria-hidden="true">\n  <div class="ov-lines">.*?\n</div>\n)', ARCH_TPL, re.S).group(1)
 HEADER = re.search(r'(<header class="tbar">.*?</header>)', ARCH_TPL, re.S).group(1)
@@ -309,6 +311,7 @@ READER_CSS = """
 @media (max-width: 1000px) { .rd-layout { grid-template-columns: minmax(0, 1fr); gap: 0; } .toc { display: none; } .toc-m { display: block; } }
 .text { counter-reset: pp; max-width: 70ch; font-family: Lora, Georgia, serif; font-size: 19px; line-height: 1.75; color: #E6DDD3; padding-left: 64px; }
 .text:lang(de) { hyphens: auto; }
+.text > * { overflow-wrap: break-word; }
 .text > * { position: relative; margin: 0 0 1.05em; scroll-margin-top: 96px; }
 .text > [id] { counter-increment: pp; }
 .text > [id]::before { content: counter(pp); position: absolute; left: -64px; top: 0.45em; width: 46px; text-align: right; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; line-height: 1; letter-spacing: 0.06em; color: #4A2B2E; }
@@ -377,6 +380,16 @@ html.paper .ov-lines, html.paper .ov-grain, html.paper .ov-band, html.paper .rd-
 .text .fn a.fb:hover { color: #FF5A60; text-decoration: underline; }
 html.paper .rd-body .text sup.fr a, html.paper .rd-body .text .fn a.fb { color: #B3121B; }
 html.paper .rd-body .text sup.fr:target a, html.paper .rd-body .text > p.fn:target { background: #F7D6D2; }
+/* a tapped note marker opens its note in a box at the foot of the screen */
+.fn-pop { position: fixed; left: 12px; right: 12px; bottom: 12px; z-index: 80; max-width: 760px; margin: 0 auto; max-height: 55vh; overflow: auto; padding: 16px 18px 14px; background: #120B0C; border: 1px solid #E8222A; box-shadow: 0 12px 44px rgba(0, 0, 0, 0.65); color: #E6DDD3; font-family: Lora, Georgia, serif; font-size: 17px; line-height: 1.6; }
+.fn-pop-t { margin: 0 34px 10px 0; }
+.fn-pop-t b { font-family: 'JetBrains Mono', ui-monospace, monospace; font-weight: 600; color: #FF8A8E; }
+.fn-pop-t a { color: #FF8A8E; }
+.fn-pop-x { position: absolute; top: 4px; right: 6px; width: 44px; height: 44px; border: 0; background: none; color: #F2ECE4; font-size: 28px; line-height: 1; cursor: pointer; }
+.fn-pop-go { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; letter-spacing: 0.12em; color: #FF8A8E; }
+html.paper .fn-pop { background: #FBF6F3; border-color: #CE121E; color: #2B1A17; box-shadow: 0 12px 44px rgba(58, 10, 13, 0.25); }
+html.paper .fn-pop-t b, html.paper .fn-pop-t a, html.paper .fn-pop-go { color: #B3121B; }
+html.paper .fn-pop-x { color: #3A0A0D; }
 html.paper .text .flash { animation-name: rd-flash-p; }
 @keyframes rd-flash-p { 0%, 30% { background: rgba(206, 18, 30, 0.12); box-shadow: 0 0 0 10px rgba(206, 18, 30, 0.12); } 100% { background: transparent; box-shadow: 0 0 0 10px transparent; } }
 """
@@ -435,7 +448,7 @@ def page(title, desc, path, body, css='', ticker=None, current_label=None, foot_
 {footer}
 
 </div>
-{'<script src="/assets/archive.js" defer></script>' if script else ''}
+{f'<script src="/assets/archive.js?v={ARCHIVE_JS_V}" defer></script>' if script else ''}
 <script src="/assets/tia-media.js" defer></script>
 </body>
 </html>
@@ -1228,7 +1241,7 @@ def build_index(authors, byslug, works, cols, nm=None):
     t = t.replace('<body>\n<div style="position: relative; background: #090506;', '<body>\n' + page_bg(INDEX_POSTER) + '<div style="position: relative;', 1)
     assert 'class="page-bg"' in t
     t = t.replace(re.search(r'<link href="https://fonts.googleapis.com/css2[^>]*>', t).group(), FONTS.split('\n')[1])
-    t = t.replace('</body>', '<script src="/assets/archive.js" defer></script>\n<script src="/assets/tia-media.js" defer></script>\n</body>')
+    t = t.replace('</body>', f'<script src="/assets/archive.js?v={ARCHIVE_JS_V}" defer></script>\n<script src="/assets/tia-media.js" defer></script>\n</body>')
     (ROOT / 'archive' / 'index.html').write_text(t, encoding='utf-8')
 
 
@@ -1387,7 +1400,7 @@ BIB_SOURCE = {
     'lassalle': 'Every work in the Lassalle section of the Marxists Internet Archive, English and German.',
     'lukacs': 'Every work in the Lukács section of the Marxists Internet Archive.',
     'bukharin': 'Every work in the Bukharin library of the Marxists Internet Archive.',
-    'bordiga': 'Every English translation in the Bordiga section of the Marxists Internet Archive. His Italian writings run to thousands of articles; more will be filed here as they are translated.',
+    'bordiga': 'Every English translation in the Bordiga section of the Marxists Internet Archive, the major post-war texts translated on the International Communist Party\'s site and on libcom, and the Italian originals on the Marxists Internet Archive that have no English version yet. His writings run to thousands of articles; more will be filed here as they are translated.',
 }
 MONTHS = {m: i for i, m in enumerate(['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'], 1)}
 MON_NAME = ['', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
