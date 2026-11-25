@@ -195,12 +195,6 @@ mark { background: rgba(232, 34, 42, 0.42); color: #FFFFFF; padding: 0 2px; }
 .scan-bar { height: 2px; margin-top: 10px; background: #241618; overflow: hidden; }
 .scan-bar i { display: block; height: 100%; width: 0; background: #E8222A; box-shadow: 0 0 8px rgba(232, 34, 42, 0.8); transition: width 160ms linear; }
 
-/* plain archive pages: the texts come first; no motion, scan lines or instrument marks */
-.it-rv, .it-glitch, .dh, .rd-h1, .it-ticker { animation: none !important; opacity: 1 !important; transform: none !important; }
-.it-bscan, .it-sweep, .hc, .co { display: none !important; }
-.shade { text-shadow: none !important; }
-.grid-bg, .dos-img { background-image: none !important; }
-
 .cw-bar { position: sticky; top: 68px; z-index: 5; display: flex; flex-wrap: wrap; gap: 10px; align-items: center; padding: 14px 0; background: rgba(12, 7, 8, 0.96); border-bottom: 1px solid #3A2326; }
 .cw-bar input { flex: 1 1 280px; min-width: 0; min-height: 48px; box-sizing: border-box; padding: 0 14px; background: #090506; border: 2px solid #3A2326; color: #F2ECE4; font-family: Inter, sans-serif; font-size: 17px; }
 .cw-bar .cnt { font-size: 13px; letter-spacing: 0.12em; color: #A89C95; }
@@ -228,8 +222,17 @@ mark { background: rgba(232, 34, 42, 0.42); color: #FFFFFF; padding: 0 2px; }
 </style>
 </head>
 <body>
+<div class="page-bg" aria-hidden="true" style="--ar: 1.0526; --p1: url('/assets/bgp/p_mon_magnitogorsk-1x.webp'); --p2: url('/assets/bgp/p_mon_magnitogorsk.webp')"></div>
 <div style="position: relative; color: #F2ECE4; font-family: Inter, system-ui, sans-serif; font-size: 17px; line-height: 1.55">
 
+<div aria-hidden="true">
+  <div class="ov-lines"></div>
+  <div class="ov-grain"></div>
+  <div class="ov-band"></div>
+  <div class="inst inst-ruler"><i></i></div>
+  <div class="inst inst-hex mn"><div>1770<br>1831<br>1818<br>1883<br>1820<br>1895<br>1854<br>1938<br>1870<br>1924<br>1871<br>1919<br>1879<br>1940<br>1888<br>1938<br>1889<br>1970<br>A3E1<br>5D07<br>C0DE<br>77F1<br>0B2E<br>9A4C<br>1770<br>1831<br>1818<br>1883<br>1820<br>1895<br>1854<br>1938<br>1870<br>1924<br>1871<br>1919<br>1879<br>1940<br>1888<br>1938<br>1889<br>1970<br>A3E1<br>5D07<br>C0DE<br>77F1<br>0B2E<br>9A4C</div></div>
+  <div class="inst inst-x"><i></i></div>
+</div>
 
 <header class="tbar">
   <div class="wrap" style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px 32px; padding-top: 12px; padding-bottom: 12px">
@@ -244,20 +247,27 @@ mark { background: rgba(232, 34, 42, 0.42); color: #FFFFFF; padding: 0 2px; }
       <a href="/dispatches/">DISPATCHES</a>
       <a href="/shop/">SHOP</a>
     </nav>
+    <span class="mn" style="display: inline-flex; align-items: center; gap: 10px; font-size: 13px; letter-spacing: 0.12em; color: #A89C95"><span class="dot"></span>TERMINAL 01 · /ARCHIVE/ENGELS</span>
   </div>
 </header>
 
+<div aria-hidden="true" class="mn" style="overflow: hidden; border-bottom: 1px solid #2B1B1D; background: #100A0B; font-size: 13px; letter-spacing: 0.16em; color: #A89C95; padding: 8px 0">
+  <div class="it-ticker">
+    <span style="padding-right: 56px; white-space: nowrap">DOSSIER 03 /// FRIEDRICH ENGELS /// 1820 — 1895 · BARMEN → LONDON /// 3,461 ITEMS FILED /// 8 FULL TEXTS /// FOUNDER ///</span>
+    <span style="padding-right: 56px; white-space: nowrap">DOSSIER 03 /// FRIEDRICH ENGELS /// 1820 — 1895 · BARMEN → LONDON /// 3,461 ITEMS FILED /// 8 FULL TEXTS /// FOUNDER ///</span>
+  </div>
+</div>
 <section style="position: relative; overflow: hidden; border-bottom: 1px solid #2B1B1D">
   <div class="wrap" style="padding-top: 26px; padding-bottom: clamp(40px, 5vw, 64px)">
     <nav class="crumbs mn" aria-label="Breadcrumb"><a href="/archive/">ARCHIVE</a> / <span style="color: #F2ECE4">ENGELS</span></nav>
     <div class="au-grid">
-      <div class="dos-img au-img"><img src="/assets/hexw/engels.webp" alt="Hex-pixel bust of Engels" decoding="async"><span class="hc tl"></span><span class="hc tr"></span><span class="hc bl"></span><span class="hc br"></span><span class="co r" aria-hidden="true" style="top: 22%; right: 10px"><b>HEX 3,467</b><i></i></span><span class="it-bscan" aria-hidden="true" style="position: absolute; left: 0; right: 0; height: 2px; background: #FF5A60; box-shadow: 0 0 10px rgba(232, 34, 42, 0.8)"></span></div>
+      <div class="dos-img au-img"><img src="/assets/hexl/engels.webp" alt="Hex-pixel bust of Engels" loading="lazy" decoding="async"><span class="hc tl"></span><span class="hc tr"></span><span class="hc bl"></span><span class="hc br"></span><span class="co r" aria-hidden="true" style="top: 22%; right: 10px"><b>HEX 3,467</b><i></i></span><span class="it-bscan" aria-hidden="true" style="position: absolute; left: 0; right: 0; height: 2px; background: #FF5A60; box-shadow: 0 0 10px rgba(232, 34, 42, 0.8)"></span></div>
       <div style="min-width: 0">
-        <span class="tag">FOUNDER</span>
+        <span class="tag">SUBJECT 03 · FOUNDER</span>
         <h1 class="dh it-glitch shade" style="margin: 18px 0 0; font-size: clamp(36px, 5vw, 78px); line-height: 0.98; color: #F2ECE4">FRIEDRICH ENGELS</h1>
         <p class="src shade">1820 — 1895 · BARMEN → LONDON</p>
         <p class="shade" style="margin: 20px 0 0; max-width: 640px; font-size: 19px; color: #ECE4DC">Marx's partner for forty years. Edited volumes II and III of Capital after Marx died.</p>
-        <div class="stats"><div><b>3,461</b><span>WORKS LISTED</span></div><div><b>8</b><span>FULL TEXTS HERE</span></div><div><b>1833</b><span>FIRST WORK</span></div><div><b>1895</b><span>LAST WORK</span></div></div>
+        <div class="stats"><div><b>3,461</b><span>ITEMS FILED</span></div><div><b>8</b><span>FULL TEXTS HERE</span></div><div><b>1833</b><span>FIRST ITEM</span></div><div><b>1895</b><span>LAST ITEM</span></div></div>
         <a class="au-cw" href="/archive/engels/works/">Complete works <small>3,461 ITEMS →</small></a><a class="au-cw au-wk" href="/archive/werke/">In German <small>434 ORIGINAL TEXTS →</small></a>
         <p class="mn" style="margin: 16px 0 0; font-size: 14px; letter-spacing: 0.12em"><a href="https://www.marxists.org/archive/marx/works/index.htm" target="_blank" rel="noopener" style="color: #FF5A60">ENGELS ON MARXISTS.ORG ↗</a></p>
       </div>
@@ -285,7 +295,7 @@ mark { background: rgba(232, 34, 42, 0.42); color: #FFFFFF; padding: 0 2px; }
     </div>
     <div class="it-rv" style="margin-top: 48px"><p class="mn sec-h">FILED IN COLLECTIONS</p><a href="/archive/collections/the-programme/" class="row"><span style="color: #A89C95">COL-01</span><span>THE PROGRAMME</span><span class="ld"></span><span style="color: #FF5A60">1848 —</span><span style="color: #39D98A">[8 WORKS]</span></a>
       <a href="/archive/collections/marx-and-engels/" class="row"><span style="color: #A89C95">COL-02</span><span>MARX AND ENGELS</span><span class="ld"></span><span style="color: #FF5A60">1843 — 1895</span><span style="color: #39D98A">[16 WORKS]</span></a></div>
-    <div class="pn mn"><a href="/archive/marx/">← MARX</a><a href="/archive/#marxists">ALL MARXISTS</a><a href="/archive/plekhanov/">PLEKHANOV →</a></div>
+    <div class="pn mn"><a href="/archive/marx/">← SUBJECT 02 · MARX</a><a href="/archive/">INDEX</a><a href="/archive/plekhanov/">SUBJECT 04 · PLEKHANOV →</a></div>
   </div>
 </section>
 

@@ -195,12 +195,6 @@ mark { background: rgba(232, 34, 42, 0.42); color: #FFFFFF; padding: 0 2px; }
 .scan-bar { height: 2px; margin-top: 10px; background: #241618; overflow: hidden; }
 .scan-bar i { display: block; height: 100%; width: 0; background: #E8222A; box-shadow: 0 0 8px rgba(232, 34, 42, 0.8); transition: width 160ms linear; }
 
-/* plain archive pages: the texts come first; no motion, scan lines or instrument marks */
-.it-rv, .it-glitch, .dh, .rd-h1, .it-ticker { animation: none !important; opacity: 1 !important; transform: none !important; }
-.it-bscan, .it-sweep, .hc, .co { display: none !important; }
-.shade { text-shadow: none !important; }
-.grid-bg, .dos-img { background-image: none !important; }
-
 .cw-bar { position: sticky; top: 68px; z-index: 5; display: flex; flex-wrap: wrap; gap: 10px; align-items: center; padding: 14px 0; background: rgba(12, 7, 8, 0.96); border-bottom: 1px solid #3A2326; }
 .cw-bar input { flex: 1 1 280px; min-width: 0; min-height: 48px; box-sizing: border-box; padding: 0 14px; background: #090506; border: 2px solid #3A2326; color: #F2ECE4; font-family: Inter, sans-serif; font-size: 17px; }
 .cw-bar .cnt { font-size: 13px; letter-spacing: 0.12em; color: #A89C95; }
@@ -228,8 +222,17 @@ mark { background: rgba(232, 34, 42, 0.42); color: #FFFFFF; padding: 0 2px; }
 </style>
 </head>
 <body>
+<div class="page-bg" aria-hidden="true" style="--ar: 1.0667; --p1: url('/assets/bgp/p_mon_towers-1x.webp'); --p2: url('/assets/bgp/p_mon_towers.webp')"></div>
 <div style="position: relative; color: #F2ECE4; font-family: Inter, system-ui, sans-serif; font-size: 17px; line-height: 1.55">
 
+<div aria-hidden="true">
+  <div class="ov-lines"></div>
+  <div class="ov-grain"></div>
+  <div class="ov-band"></div>
+  <div class="inst inst-ruler"><i></i></div>
+  <div class="inst inst-hex mn"><div>1770<br>1831<br>1818<br>1883<br>1820<br>1895<br>1854<br>1938<br>1870<br>1924<br>1871<br>1919<br>1879<br>1940<br>1888<br>1938<br>1889<br>1970<br>A3E1<br>5D07<br>C0DE<br>77F1<br>0B2E<br>9A4C<br>1770<br>1831<br>1818<br>1883<br>1820<br>1895<br>1854<br>1938<br>1870<br>1924<br>1871<br>1919<br>1879<br>1940<br>1888<br>1938<br>1889<br>1970<br>A3E1<br>5D07<br>C0DE<br>77F1<br>0B2E<br>9A4C</div></div>
+  <div class="inst inst-x"><i></i></div>
+</div>
 
 <header class="tbar">
   <div class="wrap" style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px 32px; padding-top: 12px; padding-bottom: 12px">
@@ -244,6 +247,7 @@ mark { background: rgba(232, 34, 42, 0.42); color: #FFFFFF; padding: 0 2px; }
       <a href="/dispatches/">DISPATCHES</a>
       <a href="/shop/">SHOP</a>
     </nav>
+    <span class="mn" style="display: inline-flex; align-items: center; gap: 10px; font-size: 13px; letter-spacing: 0.12em; color: #A89C95"><span class="dot"></span>TERMINAL 01 · /ARCHIVE/RICARDO</span>
   </div>
 </header>
 
@@ -251,13 +255,13 @@ mark { background: rgba(232, 34, 42, 0.42); color: #FFFFFF; padding: 0 2px; }
   <div class="wrap" style="padding-top: 26px; padding-bottom: clamp(40px, 5vw, 64px)">
     <nav class="crumbs mn" aria-label="Breadcrumb"><a href="/archive/">ARCHIVE</a> / <a href="/archive/#non-marxists">NON-MARXISTS</a> / <span style="color: #F2ECE4">RICARDO</span></nav>
     <div class="au-grid">
-      <div class="dos-img au-img"><img src="/assets/hexw/ricardo.webp" alt="Statue portrait of David Ricardo in red hexagons"><span class="hc tl"></span><span class="hc tr"></span><span class="hc bl"></span><span class="hc br"></span><span class="it-bscan" aria-hidden="true" style="position: absolute; left: 0; right: 0; height: 2px; background: #FF5A60; box-shadow: 0 0 10px rgba(232, 34, 42, 0.8)"></span></div>
+      <div class="dos-img au-img"><img src="/assets/hexl/ricardo.webp" alt="Statue portrait of David Ricardo in red hexagons"><span class="hc tl"></span><span class="hc tr"></span><span class="hc bl"></span><span class="hc br"></span><span class="it-bscan" aria-hidden="true" style="position: absolute; left: 0; right: 0; height: 2px; background: #FF5A60; box-shadow: 0 0 10px rgba(232, 34, 42, 0.8)"></span></div>
       <div style="min-width: 0">
-        <span class="tag">THE ECONOMISTS</span>
+        <span class="tag">NM-02 · THE ECONOMISTS</span>
         <h1 class="dh it-glitch shade" style="margin: 18px 0 0; font-size: clamp(36px, 5vw, 78px); line-height: 0.98; color: #F2ECE4">DAVID RICARDO</h1>
         <p class="src shade">1772 — 1823 · LONDON → GATCOMBE</p>
         <p class="shade" style="margin: 20px 0 0; max-width: 640px; font-size: 19px; color: #ECE4DC">Stockbroker and economist who carried the labour theory of value further than anyone before Marx.</p>
-        <div class="stats"><div><b>1</b><span>WORKS LISTED</span></div><div><b>1</b><span>FULL TEXTS HERE</span></div><div><b>1817</b><span>FIRST WORK</span></div><div><b>1817</b><span>LAST WORK</span></div></div>
+        <div class="stats"><div><b>1</b><span>WORKS FILED</span></div><div><b>1</b><span>FULL TEXTS HERE</span></div><div><b>1817</b><span>FIRST WORK</span></div><div><b>1817</b><span>LAST WORK</span></div></div>
         <p class="mn" style="margin: 16px 0 0; font-size: 14px; letter-spacing: 0.12em"><a href="https://www.marxists.org/reference/subject/economics/ricardo/tax/index.htm" target="_blank" rel="noopener" style="color: #FF5A60">RICARDO ON MARXISTS.ORG ↗</a></p>
       </div>
     </div>
