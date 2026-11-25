@@ -117,7 +117,7 @@ def words(n):
 
 ARCH_TPL = (TPL / 'archive_index.html').read_text(encoding='utf-8')
 HOME_TPL = (TPL / 'home_index.html').read_text(encoding='utf-8')
-NAV_EXTRA = '<a href="/#watch">WATCH</a>\n      <a href="/dispatches/">DISPATCHES</a>'
+NAV_EXTRA = '<a href="/watch/">WATCH</a>\n      <a href="/dispatches/">DISPATCHES</a>'
 ARCH_TPL = ARCH_TPL.replace('<a href="/#watch">WATCH</a>', NAV_EXTRA, 1)
 SUBSTACK = 'https://technicalinvariance.substack.com'
 DISPATCH_POSTER = 'p_rom_come_back'
@@ -1101,8 +1101,27 @@ def build_index(authors, byslug, works, cols):
     (ROOT / 'archive' / 'index.html').write_text(t, encoding='utf-8')
 
 
+HOME_DESC = ('An open archive of world Marxism: the classics in full, the complete works of each writer by date, '
+             'and the German originals of Marx and Engels.')
+
+
+def home_head(t, title, desc, path):
+    old_desc = 'An open archive of world Marxism and a workshop that builds communist technology. Essays, edits, the USSR 2089 serial, games and the TIA Supply Depot.'
+    t = t.replace(f'<meta name="description" content="{old_desc}">', f'<meta name="description" content="{attr(desc)}">')
+    t = t.replace(f'<meta property="og:description" content="{old_desc}">', f'<meta property="og:description" content="{attr(desc)}">')
+    t = t.replace('<link rel="canonical" href="https://invariancetech.info/">', f'<link rel="canonical" href="{SITE}{path}">')
+    t = t.replace('<meta property="og:url" content="https://invariancetech.info/">', f'<meta property="og:url" content="{SITE}{path}">')
+    t = t.replace('<title>Technical Invariance Authority</title>', f'<title>{esc(title)}</title>')
+    t = t.replace('<meta property="og:title" content="Technical Invariance Authority">', f'<meta property="og:title" content="{attr(title)}">')
+    # the films have their own page; every menu points there
+    t = t.replace('<a href="#watch">WATCH</a>', '<a href="/watch/">WATCH</a>\n      <a href="/dispatches/">DISPATCHES</a>', 1)
+    # no technology in the ticker
+    t = t.replace('/// COMMUNIST TECHNOLOGY /// SIM-01 PLAN/1 ///', '///')
+    return t
+
+
 def build_home(authors, works, cols):
-    t = HOME_TPL
+    t = home_head(HOME_TPL, 'Technical Invariance Authority', HOME_DESC, '/')
     nh = sum(1 for w in works.values() if w['kind'] == 'hosted')
     for a in authors:
         t = t.replace(f'<a href="/archive/" style="display: block; text-align: center"><div style="position: relative; overflow: hidden"><img src="/assets/hex_{a["slug"]}.png"',
@@ -1111,27 +1130,24 @@ def build_home(authors, works, cols):
         old = re.search(rf'<a href="[^"]*" class="row"><span style="color: #A89C95">{c["code"]}</span>.*?</a>', t)
         if old:
             t = t.replace(old.group(), collection_row(c))
-    t = t.replace('<a href="#watch">WATCH</a>', '<a href="#watch">WATCH</a>\n      <a href="#dispatches">DISPATCHES</a>', 1)
-    section = f"""
-<section id="dispatches" class="room" style="overflow: hidden">
-  <div class="wrap" style="padding-top: clamp(56px, 7vw, 100px); padding-bottom: clamp(56px, 7vw, 100px)">
-    <div class="it-rv" style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 20px">
-      <div>
-        <span class="tag">FILE 03 · DISPATCHES</span>
-        <h2 class="h2">DISPATCHES</h2>
-        <p class="src">SRC: TIA ON SUBSTACK · BY EMAIL</p>
-      </div>
-      <div style="display: flex; flex-wrap: wrap; gap: 10px"><a class="dsp-btn" href="{SUBSTACK}/subscribe" target="_blank" rel="noopener">Subscribe on Substack</a><a class="dsp-btn gh" href="/dispatches/">All dispatches →</a></div>
-    </div>
-    <p class="it-rv lede" style="margin: 22px 0 0; max-width: 660px; font-size: 19px">Written dispatches from the Authority: analysis, history and the programme, sent out by email and filed here as they go out.</p>
-    <div class="dsp-grid" data-dispatches data-limit="3" aria-busy="true">{DSP_WAIT}</div>
-  </div>
-</section>
-"""
-    i = t.index('</section>', t.index('<section id="arcade"')) + len('</section>')
-    t = t[:i] + '\n' + section + t[i:]
-    t = t.replace('</style>', DSP_CSS + ROOM_CSS + '</style>', 1)
-    t = t.replace('</body>', '<script src="/assets/dispatches.js" defer></script>\n<script src="/assets/tia-media.js" defer></script>\n</body>', 1)
+    # the home page is the hero and the archive; the arcade, films, shop and the rest keep their own pages
+    i, j = t.index('<section id="arcade"'), t.index('<footer')
+    t = t[:i] + t[j:]
+    hero = [
+        ('TIA // ARCHIVE · LABS · ARCADE · WATCH', 'TIA // THE ARCHIVE OF WORLD MARXISM'),
+        ('The Technical Invariance Authority is an open archive of world Marxism and a workshop that builds communist technology: free, open-source tools for planning, organising and reading.',
+         'The Technical Invariance Authority is an open archive of world Marxism: the classics in full, every writer\'s complete works by date, and Marx and Engels in their own German.'),
+    ]
+    for a, b in hero:
+        assert a in t, a
+        t = t.replace(a, b)
+    t = re.sub(r'\s*<a href="/arcade/plan1/" style="display: inline-flex.*?Play PLAN/1\s*</a>', '', t, count=1, flags=re.S)
+    t = re.sub(r'\s*<span style="display: inline-flex; align-items: center; gap: 8px; padding: 8px 12px; border: 1px solid #3A2326; background: rgba\(9, 5, 6, 0.7\); color: #A89C95"><span class="dot red" style="animation-delay: 0.8s"></span>LABS: BUILDING</span>', '', t, count=1)
+    assert 'PLAN/1' not in t and 'LABS: BUILDING' not in t and 'communist technology' not in t.lower()
+    t = t.replace('<a href="#watch" class="row">', '<a href="/watch/" class="row">')
+    t = t.replace('<a href="#about" style="color: #FF5A60">SEND IT IN</a>', '<a href="https://x.com/Invariance_Tech" target="_blank" rel="noopener" style="color: #FF5A60">SEND IT IN</a>')
+    t = t.replace('</style>', ROOM_CSS + '</style>', 1)
+    t = t.replace('</body>', '<script src="/assets/tia-media.js" defer></script>\n</body>', 1)
     t = t.replace('SRC: TIA ARCHIVE · 12 SUBJECTS · 8 COLLECTIONS', f'SRC: TIA ARCHIVE · 12 SUBJECTS · {nh} FULL TEXTS · 8 COLLECTIONS')
     t = re.sub(r'<div role="search" class="panel" style="padding: 22px">(.*?)</p>\n        </div>',
                lambda m: '<form role="search" class="panel" action="/archive/" method="get" style="padding: 22px">' + m.group(1) + '</p>\n        </form>',
@@ -1139,8 +1155,25 @@ def build_home(authors, works, cols):
     t = t.replace('<input id="it-q" type="search"', '<input id="it-q" name="q" type="search" autocomplete="off"')
     t = re.sub(r'(<input id="it-q".*?\n\s*)<button type="button"', r'\1<button type="submit"', t, count=1, flags=re.S)
     t = t.replace('</style>', '.row .st.wait { color: #E8A33A; }\n</style>', 1)
-    assert '<form role="search" class="panel"' in t and 'name="q"' in t
+    assert '<form role="search" class="panel"' in t and 'name="q"' in t and '#watch' not in t and '#about' not in t
     (ROOT / 'index.html').write_text(t, encoding='utf-8')
+
+
+def build_watch():
+    """The films, which used to sit on the home page, on a page of their own."""
+    t = home_head(HOME_TPL, 'Watch · Technical Invariance Authority',
+                  'Edits, essays and the USSR 2089 serial from the Technical Invariance Authority, on YouTube.', '/watch/')
+    t = t.replace('<a href="#top" style="display: flex; align-items: center; gap: 14px">', '<a href="/" style="display: flex; align-items: center; gap: 14px">', 1)
+    i = t.index('<section class="grid-bg" style="position: relative; overflow: hidden">')
+    w0 = t.index('<section id="watch"')
+    w1 = t.index('</section>', w0) + len('</section>')
+    f0 = t.index('<footer')
+    t = t[:i] + t[w0:w1] + '\n\n' + t[f0:]
+    t = t.replace('</body>', '<script src="/assets/tia-media.js" defer></script>\n</body>', 1)
+    assert 'communist technology' not in t.lower()
+    d = ROOT / 'watch'
+    d.mkdir(exist_ok=True)
+    (d / 'index.html').write_text(t, encoding='utf-8')
 
 
 def build_catalogue_json(authors, byslug, works, cols):
@@ -1157,7 +1190,7 @@ def build_catalogue_json(authors, byslug, works, cols):
 
 
 def build_sitemap(authors, works, cols, ws=()):
-    urls = ['/', '/archive/', '/dispatches/', '/arcade/', '/arcade/plan1/', '/arcade/behind-jupiter/', '/arcade/red-moon/', '/arcade/wither/', '/arcade/all-power/', '/shop/']
+    urls = ['/', '/archive/', '/watch/', '/dispatches/', '/arcade/', '/arcade/plan1/', '/arcade/behind-jupiter/', '/arcade/red-moon/', '/arcade/wither/', '/arcade/all-power/', '/shop/']
     urls += [a['url'] for a in authors]
     urls += [a['url'] + 'works/' for a in authors if a.get('bib')]
     urls += [w['path'] for w in sorted(works.values(), key=lambda w: w['id']) if w['kind'] == 'hosted']
@@ -1733,6 +1766,7 @@ def main():
             build_collection(c, byslug, cols)
     build_index(authors, byslug, works, cols)
     build_home(authors, works, cols)
+    build_watch()
     build_dispatches()
     build_catalogue_json(authors, byslug, works, cols)
     nb = build_bibliography_json(authors)
