@@ -1797,10 +1797,21 @@ def life(s):
 
 
 def build_timeline(authors, nm):
-    people = [{'n': a['short'], 'b': life(a['yr'])[0], 'd': life(a['yr'])[1], 'm': True, 'url': a['url']} for a in authors]
-    if nm:
-        people += [{'n': p['short'], 'b': life(p['years'])[0], 'd': life(p['years'])[1], 'm': False, 'url': p['url']} for p in nm['people']]
-    people.sort(key=lambda x: (x['b'], x['n']))
+    """Everyone in the archive on one time axis, in bands of people who stood close to each other."""
+    def person(name, yrs, red, url):
+        b, d = life(yrs)
+        return {'n': name, 'b': b, 'd': d, 'm': red, 'url': url}
+    marxists = {'title': 'THE MARXISTS', 'm': True,
+                'people': [person(a['short'], a['yr'], True, a['url']) for a in authors]}
+    bands = []
+    for g in (nm['groups'] if nm else []):
+        ps = [person(p['short'], p['years'], False, p['url']) for p in nm['people'] if p['group'] == g['code']]
+        if ps:
+            bands.append({'title': g['title'].upper(), 'm': False, 'people': ps, 'slug': g['slug']})
+    # the Marxists sit between what Marxism came out of and what came after or against it
+    at = next((k + 1 for k, b in enumerate(bands) if b['slug'] == 'utopians'), 0)
+    bands.insert(at, marxists)
+    people = sorted((pp for b in bands for pp in b['people']), key=lambda x: (x['b'], x['n']))
     now = 2026
     y0, y1 = min(x['b'] for x in people) // 20 * 20, 2030
     X0, X1 = 60, 1165
@@ -1823,45 +1834,54 @@ def build_timeline(authors, nm):
             return X0 + (ga - y0) * k + BRK * (y - ga) / (gb - ga)
         return X0 + (ga - y0) * k + BRK + (y - gb) * k
     CH = 7.0                     # width of one character of the 10px label, with its letter-spacing
-    rows = []                    # each row: the x where it is free again
-    for pp in people:
-        d = pp['d'] or now
-        label = f"{pp['n']} {pp['b']}–{pp['d'] or ''}"
-        pp['label'] = label
-        x0, x1 = X(pp['b']), X(d)
-        right = max(x1, x0 + len(label) * CH) + 14
-        for i, free in enumerate(rows):
-            if x0 >= free:
-                rows[i] = right; pp['row'] = i; break
-        else:
-            rows.append(right); pp['row'] = len(rows) - 1
+    for band in bands:
+        rows = [X0 + len(band['title']) * CH + 22]     # the band's name takes the left of its first row
+        for pp in sorted(band['people'], key=lambda x: (x['b'], x['n'])):
+            d = pp['d'] or now
+            pp['label'] = f"{pp['n']} {pp['b']}–{pp['d'] or ''}"
+            x0, x1 = X(pp['b']), X(d)
+            right = max(x1, x0 + len(pp['label']) * CH) + 14
+            for r, free in enumerate(rows):
+                if x0 >= free:
+                    rows[r] = right; pp['row'] = r; break
+            else:
+                rows.append(right); pp['row'] = len(rows) - 1
+        band['rows'] = len(rows)
     # event labels sit in as many staggered rows as they need not to overlap
     erows, eplace = [], []
     for y, t in TL_EVENTS:
         w = len(f'{y} {t}') * CH
         a, b = X(y) - w / 2, X(y) + w / 2
-        for i, free in enumerate(erows):
+        for r, free in enumerate(erows):
             if a >= free:
-                erows[i] = b + 8; eplace.append(i); break
+                erows[r] = b + 8; eplace.append(r); break
         else:
             erows.append(b + 8); eplace.append(len(erows) - 1)
-    top, step = 14 + 12 * len(erows) + 14, 26
-    bottom = top + step * len(rows)
+    top, step, pad = 14 + 12 * len(erows) + 14, 22, 14
+    y = top
+    for band in bands:
+        band['top'] = y
+        y += 16 + step * (band['rows'] - 1) + pad
+    bottom = y + 4
     H = bottom + 40
     ev = ''.join(f'<path d="M{X(y):.1f} {14 + 12 * r + 4}V{bottom - 6}"{" stroke-dasharray=\"2 5\" opacity=\"0.55\"" if y not in TL_MAJOR else ""}></path>'
                  for (y, _), r in zip(TL_EVENTS, eplace))
     evt = ''.join(f'<text x="{X(y):.1f}" y="{14 + 12 * r}"{" fill=\"#C98A87\"" if y not in TL_MAJOR else ""}>{y} {t}</text>'
                   for (y, t), r in zip(TL_EVENTS, eplace))
-    lines, dots, labels = [], [], []
-    for pp in people:
-        y = top + step * pp['row'] + 10
-        c = TL_RED if pp['m'] else TL_WHITE
-        x0, x1 = X(pp['b']), X(pp['d'] or now)
-        lines.append(f'<a href="{pp["url"]}"><title>{esc(pp["label"])}</title><path d="M{x0:.1f} {y}H{x1:.1f}" stroke="{c}" stroke-width="2"></path>'
-                     f'<text x="{x0:.1f}" y="{y - 6}" fill="{c}">{esc(pp["label"])}</text></a>')
-        dots.append(f'<circle cx="{x0:.1f}" cy="{y}" r="3" fill="{c}"></circle>')
-        dots.append(f'<circle cx="{x1:.1f}" cy="{y}" r="3" fill="{c}"></circle>' if pp['d'] else
-                    f'<path d="M{x1:.1f} {y - 4}L{x1 + 7:.1f} {y}L{x1:.1f} {y + 4}Z" fill="{c}"></path>')
+    seps, names, lines, dots = [], [], [], []
+    for n, band in enumerate(bands):
+        c = TL_RED if band['m'] else TL_WHITE
+        if n:
+            seps.append(f'M{X0} {band["top"] - pad / 2:.0f}H{X1}')
+        names.append(f'<text x="{X0}" y="{band["top"] + 10}" fill="{c}"{"" if band["m"] else " opacity=\"0.7\""}>{esc(band["title"])}</text>')
+        for pp in band['people']:
+            yy = band['top'] + 16 + step * pp['row']
+            x0, x1 = X(pp['b']), X(pp['d'] or now)
+            lines.append(f'<a href="{pp["url"]}"><title>{esc(pp["label"])}</title><path d="M{x0:.1f} {yy}H{x1:.1f}" stroke="{c}" stroke-width="2"></path>'
+                         f'<text x="{x0:.1f}" y="{yy - 6}" fill="{c}">{esc(pp["label"])}</text></a>')
+            dots.append(f'<circle cx="{x0:.1f}" cy="{yy}" r="3" fill="{c}"></circle>')
+            dots.append(f'<circle cx="{x1:.1f}" cy="{yy}" r="3" fill="{c}"></circle>' if pp['d'] else
+                        f'<path d="M{x1:.1f} {yy - 4}L{x1 + 7:.1f} {yy}L{x1:.1f} {yy + 4}Z" fill="{c}"></path>')
     ticks = [t for t in range(y0, 2031, 20) if not ga or not ga < t < gb]
     tk = ''.join(f'M{X(t):.1f} {bottom}V{bottom + 6}' for t in ticks)
     if ga:
@@ -1871,16 +1891,18 @@ def build_timeline(authors, nm):
     else:
         axis = f'<path d="M{X0} {bottom}H{X1}" stroke="#A89C95" stroke-width="1"></path>'
     tkt = ''.join(f'<text x="{X(t):.1f}" y="{bottom + 22}">{t}</text>' for t in ticks if t != ga)
-    aria = (f'Timeline of lifespans from {people[0]["b"]} to today. Marxists, in red: ' +
-            ', '.join(f"{x['n'].title()} {x['b']} to {x['d']}" for x in people if x['m']) +
-            '. Non-Marxists, in white: ' +
-            ', '.join(f"{x['n'].title()} {x['b']} to {x['d'] or 'now'}" for x in people if not x['m']) +
-            '. Markers at ' + ', '.join(str(y) for y, _ in TL_EVENTS) + '.')
+    aria = (f'Timeline of lifespans from {people[0]["b"]} to today, in groups. ' +
+            ' '.join(f"{b['title'].title()}{' (Marxists, in red)' if b['m'] else ''}: " +
+                     ', '.join(f"{x['n'].title()} {x['b']} to {x['d'] or 'now'}" for x in sorted(b['people'], key=lambda x: x['b'])) + '.'
+                     for b in bands) +
+            ' Markers at ' + ', '.join(f'{y} ({t.lower()})' for y, t in TL_EVENTS) + '.')
     nn = sum(1 for x in people if not x['m'])
     return f"""<figure class="it-rv" style="margin: 32px 0 0; padding: 18px 18px 10px; background: rgba(9, 5, 6, 0.85); border: 1px solid #3A2326; overflow-x: auto">
       <svg viewBox="0 0 1200 {H}" width="100%" role="img" aria-label="{attr(aria)}" style="display: block; min-width: 980px">
         <g stroke="#E8222A" stroke-width="1" stroke-dasharray="4 4" opacity="0.8">{ev}</g>
         <g font-family="'JetBrains Mono', ui-monospace, monospace" font-size="10" letter-spacing="1" fill="#FF5A60" text-anchor="middle">{evt}</g>
+        <path d="{''.join(seps)}" stroke="#3A2326" stroke-width="1"></path>
+        <g font-family="'JetBrains Mono', ui-monospace, monospace" font-size="10" font-weight="700" letter-spacing="1.5">{''.join(names)}</g>
         <g class="tl-p" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="10" letter-spacing="1">{''.join(lines)}</g>
         <g>{''.join(dots)}</g>
         {axis}
@@ -1919,7 +1941,8 @@ AR_CSS = """
 .tl-p a:hover text, .tl-p a:focus text { fill: #FF5A60; }
 """
 NM_POSTER = {'NM-01': 'p_mon_moon', 'NM-02': 'p_mon_towers', 'NM-03': 'p_rom_five_year', 'NM-04': 'p_hp_marianne',
-             'NM-05': 'p_share_the_land', 'NM-06': 'p_mon_tiananmen'}
+             'NM-05': 'p_share_the_land', 'NM-06': 'p_mon_worker_kolkhoz', 'NM-07': 'p_mon_tiananmen',
+             'NM-08': 'p_raise_it_higher', 'NM-09': 'p_mon_motherland_bw'}
 NM_INDEX_POSTER = 'p_mon_motherland_sunset'
 NM_CSS = """
 .nm-grp { margin-top: 52px; scroll-margin-top: 90px; }

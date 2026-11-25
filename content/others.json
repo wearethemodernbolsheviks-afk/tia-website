@@ -34,9 +34,27 @@
   },
   {
    "code": "NM-06",
-   "slug": "after-lenin",
-   "title": "After Lenin",
-   "blurb": "Leaders and revolutionaries of the parties and states that claimed Lenin's succession, in Europe, Asia, Africa and the Americas."
+   "slug": "stalinist-line",
+   "title": "The Stalinist Line",
+   "blurb": "Stalin, and the two leaders who kept his model of party and state longest after Moscow turned from it in 1956: Enver Hoxha in Albania and Kim Il-sung in North Korea."
+  },
+  {
+   "code": "NM-07",
+   "slug": "chinese-line",
+   "title": "The Chinese Line",
+   "blurb": "Mao Zedong, who led the Chinese revolution to power in 1949, and the leaders of the party after him, from Deng Xiaoping's reform and opening to Xi Jinping."
+  },
+  {
+   "code": "NM-08",
+   "slug": "national-liberation",
+   "title": "National Liberation",
+   "blurb": "Leaders of anti-colonial revolutions who took up Lenin's name: Ho Chi Minh in Vietnam, Fidel Castro and Che Guevara in Cuba, Thomas Sankara in Burkina Faso."
+  },
+  {
+   "code": "NM-09",
+   "slug": "reformers",
+   "title": "The Reformers",
+   "blurb": "Two who broke with the Soviet model from inside it: Tito, expelled from the Cominform in 1948 for going his own way, and Gorbachev, whose reforms ended with the Soviet Union in 1991."
   }
  ],
  "people": [
@@ -630,180 +648,6 @@
    ]
   },
   {
-   "slug": "ho-chi-minh",
-   "name": "Ho Chi Minh",
-   "years": "1890 — 1969",
-   "place": "Kim Liên → Hanoi",
-   "group": "NM-06",
-   "role": "Founder of the Indochinese Communist Party in 1930, who declared Vietnam's independence in 1945 and led North Vietnam until his death in 1969.",
-   "mia": "https://www.marxists.org/reference/archive/ho-chi-minh/index.htm",
-   "note": "In copyright: these links open the Marxists Internet Archive.",
-   "works": [
-    {
-     "id": "ho-1922-colonial-question",
-     "title": "Some Considerations on the Colonial Question",
-     "year": "1922",
-     "kind": "link",
-     "url": "https://www.marxists.org/reference/archive/ho-chi-minh/works/1922/05/25.htm"
-    },
-    {
-     "id": "ho-1924-lenin-colonial",
-     "title": "Lenin and the Colonial Peoples",
-     "year": "1924",
-     "kind": "link",
-     "url": "https://www.marxists.org/reference/archive/ho-chi-minh/works/1924/01/27.htm"
-    },
-    {
-     "id": "ho-1924-fifth-congress",
-     "title": "Report on the National and Colonial Questions at the Fifth Congress of the Comintern",
-     "year": "1924",
-     "kind": "link",
-     "url": "https://www.marxists.org/reference/archive/ho-chi-minh/works/1924/07/08.htm"
-    },
-    {
-     "id": "ho-1945-independence",
-     "title": "Declaration of Independence of the Democratic Republic of Vietnam",
-     "year": "1945",
-     "kind": "link",
-     "url": "https://www.marxists.org/reference/archive/ho-chi-minh/works/1945/declaration-independence.htm"
-    }
-   ]
-  },
-  {
-   "slug": "tito",
-   "name": "Josip Broz Tito",
-   "years": "1892 — 1980",
-   "place": "Kumrovec → Ljubljana",
-   "group": "NM-06",
-   "role": "Leader of the Yugoslav partisans in the Second World War and of Yugoslavia from 1945 until his death; he broke with Stalin in 1948 and helped found the Non-Aligned Movement.",
-   "mia": "https://www.marxists.org/archive/tito/index.htm",
-   "note": "In copyright: these links open the Marxists Internet Archive.",
-   "works": [
-    {
-     "id": "tito-1948-national-question",
-     "title": "Concerning the National Question and Social Patriotism",
-     "year": "1948",
-     "kind": "link",
-     "url": "https://www.marxists.org/archive/tito/1948/11/26.htm"
-    },
-    {
-     "id": "tito-1950-workers-manage",
-     "title": "Workers Manage Factories in Yugoslavia",
-     "year": "1950",
-     "kind": "link",
-     "url": "https://www.marxists.org/archive/tito/1950/06/26.htm"
-    },
-    {
-     "id": "tito-1956-letter-20th",
-     "title": "Letter to the Twentieth Congress of the Communist Party of the Soviet Union",
-     "year": "1956",
-     "kind": "link",
-     "url": "https://www.marxists.org/archive/tito/1956/02/20.htm"
-    },
-    {
-     "id": "tito-1957-workers-councils",
-     "title": "Speech at the First Congress of Workers' Councils",
-     "year": "1957",
-     "kind": "link",
-     "url": "https://www.marxists.org/archive/tito/1957/06/25.htm"
-    }
-   ]
-  },
-  {
-   "slug": "mao",
-   "name": "Mao Zedong",
-   "years": "1893 — 1976",
-   "place": "Shaoshan → Beijing",
-   "group": "NM-06",
-   "role": "Chairman of the Chinese Communist Party, who led it to power in 1949 and ruled the People's Republic of China until his death in 1976.",
-   "mia": "https://www.marxists.org/reference/archive/mao/index.htm",
-   "note": "In copyright: these links open the Marxists Internet Archive.",
-   "works": [
-    {
-     "id": "mao-1937-practice",
-     "title": "On Practice",
-     "year": "1937",
-     "kind": "link",
-     "url": "https://www.marxists.org/reference/archive/mao/selected-works/volume-1/mswv1_16.htm"
-    },
-    {
-     "id": "mao-1937-contradiction",
-     "title": "On Contradiction",
-     "year": "1937",
-     "kind": "link",
-     "url": "https://www.marxists.org/reference/archive/mao/selected-works/volume-1/mswv1_17.htm"
-    },
-    {
-     "id": "mao-1940-new-democracy",
-     "title": "On New Democracy",
-     "year": "1940",
-     "kind": "link",
-     "url": "https://www.marxists.org/reference/archive/mao/selected-works/volume-2/mswv2_26.htm"
-    },
-    {
-     "id": "mao-1964-quotations",
-     "title": "Quotations from Chairman Mao Tse-tung",
-     "year": "1964",
-     "kind": "link",
-     "url": "https://www.marxists.org/reference/archive/mao/works/red-book/index.htm"
-    },
-    {
-     "id": "mao-selected-works",
-     "title": "Selected Works",
-     "year": "1926–1957",
-     "kind": "link",
-     "url": "https://www.marxists.org/reference/archive/mao/selected-works/index.htm"
-    }
-   ]
-  },
-  {
-   "slug": "deng",
-   "name": "Deng Xiaoping",
-   "years": "1904 — 1997",
-   "place": "Guang'an → Beijing",
-   "group": "NM-06",
-   "role": "Leader of China from 1978 into the 1990s, who opened its economy to the market under the name of socialism with Chinese characteristics.",
-   "mia": "https://www.marxists.org/reference/archive/deng-xiaoping/index.htm",
-   "note": "In copyright: these links open the Marxists Internet Archive.",
-   "works": [
-    {
-     "id": "deng-1978-emancipate",
-     "title": "Emancipate the Mind, Seek Truth from Facts and Unite as One in Looking to the Future",
-     "year": "1978",
-     "kind": "link",
-     "url": "https://www.marxists.org/reference/archive/deng-xiaoping/1978/110.htm"
-    },
-    {
-     "id": "deng-1979-four-principles",
-     "title": "Uphold the Four Cardinal Principles",
-     "year": "1979",
-     "kind": "link",
-     "url": "https://www.marxists.org/reference/archive/deng-xiaoping/1979/115.htm"
-    },
-    {
-     "id": "deng-1979-market",
-     "title": "We Can Develop a Market Economy under Socialism",
-     "year": "1979",
-     "kind": "link",
-     "url": "https://www.marxists.org/reference/archive/deng-xiaoping/1979/152.htm"
-    },
-    {
-     "id": "deng-1984-chinese-character",
-     "title": "Building a Socialism with a Specifically Chinese Character",
-     "year": "1984",
-     "kind": "link",
-     "url": "https://www.marxists.org/reference/archive/deng-xiaoping/1984/36.htm"
-    },
-    {
-     "id": "deng-1985-second-revolution",
-     "title": "Reform Is China's Second Revolution",
-     "year": "1985",
-     "kind": "link",
-     "url": "https://www.marxists.org/reference/archive/deng-xiaoping/1985/189.htm"
-    }
-   ]
-  },
-  {
    "slug": "hoxha",
    "name": "Enver Hoxha",
    "years": "1908 — 1985",
@@ -877,11 +721,170 @@
    ]
   },
   {
+   "slug": "mao",
+   "name": "Mao Zedong",
+   "years": "1893 — 1976",
+   "place": "Shaoshan → Beijing",
+   "group": "NM-07",
+   "role": "Chairman of the Chinese Communist Party, who led it to power in 1949 and ruled the People's Republic of China until his death in 1976.",
+   "mia": "https://www.marxists.org/reference/archive/mao/index.htm",
+   "note": "In copyright: these links open the Marxists Internet Archive.",
+   "works": [
+    {
+     "id": "mao-1937-practice",
+     "title": "On Practice",
+     "year": "1937",
+     "kind": "link",
+     "url": "https://www.marxists.org/reference/archive/mao/selected-works/volume-1/mswv1_16.htm"
+    },
+    {
+     "id": "mao-1937-contradiction",
+     "title": "On Contradiction",
+     "year": "1937",
+     "kind": "link",
+     "url": "https://www.marxists.org/reference/archive/mao/selected-works/volume-1/mswv1_17.htm"
+    },
+    {
+     "id": "mao-1940-new-democracy",
+     "title": "On New Democracy",
+     "year": "1940",
+     "kind": "link",
+     "url": "https://www.marxists.org/reference/archive/mao/selected-works/volume-2/mswv2_26.htm"
+    },
+    {
+     "id": "mao-1964-quotations",
+     "title": "Quotations from Chairman Mao Tse-tung",
+     "year": "1964",
+     "kind": "link",
+     "url": "https://www.marxists.org/reference/archive/mao/works/red-book/index.htm"
+    },
+    {
+     "id": "mao-selected-works",
+     "title": "Selected Works",
+     "year": "1926–1957",
+     "kind": "link",
+     "url": "https://www.marxists.org/reference/archive/mao/selected-works/index.htm"
+    }
+   ]
+  },
+  {
+   "slug": "deng",
+   "name": "Deng Xiaoping",
+   "years": "1904 — 1997",
+   "place": "Guang'an → Beijing",
+   "group": "NM-07",
+   "role": "Leader of China from 1978 into the 1990s, who opened its economy to the market under the name of socialism with Chinese characteristics.",
+   "mia": "https://www.marxists.org/reference/archive/deng-xiaoping/index.htm",
+   "note": "In copyright: these links open the Marxists Internet Archive.",
+   "works": [
+    {
+     "id": "deng-1978-emancipate",
+     "title": "Emancipate the Mind, Seek Truth from Facts and Unite as One in Looking to the Future",
+     "year": "1978",
+     "kind": "link",
+     "url": "https://www.marxists.org/reference/archive/deng-xiaoping/1978/110.htm"
+    },
+    {
+     "id": "deng-1979-four-principles",
+     "title": "Uphold the Four Cardinal Principles",
+     "year": "1979",
+     "kind": "link",
+     "url": "https://www.marxists.org/reference/archive/deng-xiaoping/1979/115.htm"
+    },
+    {
+     "id": "deng-1979-market",
+     "title": "We Can Develop a Market Economy under Socialism",
+     "year": "1979",
+     "kind": "link",
+     "url": "https://www.marxists.org/reference/archive/deng-xiaoping/1979/152.htm"
+    },
+    {
+     "id": "deng-1984-chinese-character",
+     "title": "Building a Socialism with a Specifically Chinese Character",
+     "year": "1984",
+     "kind": "link",
+     "url": "https://www.marxists.org/reference/archive/deng-xiaoping/1984/36.htm"
+    },
+    {
+     "id": "deng-1985-second-revolution",
+     "title": "Reform Is China's Second Revolution",
+     "year": "1985",
+     "kind": "link",
+     "url": "https://www.marxists.org/reference/archive/deng-xiaoping/1985/189.htm"
+    }
+   ]
+  },
+  {
+   "slug": "xi",
+   "name": "Xi Jinping",
+   "years": "1953 —",
+   "place": "Beijing",
+   "group": "NM-07",
+   "role": "General Secretary of the Chinese Communist Party since 2012 and President of China since 2013. His doctrine is written into the party constitution as Xi Jinping Thought on Socialism with Chinese Characteristics for a New Era.",
+   "note": "In copyright: these links open the published English texts on other sites.",
+   "works": [
+    {
+     "id": "xi-2017-19th-congress",
+     "title": "Report to the 19th National Congress of the Communist Party of China",
+     "year": "2017",
+     "kind": "link",
+     "url": "https://china.usc.edu/node/21019"
+    },
+    {
+     "id": "xi-2022-20th-congress",
+     "title": "Report to the 20th National Congress of the Communist Party of China",
+     "year": "2022",
+     "kind": "link",
+     "url": "https://www.mfa.gov.cn/eng/xw/zyjh/202405/t20240530_11341666.html"
+    }
+   ]
+  },
+  {
+   "slug": "ho-chi-minh",
+   "name": "Ho Chi Minh",
+   "years": "1890 — 1969",
+   "place": "Kim Liên → Hanoi",
+   "group": "NM-08",
+   "role": "Founder of the Indochinese Communist Party in 1930, who declared Vietnam's independence in 1945 and led North Vietnam until his death in 1969.",
+   "mia": "https://www.marxists.org/reference/archive/ho-chi-minh/index.htm",
+   "note": "In copyright: these links open the Marxists Internet Archive.",
+   "works": [
+    {
+     "id": "ho-1922-colonial-question",
+     "title": "Some Considerations on the Colonial Question",
+     "year": "1922",
+     "kind": "link",
+     "url": "https://www.marxists.org/reference/archive/ho-chi-minh/works/1922/05/25.htm"
+    },
+    {
+     "id": "ho-1924-lenin-colonial",
+     "title": "Lenin and the Colonial Peoples",
+     "year": "1924",
+     "kind": "link",
+     "url": "https://www.marxists.org/reference/archive/ho-chi-minh/works/1924/01/27.htm"
+    },
+    {
+     "id": "ho-1924-fifth-congress",
+     "title": "Report on the National and Colonial Questions at the Fifth Congress of the Comintern",
+     "year": "1924",
+     "kind": "link",
+     "url": "https://www.marxists.org/reference/archive/ho-chi-minh/works/1924/07/08.htm"
+    },
+    {
+     "id": "ho-1945-independence",
+     "title": "Declaration of Independence of the Democratic Republic of Vietnam",
+     "year": "1945",
+     "kind": "link",
+     "url": "https://www.marxists.org/reference/archive/ho-chi-minh/works/1945/declaration-independence.htm"
+    }
+   ]
+  },
+  {
    "slug": "castro",
    "name": "Fidel Castro",
    "years": "1926 — 2016",
    "place": "Birán → Havana",
-   "group": "NM-06",
+   "group": "NM-08",
    "role": "Lawyer who led the Cuban revolution of 1959, declared it socialist in 1961 and governed Cuba until 2008.",
    "mia": "https://www.marxists.org/history/cuba/archive/castro/index.htm",
    "note": "In copyright: these links open the Marxists Internet Archive.",
@@ -921,7 +924,7 @@
    "name": "Che Guevara",
    "years": "1928 — 1967",
    "place": "Rosario → La Higuera",
-   "group": "NM-06",
+   "group": "NM-08",
    "role": "Argentine doctor who fought in the Cuban revolution, ran Cuba's national bank and its ministry of industry, and was killed in Bolivia in 1967 while leading a guerrilla campaign.",
    "mia": "https://www.marxists.org/archive/guevara/index.htm",
    "note": "In copyright: these links open the Marxists Internet Archive.",
@@ -950,29 +953,11 @@
    ]
   },
   {
-   "slug": "gorbachev",
-   "name": "Mikhail Gorbachev",
-   "years": "1931 — 2022",
-   "place": "Privolnoye → Moscow",
-   "group": "NM-06",
-   "role": "Last General Secretary of the Soviet Communist Party, from 1985 to 1991, whose reforms of perestroika and glasnost preceded the end of the Soviet Union.",
-   "note": "In copyright: this link opens the published text on another site.",
-   "works": [
-    {
-     "id": "gorbachev-1991-nobel",
-     "title": "Nobel Lecture",
-     "year": "1991",
-     "kind": "link",
-     "url": "https://www.nobelprize.org/prizes/peace/1990/gorbachev/lecture/"
-    }
-   ]
-  },
-  {
    "slug": "sankara",
    "name": "Thomas Sankara",
    "years": "1949 — 1987",
    "place": "Yako → Ouagadougou",
-   "group": "NM-06",
+   "group": "NM-08",
    "role": "Army captain who took power in Upper Volta in 1983, renamed it Burkina Faso, and led it until he was killed in a coup in 1987.",
    "mia": "https://www.marxists.org/archive/sankara/index.htm",
    "note": "In copyright: these links open the Marxists Internet Archive.",
@@ -1008,27 +993,60 @@
    ]
   },
   {
-   "slug": "xi",
-   "name": "Xi Jinping",
-   "years": "1953 —",
-   "place": "Beijing",
-   "group": "NM-06",
-   "role": "General Secretary of the Chinese Communist Party since 2012 and President of China since 2013. His doctrine is written into the party constitution as Xi Jinping Thought on Socialism with Chinese Characteristics for a New Era.",
-   "note": "In copyright: these links open the published English texts on other sites.",
+   "slug": "tito",
+   "name": "Josip Broz Tito",
+   "years": "1892 — 1980",
+   "place": "Kumrovec → Ljubljana",
+   "group": "NM-09",
+   "role": "Leader of the Yugoslav partisans in the Second World War and of Yugoslavia from 1945 until his death; he broke with Stalin in 1948 and helped found the Non-Aligned Movement.",
+   "mia": "https://www.marxists.org/archive/tito/index.htm",
+   "note": "In copyright: these links open the Marxists Internet Archive.",
    "works": [
     {
-     "id": "xi-2017-19th-congress",
-     "title": "Report to the 19th National Congress of the Communist Party of China",
-     "year": "2017",
+     "id": "tito-1948-national-question",
+     "title": "Concerning the National Question and Social Patriotism",
+     "year": "1948",
      "kind": "link",
-     "url": "https://china.usc.edu/node/21019"
+     "url": "https://www.marxists.org/archive/tito/1948/11/26.htm"
     },
     {
-     "id": "xi-2022-20th-congress",
-     "title": "Report to the 20th National Congress of the Communist Party of China",
-     "year": "2022",
+     "id": "tito-1950-workers-manage",
+     "title": "Workers Manage Factories in Yugoslavia",
+     "year": "1950",
      "kind": "link",
-     "url": "https://www.mfa.gov.cn/eng/xw/zyjh/202405/t20240530_11341666.html"
+     "url": "https://www.marxists.org/archive/tito/1950/06/26.htm"
+    },
+    {
+     "id": "tito-1956-letter-20th",
+     "title": "Letter to the Twentieth Congress of the Communist Party of the Soviet Union",
+     "year": "1956",
+     "kind": "link",
+     "url": "https://www.marxists.org/archive/tito/1956/02/20.htm"
+    },
+    {
+     "id": "tito-1957-workers-councils",
+     "title": "Speech at the First Congress of Workers' Councils",
+     "year": "1957",
+     "kind": "link",
+     "url": "https://www.marxists.org/archive/tito/1957/06/25.htm"
+    }
+   ]
+  },
+  {
+   "slug": "gorbachev",
+   "name": "Mikhail Gorbachev",
+   "years": "1931 — 2022",
+   "place": "Privolnoye → Moscow",
+   "group": "NM-09",
+   "role": "Last General Secretary of the Soviet Communist Party, from 1985 to 1991, whose reforms of perestroika and glasnost preceded the end of the Soviet Union.",
+   "note": "In copyright: this link opens the published text on another site.",
+   "works": [
+    {
+     "id": "gorbachev-1991-nobel",
+     "title": "Nobel Lecture",
+     "year": "1991",
+     "kind": "link",
+     "url": "https://www.nobelprize.org/prizes/peace/1990/gorbachev/lecture/"
     }
    ]
   }
