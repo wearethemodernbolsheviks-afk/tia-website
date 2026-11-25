@@ -38,6 +38,12 @@
     return out + escHTML(text.slice(i));
   }
 
+  /* ---------------- days until a full text opens ---------------- */
+  $$('[data-until]').forEach(function (el) {
+    var days = Math.ceil((new Date(el.getAttribute('data-until') + 'T00:00:00') - new Date()) / 864e5);
+    el.textContent = days > 1 ? '· IN ' + days + ' DAYS' : days === 1 ? '· TOMORROW' : '';
+  });
+
   /* ---------------- tendency filters (archive index) ---------------- */
   var chips = $$('.chip[data-f]');
   var cards = $$('.dos[data-t]');
@@ -276,7 +282,7 @@
             var ext = w.kind !== 'hosted';
             html += '<li><span class="hw">' + escHTML(w.year) + ' · ' + escHTML(w.names.toUpperCase()) + ' · ' +
               '<a href="' + escHTML(w.url) + '"' + (ext ? ' target="_blank" rel="noopener"' : '') + '>' +
-              markAll(w.title, tokens.length === 1 ? tokens[0] : '') + (ext ? (/marxists\.org/.test(w.url) ? ' [MIA ↗]' : ' [LINK ↗]') : ' [READ →]') + '</a></span></li>';
+              markAll(w.title, tokens.length === 1 ? tokens[0] : '') + (ext ? (/marxists\.org/.test(w.url) ? ' [MIA ↗]' : ' [LINK ↗]') : ' [READ →]') + (w.soon ? ' · FULL TEXT HERE ' + w.soon : '') + '</a></span></li>';
           });
           html += '</ul>';
         }

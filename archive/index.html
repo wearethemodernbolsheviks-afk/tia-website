@@ -150,6 +150,18 @@ img { display: block; max-width: 100%; }
 .row .st { flex: 0 0 auto; white-space: nowrap; }
 .row .st.ok { color: #39D98A; }
 .row .st.ln { color: #A89C95; }
+.row .st.sn { color: #F5B83D; }
+.soon-box { margin: 0 0 44px; padding: 18px 18px 8px; border: 1px solid #5A4520; background: rgba(40, 28, 8, 0.55); }
+.soon-box .sec-h { color: #F5B83D; }
+.soon-box .sec-h span { color: #CFC4BC; }
+.soon-box > p.lede { margin: 0 0 10px; max-width: 760px; font-size: 16px; color: #ECE4DC; }
+.soon-item { display: flex; gap: 16px; padding: 14px 0; border-top: 1px solid #5A4520; color: #F2ECE4; }
+.soon-item .y { flex: 0 0 64px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 15px; color: #F5B83D; padding-top: 2px; }
+.soon-item .t { min-width: 0; }
+.soon-item b { display: block; font-family: 'JetBrains Mono', ui-monospace, monospace; font-weight: 400; font-size: 18px; line-height: 1.3; letter-spacing: 0.02em; }
+.soon-item small { display: block; margin-top: 4px; font-size: 14px; line-height: 1.45; color: #B3A79F; }
+.soon-item i { display: block; margin-top: 6px; font-style: normal; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; letter-spacing: 0.1em; color: #A89C95; }
+.soon-item:hover b, .soon-item:hover i { color: #F5B83D; }
 .row .st.wait { color: #E8A33A; }
 .row.wk .ld { align-self: center; transform: none; }
 a.row:hover .ti { color: #FF5A60; }
@@ -216,8 +228,8 @@ mark { background: rgba(232, 34, 42, 0.42); color: #FFFFFF; padding: 0 2px; }
 
 <div aria-hidden="true" class="mn" style="overflow: hidden; border-bottom: 1px solid #2B1B1D; background: #100A0B; font-size: 13px; letter-spacing: 0.16em; color: #A89C95; padding: 8px 0">
   <div class="it-ticker">
-    <span style="padding-right: 56px; white-space: nowrap">INDEX OF MARXISTS /// 12 SUBJECTS /// 7 TENDENCIES /// 71 WORKS /// 40 FULL TEXTS /// 1770 — 1971 /// HEGEL · MARX · ENGELS · LASSALLE · KAUTSKY · LENIN · TROTSKY · LUXEMBURG · LIEBKNECHT · BUKHARIN · LUKÁCS · BORDIGA /// READ THE SOURCES ///</span>
-    <span style="padding-right: 56px; white-space: nowrap">INDEX OF MARXISTS /// 12 SUBJECTS /// 7 TENDENCIES /// 71 WORKS /// 40 FULL TEXTS /// 1770 — 1971 /// HEGEL · MARX · ENGELS · LASSALLE · KAUTSKY · LENIN · TROTSKY · LUXEMBURG · LIEBKNECHT · BUKHARIN · LUKÁCS · BORDIGA /// READ THE SOURCES ///</span>
+    <span style="padding-right: 56px; white-space: nowrap">INDEX OF MARXISTS /// 12 SUBJECTS /// 7 TENDENCIES /// 73 WORKS /// 40 FULL TEXTS /// 1770 — 1971 /// HEGEL · MARX · ENGELS · LASSALLE · KAUTSKY · LENIN · TROTSKY · LUXEMBURG · LIEBKNECHT · BUKHARIN · LUKÁCS · BORDIGA /// READ THE SOURCES ///</span>
+    <span style="padding-right: 56px; white-space: nowrap">INDEX OF MARXISTS /// 12 SUBJECTS /// 7 TENDENCIES /// 73 WORKS /// 40 FULL TEXTS /// 1770 — 1971 /// HEGEL · MARX · ENGELS · LASSALLE · KAUTSKY · LENIN · TROTSKY · LUXEMBURG · LIEBKNECHT · BUKHARIN · LUKÁCS · BORDIGA /// READ THE SOURCES ///</span>
   </div>
 </div>
 
@@ -227,7 +239,7 @@ mark { background: rgba(232, 34, 42, 0.42); color: #FFFFFF; padding: 0 2px; }
     <div style="flex: 1 1 600px; min-width: 0">
       <span class="tag">FILE 01 · THE ARCHIVE</span>
       <h1 class="dh it-glitch shade" style="margin: 18px 0 0; font-size: clamp(38px, 5.4vw, 86px); line-height: 1; color: #F2ECE4">INDEX OF MARXISTS</h1>
-      <p class="src">SRC: TIA ARCHIVE · 12 SUBJECTS · 71 WORKS · 40 FULL TEXTS · 1770 — 1971</p>
+      <p class="src">SRC: TIA ARCHIVE · 12 SUBJECTS · 73 WORKS · 40 FULL TEXTS · 1770 — 1971</p>
       <p style="margin: 22px 0 0; max-width: 620px; padding: 14px 16px; background: rgba(9, 5, 6, 0.72); border-left: 2px solid #E8222A; font-size: 19px; color: #ECE4DC">Every major thinker, filed by tendency. Open a dossier for their works in order. Texts in the public domain, and a few public-domain originals in freely licensed translations, are here in full and searchable; the rest link to the Marxists Internet Archive.</p>
     </div>
     <form role="search" id="ar-form" action="/archive/" method="get" style="flex: 1 1 360px; min-width: 0; padding: 20px; background: rgba(9, 5, 6, 0.82); border: 1px solid #3A2326">
@@ -493,7 +505,7 @@ mark { background: rgba(232, 34, 42, 0.42); color: #FFFFFF; padding: 0 2px; }
     <div class="it-rv" id="collections" style="margin-top: 56px">
       <p class="mn sec-h">COLLECTIONS</p>
       <a href="/archive/collections/the-programme/" class="row"><span style="color: #A89C95">COL-01</span><span>THE PROGRAMME</span><span class="ld"></span><span style="color: #FF5A60">1848 —</span><span style="color: #39D98A">[8 WORKS]</span></a>
-      <a href="/archive/collections/marx-and-engels/" class="row"><span style="color: #A89C95">COL-02</span><span>MARX AND ENGELS</span><span class="ld"></span><span style="color: #FF5A60">1843 — 1895</span><span style="color: #39D98A">[14 WORKS]</span></a>
+      <a href="/archive/collections/marx-and-engels/" class="row"><span style="color: #A89C95">COL-02</span><span>MARX AND ENGELS</span><span class="ld"></span><span style="color: #FF5A60">1843 — 1895</span><span style="color: #39D98A">[16 WORKS]</span></a>
       <a href="/archive/collections/second-international/" class="row"><span style="color: #A89C95">COL-03</span><span>SECOND INTERNATIONAL</span><span class="ld"></span><span style="color: #FF5A60">1889 — 1914</span><span style="color: #39D98A">[12 WORKS]</span></a>
       <a href="/archive/collections/lenin-and-october/" class="row"><span style="color: #A89C95">COL-04</span><span>LENIN AND OCTOBER</span><span class="ld"></span><span style="color: #FF5A60">1894 — 1924</span><span style="color: #39D98A">[11 WORKS]</span></a>
       <a href="/archive/collections/the-german-left/" class="row"><span style="color: #A89C95">COL-05</span><span>THE GERMAN LEFT</span><span class="ld"></span><span style="color: #FF5A60">1898 — 1919</span><span style="color: #39D98A">[11 WORKS]</span></a>

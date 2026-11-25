@@ -226,6 +226,18 @@ EXTRA_CSS = """
 .row .st { flex: 0 0 auto; white-space: nowrap; }
 .row .st.ok { color: #39D98A; }
 .row .st.ln { color: #A89C95; }
+.row .st.sn { color: #F5B83D; }
+.soon-box { margin: 0 0 44px; padding: 18px 18px 8px; border: 1px solid #5A4520; background: rgba(40, 28, 8, 0.55); }
+.soon-box .sec-h { color: #F5B83D; }
+.soon-box .sec-h span { color: #CFC4BC; }
+.soon-box > p.lede { margin: 0 0 10px; max-width: 760px; font-size: 16px; color: #ECE4DC; }
+.soon-item { display: flex; gap: 16px; padding: 14px 0; border-top: 1px solid #5A4520; color: #F2ECE4; }
+.soon-item .y { flex: 0 0 64px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 15px; color: #F5B83D; padding-top: 2px; }
+.soon-item .t { min-width: 0; }
+.soon-item b { display: block; font-family: 'JetBrains Mono', ui-monospace, monospace; font-weight: 400; font-size: 18px; line-height: 1.3; letter-spacing: 0.02em; }
+.soon-item small { display: block; margin-top: 4px; font-size: 14px; line-height: 1.45; color: #B3A79F; }
+.soon-item i { display: block; margin-top: 6px; font-style: normal; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; letter-spacing: 0.1em; color: #A89C95; }
+.soon-item:hover b, .soon-item:hover i { color: #F5B83D; }
 .row .st.wait { color: #E8A33A; }
 .row.wk .ld { align-self: center; transform: none; }
 a.row:hover .ti { color: #FF5A60; }
@@ -705,6 +717,31 @@ def dossier_card(a, i):
       </article>"""
 
 
+MONTH_NAMES = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October',
+               'November', 'December']
+# what readers are told about works whose full texts open on a set day
+SOON_NOTE = {'2027-01-01': "Ernest Untermann's English translations pass into the public domain on New Year's Day 2027, "
+                           "seventy years after his death. The full texts open here that morning; until then each link "
+                           "opens the Marxists Internet Archive's edition."}
+
+
+def soon_label(d, short=False):
+    y, m, day = (int(x) for x in d.split('-'))
+    return f'{day} {MONTH_NAMES[m - 1][:3].upper()} {y}' if short else f'{day} {MONTH_NAMES[m - 1]} {y}'
+
+
+def soon_item(w, byslug, me):
+    bits = [esc(w['subtitle'])] if w.get('subtitle') else []
+    others = [s for s in w['authors'] if s != me]
+    if others:
+        bits.append('With ' + ' and '.join(byslug[s]['display'] for s in others))
+    if w.get('soon_ed'):
+        bits.append(esc(w['soon_ed']))
+    return (f'<a class="soon-item" {work_link_attrs(w)}><span class="y">{esc(w["year"])}</span>'
+            f'<span class="t"><b>{esc(w["title"])}</b><small>{" · ".join(bits)}</small>'
+            f'<i>READ IT AT MIA UNTIL THEN ↗</i></span></a>')
+
+
 def work_row(w, byslug, show_author=False, me=None):
     title = esc(w['title'])
     small = []
@@ -718,7 +755,11 @@ def work_row(w, byslug, show_author=False, me=None):
         small.append('With ' + ' and '.join(byslug[s]['display'] for s in others))
     sm = f'<small>{" · ".join(small)}</small>' if small else ''
     by = f'<span class="by">{" + ".join(byslug[s]["short"] for s in w["authors"])}</span>' if show_author else ''
-    st = ('<span class="st ok">[READ →]</span>' if w['kind'] == 'hosted' else
+    if w.get('soon') and w['kind'] != 'hosted':
+        small.append(f'Full text here from {soon_label(w["soon"])}')
+        sm = f'<small>{" · ".join(small)}</small>'
+    st = ('<span class="st sn">[SOON]</span>' if w.get('soon') and w['kind'] != 'hosted' else
+          '<span class="st ok">[READ →]</span>' if w['kind'] == 'hosted' else
           '<span class="st ln">[MIA ↗]</span>' if 'marxists.org' in w.get('url', '') else '<span class="st ln">[LINK ↗]</span>')
     return (f'<a {work_link_attrs(w)} class="row wk"><span class="y">{esc(w["year"])}</span>'
             f'<span class="ti">{title}{sm}</span><span class="ld"></span>{by}{st}</a>')
@@ -880,6 +921,13 @@ def build_author(a, prev_a, next_a, byslug, cols):
     mycols = [c for c in cols if any(a['slug'] in w['authors'] for w in c['works'])]
     note = f'<p class="note"><b>COPYRIGHT</b>{esc(a["note"])}</p>' if a.get('note') else ''
     rows = '\n      '.join(work_row(w, byslug, me=a['slug']) for w in allw)
+    soon = [w for w in allw if w.get('soon') and w['kind'] != 'hosted']
+    soon_box = ''
+    for d in sorted({w['soon'] for w in soon}):
+        mine = [w for w in soon if w['soon'] == d]
+        soon_box += (f'<div class="soon-box it-rv"><p class="mn sec-h">ARRIVING {soon_label(d).upper()} <span data-until="{d}"></span></p>'
+                     + (f'<p class="lede">{esc(SOON_NOTE[d])}</p>' if d in SOON_NOTE else '')
+                     + ''.join(soon_item(w, byslug, a['slug']) for w in mine) + '</div>')
     colrows = '\n      '.join(collection_row(c) for c in mycols)
     bib_years = [i['y'] for i in a['bib']] or years
     bib_y0, bib_y1 = min(bib_years + years), max(bib_years + years)
@@ -908,11 +956,12 @@ def build_author(a, prev_a, next_a, byslug, cols):
 <section class="grid-bg" style="position: relative; overflow: hidden; background-color: rgba(12, 7, 8, 0.84)">
   <div class="wrap" style="padding-top: 44px; padding-bottom: clamp(56px, 7vw, 96px)">
     {note}
+    {soon_box}
     <div class="it-rv">
       <p class="mn sec-h">KEY WORKS · IN ORDER</p>
       {rows}
       {cw_more}
-      <p class="mn" style="margin: 14px 0 0; font-size: 13px; letter-spacing: 0.1em; color: #A89C95"><span style="color: #39D98A">[READ →]</span> FULL TEXT ON THIS SITE · <span>[MIA ↗]</span> OPENS THE MARXISTS INTERNET ARCHIVE{' · <span>[LINK ↗]</span> OPENS ANOTHER SITE' if any('marxists.org' not in w.get('url', 'marxists.org') for w in allw if w['kind'] == 'link') else ''}</p>
+      <p class="mn" style="margin: 14px 0 0; font-size: 13px; letter-spacing: 0.1em; color: #A89C95"><span style="color: #39D98A">[READ →]</span> FULL TEXT ON THIS SITE · <span>[MIA ↗]</span> OPENS THE MARXISTS INTERNET ARCHIVE{' · <span>[LINK ↗]</span> OPENS ANOTHER SITE' if any('marxists.org' not in w.get('url', 'marxists.org') for w in allw if w['kind'] == 'link') else ''}{' · <span style="color: #F5B83D">[SOON]</span> FULL TEXT HERE FROM ' + soon_label(soon[0]['soon']).upper() if soon else ''}</p>
     </div>
     <div class="it-rv" style="margin-top: 48px">
       <p class="mn sec-h">FILED IN COLLECTIONS</p>
@@ -1099,7 +1148,8 @@ def build_catalogue_json(authors, byslug, works, cols):
         'authors': [{'slug': a['slug'], 'name': a['display'], 'short': a['short'], 'years': html.unescape(a['yr']),
                      'tg': a['tg'], 'role': html.unescape(a['role']), 'img': a['img'], 'url': a['url']} for a in authors],
         'works': [{'id': w['id'], 'title': w['title'], 'sub': w.get('subtitle', ''), 'year': w['year'],
-                   'authors': w['authors'], 'kind': w['kind'], 'url': work_href(w), 'lang': w.get('lang', 'en')}
+                   'authors': w['authors'], 'kind': w['kind'], 'url': work_href(w), 'lang': w.get('lang', 'en'),
+                   'soon': soon_label(w['soon'], short=True) if w.get('soon') and w['kind'] != 'hosted' else ''}
                   for w in sorted(works.values(), key=lambda w: (year0(w['year']), w['title']))],
         'collections': [{'code': c['code'], 'title': c['title'], 'url': c.get('url', '')} for c in cols],
     }
@@ -1499,7 +1549,12 @@ def build_werk(w, prv, nxt, byslug, english):
     pn += f'<a href="{nxt["path"]}">{esc(nxt["title"].upper())} →</a>' if nxt else f'<a href="{WK_URL}">ALL GERMAN TEXTS →</a>'
     pn += '</div>'
     en = english.get(w['id'])
-    en_btn = f'<a class="btn gh" href="{en["path"]}">ENGLISH TRANSLATION</a>' if en else ''
+    if en and en['kind'] == 'hosted':
+        en_btn = f'<a class="btn gh" href="{en["path"]}">ENGLISH TRANSLATION</a>'
+    elif en:
+        en_btn = f'<a class="btn gh" href="{byslug[en["author"]]["url"]}">ENGLISH HERE {soon_label(en["soon"], short=True)}</a>'
+    else:
+        en_btn = ''
     body = f"""<script>try {{ if (localStorage.getItem('tia-read') === 'paper') document.documentElement.classList.add('paper'); }} catch (e) {{}}</script>
 <div class="rd-prog" aria-hidden="true"></div>
 <div class="rd-poster" aria-hidden="true" style="--ar: {poster_ar(POSTER[a['slug']])}; background-image: url('/assets/bgp/{POSTER[a['slug']]}-1x.webp'); background-image: image-set(url('/assets/bgp/{POSTER[a['slug']]}-1x.webp') 1x, url('/assets/bgp/{POSTER[a['slug']]}.webp') 2x)"></div>
@@ -1633,6 +1688,7 @@ def build_werke(ws, byslug, works):
     if not ws:
         return 0
     english = {w['de']: w for w in works.values() if w.get('de') and w['kind'] == 'hosted'}
+    english.update({w['de']: w for w in works.values() if w.get('de') and w.get('soon') and w['kind'] != 'hosted'})
     indexes = {}
     for i, w in enumerate(ws):
         indexes[w['id']] = build_werk(w, ws[i - 1] if i else None, ws[i + 1] if i + 1 < len(ws) else None, byslug, english)

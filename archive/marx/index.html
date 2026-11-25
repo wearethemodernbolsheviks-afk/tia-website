@@ -150,6 +150,18 @@ img { display: block; max-width: 100%; }
 .row .st { flex: 0 0 auto; white-space: nowrap; }
 .row .st.ok { color: #39D98A; }
 .row .st.ln { color: #A89C95; }
+.row .st.sn { color: #F5B83D; }
+.soon-box { margin: 0 0 44px; padding: 18px 18px 8px; border: 1px solid #5A4520; background: rgba(40, 28, 8, 0.55); }
+.soon-box .sec-h { color: #F5B83D; }
+.soon-box .sec-h span { color: #CFC4BC; }
+.soon-box > p.lede { margin: 0 0 10px; max-width: 760px; font-size: 16px; color: #ECE4DC; }
+.soon-item { display: flex; gap: 16px; padding: 14px 0; border-top: 1px solid #5A4520; color: #F2ECE4; }
+.soon-item .y { flex: 0 0 64px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 15px; color: #F5B83D; padding-top: 2px; }
+.soon-item .t { min-width: 0; }
+.soon-item b { display: block; font-family: 'JetBrains Mono', ui-monospace, monospace; font-weight: 400; font-size: 18px; line-height: 1.3; letter-spacing: 0.02em; }
+.soon-item small { display: block; margin-top: 4px; font-size: 14px; line-height: 1.45; color: #B3A79F; }
+.soon-item i { display: block; margin-top: 6px; font-style: normal; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; letter-spacing: 0.1em; color: #A89C95; }
+.soon-item:hover b, .soon-item:hover i { color: #F5B83D; }
 .row .st.wait { color: #E8A33A; }
 .row.wk .ld { align-self: center; transform: none; }
 a.row:hover .ti { color: #FF5A60; }
@@ -255,7 +267,7 @@ mark { background: rgba(232, 34, 42, 0.42); color: #FFFFFF; padding: 0 2px; }
         <h1 class="dh it-glitch shade" style="margin: 18px 0 0; font-size: clamp(36px, 5vw, 78px); line-height: 0.98; color: #F2ECE4">KARL MARX</h1>
         <p class="src shade">1818 — 1883 · TRIER → LONDON</p>
         <p class="shade" style="margin: 20px 0 0; max-width: 640px; font-size: 19px; color: #ECE4DC">Founded scientific socialism with Engels. Spent his last decades on Capital.</p>
-        <div class="stats"><div><b>3,080</b><span>ITEMS FILED</span></div><div><b>6</b><span>FULL TEXTS HERE</span></div><div><b>1835</b><span>FIRST ITEM</span></div><div><b>1883</b><span>LAST ITEM</span></div></div>
+        <div class="stats"><div><b>3,080</b><span>ITEMS FILED</span></div><div><b>6</b><span>FULL TEXTS HERE</span></div><div><b>1835</b><span>FIRST ITEM</span></div><div><b>1894</b><span>LAST ITEM</span></div></div>
         <a class="au-cw" href="/archive/marx/works/">Complete works <small>3,080 ITEMS →</small></a><a class="au-cw au-wk" href="/archive/werke/">In German <small>432 ORIGINAL TEXTS →</small></a>
         <p class="mn" style="margin: 16px 0 0; font-size: 14px; letter-spacing: 0.12em"><a href="https://www.marxists.org/archive/marx/works/index.htm" target="_blank" rel="noopener" style="color: #FF5A60">MARX ON MARXISTS.ORG ↗</a></p>
       </div>
@@ -266,6 +278,7 @@ mark { background: rgba(232, 34, 42, 0.42); color: #FFFFFF; padding: 0 2px; }
 <section class="grid-bg" style="position: relative; overflow: hidden; background-color: rgba(12, 7, 8, 0.84)">
   <div class="wrap" style="padding-top: 44px; padding-bottom: clamp(56px, 7vw, 96px)">
     
+    <div class="soon-box it-rv"><p class="mn sec-h">ARRIVING 1 JANUARY 2027 <span data-until="2027-01-01"></span></p><p class="lede">Ernest Untermann's English translations pass into the public domain on New Year's Day 2027, seventy years after his death. The full texts open here that morning; until then each link opens the Marxists Internet Archive's edition.</p><a class="soon-item" href="https://www.marxists.org/archive/marx/works/1885-c2/index.htm" target="_blank" rel="noopener"><span class="y">1885</span><span class="t"><b>Capital, Volume II</b><small>The Process of Circulation of Capital · Ernest Untermann's translation, Chicago, 1907</small><i>READ IT AT MIA UNTIL THEN ↗</i></span></a><a class="soon-item" href="https://www.marxists.org/archive/marx/works/1894-c3/index.htm" target="_blank" rel="noopener"><span class="y">1894</span><span class="t"><b>Capital, Volume III</b><small>The Process of Capitalist Production as a Whole · Ernest Untermann's translation, Chicago, 1909</small><i>READ IT AT MIA UNTIL THEN ↗</i></span></a></div>
     <div class="it-rv">
       <p class="mn sec-h">KEY WORKS · IN ORDER</p>
       <a href="/archive/marx/briefwechsel-1/" class="row wk"><span class="y">1844–1853</span><span class="ti">Der Briefwechsel zwischen Friedrich Engels und Karl Marx, Erster Band<small>Their letters from 1844 to 1853, in the original German · With Friedrich Engels</small></span><span class="ld"></span><span class="st ok">[READ →]</span></a>
@@ -275,13 +288,15 @@ mark { background: rgba(232, 34, 42, 0.42); color: #FFFFFF; padding: 0 2px; }
       <a href="https://www.marxists.org/archive/marx/works/1859/critique-pol-economy/index.htm" target="_blank" rel="noopener" class="row wk"><span class="y">1859</span><span class="ti">A Contribution to the Critique of Political Economy</span><span class="ld"></span><span class="st ln">[MIA ↗]</span></a>
       <a href="/archive/marx/capital-volume-one/" class="row wk"><span class="y">1867</span><span class="ti">Capital, Volume I<small>A Critique of Political Economy: The Process of Capitalist Production</small></span><span class="ld"></span><span class="st ok">[READ →]</span></a>
       <a href="/archive/marx/critique-of-the-gotha-programme/" class="row wk"><span class="y">1875</span><span class="ti">Critique of the Gotha Programme<small>Marginal notes on the programme of the German Workers' Party, with the letter to Bracke and Engels's foreword of 1891</small></span><span class="ld"></span><span class="st ok">[READ →]</span></a>
+      <a href="https://www.marxists.org/archive/marx/works/1885-c2/index.htm" target="_blank" rel="noopener" class="row wk"><span class="y">1885</span><span class="ti">Capital, Volume II<small>The Process of Circulation of Capital · Full text here from 1 January 2027</small></span><span class="ld"></span><span class="st sn">[SOON]</span></a>
+      <a href="https://www.marxists.org/archive/marx/works/1894-c3/index.htm" target="_blank" rel="noopener" class="row wk"><span class="y">1894</span><span class="ti">Capital, Volume III<small>The Process of Capitalist Production as a Whole · Full text here from 1 January 2027</small></span><span class="ld"></span><span class="st sn">[SOON]</span></a>
       <a class="row" href="/archive/marx/works/" style="color: #FF5A60"><span>ALL 3,080 WORKS AND LETTERS, BY DATE</span><span class="ld"></span><span>[COMPLETE WORKS →]</span></a>
-      <p class="mn" style="margin: 14px 0 0; font-size: 13px; letter-spacing: 0.1em; color: #A89C95"><span style="color: #39D98A">[READ →]</span> FULL TEXT ON THIS SITE · <span>[MIA ↗]</span> OPENS THE MARXISTS INTERNET ARCHIVE</p>
+      <p class="mn" style="margin: 14px 0 0; font-size: 13px; letter-spacing: 0.1em; color: #A89C95"><span style="color: #39D98A">[READ →]</span> FULL TEXT ON THIS SITE · <span>[MIA ↗]</span> OPENS THE MARXISTS INTERNET ARCHIVE · <span style="color: #F5B83D">[SOON]</span> FULL TEXT HERE FROM 1 JANUARY 2027</p>
     </div>
     <div class="it-rv" style="margin-top: 48px">
       <p class="mn sec-h">FILED IN COLLECTIONS</p>
       <a href="/archive/collections/the-programme/" class="row"><span style="color: #A89C95">COL-01</span><span>THE PROGRAMME</span><span class="ld"></span><span style="color: #FF5A60">1848 —</span><span style="color: #39D98A">[8 WORKS]</span></a>
-      <a href="/archive/collections/marx-and-engels/" class="row"><span style="color: #A89C95">COL-02</span><span>MARX AND ENGELS</span><span class="ld"></span><span style="color: #FF5A60">1843 — 1895</span><span style="color: #39D98A">[14 WORKS]</span></a>
+      <a href="/archive/collections/marx-and-engels/" class="row"><span style="color: #A89C95">COL-02</span><span>MARX AND ENGELS</span><span class="ld"></span><span style="color: #FF5A60">1843 — 1895</span><span style="color: #39D98A">[16 WORKS]</span></a>
     </div>
     <div class="pn mn"><a href="/archive/hegel/">← SUBJECT 01 · HEGEL</a><a href="/archive/">INDEX</a><a href="/archive/engels/">SUBJECT 03 · ENGELS →</a></div>
   </div>

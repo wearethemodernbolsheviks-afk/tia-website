@@ -150,6 +150,18 @@ img { display: block; max-width: 100%; }
 .row .st { flex: 0 0 auto; white-space: nowrap; }
 .row .st.ok { color: #39D98A; }
 .row .st.ln { color: #A89C95; }
+.row .st.sn { color: #F5B83D; }
+.soon-box { margin: 0 0 44px; padding: 18px 18px 8px; border: 1px solid #5A4520; background: rgba(40, 28, 8, 0.55); }
+.soon-box .sec-h { color: #F5B83D; }
+.soon-box .sec-h span { color: #CFC4BC; }
+.soon-box > p.lede { margin: 0 0 10px; max-width: 760px; font-size: 16px; color: #ECE4DC; }
+.soon-item { display: flex; gap: 16px; padding: 14px 0; border-top: 1px solid #5A4520; color: #F2ECE4; }
+.soon-item .y { flex: 0 0 64px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 15px; color: #F5B83D; padding-top: 2px; }
+.soon-item .t { min-width: 0; }
+.soon-item b { display: block; font-family: 'JetBrains Mono', ui-monospace, monospace; font-weight: 400; font-size: 18px; line-height: 1.3; letter-spacing: 0.02em; }
+.soon-item small { display: block; margin-top: 4px; font-size: 14px; line-height: 1.45; color: #B3A79F; }
+.soon-item i { display: block; margin-top: 6px; font-style: normal; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; letter-spacing: 0.1em; color: #A89C95; }
+.soon-item:hover b, .soon-item:hover i { color: #F5B83D; }
 .row .st.wait { color: #E8A33A; }
 .row.wk .ld { align-self: center; transform: none; }
 a.row:hover .ti { color: #FF5A60; }
@@ -266,6 +278,7 @@ mark { background: rgba(232, 34, 42, 0.42); color: #FFFFFF; padding: 0 2px; }
 <section class="grid-bg" style="position: relative; overflow: hidden; background-color: rgba(12, 7, 8, 0.84)">
   <div class="wrap" style="padding-top: 44px; padding-bottom: clamp(56px, 7vw, 96px)">
     
+    <div class="soon-box it-rv"><p class="mn sec-h">ARRIVING 1 JANUARY 2027 <span data-until="2027-01-01"></span></p><p class="lede">Ernest Untermann's English translations pass into the public domain on New Year's Day 2027, seventy years after his death. The full texts open here that morning; until then each link opens the Marxists Internet Archive's edition.</p><a class="soon-item" href="https://www.marxists.org/archive/marx/works/1884/origin-family/index.htm" target="_blank" rel="noopener"><span class="y">1884</span><span class="t"><b>The Origin of the Family, Private Property and the State</b><small>Ernest Untermann's translation, Chicago, 1902</small><i>READ IT AT MIA UNTIL THEN ↗</i></span></a></div>
     <div class="it-rv">
       <p class="mn sec-h">KEY WORKS · IN ORDER</p>
       <a href="/archive/marx/briefwechsel-1/" class="row wk"><span class="y">1844–1853</span><span class="ti">Der Briefwechsel zwischen Friedrich Engels und Karl Marx, Erster Band<small>Their letters from 1844 to 1853, in the original German · With Karl Marx</small></span><span class="ld"></span><span class="st ok">[READ →]</span></a>
@@ -275,15 +288,15 @@ mark { background: rgba(232, 34, 42, 0.42); color: #FFFFFF; padding: 0 2px; }
       <a href="/archive/engels/revolution-and-counter-revolution/" class="row wk"><span class="y">1851–1852</span><span class="ti">Revolution and Counter-Revolution in Germany</span><span class="ld"></span><span class="st ok">[READ →]</span></a>
       <a href="/archive/engels/anti-duhring/" class="row wk"><span class="y">1878</span><span class="ti">Anti-Dühring<small>Published in English as Landmarks of Scientific Socialism</small></span><span class="ld"></span><span class="st ok">[READ →]</span></a>
       <a href="/archive/engels/socialism-utopian-and-scientific/" class="row wk"><span class="y">1880</span><span class="ti">Socialism: Utopian and Scientific</span><span class="ld"></span><span class="st ok">[READ →]</span></a>
-      <a href="https://www.marxists.org/archive/marx/works/1884/origin-family/index.htm" target="_blank" rel="noopener" class="row wk"><span class="y">1884</span><span class="ti">The Origin of the Family, Private Property and the State</span><span class="ld"></span><span class="st ln">[MIA ↗]</span></a>
+      <a href="https://www.marxists.org/archive/marx/works/1884/origin-family/index.htm" target="_blank" rel="noopener" class="row wk"><span class="y">1884</span><span class="ti">The Origin of the Family, Private Property and the State<small>Full text here from 1 January 2027</small></span><span class="ld"></span><span class="st sn">[SOON]</span></a>
       <a href="/archive/engels/ludwig-feuerbach/" class="row wk"><span class="y">1886</span><span class="ti">Ludwig Feuerbach and the End of Classical German Philosophy<small>Published in English as Feuerbach: The Roots of the Socialist Philosophy</small></span><span class="ld"></span><span class="st ok">[READ →]</span></a>
       <a class="row" href="/archive/engels/works/" style="color: #FF5A60"><span>ALL 3,461 WORKS AND LETTERS, BY DATE</span><span class="ld"></span><span>[COMPLETE WORKS →]</span></a>
-      <p class="mn" style="margin: 14px 0 0; font-size: 13px; letter-spacing: 0.1em; color: #A89C95"><span style="color: #39D98A">[READ →]</span> FULL TEXT ON THIS SITE · <span>[MIA ↗]</span> OPENS THE MARXISTS INTERNET ARCHIVE</p>
+      <p class="mn" style="margin: 14px 0 0; font-size: 13px; letter-spacing: 0.1em; color: #A89C95"><span style="color: #39D98A">[READ →]</span> FULL TEXT ON THIS SITE · <span>[MIA ↗]</span> OPENS THE MARXISTS INTERNET ARCHIVE · <span style="color: #F5B83D">[SOON]</span> FULL TEXT HERE FROM 1 JANUARY 2027</p>
     </div>
     <div class="it-rv" style="margin-top: 48px">
       <p class="mn sec-h">FILED IN COLLECTIONS</p>
       <a href="/archive/collections/the-programme/" class="row"><span style="color: #A89C95">COL-01</span><span>THE PROGRAMME</span><span class="ld"></span><span style="color: #FF5A60">1848 —</span><span style="color: #39D98A">[8 WORKS]</span></a>
-      <a href="/archive/collections/marx-and-engels/" class="row"><span style="color: #A89C95">COL-02</span><span>MARX AND ENGELS</span><span class="ld"></span><span style="color: #FF5A60">1843 — 1895</span><span style="color: #39D98A">[14 WORKS]</span></a>
+      <a href="/archive/collections/marx-and-engels/" class="row"><span style="color: #A89C95">COL-02</span><span>MARX AND ENGELS</span><span class="ld"></span><span style="color: #FF5A60">1843 — 1895</span><span style="color: #39D98A">[16 WORKS]</span></a>
     </div>
     <div class="pn mn"><a href="/archive/marx/">← SUBJECT 02 · MARX</a><a href="/archive/">INDEX</a><a href="/archive/lassalle/">SUBJECT 04 · LASSALLE →</a></div>
   </div>

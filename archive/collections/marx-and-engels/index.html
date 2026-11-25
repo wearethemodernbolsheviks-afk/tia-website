@@ -150,6 +150,18 @@ img { display: block; max-width: 100%; }
 .row .st { flex: 0 0 auto; white-space: nowrap; }
 .row .st.ok { color: #39D98A; }
 .row .st.ln { color: #A89C95; }
+.row .st.sn { color: #F5B83D; }
+.soon-box { margin: 0 0 44px; padding: 18px 18px 8px; border: 1px solid #5A4520; background: rgba(40, 28, 8, 0.55); }
+.soon-box .sec-h { color: #F5B83D; }
+.soon-box .sec-h span { color: #CFC4BC; }
+.soon-box > p.lede { margin: 0 0 10px; max-width: 760px; font-size: 16px; color: #ECE4DC; }
+.soon-item { display: flex; gap: 16px; padding: 14px 0; border-top: 1px solid #5A4520; color: #F2ECE4; }
+.soon-item .y { flex: 0 0 64px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 15px; color: #F5B83D; padding-top: 2px; }
+.soon-item .t { min-width: 0; }
+.soon-item b { display: block; font-family: 'JetBrains Mono', ui-monospace, monospace; font-weight: 400; font-size: 18px; line-height: 1.3; letter-spacing: 0.02em; }
+.soon-item small { display: block; margin-top: 4px; font-size: 14px; line-height: 1.45; color: #B3A79F; }
+.soon-item i { display: block; margin-top: 6px; font-style: normal; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; letter-spacing: 0.1em; color: #A89C95; }
+.soon-item:hover b, .soon-item:hover i { color: #F5B83D; }
 .row .st.wait { color: #E8A33A; }
 .row.wk .ld { align-self: center; transform: none; }
 a.row:hover .ti { color: #FF5A60; }
@@ -216,8 +228,8 @@ mark { background: rgba(232, 34, 42, 0.42); color: #FFFFFF; padding: 0 2px; }
 
 <div aria-hidden="true" class="mn" style="overflow: hidden; border-bottom: 1px solid #2B1B1D; background: #100A0B; font-size: 13px; letter-spacing: 0.16em; color: #A89C95; padding: 8px 0">
   <div class="it-ticker">
-    <span style="padding-right: 56px; white-space: nowrap">COL-02 /// MARX AND ENGELS /// 1843 — 1895 /// 14 WORKS /// 12 FULL TEXTS ///</span>
-    <span style="padding-right: 56px; white-space: nowrap">COL-02 /// MARX AND ENGELS /// 1843 — 1895 /// 14 WORKS /// 12 FULL TEXTS ///</span>
+    <span style="padding-right: 56px; white-space: nowrap">COL-02 /// MARX AND ENGELS /// 1843 — 1895 /// 16 WORKS /// 12 FULL TEXTS ///</span>
+    <span style="padding-right: 56px; white-space: nowrap">COL-02 /// MARX AND ENGELS /// 1843 — 1895 /// 16 WORKS /// 12 FULL TEXTS ///</span>
   </div>
 </div>
 <section style="position: relative; overflow: hidden; border-bottom: 1px solid #2B1B1D">
@@ -225,7 +237,7 @@ mark { background: rgba(232, 34, 42, 0.42); color: #FFFFFF; padding: 0 2px; }
     <nav class="crumbs mn" aria-label="Breadcrumb"><a href="/archive/">ARCHIVE</a> / <a href="/archive/#collections">COLLECTIONS</a> / <span style="color: #F2ECE4">MARX AND ENGELS</span></nav>
     <span class="tag" style="margin-top: 24px">COL-02 · COLLECTION</span>
     <h1 class="dh it-glitch shade" style="margin: 18px 0 0; font-size: clamp(36px, 5vw, 78px); line-height: 0.98; color: #F2ECE4">MARX AND ENGELS</h1>
-    <p class="src shade">1843 — 1895 · 14 WORKS · 12 FULL TEXTS</p>
+    <p class="src shade">1843 — 1895 · 16 WORKS · 12 FULL TEXTS</p>
     <p class="shade" style="margin: 20px 0 0; max-width: 700px; padding: 14px 16px; background: rgba(9, 5, 6, 0.72); border-left: 2px solid #E8222A; font-size: 19px; color: #ECE4DC">The work of the two founders, from Engels's study of Manchester to the last prefaces he wrote in London.</p>
   </div>
 </section>
@@ -245,9 +257,11 @@ mark { background: rgba(232, 34, 42, 0.42); color: #FFFFFF; padding: 0 2px; }
       <a href="/archive/marx/critique-of-the-gotha-programme/" class="row wk"><span class="y">1875</span><span class="ti">Critique of the Gotha Programme<small>Marginal notes on the programme of the German Workers' Party, with the letter to Bracke and Engels's foreword of 1891</small></span><span class="ld"></span><span class="by">MARX</span><span class="st ok">[READ →]</span></a>
       <a href="/archive/engels/anti-duhring/" class="row wk"><span class="y">1878</span><span class="ti">Anti-Dühring<small>Published in English as Landmarks of Scientific Socialism</small></span><span class="ld"></span><span class="by">ENGELS</span><span class="st ok">[READ →]</span></a>
       <a href="/archive/engels/socialism-utopian-and-scientific/" class="row wk"><span class="y">1880</span><span class="ti">Socialism: Utopian and Scientific</span><span class="ld"></span><span class="by">ENGELS</span><span class="st ok">[READ →]</span></a>
-      <a href="https://www.marxists.org/archive/marx/works/1884/origin-family/index.htm" target="_blank" rel="noopener" class="row wk"><span class="y">1884</span><span class="ti">The Origin of the Family, Private Property and the State</span><span class="ld"></span><span class="by">ENGELS</span><span class="st ln">[MIA ↗]</span></a>
+      <a href="https://www.marxists.org/archive/marx/works/1884/origin-family/index.htm" target="_blank" rel="noopener" class="row wk"><span class="y">1884</span><span class="ti">The Origin of the Family, Private Property and the State<small>Full text here from 1 January 2027</small></span><span class="ld"></span><span class="by">ENGELS</span><span class="st sn">[SOON]</span></a>
+      <a href="https://www.marxists.org/archive/marx/works/1885-c2/index.htm" target="_blank" rel="noopener" class="row wk"><span class="y">1885</span><span class="ti">Capital, Volume II<small>The Process of Circulation of Capital · Full text here from 1 January 2027</small></span><span class="ld"></span><span class="by">MARX</span><span class="st sn">[SOON]</span></a>
       <a href="/archive/engels/ludwig-feuerbach/" class="row wk"><span class="y">1886</span><span class="ti">Ludwig Feuerbach and the End of Classical German Philosophy<small>Published in English as Feuerbach: The Roots of the Socialist Philosophy</small></span><span class="ld"></span><span class="by">ENGELS</span><span class="st ok">[READ →]</span></a>
       <a href="/archive/kautsky/frederick-engels/" class="row wk"><span class="y">1887</span><span class="ti">Frederick Engels: His Life, His Work and His Writings</span><span class="ld"></span><span class="by">KAUTSKY</span><span class="st ok">[READ →]</span></a>
+      <a href="https://www.marxists.org/archive/marx/works/1894-c3/index.htm" target="_blank" rel="noopener" class="row wk"><span class="y">1894</span><span class="ti">Capital, Volume III<small>The Process of Capitalist Production as a Whole · Full text here from 1 January 2027</small></span><span class="ld"></span><span class="by">MARX</span><span class="st sn">[SOON]</span></a>
     </div>
     <div class="it-rv" style="margin-top: 48px">
       <p class="mn sec-h">OTHER COLLECTIONS</p>

@@ -54,8 +54,17 @@ def add_catalogue():
     p = os.path.join(ROOT, 'content', 'catalogue.json')
     src = open(p, encoding='utf-8').read()
     cat = json.loads(src)
-    have = {w['id'] for a in cat['authors'] for w in a['works']}
     marx = next(a for a in cat['authors'] if a['slug'] == 'marx')
+    have = {w['id']: w for w in marx['works']}
+    changed = False
+    # the volumes are listed already as linked works marked "coming": replace those entries
+    for e in ENTRIES:
+        w = have.get(e['id'])
+        if w and w.get('kind') != 'hosted':
+            line = json.dumps(w, ensure_ascii=False)
+            assert src.count(line) == 1, f'catalogue entry {e["id"]} not found on one line'
+            src = src.replace(line, json.dumps(e, ensure_ascii=False))
+            changed = True
     anchor = next(w for w in marx['works'] if w['id'] == AFTER)
     line = json.dumps(anchor, ensure_ascii=False)
     assert src.count(line) == 1, 'catalogue entry for Volume I not found on one line'
@@ -64,9 +73,11 @@ def add_catalogue():
     add = ''.join(',\n' + indent + json.dumps(e, ensure_ascii=False) for e in ENTRIES if e['id'] not in have)
     if add:
         src = src[:i] + add + src[i:]
+        changed = True
+    if changed:
         json.loads(src)
         open(p, 'w', encoding='utf-8').write(src)
-    return bool(add)
+    return changed
 
 
 def main():
