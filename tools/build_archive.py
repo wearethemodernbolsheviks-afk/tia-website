@@ -311,6 +311,11 @@ READER_CSS = """
 .text hr { border: 0; height: auto; text-align: center; margin: 2em 0; }
 .text hr::after { content: "*   *   *"; font-family: 'JetBrains Mono', ui-monospace, monospace; color: #7A4246; }
 .text em { font-style: italic; color: #F2ECE4; }
+.text img { max-width: 100%; height: auto; vertical-align: middle; background: #F2ECE4; }
+.text a.tx-img { border-bottom: 0; }
+.text p > a.tx-img:only-child { display: block; }
+.text p > a.tx-img:only-child img { display: block; margin: 0 auto; padding: 8px; box-sizing: border-box; }
+.text .stk { display: inline-flex; flex-direction: column; vertical-align: middle; margin: 0 2px 0 1px; padding-left: 3px; border-left: 1px solid currentColor; border-radius: 4px 0 0 4px; font-size: 0.62em; line-height: 1.05; text-align: left; }
 .text .flash { animation: rd-flash 3s ease-out 1; }
 @keyframes rd-flash { 0%, 30% { background: rgba(232, 34, 42, 0.16); box-shadow: 0 0 0 10px rgba(232, 34, 42, 0.16); } 100% { background: transparent; box-shadow: 0 0 0 10px transparent; } }
 @media (max-width: 700px) { .text { padding-left: 0; font-size: 18px; } .text > [id]::before { display: none; } }
@@ -501,10 +506,18 @@ def inline(s, lang):
     else:
         s = s.replace(' -- ', ' – ').replace('--', '–')
     s = re.sub(r'(https://www\.marxists\.org/[\w./%-]+[\w/])', r'<a href="\1" rel="noopener">\1</a>', s)
+    # pictures of formulas and tables that a text keeps in content/texts/img/<id>/
+    s = re.sub(r'\[\[IMG:([\w.-]+)(?:\|([^\]]*))?\]\]',
+               lambda m: f'<a class="tx-img" href="img/{m.group(1)}" target="_blank" rel="noopener"><img src="img/{m.group(1)}" '
+                         f'alt="{(m.group(2) or "").replace(chr(34), "&quot;")}" loading="lazy"></a>', s)
+    # a pair of symbols set one above the other after a brace, as in M—C{L over Pm}
+    s = re.sub(r'\{\{([^|{}]{1,12})\|([^|{}]{1,12})\}\}', r'<span class="stk"><span>\1</span><span>\2</span></span>', s)
     return s
 
 
 def plain(s, lang):
+    s = re.sub(r'\[\[IMG:[^\]]*\]\]', ' ', s)
+    s = re.sub(r'\{\{([^|{}]{1,12})\|([^|{}]{1,12})\}\}', r'{\1/\2}', s)
     s = re.sub(r'(?<![\w])_(?=\S)(.+?)(?<=\S)_(?![\w])', r'\1', s, flags=re.S)
     s = s.replace('--', '—' if lang == 'en' else '–')
     return re.sub(r'\s+', ' ', s).strip()
@@ -555,6 +568,11 @@ def parse(text, lang):
                 items.append(('ctr', one))
             else:
                 items.append(('p', one))
+            continue
+        if all(x.startswith('| ') or x == '|' for x in st if x):
+            # lines marked "| " keep their breaks (formulas, schemes, lists set line by line)
+            ind = [len(l) - len(l.lstrip()) for l in lines if l.strip()]
+            items.append(('qlines' if min(ind) >= 2 else 'lines', '\n'.join(x[2:] for x in st if x)))
             continue
         tabular = sum(1 for l in lines if TOCLINE.search(l) or re.search(r'\S {3,}\S', l.strip()))
         if tabular >= max(2, len(lines) // 2):
@@ -765,7 +783,14 @@ def build_reader(a, w, byslug, others):
     txt_head = '\n'.join(filter(None, [
         w['title'].upper(), w.get('subtitle', ''), '', by, w['year'], '', w['edition'],
         rights_txt(w), '-' * 60])) + '\n\n'
-    (folder / f'{w["slug"]}.txt').write_text(txt_head + text.strip() + '\n', encoding='utf-8')
+    txt = re.sub(r'\[\[IMG:[^|\]]*\|?([^\]]*)\]\]', lambda m: f'[{m.group(1) or "Picture"}: see the web page]', text)
+    txt = re.sub(r'\{\{([^|{}]{1,12})\|([^|{}]{1,12})\}\}', r'{\1/\2}', txt)
+    (folder / f'{w["slug"]}.txt').write_text(txt_head + txt.strip() + '\n', encoding='utf-8')
+    imgs = CONTENT / 'texts' / 'img' / w['id']
+    if imgs.is_dir():
+        (folder / 'img').mkdir(exist_ok=True)
+        for f in imgs.iterdir():
+            shutil.copy(f, folder / 'img' / f.name)
 
     (ROOT / 'archive' / 'text').mkdir(parents=True, exist_ok=True)
     (ROOT / 'archive' / 'text' / f'{w["id"]}.json').write_text(

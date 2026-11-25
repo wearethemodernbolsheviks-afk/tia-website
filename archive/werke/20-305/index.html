@@ -233,6 +233,11 @@ mark { background: rgba(232, 34, 42, 0.42); color: #FFFFFF; padding: 0 2px; }
 .text hr { border: 0; height: auto; text-align: center; margin: 2em 0; }
 .text hr::after { content: "*   *   *"; font-family: 'JetBrains Mono', ui-monospace, monospace; color: #7A4246; }
 .text em { font-style: italic; color: #F2ECE4; }
+.text img { max-width: 100%; height: auto; vertical-align: middle; background: #F2ECE4; }
+.text a.tx-img { border-bottom: 0; }
+.text p > a.tx-img:only-child { display: block; }
+.text p > a.tx-img:only-child img { display: block; margin: 0 auto; padding: 8px; box-sizing: border-box; }
+.text .stk { display: inline-flex; flex-direction: column; vertical-align: middle; margin: 0 2px 0 1px; padding-left: 3px; border-left: 1px solid currentColor; border-radius: 4px 0 0 4px; font-size: 0.62em; line-height: 1.05; text-align: left; }
 .text .flash { animation: rd-flash 3s ease-out 1; }
 @keyframes rd-flash { 0%, 30% { background: rgba(232, 34, 42, 0.16); box-shadow: 0 0 0 10px rgba(232, 34, 42, 0.16); } 100% { background: transparent; box-shadow: 0 0 0 10px transparent; } }
 @media (max-width: 700px) { .text { padding-left: 0; font-size: 18px; } .text > [id]::before { display: none; } }
