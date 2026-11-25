@@ -547,7 +547,7 @@ def parse(text, lang):
         if len(lines) == 1:
             if TOCLINE.search(lines[0]):
                 items.append(('pre', lines[0].rstrip()))
-            elif len(one) <= 80 and is_caps(one.replace('_', '')):
+            elif (len(one) <= 80 or (len(one) <= 170 and CHAP.match(one.replace('_', '')))) and is_caps(one.replace('_', '')):
                 items.append(('cand', one))
             elif len(lines[0]) - len(lines[0].lstrip()) >= 20 and len(one) < 60:
                 items.append(('sig', one))
