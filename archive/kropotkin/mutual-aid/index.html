@@ -289,6 +289,15 @@ html.paper .rd-body .rd-end { color: #7A4A47; border-top-color: #D8C3BB; }
 html.paper .rd-body .pn a { color: #B3121B; }
 html.paper .rd-body .hit, html.paper .rd-body mark { background: #F7D6D2; color: #1E100E; }
 html.paper .ov-lines, html.paper .ov-grain, html.paper .ov-band, html.paper .rd-poster, html.paper .inst-x { display: none; }
+/* note markers, as on Wikipedia: superscript links to the note, and the note's number links back */
+.text sup.fr { font-size: 0.68em; line-height: 0; vertical-align: super; margin-left: 1px; scroll-margin-top: 120px; }
+.text sup.fr a { border-bottom: 0; color: #FF8A8E; text-decoration: none; }
+.text sup.fr a:hover { color: #FF5A60; text-decoration: underline; }
+.text sup.fr:target a, .text > p.fn:target { background: rgba(232, 34, 42, 0.2); }
+.text .fn a.fb { border-bottom: 0; color: #FF8A8E; font-weight: 600; }
+.text .fn a.fb:hover { color: #FF5A60; text-decoration: underline; }
+html.paper .rd-body .text sup.fr a, html.paper .rd-body .text .fn a.fb { color: #B3121B; }
+html.paper .rd-body .text sup.fr:target a, html.paper .rd-body .text > p.fn:target { background: #F7D6D2; }
 html.paper .text .flash { animation-name: rd-flash-p; }
 @keyframes rd-flash-p { 0%, 30% { background: rgba(206, 18, 30, 0.12); box-shadow: 0 0 0 10px rgba(206, 18, 30, 0.12); } 100% { background: transparent; box-shadow: 0 0 0 10px transparent; } }
 </style>
@@ -318,6 +327,7 @@ html.paper .text .flash { animation-name: rd-flash-p; }
       <a href="/dispatches/">DISPATCHES</a>
       <a href="/shop/">SHOP</a>
     </nav>
+    <span class="mn" style="display: inline-flex; align-items: center; gap: 10px; font-size: 13px; letter-spacing: 0.12em; color: #A89C95"><span class="dot"></span>TERMINAL 01 · /ARCHIVE/KROPOTKIN</span>
   </div>
 </header>
 

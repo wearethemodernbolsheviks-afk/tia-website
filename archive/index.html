@@ -259,15 +259,24 @@ mark { background: rgba(232, 34, 42, 0.42); color: #FFFFFF; padding: 0 2px; }
       <a href="/dispatches/">DISPATCHES</a>
       <a href="/shop/">SHOP</a>
     </nav>
+    <span class="mn" style="display: inline-flex; align-items: center; gap: 10px; font-size: 13px; letter-spacing: 0.12em; color: #A89C95"><span class="dot"></span>TERMINAL 01 · /ARCHIVE</span>
   </div>
 </header>
 
+<div aria-hidden="true" class="mn" style="overflow: hidden; border-bottom: 1px solid #2B1B1D; background: #100A0B; font-size: 13px; letter-spacing: 0.16em; color: #A89C95; padding: 8px 0">
+  <div class="it-ticker">
+    <span style="padding-right: 56px; white-space: nowrap">INDEX OF MARXISTS /// 12 SUBJECTS /// 7 TENDENCIES /// 75 WORKS /// 30 FULL TEXTS /// 31 NON-MARXISTS /// HEGEL · MARX · ENGELS · PLEKHANOV · LENIN · TROTSKY · LUXEMBURG · LIEBKNECHT · BUKHARIN · LUKÁCS · BORDIGA · GEGENSTANDPUNKT /// READ THE SOURCES ///</span>
+    <span style="padding-right: 56px; white-space: nowrap">INDEX OF MARXISTS /// 12 SUBJECTS /// 7 TENDENCIES /// 75 WORKS /// 30 FULL TEXTS /// 31 NON-MARXISTS /// HEGEL · MARX · ENGELS · PLEKHANOV · LENIN · TROTSKY · LUXEMBURG · LIEBKNECHT · BUKHARIN · LUKÁCS · BORDIGA · GEGENSTANDPUNKT /// READ THE SOURCES ///</span>
+  </div>
+</div>
 
 <section style="position: relative; overflow: hidden; border-bottom: 1px solid #2B1B1D">
   
   <div class="wrap" style="padding-top: clamp(48px, 6vw, 88px); padding-bottom: clamp(40px, 5vw, 72px); display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 28px 48px">
     <div style="flex: 1 1 600px; min-width: 0">
+      <span class="tag">FILE 01 · THE ARCHIVE</span>
       <h1 class="dh it-glitch shade" style="margin: 18px 0 0; font-size: clamp(38px, 5.4vw, 86px); line-height: 1; color: #F2ECE4">INDEX OF MARXISTS</h1>
+      <p class="src">SRC: TIA ARCHIVE · 12 MARXISTS · 75 WORKS · 30 FULL TEXTS · 8 TENDENCIES</p>
       <p style="margin: 22px 0 0; max-width: 620px; padding: 14px 16px; background: rgba(9, 5, 6, 0.72); border-left: 2px solid #E8222A; font-size: 19px; color: #ECE4DC">Every major Marxist, filed by tendency. Open a dossier for their works in order. Texts in the public domain, and a few public-domain originals in freely licensed translations, are here in full and searchable; the rest link to the Marxists Internet Archive.</p>
     </div>
     <form role="search" id="ar-form" action="/archive/" method="get" style="flex: 1 1 360px; min-width: 0; padding: 20px; background: rgba(9, 5, 6, 0.82); border: 1px solid #3A2326">
@@ -298,29 +307,6 @@ mark { background: rgba(232, 34, 42, 0.42); color: #FFFFFF; padding: 0 2px; }
 
 <section class="grid-bg" style="position: relative; overflow: hidden; background-color: rgba(12, 7, 8, 0.84)">
   <div class="wrap" style="padding-top: 36px; padding-bottom: clamp(56px, 7vw, 96px)">
-    <div role="group" aria-label="Filter by tendency" style="display: flex; flex-wrap: wrap; gap: 8px">
-      <button type="button" class="chip on" data-f="all" aria-pressed="true">ALL<span>43</span></button>
-      <button type="button" class="chip" data-f="precursor" aria-pressed="false">PRECURSOR<span>1</span></button>
-      <button type="button" class="chip" data-f="founders" aria-pressed="false">FOUNDERS<span>2</span></button>
-      <button type="button" class="chip" data-f="second" aria-pressed="false">SECOND INTERNATIONAL<span>1</span></button>
-      <button type="button" class="chip" data-f="bolsheviks" aria-pressed="false">BOLSHEVIKS<span>3</span></button>
-      <button type="button" class="chip" data-f="spartacists" aria-pressed="false">SPARTACISTS<span>2</span></button>
-      <button type="button" class="chip" data-f="western" aria-pressed="false">WESTERN MARXISM<span>1</span></button>
-      <button type="button" class="chip" data-f="left" aria-pressed="false">COMMUNIST LEFT<span>1</span></button>
-      <button type="button" class="chip" data-f="mg" aria-pressed="false">MARXISTISCHE GRUPPE<span>1</span></button>
-      <span class="chip-br" aria-hidden="true"></span>
-      <button type="button" class="chip nmc" data-f="nm" aria-pressed="false">NON-MARXISTS<span>31</span></button>
-      <button type="button" class="chip nmc" data-f="philosophers" aria-pressed="false">PHILOSOPHERS<span>5</span></button>
-      <button type="button" class="chip nmc" data-f="economists" aria-pressed="false">ECONOMISTS<span>3</span></button>
-      <button type="button" class="chip nmc" data-f="utopians" aria-pressed="false">EARLY SOCIALISTS<span>4</span></button>
-      <button type="button" class="chip nmc" data-f="anarchists" aria-pressed="false">ANARCHISTS<span>5</span></button>
-      <button type="button" class="chip nmc" data-f="revisionists" aria-pressed="false">REVISIONISTS<span>3</span></button>
-      <button type="button" class="chip nmc" data-f="stalinist-line" aria-pressed="false">STALINIST LINE<span>4</span></button>
-      <button type="button" class="chip nmc" data-f="chinese-line" aria-pressed="false">CHINESE LINE<span>3</span></button>
-      <button type="button" class="chip nmc" data-f="national-liberation" aria-pressed="false">NATIONAL LIBERATION<span>3</span></button>
-      <button type="button" class="chip nmc" data-f="yugoslav-road" aria-pressed="false">YUGOSLAV ROAD<span>1</span></button>
-    </div>
-
     <figure class="it-rv" style="margin: 32px 0 0; padding: 18px 18px 10px; background: rgba(9, 5, 6, 0.85); border: 1px solid #3A2326; overflow-x: auto">
       <svg viewBox="0 0 1200 990" width="100%" role="img" aria-label="Timeline of lifespans from 1632 to today, in groups. The Philosophers: Spinoza 1632 to 1677, Kant 1724 to 1804, Feuerbach 1804 to 1872, Bauer 1809 to 1882, Hess 1812 to 1875. The Economists: Smith 1723 to 1790, Malthus 1766 to 1834, Ricardo 1772 to 1823. The Early Socialists: Saint-Simon 1760 to 1825, Owen 1771 to 1858, Fourier 1772 to 1837, Blanqui 1805 to 1881. The Marxists (Marxists, in red): Hegel 1770 to 1831, Marx 1818 to 1883, Engels 1820 to 1895, Plekhanov 1856 to 1918, Lenin 1870 to 1924, Luxemburg 1871 to 1919, Liebknecht 1871 to 1919, Trotsky 1879 to 1940, Lukács 1885 to 1971, Bukharin 1888 to 1938, Bordiga 1889 to 1970, Gegenstandpunkt 1992 to now. The Anarchists: Stirner 1806 to 1856, Proudhon 1809 to 1865, Bakunin 1814 to 1876, Kropotkin 1842 to 1921, Goldman 1869 to 1940. The Revisionists: Lassalle 1825 to 1864, Bernstein 1850 to 1932, Kautsky 1854 to 1938. The Stalinist Line: Stalin 1878 to 1953, Gramsci 1891 to 1937, Hoxha 1908 to 1985, Kim Il-Sung 1912 to 1994. The Chinese Line: Mao 1893 to 1976, Deng 1904 to 1997, Xi 1953 to now. National Liberation: Ho Chi Minh 1890 to 1969, Castro 1926 to 2016, Guevara 1928 to 1967. The Yugoslav Road: Tito 1892 to 1980. Markers at 1789 (french revolution), 1848 (manifesto), 1871 (paris commune), 1917 (october revolution), 1991 (ussr dissolved)." style="display: block; min-width: 980px">
         <g stroke="#E8222A" stroke-width="1" stroke-dasharray="4 4" opacity="0.8"><path d="M463.5 18V944"></path><path d="M635.2 18V944"></path><path d="M702.2 30V944"></path><path d="M836.1 18V944"></path><path d="M1051.5 18V944"></path></g>
@@ -501,7 +487,9 @@ mark { background: rgba(232, 34, 42, 0.42); color: #FFFFFF; padding: 0 2px; }
 
     <div class="ar-block" id="non-marxists">
       <header class="nm-hero">
+        <span class="tag nm-tag">FILE 01-B · OUTSIDE THE INDEX</span>
         <h2 class="dh">INDEX OF NON-MARXISTS</h2>
+        <p class="src">SRC: TIA ARCHIVE · 31 NON-MARXISTS · 103 WORKS · 23 FULL TEXTS · 9 GROUPS</p>
         <p class="nm-lede">Filed outside the Index of Marxists: the philosophers and economists Marx worked from, the utopians and anarchists he argued with, the revisionists, and the leaders who governed in Lenin's name after him. Read them to know what Marxism answered. Open a file for their works in order; texts in the public domain are here in full and searchable, the rest link to the Marxists Internet Archive or the published text.</p>
       </header>
       <div class="nm-grid" style="grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr)); gap: 20px">

@@ -368,6 +368,15 @@ html.paper .rd-body .rd-end { color: #7A4A47; border-top-color: #D8C3BB; }
 html.paper .rd-body .pn a { color: #B3121B; }
 html.paper .rd-body .hit, html.paper .rd-body mark { background: #F7D6D2; color: #1E100E; }
 html.paper .ov-lines, html.paper .ov-grain, html.paper .ov-band, html.paper .rd-poster, html.paper .inst-x { display: none; }
+/* note markers, as on Wikipedia: superscript links to the note, and the note's number links back */
+.text sup.fr { font-size: 0.68em; line-height: 0; vertical-align: super; margin-left: 1px; scroll-margin-top: 120px; }
+.text sup.fr a { border-bottom: 0; color: #FF8A8E; text-decoration: none; }
+.text sup.fr a:hover { color: #FF5A60; text-decoration: underline; }
+.text sup.fr:target a, .text > p.fn:target { background: rgba(232, 34, 42, 0.2); }
+.text .fn a.fb { border-bottom: 0; color: #FF8A8E; font-weight: 600; }
+.text .fn a.fb:hover { color: #FF5A60; text-decoration: underline; }
+html.paper .rd-body .text sup.fr a, html.paper .rd-body .text .fn a.fb { color: #B3121B; }
+html.paper .rd-body .text sup.fr:target a, html.paper .rd-body .text > p.fn:target { background: #F7D6D2; }
 html.paper .text .flash { animation-name: rd-flash-p; }
 @keyframes rd-flash-p { 0%, 30% { background: rgba(206, 18, 30, 0.12); box-shadow: 0 0 0 10px rgba(206, 18, 30, 0.12); } 100% { background: transparent; box-shadow: 0 0 0 10px transparent; } }
 """
@@ -668,23 +677,89 @@ def parse(text, lang):
     return out
 
 
+NOTE_RE = re.compile(r'^\[(\d{1,3})\] ')
+REF_RE = re.compile(r'\[(\d{1,3})\]')
+
+
+def link_notes(items, lang):
+    """Pair each note marker [n] in the text with the next note block that starts "[n] ", as Wikipedia does:
+    the marker becomes a superscript link to the note, and the note's own [n] links back to the first marker.
+    Numbering may restart chapter by chapter, so a marker always goes to the nearest note of that number after it."""
+    notes = {}                      # number -> item indices of note blocks, in order
+    for i, (k, v) in enumerate(items):
+        if k == 'p' and NOTE_RE.match(v):
+            notes.setdefault(NOTE_RE.match(v).group(1), []).append(i)
+    refs = {}                       # item index -> list of (number, target item index)
+    back = {}                       # note item index -> id of the first marker that points to it
+    for i, (k, v) in enumerate(items):
+        if k in ('pre', 'hr', 'tn') or not isinstance(v, (str, list)):
+            continue
+        text = ' '.join(v) if isinstance(v, list) else v
+        if k == 'p' and NOTE_RE.match(text):
+            continue                # inside a note, leave other numbers alone
+        found = []
+        for m in REF_RE.finditer(text):
+            t = next((j for j in notes.get(m.group(1), []) if j > i), None)
+            found.append((m.group(1), t))
+        if any(t is not None for _, t in found):
+            refs[i] = found
+    return notes, refs, back
+
+
 def render_text(items, lang):
     parts, toc, index = [], [], []
-    n = 0
-    for k, v in items:
+    notes, refs, back = link_notes(items, lang)
+    pid_of, n = {}, 0
+    for i, (k, v) in enumerate(items):
+        if k != 'hr':
+            n += 1
+            pid_of[i] = f'p{n}'
+    note_tip = {i: plain(items[i][1], lang)[len(NOTE_RE.match(items[i][1]).group(0)):] for js in notes.values() for i in js}
+
+    def sup(i, html_):
+        """Turn this item's markers into superscript links, in order."""
+        if i not in refs:
+            return html_
+        it = iter(refs[i])
+        count = [0]
+
+        def one(m):
+            try:
+                num, t = next(it)
+            except StopIteration:
+                return m.group(0)
+            if t is None or num != m.group(1):
+                return m.group(0)
+            count[0] += 1
+            rid = f'r{pid_of[i][1:]}-{count[0]}'
+            back.setdefault(t, rid)
+            tip = note_tip[t]
+            tip = tip if len(tip) <= 300 else tip[:297].rsplit(' ', 1)[0] + '…'
+            return f'<sup class="fr" id="{rid}"><a href="#{pid_of[t]}" title="{attr(tip)}">[{num}]</a></sup>'
+        return REF_RE.sub(one, html_)
+
+    rendered = {}
+    for i, (k, v) in enumerate(items):
+        if k == 'h':
+            rendered[i] = sup(i, '<br>'.join(inline(x, lang) for x in v))
+        elif k in ('pre', 'hr', 'tn'):
+            continue
+        else:
+            rendered[i] = sup(i, inline(v, lang))
+    for i, (k, v) in enumerate(items):
         if k == 'hr':
             parts.append('<hr>')
             continue
-        n += 1
-        pid = f'p{n}'
+        pid = pid_of[i]
+        n = int(pid[1:])
         if k == 'h':
             label = ' · '.join(plain(x, lang).rstrip('.') for x in v)
-            parts.append(f'<h2 id="{pid}">' + '<br>'.join(inline(x, lang) for x in v) + '</h2>')
-            toc.append((pid, label))
+            parts.append(f'<h2 id="{pid}">{rendered[i]}</h2>')
+            toc.append((pid, re.sub(r'\s*\[\d{1,3}\]', '', label)))
             index.append([n, label])
         elif k == 'h3':
-            parts.append(f'<h3 id="{pid}">{inline(v, lang)}</h3>')
-            toc.append((pid, '\u00a0\u00a0' + plain(v, lang)))
+            parts.append(f'<h3 id="{pid}">{rendered[i]}</h3>')
+            toc.append((pid, '  ' + plain(v, lang)))
             index.append([n, plain(v, lang)])
         elif k == 'tn':
             parts.append(f'<div id="{pid}" class="tn">' + ''.join(f'<p style="margin: 0 0 6px">{inline(p, lang)}</p>' for p in v) + '</div>')
@@ -694,13 +769,16 @@ def render_text(items, lang):
             index.append([n, plain(v, lang)])
         else:
             cls = {'cap': 'cap', 'sig': 'sig', 'lines': 'lb', 'qlines': 'lb q', 'ctr': 'ctr', 'q': 'q'}.get(k, '')
+            body = rendered[i]
             if k == 'p' and re.match(r'^(\[\d+\]|\[[A-Z]\]|FOOTNOTE|Footnote|\d+\.\s*\()', v):
                 cls = 'fn'
+                if i in back:
+                    # the note's own number links back to the place in the text that cites it
+                    body = re.sub(r'^\[(\d{1,3})\]', lambda m: f'<a class="fb" href="#{back[i]}" title="Back to the text">[{m.group(1)}]</a>', body, count=1)
             c = f' class="{cls}"' if cls else ''
-            parts.append(f'<p id="{pid}"{c}>{inline(v, lang)}</p>')
+            parts.append(f'<p id="{pid}"{c}>{body}</p>')
             index.append([n, plain(v, lang)])
     return '\n'.join(parts), toc, index
-
 
 # ---------------------------------------------------------------- page parts
 
@@ -1106,10 +1184,6 @@ def build_index(authors, byslug, works, cols, nm=None):
     col_rows = '\n      '.join(collection_row(c) for c in cols)
     main = f"""<section class="grid-bg" style="position: relative; overflow: hidden; background-color: rgba(12, 7, 8, 0.84)">
   <div class="wrap" style="padding-top: 36px; padding-bottom: clamp(56px, 7vw, 96px)">
-    <div role="group" aria-label="Filter by tendency" style="display: flex; flex-wrap: wrap; gap: 8px">
-      {chips}
-    </div>
-
     {build_timeline(authors, nm)}
 
     <div class="ar-block" id="marxists">
@@ -2177,38 +2251,6 @@ def build_nm(d, byslug):
     return sum(1 for p in people if not p.get('author')), total
 
 
-TAGLINE_PAGES_SKIP = ('tools/', 'node_modules/')
-
-
-def strip_taglines(t):
-    """No taglines: scrolling tickers, the terminal status, 'SRC:' lines, 'FILE 01' kickers,
-    the home page's status chips, telemetry and the readouts around the Marx bust are taken out."""
-    t = re.sub(r'<div aria-hidden="true" class="mn" style="overflow: hidden;[^"]*">\s*<div class="it-ticker">(?:(?!</div>).)*</div>\s*</div>\n?', '', t, flags=re.S)
-    t = re.sub(r'\n?[ \t]*<span class="mn" style="display: inline-flex; align-items: center; gap: 10px;[^"]*"><span class="dot"></span>TERMINAL 01[^<]*</span>', '', t)
-    t = re.sub(r'\n?[ \t]*<p class="src(?: shade)?">SRC: [^<]*</p>', '', t)
-    t = re.sub(r'\n?[ \t]*<span class="tag[^"]*">FILE 01[^<]*</span>', '', t)
-    t = t.replace(' · REVISIONS SINCE 1848: 0', '')
-    t = re.sub(r'\n?[ \t]*<p class="mn it-type glow-r"[^>]*>TIA // [^<]*</p>', '', t)
-    t = re.sub(r'\n?[ \t]*<div class="mn" style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 40px;[^"]*">\s*<span[^>]*><span class="dot"></span>ARCHIVE: OPEN</span>.*?\n[ \t]*</div>', '', t, flags=re.S)
-    t = re.sub(r'\n?[ \t]*<span class="co[^"]*" aria-hidden="true" style="[^"]*"><b>(?:SUBJECT 01 · K\. MARX|HEX MATRIX · [\d,]+ CELLS|THEORY v1848|REVISIONS · 0)</b><i></i></span>', '', t)
-    t = re.sub(r'\n?[ \t]*<div class="inst inst-read mn">.*?</div>(?=\n)', '', t, flags=re.S)
-    return t
-
-
-def strip_taglines_everywhere():
-    n = 0
-    for f in ROOT.rglob('*.html'):
-        rel = f.relative_to(ROOT).as_posix()
-        if rel.startswith(TAGLINE_PAGES_SKIP):
-            continue
-        s = f.read_text(encoding='utf-8')
-        t = strip_taglines(s)
-        if t != s:
-            f.write_text(t, encoding='utf-8')
-            n += 1
-    return n
-
-
 def main():
     authors, byslug, works, cols = load()
     # clear old generated output so removed works disappear
@@ -2273,7 +2315,6 @@ def main():
     nh = sum(1 for w in works.values() if w['kind'] == 'hosted')
     print(f'{len(authors)} authors, {len(works)} works ({nh} full texts, {total:,} words), '
           f'{sum(1 for c in cols if c.get("url", "").startswith("/"))} collection pages, {n} sitemap URLs')
-    print(f'  taglines taken out of {strip_taglines_everywhere()} pages')
 
 
 if __name__ == '__main__':
