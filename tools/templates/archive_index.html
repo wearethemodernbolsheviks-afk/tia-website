@@ -110,6 +110,9 @@ img { display: block; max-width: 100%; }
   .ov-lines, .ov-grain, .ov-band, .inst-ruler i, .inst-hex > div, .inst-x, .it-ticker, .dot, .sec-bg, .it-glitch, .it-bscan, .it-sweep, .it-rv { animation: none !important; }
   .ov-band, .inst-x, .it-bscan, .it-sweep { display: none; }
 }
+
+/* no scan lines: the CRT line overlay, the rolling band and the red bars across the portraits are off */
+.ov-lines, .ov-band, .it-bscan { display: none !important; }
 </style>
 </head>
 <body>

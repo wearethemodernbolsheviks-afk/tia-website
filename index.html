@@ -161,6 +161,9 @@ a.panel:hover { border-color: #E8222A; }
   .it-roller > span { transform: translateY(-90%); }
 }
 
+/* no scan lines: the CRT line overlay, the rolling band and the red bars across the portraits are off */
+.ov-lines, .ov-band, .it-bscan { display: none !important; }
+
 /* the household-terminal room: cream paper and red ink, as in Oppie's America and ALL POWER */
 .room { --pi: #3A0A0D; --pd: #7A4A47; --pr: #CE121E; --pl: #E2C8C2; --pp: #FBF6F3; position: relative; color: var(--pi); background-color: #F4ECE6; background-image: linear-gradient(rgba(110, 8, 14, 0.055) 1px, transparent 1px), linear-gradient(90deg, rgba(110, 8, 14, 0.055) 1px, transparent 1px); background-size: 48px 48px; border-top: 3px solid #CE121E; border-bottom: 3px solid #CE121E; }
 .room a { color: var(--pi); }
