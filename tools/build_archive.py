@@ -36,14 +36,14 @@ CHIPS = [('all', 'ALL'), ('precursor', 'PRECURSOR'), ('founders', 'FOUNDERS'),
          ('mg', 'MARXISTISCHE GRUPPE')]
 DISPLAY = {'hegel': 'G. W. F. Hegel', 'marx': 'Karl Marx', 'engels': 'Friedrich Engels',
            'lassalle': 'Ferdinand Lassalle', 'kautsky': 'Karl Kautsky', 'plekhanov': 'G. V. Plekhanov', 'lenin': 'V. I. Lenin', 'trotsky': 'Leon Trotsky',
-           'luxemburg': 'Rosa Luxemburg', 'liebknecht': 'Karl Liebknecht', 'bukharin': 'N. I. Bukharin', 'lukacs': 'Georg Lukács', 'bordiga': 'Amadeo Bordiga',
+           'luxemburg': 'Rosa Luxemburg', 'liebknecht': 'Karl Liebknecht', 'bukharin': 'N. I. Bukharin', 'lukacs': 'Georg Lukács', 'gramsci': 'Antonio Gramsci', 'bordiga': 'Amadeo Bordiga',
            'gegenstandpunkt': 'GegenStandpunkt'}
 
 
 # Full-colour posters used as moving backgrounds (no duotone).
 POSTER = {'hegel': 'p_hp_napoleon', 'marx': 'p_mon_marx_chemnitz', 'engels': 'p_mon_magnitogorsk',
           'lassalle': 'p_hp_marianne', 'kautsky': 'p_share_the_land', 'plekhanov': 'p_nine_days', 'lenin': 'p_mon_lenin_head', 'trotsky': 'p_raise_it_higher',
-          'luxemburg': 'p_rom_romantics', 'liebknecht': 'p_rom_come_back', 'bukharin': 'p_mon_worker_kolkhoz', 'lukacs': 'p_mon_motherland_bw', 'bordiga': 'p_audit_no_country',
+          'luxemburg': 'p_rom_romantics', 'liebknecht': 'p_rom_come_back', 'bukharin': 'p_mon_worker_kolkhoz', 'lukacs': 'p_mon_motherland_bw', 'gramsci': 'p_mon_motherland_bw', 'bordiga': 'p_audit_no_country',
           'gegenstandpunkt': 'p_mon_towers'}
 AUTHOR_WALL = {
     'hegel': ['p_hp_marianne', 'p_hp_napoleon', 'p_mon_moon', 'p_mon_motherland_bw'],
@@ -373,10 +373,25 @@ html.paper .text .flash { animation-name: rd-flash-p; }
 """
 
 
-def page(title, desc, path, body, css='', ticker=None, current_label=None, foot_label=None, script=True, bg=None):
-    """Wrap body markup in the shared archive chrome."""
+PLAIN_CSS = """
+/* plain archive pages: the texts come first; no motion, scan lines or instrument marks */
+.it-rv, .it-glitch, .dh, .rd-h1, .it-ticker { animation: none !important; opacity: 1 !important; transform: none !important; }
+.it-bscan, .it-sweep, .hc, .co { display: none !important; }
+.shade { text-shadow: none !important; }
+.grid-bg, .dos-img { background-image: none !important; }
+"""
+
+def page(title, desc, path, body, css='', ticker=None, current_label=None, foot_label=None, script=True, bg=None, plain=None, html_class=''):
+    """Wrap body markup in the shared archive chrome. Archive pages are plain: no overlays, poster, ticker or motion."""
     canon = SITE + path
+    if plain is None:
+        plain = path.startswith('/archive/')
+    if plain:
+        bg, ticker = None, None
+        css = PLAIN_CSS + css
     header = HEADER
+    if plain:
+        header = re.sub(r'\n    <span class="mn" style="display: inline-flex[^\n]*TERMINAL 01[^\n]*</span>', '', header)
     if current_label:
         header = header.replace('TERMINAL 01 · /ARCHIVE', f'TERMINAL 01 · {esc(current_label)}')
     footer = FOOTER.replace('<span>INVARIANCETECH.INFO/ARCHIVE</span>', '<span style="overflow-wrap: anywhere; min-width: 0">INVARIANCETECH.INFO/ARCHIVE</span>')
@@ -390,7 +405,7 @@ def page(title, desc, path, body, css='', ticker=None, current_label=None, foot_
                 f'    <span style="padding-right: 56px; white-space: nowrap">{t}</span>\n'
                 '  </div>\n</div>\n')
     return f"""<!doctype html>
-<html lang="en">
+<html lang="en"{f' class="{html_class}"' if html_class else ''}>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -418,7 +433,7 @@ def page(title, desc, path, body, css='', ticker=None, current_label=None, foot_
 <body>
 {page_bg(bg)}<div style="position: relative; color: #F2ECE4; font-family: Inter, system-ui, sans-serif; font-size: 17px; line-height: 1.55">
 
-{OVERLAYS}
+{'' if plain else OVERLAYS}
 {header}
 
 {tick}{body}
@@ -457,8 +472,7 @@ def load():
     for a in cat['authors']:
         f = facts[a['slug']]
         a.update(f)
-        if not (ROOT / a['img'].lstrip('/')).exists():
-            a['img'] = ''               # the portrait has not arrived yet
+        a['img'] = portrait(a['slug'])
         a['display'] = DISPLAY[a['slug']]
         a['short'] = DISPLAY.get(a['slug'], a['slug']).split()[-1].upper()
         a['nm'] = bool(a.get('filed'))     # a dossier filed among the non-Marxists (others.json group code)
@@ -703,11 +717,16 @@ def render_text(items, lang):
 
 # ---------------------------------------------------------------- page parts
 
+def portrait(slug):
+    """The statue portrait as a 480-pixel WebP on the page colour (the full PNGs are 300 KB to 1 MB each)."""
+    return f'/assets/hexw/{slug}.webp' if (ROOT / 'assets' / 'hexw' / f'{slug}.webp').exists() else ''
+
+
 def bust_img(a, alt=''):
     if a.get('img'):
-        return f'<img src="{a["img"]}" alt="{attr(alt)}">'
+        return f'<img src="{a["img"]}" alt="{attr(alt)}" decoding="async">'
     return ('<span class="mn" style="align-self: center; padding: 0 10px; text-align: center; font-size: 12px; '
-            'letter-spacing: 0.14em; color: #6E5A55">NO PORTRAIT ON FILE</span>')
+            'letter-spacing: 0.14em; color: #6E5A55">NO PORTRAIT YET</span>')
 
 
 def dossier_card(a, i):
@@ -867,27 +886,25 @@ def build_reader(a, w, byslug, others):
     prv = hosted[k - 1] if k > 0 else None
     nxt = hosted[k + 1] if k + 1 < len(hosted) else None
     pn = '<div class="pn mn">'
-    pn += f'<a href="{prv["path"]}">← {esc(prv["title"].upper())}</a>' if prv else f'<a href="{a["url"]}">← {a["short"]} DOSSIER</a>'
+    pn += f'<a href="{prv["path"]}">← {esc(prv["title"].upper())}</a>' if prv else f'<a href="{a["url"]}">← ALL OF {a["short"]}</a>'
     pn += (f'<a href="{nxt["path"]}">{esc(nxt["title"].upper())} →</a>' if nxt else
            f'<a href="{NM_HOME}">INDEX OF NON-MARXISTS →</a>' if a.get('nm') else '<a href="/archive/">INDEX OF MARXISTS →</a>')
     pn += '</div>'
 
     sub = f'<p class="rd-sub">{esc(w["subtitle"])}</p>' if w.get('subtitle') else ''
-    body = f"""<script>try {{ if (localStorage.getItem('tia-read') === 'paper') document.documentElement.classList.add('paper'); }} catch (e) {{}}</script>
+    body = f"""<script>try {{ if (localStorage.getItem('tia-read') === 'dark') document.documentElement.classList.remove('paper'); }} catch (e) {{}}</script>
 <div class="rd-prog" aria-hidden="true"></div>
-<div class="rd-poster" aria-hidden="true" style="--ar: {poster_ar(poster)}; background-image: url('/assets/bgp/{poster}-1x.webp'); background-image: image-set(url('/assets/bgp/{poster}-1x.webp') 1x, url('/assets/bgp/{poster}.webp') 2x)"></div>
 <section style="position: relative; border-bottom: 1px solid #2B1B1D">
   <div class="wrap rd-hero-wrap" style="padding-top: 26px; padding-bottom: clamp(32px, 4vw, 52px)">
     {crumbs(*([('ARCHIVE', '/archive/')] + ([('NON-MARXISTS', NM_HOME)] if a.get('nm') else []) + [(a['short'], a['url']), (w['title'].upper(), None)]))}
     <div class="rd-head">
-      <a href="{a['url']}" class="bust" aria-label="{attr(a['display'])} dossier">{bust_img(a)}<span class="hc tl"></span><span class="hc tr"></span><span class="hc bl"></span><span class="hc br"></span><span class="it-bscan" aria-hidden="true" style="position: absolute; left: 0; right: 0; height: 2px; background: #FF5A60; box-shadow: 0 0 10px rgba(232, 34, 42, 0.8)"></span></a>
       <div style="flex: 1 1 520px; min-width: 0">
         <span class="tag">FULL TEXT · {a['short']} · {esc(w['year'])}</span>
-        <h1 class="rd-h1 it-glitch">{esc(w['title'])}</h1>
+        <h1 class="rd-h1">{esc(w['title'])}</h1>
         {sub}
         <p class="src">{esc(by.upper())} · {esc(w['year'])} · {words(nwords)} WORDS · {rt} · {'ENGLISH' if lang == 'en' else 'DEUTSCH'}</p>
         <p class="rd-ed">{esc(w['edition'])} {rights_html(w)}</p>
-        <div class="rd-act"><a class="btn" href="#p1">Start reading</a>{f'<a class="btn gh" href="{WK_URL}{w["de"]}/">DEUTSCHES ORIGINAL</a>' if w.get('de') else ''}<a class="btn gh" href="{w['slug']}.txt" download>DOWNLOAD .TXT</a><button type="button" class="btn gh rd-paper-t" data-paper aria-pressed="false"><i aria-hidden="true"></i><span>PAPER MODE</span></button><a class="btn gh" href="{a['url']}">{a['short']} DOSSIER</a></div>
+        <div class="rd-act"><a class="btn" href="#p1">Start reading</a>{f'<a class="btn gh" href="{WK_URL}{w["de"]}/">DEUTSCHES ORIGINAL</a>' if w.get('de') else ''}<a class="btn gh" href="{w['slug']}.txt" download>DOWNLOAD .TXT</a><button type="button" class="btn gh rd-paper-t" data-paper aria-pressed="true"><i aria-hidden="true"></i><span>DARK MODE</span></button><a class="btn gh" href="{a['url']}">MORE BY {a['short']}</a></div>
       </div>
     </div>
   </div>
@@ -906,7 +923,7 @@ def build_reader(a, w, byslug, others):
     </div>
   </div>
 </section>
-<button type="button" class="rd-paper-t rd-paper-f mn" data-paper aria-pressed="false"><i aria-hidden="true"></i><span>PAPER MODE</span></button>
+<button type="button" class="rd-paper-t rd-paper-f mn" data-paper aria-pressed="true"><i aria-hidden="true"></i><span>DARK MODE</span></button>
 <script>
 (function () {{
   var root = document.documentElement, btns = document.querySelectorAll('[data-paper]');
@@ -922,7 +939,7 @@ def build_reader(a, w, byslug, others):
     title = f'{w["title"]} · {by} · TIA Archive'
     desc = f'Full text of {w["title"]} ({w["year"]}) by {by}. {w["edition"]} Free to read and download.'
     out = page(title, desc, w['path'], body, css=READER_CSS, current_label=f'/ARCHIVE/{a["short"]}',
-               foot_label='INVARIANCETECH.INFO' + w['path'].rstrip('/').upper())
+               foot_label='INVARIANCETECH.INFO' + w['path'].rstrip('/').upper(), html_class='paper')
     (folder / 'index.html').write_text(out, encoding='utf-8')
     return nwords
 
@@ -959,11 +976,11 @@ def build_author(a, prev_a, next_a, byslug, cols):
     <div class="au-grid">
       <div class="dos-img au-img">{bust_img(a, a['alt'])}<span class="hc tl"></span><span class="hc tr"></span><span class="hc bl"></span><span class="hc br"></span>{f'<span class="co r" aria-hidden="true" style="top: 22%; right: 10px"><b>{a["hex"]}</b><i></i></span>' if a['img'] else ''}<span class="it-bscan" aria-hidden="true" style="position: absolute; left: 0; right: 0; height: 2px; background: #FF5A60; box-shadow: 0 0 10px rgba(232, 34, 42, 0.8)"></span></div>
       <div style="min-width: 0">
-        <span class="tag">{f"{a['group']} · {esc(a['grp']['title'].upper())}" if a.get('nm') else f"SUBJECT {a['num']} · {a['tg']}"}</span>
+        <span class="tag">{esc(a['grp']['title'].upper()) if a.get('nm') else a['tg']}</span>
         <h1 class="dh it-glitch shade" style="margin: 18px 0 0; font-size: clamp(36px, 5vw, 78px); line-height: 0.98; color: #F2ECE4">{a['name']}</h1>
         <p class="src shade">{a['yr']}</p>
         <p class="shade" style="margin: 20px 0 0; max-width: 640px; font-size: 19px; color: #ECE4DC">{a['role']}</p>
-        <div class="stats"><div><b>{len(a['bib']):,}</b><span>ITEMS FILED</span></div><div><b>{nh}</b><span>FULL TEXTS HERE</span></div><div><b>{bib_y0}</b><span>FIRST ITEM</span></div><div><b>{bib_y1}</b><span>LAST ITEM</span></div></div>
+        <div class="stats"><div><b>{len(a['bib']):,}</b><span>WORKS LISTED</span></div><div><b>{nh}</b><span>FULL TEXTS HERE</span></div><div><b>{bib_y0}</b><span>FIRST WORK</span></div><div><b>{bib_y1}</b><span>LAST WORK</span></div></div>
         {cw_link}
         <p class="mn" style="margin: 16px 0 0; font-size: 14px; letter-spacing: 0.12em"><a href="{attr(a['mia'])}" target="_blank" rel="noopener" style="color: #FF5A60">{f"{a['short']} ON MARXISTS.ORG" if 'marxists.org' in a['mia'] else re.sub(r'^https?://(www[.])?', '', a['mia']).strip('/').upper()} ↗</a></p>
       </div>
@@ -983,7 +1000,7 @@ def build_author(a, prev_a, next_a, byslug, cols):
     </div>
     {f'<div class="it-rv" style="margin-top: 48px"><p class="mn sec-h">FILED IN COLLECTIONS</p>{colrows}</div>' if colrows.strip() else ''}
     {f'<div class="pn mn"><a href="{prev_a["url"]}">← {esc(prev_a["short"])}</a><a href="{NM_HOME}">ALL NON-MARXISTS</a><a href="{next_a["url"]}">{esc(next_a["short"])} →</a></div>' if a.get('nm') else
-     f'<div class="pn mn"><a href="{prev_a["url"]}">← SUBJECT {prev_a["num"]} · {prev_a["short"]}</a><a href="/archive/">INDEX</a><a href="{next_a["url"]}">SUBJECT {next_a["num"]} · {next_a["short"]} →</a></div>'}
+     f'<div class="pn mn"><a href="{prev_a["url"]}">← {prev_a["short"]}</a><a href="/archive/#marxists">ALL MARXISTS</a><a href="{next_a["url"]}">{next_a["short"]} →</a></div>'}
   </div>
 </section>"""
     ticker = (f"{a['group']} /// NON-MARXISTS · {a['grp']['title'].upper()}" if a.get('nm') else f"DOSSIER {a['num']}") + \
@@ -1030,39 +1047,117 @@ def build_collection(c, byslug, cols):
     (d / 'index.html').write_text(out, encoding='utf-8')
 
 
-def build_index(authors, byslug, works, cols, nm=None):
+AX_CSS = """
+.ax-top { border-bottom: 1px solid #2B1B1D; }
+.ax-h1 { margin: 14px 0 0; font-family: Inter, system-ui, sans-serif; font-weight: 900; font-size: clamp(34px, 5vw, 62px); line-height: 1.02; letter-spacing: -0.01em; color: #F2ECE4; }
+.ax-lede { margin: 16px 0 0; max-width: 780px; font-size: 19px; line-height: 1.55; color: #DCD2CA; }
+.ax-n { margin: 12px 0 0; font-size: 13px; letter-spacing: 0.12em; color: #A89C95; }
+.ax-search { display: flex; gap: 10px; margin-top: 22px; max-width: 780px; }
+.ax-search input { flex: 1; min-width: 0; min-height: 52px; box-sizing: border-box; padding: 0 14px; background: #090506; border: 2px solid #3A2326; color: #F2ECE4; font-family: Inter, sans-serif; font-size: 17px; }
+.ax-search input:focus { border-color: #E8222A; outline: none; }
+.ax-search button { min-height: 52px; padding: 0 20px; border: 0; background: #C81D25; color: #FFFFFF; font-family: Inter, sans-serif; font-weight: 800; font-size: 16px; cursor: pointer; }
+.ax-search-n { margin: 10px 0 0; font-size: 12px; letter-spacing: 0.1em; color: #A89C95; }
+.ax-jump { display: flex; flex-wrap: wrap; gap: 8px 20px; margin: 22px 0 0; padding: 0; list-style: none; font-size: 14px; letter-spacing: 0.08em; }
+.ax-jump a { color: #FF8A8E; border-bottom: 1px dotted #6E3A3D; }
+.ax-jump a:hover { color: #FF5A60; }
+.ax-look { margin: 14px 0 0; font-size: 16px; color: #CFC4BC; }
+.ax-look a { color: #F2ECE4; border-bottom: 1px solid #6E6461; }
+.ax-sec { margin-top: 52px; scroll-margin-top: 16px; }
+.ax-sec > h2 { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 6px 12px; margin: 0; padding-bottom: 10px; border-bottom: 2px solid #E8222A; font-family: Inter, system-ui, sans-serif; font-weight: 900; font-size: 30px; line-height: 1.1; color: #F2ECE4; }
+.ax-sec.nm > h2 { border-bottom-color: #F2ECE4; }
+.ax-sec > h2 span { font-family: 'JetBrains Mono', ui-monospace, monospace; font-weight: 400; font-size: 13px; letter-spacing: 0.12em; color: #A89C95; }
+.ax-file { margin: 16px 0 0; max-width: 820px; padding: 14px 16px; border-left: 2px solid #F2ECE4; background: rgba(242, 236, 228, 0.04); font-size: 16px; line-height: 1.55; color: #DCD2CA; }
+.ax-g { margin-top: 26px; scroll-margin-top: 16px; }
+.ax-g h3 { margin: 0; font-family: 'JetBrains Mono', ui-monospace, monospace; font-weight: 400; font-size: 14px; letter-spacing: 0.14em; color: #FF5A60; }
+.ax-sec.nm .ax-g h3 { color: #F2ECE4; }
+.ax-g > p { margin: 4px 0 6px; max-width: 780px; font-size: 15px; line-height: 1.5; color: #A89C95; }
+.ax-row { display: grid; grid-template-columns: minmax(0, 14em) 7em minmax(0, 1fr) auto; gap: 2px 18px; align-items: baseline; padding: 11px 0; border-top: 1px solid #241618; color: #F2ECE4; scroll-margin-top: 16px; }
+.ax-row b { font-weight: 800; font-size: 18px; line-height: 1.3; }
+.ax-row .yr { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 13px; color: #A89C95; }
+.ax-row .ro { font-size: 15px; line-height: 1.45; color: #CFC4BC; }
+.ax-row .ct { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; letter-spacing: 0.06em; color: #A89C95; white-space: nowrap; }
+.ax-row .ct i { font-style: normal; color: #39D98A; }
+.ax-row:hover b, .ax-row:focus-visible b { color: #FF5A60; }
+.ax-row:target { background: rgba(232, 34, 42, 0.08); }
+@media (max-width: 820px) { .ax-row { grid-template-columns: minmax(0, 1fr) auto; } .ax-row .ro, .ax-row .ct { grid-column: 1 / -1; } }
+@media (max-width: 640px) { .ax-sec .row.wk { flex-wrap: wrap; gap: 4px 12px; } .ax-sec .row.wk .ld { display: none; } .ax-sec .row.wk .ti { flex: 1 1 100%; } }
+"""
+
+
+def ax_years(yr):
+    b, d = life(html.unescape(yr))
+    return f'{b}–{d}' if d else f'{b}–'
+
+
+def ax_row(slug, url, name, yr, role, hosted, works_n):
+    ct = (f'<i>{hosted} FULL TEXT{"S" if hosted != 1 else ""}</i> · ' if hosted else '') + f'{works_n:,} WORK{"S" if works_n != 1 else ""}'
+    return (f'<a class="ax-row" id="{slug}" href="{url}"><b>{name}</b><span class="yr">{ax_years(yr)}</span>'
+            f'<span class="ro">{role}</span><span class="ct">{ct}</span></a>')
+
+
+def build_index(authors, byslug, works, cols, nm=None, nde=0):
+    """The archive's front page: what it holds, a search box, and plain grouped lists of everyone in it."""
     every = authors
     authors = [a for a in every if not a.get('nm')]            # the Index of Marxists proper
     nm_people = nm['people'] if nm else []                      # with the dossiers filed among them
-    nm_works = [w for p in nm_people for w in p['works']]
     own_nm = [w for p in nm_people if not p.get('author') for w in p['works']]
     hosted = sorted([w for w in list(works.values()) + own_nm if w['kind'] == 'hosted'], key=lambda w: (year0(w['year']), w['title']))
     nh = len(hosted)
-    mworks = {k: w for k, w in works.items() if not byslug[w['author']].get('nm')}
-    nworks = len(works) + len(own_nm)
-    mh = sum(1 for w in mworks.values() if w['kind'] == 'hosted')
-    nmh = sum(1 for w in nm_works if w['kind'] == 'hosted')
-    t = ARCH_TPL
-    # hero: counts and a real search form
-    t = t.replace('SRC: TIA ARCHIVE · 12 SUBJECTS · 7 TENDENCIES · 1770 — 1971',
-                  f'SRC: TIA ARCHIVE · {len(authors)} MARXISTS · {len(mworks)} WORKS · {mh} FULL TEXTS · {len(CHIPS) - 1} TENDENCIES')
-    t = t.replace('/// 1770 — 1971 ///', f'/// {len(mworks)} WORKS /// {mh} FULL TEXTS /// {len(nm_people)} NON-MARXISTS ///')
-    for a in every:
-        if a.get('nm'):
-            t = re.sub(r'(INDEX OF MARXISTS ///[^<]*?) · ' + re.escape(a['short']) + r'(?= ·)', r'\1', t)
-    t = t.replace('/// 12 SUBJECTS ///', f'/// {len(authors)} SUBJECTS ///')
-    t = t.replace('Every major thinker, filed by tendency. Open a dossier to read their works in order, from the first article to the last letter.',
-                  'Every major Marxist, filed by tendency. Open a dossier for their works in order. Texts in the public domain, and a few public-domain originals in freely licensed translations, are here in full and searchable; the rest link to the Marxists Internet Archive.')
-    search = f"""<form role="search" id="ar-form" action="/archive/" method="get" style="flex: 1 1 360px; min-width: 0; padding: 20px; background: rgba(9, 5, 6, 0.82); border: 1px solid #3A2326">
-      <label for="ar-q" class="mn" style="display: block; font-size: 14px; letter-spacing: 0.14em; color: #A89C95">&gt; QUERY THE ARCHIVE</label>
-      <div style="display: flex; gap: 10px; margin-top: 12px">
-        <input id="ar-q" name="q" type="search" autocomplete="off" placeholder="Name, work, year or phrase" style="flex: 1; min-width: 0; min-height: 52px; box-sizing: border-box; padding: 0 14px; background: #090506; border: 2px solid #3A2326; color: #F2ECE4; font-family: Inter, sans-serif; font-size: 17px">
-        <button type="submit" style="min-height: 52px; padding: 0 20px; border: 0; background: #C81D25; color: #FFFFFF; font-family: Inter, sans-serif; font-weight: 800; font-size: 16px; cursor: pointer">Search</button>
-      </div>
-      <p class="mn" style="margin: 12px 0 0; font-size: 12px; letter-spacing: 0.1em; color: #A89C95">SEARCHES {sum(len(a['bib']) for a in every):,} TITLES AND THE FULL TEXT OF {nh} WORKS</p>
-    </form>"""
-    t = re.sub(r'<div role="search".*?</button>\n      </div>\n    </div>', lambda m: search, t, count=1, flags=re.S)
-    results = """
+    nbib = sum(len(a['bib']) for a in every)
+
+    def a_row(a):
+        h = sum(1 for w in a['works'] if w['kind'] == 'hosted')
+        return ax_row(a['slug'], a['url'], esc(a['display']), a['yr'], a['role'], h, max(len(a.get('bib', [])), len(a['works'])))
+
+    groups = []
+    for k, label in CHIPS[1:]:
+        ps = [a for a in authors if a['tendency'] == k]
+        if ps:
+            groups.append(f'<div class="ax-g" id="t-{k}"><h3>{label}</h3>\n' + '\n'.join(a_row(a) for a in ps) + '</div>')
+    nm_groups = []
+    for g in (nm['groups'] if nm else []):
+        if not g['people']:
+            continue
+        rows = []
+        for p in g['people']:
+            if p.get('author'):
+                rows.append(a_row(p['author']))
+            else:
+                h = sum(1 for w in p['works'] if w['kind'] == 'hosted')
+                rows.append(ax_row(p['slug'], p['url'], esc(p['name']), p['years'], esc(p['role']), h, len(p['works'])))
+        nm_groups.append(f'<div class="ax-g" id="g-{g["slug"]}"><h3>{esc(g["title"].upper())}</h3><p>{esc(g["blurb"])}</p>\n' + '\n'.join(rows) + '</div>')
+    text_rows = '\n      '.join(work_row(w, byslug, show_author=True) for w in hosted)
+    col_rows = '\n      '.join(collection_row(c) for c in cols)
+    looked = [p for p in nm_people if p['slug'] in ('stalin', 'mao', 'deng')]
+    look = ('<p class="ax-look">Looking for ' + ', '.join(f'<a href="#{p["slug"]}">{esc(p["name"].split()[-1] if p["slug"] != "mao" else "Mao")}</a>' for p in looked[:-1]) +
+            f' or <a href="#{looked[-1]["slug"]}">{"Deng" if looked[-1]["slug"] == "deng" else esc(looked[-1]["name"])}</a>? They are in the <a href="#non-marxists">Index of Non-Marxists</a>, below the Marxists.</p>') if len(looked) > 1 else ''
+    filing = (f'<p class="ax-file">The Index of Marxists is this archive\'s judgement of who kept to Marx\'s programme. Everyone else here, '
+              'the thinkers Marxism came out of, its rivals, and the parties and states that governed in its name, is filed in this index, '
+              'and their works are listed just as fully. The Marxists Internet Archive draws a similar line: it keeps Stalin and Mao in its '
+              'Reference Archive, apart from its Marxist writers.</p>')
+    body = f"""<section class="ax-top">
+  <div class="wrap" style="padding-top: 26px; padding-bottom: 34px">
+    <span class="tag">THE ARCHIVE</span>
+    <h1 class="ax-h1">The Archive of World Marxism</h1>
+    <p class="ax-lede">The Marxist classics in full, free to read and search; every writer's works listed by date, with links to where the rest can be read; and Marx and Engels in the original German.</p>
+    <p class="ax-n mn">{nh} FULL TEXTS · {nbib:,} WORKS LISTED · {nde:,} GERMAN ORIGINALS · {len(authors)} MARXISTS · {len(nm_people)} NON-MARXISTS</p>
+    <form role="search" id="ar-form" action="/archive/" method="get">
+      <label for="ar-q" class="mn" style="position: absolute; left: -9999px">Search the archive</label>
+      <div class="ax-search"><input id="ar-q" name="q" type="search" autocomplete="off" placeholder="Name, work, year or phrase"><button type="submit">Search</button></div>
+      <p class="ax-search-n mn">SEARCHES {nbib:,} TITLES AND THE FULL TEXT OF {nh} WORKS</p>
+    </form>
+    <ul class="ax-jump mn">
+      <li><a href="#marxists">MARXISTS</a></li>
+      <li><a href="#non-marxists">NON-MARXISTS</a></li>
+      <li><a href="#texts">FULL TEXTS</a></li>
+      <li><a href="{WK_URL}">GERMAN ORIGINALS</a></li>
+      <li><a href="#timeline">TIMELINE</a></li>
+      <li><a href="#collections">COLLECTIONS</a></li>
+    </ul>
+    {look}
+  </div>
+</section>
+
 <section id="ar-results" hidden style="background: #0C0708; border-bottom: 1px solid #2B1B1D">
   <div class="wrap" style="padding-top: 32px; padding-bottom: 40px">
     <div class="res-box" aria-live="polite">
@@ -1076,79 +1171,38 @@ def build_index(authors, byslug, works, cols, nm=None):
     </div>
   </div>
 </section>
-"""
-    t = t.replace('<div aria-hidden="true" class="sec-bg" style="background-image: url(\'/assets/bg_archivepage.webp\')"></div>',
-                  '', 1)
-    t = t.replace('<h1 class="dh it-glitch" style="margin: 18px 0 0; font-size: clamp(38px, 5.4vw, 86px)', '<h1 class="dh it-glitch shade" style="margin: 18px 0 0; font-size: clamp(38px, 5.4vw, 86px)', 1)
-    t = t.replace('<p style="margin: 22px 0 0; max-width: 620px; font-size: 19px; color: #DCD2CA">', '<p style="margin: 22px 0 0; max-width: 620px; padding: 14px 16px; background: rgba(9, 5, 6, 0.72); border-left: 2px solid #E8222A; font-size: 19px; color: #ECE4DC">', 1)
-    hero_end = t.index('</section>', t.index('id="ar-form"')) + len('</section>')
-    t = t[:hero_end] + '\n' + results + t[hero_end:]
 
-    # main section: filters, timeline, dossiers, texts, collections
-    counts = {k: sum(1 for a in authors if a['tendency'] == k) for k, _ in CHIPS}
-    counts['all'] = len(authors) + len(nm_people)
-    chip = lambda k, label, n, cls='': (f'<button type="button" class="chip{cls}{" on" if k == "all" else ""}" data-f="{k}" '
-                                         f'aria-pressed="{"true" if k == "all" else "false"}">{label}<span>{n}</span></button>')
-    chips = '\n      '.join(chip(k, label, counts[k]) for k, label in CHIPS if counts[k])
-    if nm:
-        chips += ('\n      <span class="chip-br" aria-hidden="true"></span>\n      ' + chip('nm', 'NON-MARXISTS', len(nm_people), ' nmc') + '\n      ' +
-                  '\n      '.join(chip(g['slug'], g['title'].upper().replace('THE ', ''), len(g['people']), ' nmc') for g in nm['groups'] if g['people']))
-    cards = '\n\n'.join(dossier_card(a, i) for i, a in enumerate(authors))
-    nm_cards = '\n\n'.join(nm_card(p, i % 4) for i, p in enumerate(nm_people))
-    text_rows = '\n      '.join(work_row(w, byslug, show_author=True) for w in hosted)
-    col_rows = '\n      '.join(collection_row(c) for c in cols)
-    main = f"""<section class="grid-bg" style="position: relative; overflow: hidden; background-color: rgba(12, 7, 8, 0.84)">
-  <div class="wrap" style="padding-top: 36px; padding-bottom: clamp(56px, 7vw, 96px)">
-    <div role="group" aria-label="Filter by tendency" style="display: flex; flex-wrap: wrap; gap: 8px">
-      {chips}
+<section>
+  <div class="wrap" style="padding-bottom: clamp(56px, 7vw, 96px)">
+    <div class="ax-sec" id="marxists">
+      <h2>Index of Marxists <span>{len(authors)} WRITERS, BY TENDENCY</span></h2>
+      {''.join(groups)}
     </div>
+{f"""
+    <div class="ax-sec nm" id="non-marxists">
+      <h2>Index of Non-Marxists <span>{len(nm_people)} PEOPLE, BY GROUP</span></h2>
+      {filing}
+      {''.join(nm_groups)}
+    </div>""" if nm else ''}
 
-    {build_timeline(authors, nm)}
-
-    <div class="ar-block" id="marxists">
-      <header class="ar-bh"><h2 class="mn">THE MARXISTS · {len(authors)} DOSSIERS</h2><p>The Index proper, filed by tendency.</p></header>
-      <div id="ar-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr)); gap: 20px; margin-top: 22px">
-
-{cards}
-      </div>
-    </div>
-{f'''
-    <div class="ar-block" id="non-marxists">
-      <header class="nm-hero">
-        <span class="tag nm-tag">FILE 01-B · OUTSIDE THE INDEX</span>
-        <h2 class="dh">INDEX OF NON-MARXISTS</h2>
-        <p class="src">SRC: TIA ARCHIVE · {len(nm_people)} NON-MARXISTS · {len(nm_works)} WORKS · {nmh} FULL TEXTS · {sum(1 for g in nm['groups'] if g['people'])} GROUPS</p>
-        <p class="nm-lede">{esc(nm['intro'])} Open a file for their works in order; texts in the public domain are here in full and searchable, the rest link to the Marxists Internet Archive or the published text.</p>
-      </header>
-      <div class="nm-grid" style="grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr)); gap: 20px">
-
-{nm_cards}
-      </div>
-    </div>''' if nm else ''}
-
-    <div class="it-rv" id="texts" style="margin-top: 56px">
-      <div style="display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 10px; border-bottom: 1px solid #3A2326; padding-bottom: 10px">
-        <p class="mn" style="margin: 0; font-size: 18px; letter-spacing: 0.1em">READING ROOM · {nh} FULL TEXTS</p>
-        <span class="mn" style="font-size: 13px; letter-spacing: 0.1em; color: #A89C95">PUBLIC DOMAIN OR CC BY-SA · FREE TO READ AND DOWNLOAD</span>
-      </div>
+    <div class="ax-sec" id="texts">
+      <h2>Full texts <span>{nh} · PUBLIC DOMAIN OR CC BY-SA · FREE TO READ AND DOWNLOAD</span></h2>
       {text_rows}
     </div>
 
-    <div class="it-rv" id="collections" style="margin-top: 56px">
-      <p class="mn sec-h">COLLECTIONS</p>
+    <div class="ax-sec" id="timeline">
+      <h2>Timeline <span>EVERYONE IN THE ARCHIVE</span></h2>
+      {build_timeline(authors, nm)}
+    </div>
+
+    <div class="ax-sec" id="collections">
+      <h2>Collections</h2>
       {col_rows}
     </div>
   </div>
 </section>"""
-    start = t.index('<section class="grid-bg" style="background-color: #0C0708">')
-    end = t.index('</section>', t.index('COL-08')) + len('</section>')
-    t = t[:start] + main + t[end:]
-    t = t.replace('</style>', EXTRA_CSS + NM_CSS + AR_CSS + '</style>', 1)
-    t = t.replace('<body>\n<div style="position: relative; background: #090506;', '<body>\n' + page_bg(INDEX_POSTER) + '<div style="position: relative;', 1)
-    assert 'class="page-bg"' in t
-    t = t.replace(re.search(r'<link href="https://fonts.googleapis.com/css2[^>]*>', t).group(), FONTS.split('\n')[1])
-    t = t.replace('</body>', '<script src="/assets/archive.js" defer></script>\n<script src="/assets/tia-media.js" defer></script>\n</body>')
-    (ROOT / 'archive' / 'index.html').write_text(t, encoding='utf-8')
+    out = page('The Archive of World Marxism · TIA', HOME_DESC, '/archive/', body, css=AR_CSS + AX_CSS, current_label='/ARCHIVE')
+    (ROOT / 'archive' / 'index.html').write_text(out, encoding='utf-8')
 
 
 HOME_DESC = ('An open archive of world Marxism: the classics in full, the complete works of each writer by date, '
@@ -1214,6 +1268,15 @@ def build_home(authors, works, cols, nm=None):
     t = t.replace('<input id="it-q" type="search"', '<input id="it-q" name="q" type="search" autocomplete="off"')
     t = re.sub(r'(<input id="it-q".*?\n\s*)<button type="button"', r'\1<button type="submit"', t, count=1, flags=re.S)
     t = t.replace('</style>', '.row .st.wait { color: #E8A33A; }\n</style>', 1)
+    # light pages: the busts as 240-pixel WebP copies, the globe film only on wide screens without data saver
+    t = re.sub(r'src="/assets/hex_([\w-]+)\.png"', lambda m: f'src="/assets/hexs/{m.group(1)}.webp"' if (ROOT / 'assets' / 'hexs' / f'{m.group(1)}.webp').exists() else m.group(0), t)
+    for old, new in (("url('/assets/marx_hex_build.png')", "url('/assets/marx_hex_build.webp')"), ('src="/assets/marx_hex.png"', 'src="/assets/marx_hex.webp"')):
+        assert old in t, old
+        t = t.replace(old, new)          # lossless WebP: the same pixels at a third of the size
+    vid = '<video aria-hidden="true" src="/assets/globe_red.mp4" autoplay muted loop playsinline'
+    assert vid in t
+    t = t.replace(vid, '<video id="globe" aria-hidden="true" data-src="/assets/globe_red.mp4" preload="none" muted loop playsinline')
+    t = t.replace('</body>', '<script>(function () { var v = document.getElementById("globe"), c = navigator.connection; if (!v || (c && c.saveData) || !matchMedia("(min-width: 900px)").matches || matchMedia("(prefers-reduced-motion: reduce)").matches) return; v.src = v.getAttribute("data-src"); v.play && v.play().catch(function () {}); })();</script>\n</body>', 1)
     assert '<form role="search" class="panel"' in t and 'name="q"' in t and '#watch' not in t and '#about' not in t
     (ROOT / 'index.html').write_text(t, encoding='utf-8')
 
@@ -1287,6 +1350,7 @@ BIB_BASE = {
     'plekhanov': 'https://www.marxists.org/archive/plekhanov/',
 }
 BIB_SOURCE = {
+    'gramsci': 'Gramsci\'s writings in English on the Marxists Internet Archive, from his articles of 1916 to the letters from prison, with selections from the Prison Notebooks. Links open the Marxists Internet Archive.',
     'gegenstandpunkt': 'GegenStandpunkt\'s books in German and English, its first issue of March 1992 and the issues since 2024 with every article in them. Links open the publisher\'s own site, where the journal archive lists every issue since 1992 and the article archive can be searched; the Marxistische Gruppe\'s paper MSZ has its own archive there.',
     'hegel': 'Hegel\'s principal writings and lecture courses. Links open the Hegel section of the Marxists Internet Archive.',
     'marx': 'Every item in the 50 volumes of the Marx-Engels Collected Works: books, articles, manuscripts, speeches and letters, by date. Links open the Marxists Internet Archive\'s index for that year; texts in the public domain open here.',
@@ -1396,7 +1460,7 @@ def build_complete_works(a, byslug):
     body = f"""<section style="position: relative; border-bottom: 1px solid #2B1B1D">
   <div class="wrap" style="position: relative; z-index: 1; padding-top: 26px; padding-bottom: clamp(36px, 4vw, 56px)">
     {crumbs(*([('ARCHIVE', '/archive/')] + ([('NON-MARXISTS', NM_HOME)] if a.get('nm') else []) + [(a['short'], a['url']), ('COMPLETE WORKS', None)]))}
-    <span class="tag" style="margin-top: 22px">SUBJECT {a['num']} · COMPLETE WORKS</span>
+    <span class="tag" style="margin-top: 22px">COMPLETE WORKS</span>
     <h1 class="dh it-glitch shade" style="margin: 18px 0 0; font-size: clamp(34px, 4.6vw, 72px); line-height: 0.98; color: #F2ECE4">{a['name']}</h1>
     <p class="src shade">{len(items):,} ITEMS · {len(items) - nl:,} WORKS{f' · {nl:,} LETTERS' if nl else ''} · {years[0]} — {years[-1]}</p>
     <p class="shade" style="margin: 20px 0 0; max-width: 760px; padding: 14px 16px; background: rgba(9, 5, 6, 0.72); border-left: 2px solid #E8222A; font-size: 17px; color: #ECE4DC">{esc(BIB_SOURCE.get(a['slug'], ''))}</p>
@@ -1414,7 +1478,7 @@ def build_complete_works(a, byslug):
       <span class="cnt" id="cw-count" aria-live="polite">{len(items):,} SHOWN</span>
     </div>
     {''.join(secs)}
-    <div class="pn mn"><a href="{a['url']}">← {a['short']} DOSSIER</a><a href="/archive/">INDEX OF MARXISTS →</a></div>
+    <div class="pn mn"><a href="{a['url']}">← {a['short']}</a><a href="/archive/">THE ARCHIVE →</a></div>
   </div>
 </section>"""
     title = f'{a["display"]}: Complete Works · TIA Archive'
@@ -1662,7 +1726,7 @@ def build_werk(w, prv, nxt, byslug, english):
         en_btn = f'<a class="btn gh" href="{byslug[en["author"]]["url"]}">ENGLISH HERE {soon_label(en["soon"], short=True)}</a>'
     else:
         en_btn = ''
-    body = f"""<script>try {{ if (localStorage.getItem('tia-read') === 'paper') document.documentElement.classList.add('paper'); }} catch (e) {{}}</script>
+    body = f"""<script>try {{ if (localStorage.getItem('tia-read') === 'dark') document.documentElement.classList.remove('paper'); }} catch (e) {{}}</script>
 <div class="rd-prog" aria-hidden="true"></div>
 <div class="rd-poster" aria-hidden="true" style="--ar: {poster_ar(POSTER[a['slug']])}; background-image: url('/assets/bgp/{POSTER[a['slug']]}-1x.webp'); background-image: image-set(url('/assets/bgp/{POSTER[a['slug']]}-1x.webp') 1x, url('/assets/bgp/{POSTER[a['slug']]}.webp') 2x)"></div>
 <section style="position: relative; border-bottom: 1px solid #2B1B1D">
@@ -1672,10 +1736,10 @@ def build_werk(w, prv, nxt, byslug, english):
       <a href="{a['url']}" class="bust" aria-label="{attr(a['display'])} dossier">{bust_img(a)}<span class="hc tl"></span><span class="hc tr"></span><span class="hc bl"></span><span class="hc br"></span><span class="it-bscan" aria-hidden="true" style="position: absolute; left: 0; right: 0; height: 2px; background: #FF5A60; box-shadow: 0 0 10px rgba(232, 34, 42, 0.8)"></span></a>
       <div style="flex: 1 1 520px; min-width: 0">
         <span class="tag">ORIGINAL · MEW {w['band']} · {w['year']}</span>
-        <h1 class="rd-h1 it-glitch" lang="de">{esc(w['title'])}</h1>
+        <h1 class="rd-h1" lang="de">{esc(w['title'])}</h1>
         <p class="src">{esc(by.upper())} · {w['year']} · {words(nwords)} WORDS · {rt} · DEUTSCH</p>
         <p class="rd-ed" lang="de">{esc(edition)} <span lang="en">Public domain.</span></p>
-        <div class="rd-act"><a class="btn" href="#p1">Start reading</a>{en_btn}<a class="btn gh" href="{txt_name}" download>DOWNLOAD .TXT</a><button type="button" class="btn gh rd-paper-t" data-paper aria-pressed="false"><i aria-hidden="true"></i><span>PAPER MODE</span></button><a class="btn gh" href="{WK_URL}">ALL GERMAN TEXTS</a></div>
+        <div class="rd-act"><a class="btn" href="#p1">Start reading</a>{en_btn}<a class="btn gh" href="{txt_name}" download>DOWNLOAD .TXT</a><button type="button" class="btn gh rd-paper-t" data-paper aria-pressed="true"><i aria-hidden="true"></i><span>DARK MODE</span></button><a class="btn gh" href="{WK_URL}">ALL GERMAN TEXTS</a></div>
       </div>
     </div>
   </div>
@@ -1694,7 +1758,7 @@ def build_werk(w, prv, nxt, byslug, english):
     </div>
   </div>
 </section>
-<button type="button" class="rd-paper-t rd-paper-f mn" data-paper aria-pressed="false"><i aria-hidden="true"></i><span>PAPER MODE</span></button>
+<button type="button" class="rd-paper-t rd-paper-f mn" data-paper aria-pressed="true"><i aria-hidden="true"></i><span>DARK MODE</span></button>
 <script>
 (function () {{
   var root = document.documentElement, btns = document.querySelectorAll('[data-paper]');
@@ -1710,7 +1774,7 @@ def build_werk(w, prv, nxt, byslug, english):
     title = f'{w["title"]} · {by} · TIA Archive'
     desc = f'{w["title"]} ({w["year"]}) by {by}, the German original from the Marx-Engels-Werke, Band {w["band"]}. Free to read and download.'
     out = page(title, desc, w['path'], body, css=READER_CSS + WK_CSS, current_label='/ARCHIVE/WERKE',
-               foot_label=f'INVARIANCETECH.INFO/ARCHIVE/WERKE/{w["id"]}')
+               foot_label=f'INVARIANCETECH.INFO/ARCHIVE/WERKE/{w["id"]}', html_class='paper')
     (folder / 'index.html').write_text(out, encoding='utf-8')
     return index
 
@@ -1779,7 +1843,7 @@ def build_werke_index(ws, byslug):
       <span class="cnt" id="cw-count" aria-live="polite">{len(ws):,} SHOWN</span>
     </div>
     {''.join(secs)}
-    <div class="pn mn"><a href="{byslug['marx']['url']}">← MARX DOSSIER</a><a href="{byslug['engels']['url']}">ENGELS DOSSIER →</a></div>
+    <div class="pn mn"><a href="{byslug['marx']['url']}">← MARX</a><a href="{byslug['engels']['url']}">ENGELS →</a></div>
   </div>
 </section>"""
     title = 'Marx and Engels in German · TIA Archive'
@@ -2016,8 +2080,7 @@ def nm_load(byslug):
         p['display'] = p['name']
         p['short'] = NM_SHORT.get(p['slug']) or p['name'].split()[-1].upper()
         p['url'] = f"/archive/{p['slug']}/"
-        img = ROOT / 'assets' / f"hex_{p['slug']}.png"
-        p['img'] = f"/assets/hex_{p['slug']}.png" if img.exists() else ''
+        p['img'] = portrait(p['slug'])
         p['poster'] = NM_POSTER.get(p['group'], NM_INDEX_POSTER)
         p['works'].sort(key=lambda w: (year0(w['year']), w['title']))
         for w in p['works']:
@@ -2095,11 +2158,11 @@ def build_nm_person(p, prev_p, next_p, byslug):
     <div class="au-grid">
       <div class="dos-img au-img">{img}<span class="hc tl"></span><span class="hc tr"></span><span class="hc bl"></span><span class="hc br"></span><span class="it-bscan" aria-hidden="true" style="position: absolute; left: 0; right: 0; height: 2px; background: #FF5A60; box-shadow: 0 0 10px rgba(232, 34, 42, 0.8)"></span></div>
       <div style="min-width: 0">
-        <span class="tag">{p['group']} · {esc(p['grp']['title'].upper())}</span>
+        <span class="tag">{esc(p['grp']['title'].upper())}</span>
         <h1 class="dh it-glitch shade" style="margin: 18px 0 0; font-size: clamp(36px, 5vw, 78px); line-height: 0.98; color: #F2ECE4">{esc(p['name'].upper())}</h1>
         <p class="src shade">{esc(p['years'])} · {esc(p['place'].upper())}</p>
         <p class="shade" style="margin: 20px 0 0; max-width: 640px; font-size: 19px; color: #ECE4DC">{esc(p['role'])}</p>
-        <div class="stats"><div><b>{len(p['works'])}</b><span>WORKS FILED</span></div><div><b>{len(hosted)}</b><span>FULL TEXTS HERE</span></div><div><b>{min(years) if years else '—'}</b><span>FIRST WORK</span></div><div><b>{max(years) if years else '—'}</b><span>LAST WORK</span></div></div>
+        <div class="stats"><div><b>{len(p['works'])}</b><span>WORKS LISTED</span></div><div><b>{len(hosted)}</b><span>FULL TEXTS HERE</span></div><div><b>{min(years) if years else '—'}</b><span>FIRST WORK</span></div><div><b>{max(years) if years else '—'}</b><span>LAST WORK</span></div></div>
         {mia}
       </div>
     </div>
@@ -2215,7 +2278,7 @@ def main():
     for c in cols:
         if c.get('url', '').startswith('/'):
             build_collection(c, byslug, cols)
-    build_index(authors, byslug, works, cols, nm)
+    build_index(authors, byslug, works, cols, nm, nde=len(ws))
     build_home(authors, works, cols, nm)
     build_watch()
     build_dispatches()

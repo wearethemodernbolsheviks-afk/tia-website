@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="paper">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -195,6 +195,12 @@ mark { background: rgba(232, 34, 42, 0.42); color: #FFFFFF; padding: 0 2px; }
 .scan-bar { height: 2px; margin-top: 10px; background: #241618; overflow: hidden; }
 .scan-bar i { display: block; height: 100%; width: 0; background: #E8222A; box-shadow: 0 0 8px rgba(232, 34, 42, 0.8); transition: width 160ms linear; }
 
+/* plain archive pages: the texts come first; no motion, scan lines or instrument marks */
+.it-rv, .it-glitch, .dh, .rd-h1, .it-ticker { animation: none !important; opacity: 1 !important; transform: none !important; }
+.it-bscan, .it-sweep, .hc, .co { display: none !important; }
+.shade { text-shadow: none !important; }
+.grid-bg, .dos-img { background-image: none !important; }
+
 .rd-poster { position: fixed; top: 0; right: 0; width: min(40vw, calc(100vh * var(--ar, 0.8))); aspect-ratio: var(--ar, 0.8); max-height: 100vh; z-index: 0; pointer-events: none; background-size: cover; background-position: center top; opacity: 0.34; -webkit-mask-image: linear-gradient(to right, transparent, #000 72%), linear-gradient(to bottom, #000 65%, transparent); mask-image: linear-gradient(to right, transparent, #000 72%), linear-gradient(to bottom, #000 65%, transparent); -webkit-mask-composite: source-in; mask-composite: intersect; }
 .rd-hero-wrap, .rd-layout { position: relative; z-index: 1; }
 @media (max-width: 1000px) { .rd-poster { width: 100%; opacity: 0.1; -webkit-mask-image: none; mask-image: none; } }
@@ -307,14 +313,6 @@ html.paper .rd-body .text .wk-tab td { border-bottom-color: #E2D2CB; }
 <body>
 <div style="position: relative; color: #F2ECE4; font-family: Inter, system-ui, sans-serif; font-size: 17px; line-height: 1.55">
 
-<div aria-hidden="true">
-  <div class="ov-lines"></div>
-  <div class="ov-grain"></div>
-  <div class="ov-band"></div>
-  <div class="inst inst-ruler"><i></i></div>
-  <div class="inst inst-hex mn"><div>1770<br>1831<br>1818<br>1883<br>1820<br>1895<br>1854<br>1938<br>1870<br>1924<br>1871<br>1919<br>1879<br>1940<br>1888<br>1938<br>1889<br>1970<br>A3E1<br>5D07<br>C0DE<br>77F1<br>0B2E<br>9A4C<br>1770<br>1831<br>1818<br>1883<br>1820<br>1895<br>1854<br>1938<br>1870<br>1924<br>1871<br>1919<br>1879<br>1940<br>1888<br>1938<br>1889<br>1970<br>A3E1<br>5D07<br>C0DE<br>77F1<br>0B2E<br>9A4C</div></div>
-  <div class="inst inst-x"><i></i></div>
-</div>
 
 <header class="tbar">
   <div class="wrap" style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px 32px; padding-top: 12px; padding-bottom: 12px">
@@ -329,24 +327,23 @@ html.paper .rd-body .text .wk-tab td { border-bottom-color: #E2D2CB; }
       <a href="/dispatches/">DISPATCHES</a>
       <a href="/shop/">SHOP</a>
     </nav>
-    <span class="mn" style="display: inline-flex; align-items: center; gap: 10px; font-size: 13px; letter-spacing: 0.12em; color: #A89C95"><span class="dot"></span>TERMINAL 01 · /ARCHIVE/WERKE</span>
   </div>
 </header>
 
-<script>try { if (localStorage.getItem('tia-read') === 'paper') document.documentElement.classList.add('paper'); } catch (e) {}</script>
+<script>try { if (localStorage.getItem('tia-read') === 'dark') document.documentElement.classList.remove('paper'); } catch (e) {}</script>
 <div class="rd-prog" aria-hidden="true"></div>
 <div class="rd-poster" aria-hidden="true" style="--ar: 1.0390; background-image: url('/assets/bgp/p_mon_marx_chemnitz-1x.webp'); background-image: image-set(url('/assets/bgp/p_mon_marx_chemnitz-1x.webp') 1x, url('/assets/bgp/p_mon_marx_chemnitz.webp') 2x)"></div>
 <section style="position: relative; border-bottom: 1px solid #2B1B1D">
   <div class="wrap rd-hero-wrap" style="padding-top: 26px; padding-bottom: clamp(32px, 4vw, 52px)">
     <nav class="crumbs mn" aria-label="Breadcrumb"><a href="/archive/">ARCHIVE</a> / <a href="/archive/werke/">IN GERMAN</a> / <span style="color: #F2ECE4">AUS DEM PARLAMENTE</span></nav>
     <div class="rd-head">
-      <a href="/archive/marx/" class="bust" aria-label="Karl Marx dossier"><img src="/assets/hex_marx.png" alt=""><span class="hc tl"></span><span class="hc tr"></span><span class="hc bl"></span><span class="hc br"></span><span class="it-bscan" aria-hidden="true" style="position: absolute; left: 0; right: 0; height: 2px; background: #FF5A60; box-shadow: 0 0 10px rgba(232, 34, 42, 0.8)"></span></a>
+      <a href="/archive/marx/" class="bust" aria-label="Karl Marx dossier"><img src="/assets/hexw/marx.webp" alt="" decoding="async"><span class="hc tl"></span><span class="hc tr"></span><span class="hc bl"></span><span class="hc br"></span><span class="it-bscan" aria-hidden="true" style="position: absolute; left: 0; right: 0; height: 2px; background: #FF5A60; box-shadow: 0 0 10px rgba(232, 34, 42, 0.8)"></span></a>
       <div style="flex: 1 1 520px; min-width: 0">
         <span class="tag">ORIGINAL · MEW 11 · 1855</span>
-        <h1 class="rd-h1 it-glitch" lang="de">Aus dem Parlamente</h1>
+        <h1 class="rd-h1" lang="de">Aus dem Parlamente</h1>
         <p class="src">KARL MARX · 1855 · 818 WORDS · 4 MIN · DEUTSCH</p>
         <p class="rd-ed" lang="de">Text: Marx-Engels-Werke, Band 11, S. 365–367. Page numbers of the MEW are shown in the text. <span lang="en">Public domain.</span></p>
-        <div class="rd-act"><a class="btn" href="#p1">Start reading</a><a class="btn gh" href="mew-11-365.txt" download>DOWNLOAD .TXT</a><button type="button" class="btn gh rd-paper-t" data-paper aria-pressed="false"><i aria-hidden="true"></i><span>PAPER MODE</span></button><a class="btn gh" href="/archive/werke/">ALL GERMAN TEXTS</a></div>
+        <div class="rd-act"><a class="btn" href="#p1">Start reading</a><a class="btn gh" href="mew-11-365.txt" download>DOWNLOAD .TXT</a><button type="button" class="btn gh rd-paper-t" data-paper aria-pressed="true"><i aria-hidden="true"></i><span>DARK MODE</span></button><a class="btn gh" href="/archive/werke/">ALL GERMAN TEXTS</a></div>
       </div>
     </div>
   </div>
@@ -370,7 +367,7 @@ html.paper .rd-body .text .wk-tab td { border-bottom-color: #E2D2CB; }
     </div>
   </div>
 </section>
-<button type="button" class="rd-paper-t rd-paper-f mn" data-paper aria-pressed="false"><i aria-hidden="true"></i><span>PAPER MODE</span></button>
+<button type="button" class="rd-paper-t rd-paper-f mn" data-paper aria-pressed="true"><i aria-hidden="true"></i><span>DARK MODE</span></button>
 <script>
 (function () {
   var root = document.documentElement, btns = document.querySelectorAll('[data-paper]');

@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="paper">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -195,6 +195,12 @@ mark { background: rgba(232, 34, 42, 0.42); color: #FFFFFF; padding: 0 2px; }
 .scan-bar { height: 2px; margin-top: 10px; background: #241618; overflow: hidden; }
 .scan-bar i { display: block; height: 100%; width: 0; background: #E8222A; box-shadow: 0 0 8px rgba(232, 34, 42, 0.8); transition: width 160ms linear; }
 
+/* plain archive pages: the texts come first; no motion, scan lines or instrument marks */
+.it-rv, .it-glitch, .dh, .rd-h1, .it-ticker { animation: none !important; opacity: 1 !important; transform: none !important; }
+.it-bscan, .it-sweep, .hc, .co { display: none !important; }
+.shade { text-shadow: none !important; }
+.grid-bg, .dos-img { background-image: none !important; }
+
 .rd-poster { position: fixed; top: 0; right: 0; width: min(40vw, calc(100vh * var(--ar, 0.8))); aspect-ratio: var(--ar, 0.8); max-height: 100vh; z-index: 0; pointer-events: none; background-size: cover; background-position: center top; opacity: 0.34; -webkit-mask-image: linear-gradient(to right, transparent, #000 72%), linear-gradient(to bottom, #000 65%, transparent); mask-image: linear-gradient(to right, transparent, #000 72%), linear-gradient(to bottom, #000 65%, transparent); -webkit-mask-composite: source-in; mask-composite: intersect; }
 .rd-hero-wrap, .rd-layout { position: relative; z-index: 1; }
 @media (max-width: 1000px) { .rd-poster { width: 100%; opacity: 0.1; -webkit-mask-image: none; mask-image: none; } }
@@ -293,14 +299,6 @@ html.paper .text .flash { animation-name: rd-flash-p; }
 <body>
 <div style="position: relative; color: #F2ECE4; font-family: Inter, system-ui, sans-serif; font-size: 17px; line-height: 1.55">
 
-<div aria-hidden="true">
-  <div class="ov-lines"></div>
-  <div class="ov-grain"></div>
-  <div class="ov-band"></div>
-  <div class="inst inst-ruler"><i></i></div>
-  <div class="inst inst-hex mn"><div>1770<br>1831<br>1818<br>1883<br>1820<br>1895<br>1854<br>1938<br>1870<br>1924<br>1871<br>1919<br>1879<br>1940<br>1888<br>1938<br>1889<br>1970<br>A3E1<br>5D07<br>C0DE<br>77F1<br>0B2E<br>9A4C<br>1770<br>1831<br>1818<br>1883<br>1820<br>1895<br>1854<br>1938<br>1870<br>1924<br>1871<br>1919<br>1879<br>1940<br>1888<br>1938<br>1889<br>1970<br>A3E1<br>5D07<br>C0DE<br>77F1<br>0B2E<br>9A4C</div></div>
-  <div class="inst inst-x"><i></i></div>
-</div>
 
 <header class="tbar">
   <div class="wrap" style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px 32px; padding-top: 12px; padding-bottom: 12px">
@@ -315,25 +313,22 @@ html.paper .text .flash { animation-name: rd-flash-p; }
       <a href="/dispatches/">DISPATCHES</a>
       <a href="/shop/">SHOP</a>
     </nav>
-    <span class="mn" style="display: inline-flex; align-items: center; gap: 10px; font-size: 13px; letter-spacing: 0.12em; color: #A89C95"><span class="dot"></span>TERMINAL 01 · /ARCHIVE/SMITH</span>
   </div>
 </header>
 
-<script>try { if (localStorage.getItem('tia-read') === 'paper') document.documentElement.classList.add('paper'); } catch (e) {}</script>
+<script>try { if (localStorage.getItem('tia-read') === 'dark') document.documentElement.classList.remove('paper'); } catch (e) {}</script>
 <div class="rd-prog" aria-hidden="true"></div>
-<div class="rd-poster" aria-hidden="true" style="--ar: 1.0667; background-image: url('/assets/bgp/p_mon_towers-1x.webp'); background-image: image-set(url('/assets/bgp/p_mon_towers-1x.webp') 1x, url('/assets/bgp/p_mon_towers.webp') 2x)"></div>
 <section style="position: relative; border-bottom: 1px solid #2B1B1D">
   <div class="wrap rd-hero-wrap" style="padding-top: 26px; padding-bottom: clamp(32px, 4vw, 52px)">
     <nav class="crumbs mn" aria-label="Breadcrumb"><a href="/archive/">ARCHIVE</a> / <a href="/archive/#non-marxists">NON-MARXISTS</a> / <a href="/archive/smith/">SMITH</a> / <span style="color: #F2ECE4">AN INQUIRY INTO THE NATURE AND CAUSES OF THE WEALTH OF NATIONS</span></nav>
     <div class="rd-head">
-      <a href="/archive/smith/" class="bust" aria-label="Adam Smith dossier"><img src="/assets/hex_smith.png" alt=""><span class="hc tl"></span><span class="hc tr"></span><span class="hc bl"></span><span class="hc br"></span><span class="it-bscan" aria-hidden="true" style="position: absolute; left: 0; right: 0; height: 2px; background: #FF5A60; box-shadow: 0 0 10px rgba(232, 34, 42, 0.8)"></span></a>
       <div style="flex: 1 1 520px; min-width: 0">
         <span class="tag">FULL TEXT · SMITH · 1776</span>
-        <h1 class="rd-h1 it-glitch">An Inquiry into the Nature and Causes of the Wealth of Nations</h1>
+        <h1 class="rd-h1">An Inquiry into the Nature and Causes of the Wealth of Nations</h1>
         
         <p class="src">ADAM SMITH · 1776 · 382,719 WORDS · 27 H 44 MIN · ENGLISH</p>
         <p class="rd-ed">First published in London in 1776. Public domain.</p>
-        <div class="rd-act"><a class="btn" href="#p1">Start reading</a><a class="btn gh" href="wealth-of-nations.txt" download>DOWNLOAD .TXT</a><button type="button" class="btn gh rd-paper-t" data-paper aria-pressed="false"><i aria-hidden="true"></i><span>PAPER MODE</span></button><a class="btn gh" href="/archive/smith/">SMITH DOSSIER</a></div>
+        <div class="rd-act"><a class="btn" href="#p1">Start reading</a><a class="btn gh" href="wealth-of-nations.txt" download>DOWNLOAD .TXT</a><button type="button" class="btn gh rd-paper-t" data-paper aria-pressed="true"><i aria-hidden="true"></i><span>DARK MODE</span></button><a class="btn gh" href="/archive/smith/">MORE BY SMITH</a></div>
       </div>
     </div>
   </div>
@@ -2891,11 +2886,11 @@ taxes comes out to be........£2,595,835:  7: 10</p>
 <p id="p2184">If it should be found impracticable for Great Britain to draw any considerable augmentation of revenue from any of the resources above mentioned, the only resource which can remain to her, is a diminution of her expense. In the mode of collecting and in that of expending the public revenue, though in both there may be still room for improvement, Great Britain seems to be at least as economical as any of her neighbours. The military establishment which she maintains for her own defence in time of peace, is more moderate than that of any European state, which can pretend to rival her either in wealth or in power. None of these articles, therefore, seem to admit of any considerable reduction of expense. The expense of the peace-establishment of the colonies was, before the commencement of the present disturbances, very considerable, and is an expense which may, and, if no revenue can be drawn from them, ought certainly to be saved altogether. This constant expense in time of peace, though very great, is insignificant in comparison with what the defence of the colonies has cost us in time of war. The last war, which was undertaken altogether on account of the colonies, cost Great Britain, it has already been observed, upwards of ninety millions. The Spanish war of 1739 was principally undertaken on their account; in which, and in the French war that was the consequence of it, Great Britain, spent upwards of forty millions; a great part of which ought justly to be charged to the colonies. In those two wars, the colonies cost Great Britain much more than double the sum which the national debt amounted to before the commencement of the first of them. Had it not been for those wars, that debt might, and probably would by this time, have been completely paid; and had it not been for the colonies, the former of those wars might not, and the latter certainly would not, have been undertaken. It was because the colonies were supposed to be provinces of the British Empire, that this expense was laid out upon them. But countries which contribute neither revenue nor military force towards the support of the empire, cannot be considered as provinces. They may, perhaps, be considered as appendages, as a sort of splendid and shewy equipage of the empire. But if the empire can no longer support the expense of keeping up this equipage, it ought certainly to lay it down; and if it cannot raise its revenue in proportion to its expense, it ought at least to accommodate its expense to its revenue. If the colonies, notwithstanding their refusal to submit to British taxes, are still to be considered as provinces of the British empire, their defence, in some future war, may cost Great Britain as great an expense as it ever has done in any former war. The rulers of Great Britain have, for more than a century past, amused the people with the imagination that they possessed a great empire on the west side of the Atlantic. This empire, however, has hitherto existed in imagination only. It has hitherto been, not an empire, but the project of an empire; not a gold mine, but the project of a gold mine; a project which has cost, which continues to cost, and which, if pursued in the same way as it has been hitherto, is likely to cost, immense expense, without being likely to bring any profit; for the effects of the monopoly of the colony trade, it has been shewn, are to the great body of the people, mere loss instead of profit. It is surely now time that our rulers should either realize this golden dream, in which they have been indulging themselves, perhaps, as well as the people; or that they should awake from it themselves, and endeavour to awaken the people. If the project cannot be completed, it ought to be given up. If any of the provinces of the British empire cannot be made to contribute towards the support of the whole empire, it is surely time that Great Britain should free herself from the expense of defending those provinces in time of war, and of supporting any part of their civil or military establishment in time of peace; and endeavour to accommodate her future views and designs to the real mediocrity of her circumstances.</p>
       </article>
       <p class="rd-end mn">END OF TEXT · AN INQUIRY INTO THE NATURE AND CAUSES OF THE WEALTH OF NATIONS · ADAM SMITH</p>
-      <div class="pn mn"><a href="/archive/smith/">← SMITH DOSSIER</a><a href="/archive/#non-marxists">INDEX OF NON-MARXISTS →</a></div>
+      <div class="pn mn"><a href="/archive/smith/">← ALL OF SMITH</a><a href="/archive/#non-marxists">INDEX OF NON-MARXISTS →</a></div>
     </div>
   </div>
 </section>
-<button type="button" class="rd-paper-t rd-paper-f mn" data-paper aria-pressed="false"><i aria-hidden="true"></i><span>PAPER MODE</span></button>
+<button type="button" class="rd-paper-t rd-paper-f mn" data-paper aria-pressed="true"><i aria-hidden="true"></i><span>DARK MODE</span></button>
 <script>
 (function () {
   var root = document.documentElement, btns = document.querySelectorAll('[data-paper]');

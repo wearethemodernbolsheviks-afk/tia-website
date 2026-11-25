@@ -195,6 +195,12 @@ mark { background: rgba(232, 34, 42, 0.42); color: #FFFFFF; padding: 0 2px; }
 .scan-bar { height: 2px; margin-top: 10px; background: #241618; overflow: hidden; }
 .scan-bar i { display: block; height: 100%; width: 0; background: #E8222A; box-shadow: 0 0 8px rgba(232, 34, 42, 0.8); transition: width 160ms linear; }
 
+/* plain archive pages: the texts come first; no motion, scan lines or instrument marks */
+.it-rv, .it-glitch, .dh, .rd-h1, .it-ticker { animation: none !important; opacity: 1 !important; transform: none !important; }
+.it-bscan, .it-sweep, .hc, .co { display: none !important; }
+.shade { text-shadow: none !important; }
+.grid-bg, .dos-img { background-image: none !important; }
+
 .cw-bar { position: sticky; top: 68px; z-index: 5; display: flex; flex-wrap: wrap; gap: 10px; align-items: center; padding: 14px 0; background: rgba(12, 7, 8, 0.96); border-bottom: 1px solid #3A2326; }
 .cw-bar input { flex: 1 1 280px; min-width: 0; min-height: 48px; box-sizing: border-box; padding: 0 14px; background: #090506; border: 2px solid #3A2326; color: #F2ECE4; font-family: Inter, sans-serif; font-size: 17px; }
 .cw-bar .cnt { font-size: 13px; letter-spacing: 0.12em; color: #A89C95; }
@@ -222,17 +228,8 @@ mark { background: rgba(232, 34, 42, 0.42); color: #FFFFFF; padding: 0 2px; }
 </style>
 </head>
 <body>
-<div class="page-bg" aria-hidden="true" style="--ar: 1.2121; --p1: url('/assets/bgp/p_hp_napoleon-1x.webp'); --p2: url('/assets/bgp/p_hp_napoleon.webp')"></div>
 <div style="position: relative; color: #F2ECE4; font-family: Inter, system-ui, sans-serif; font-size: 17px; line-height: 1.55">
 
-<div aria-hidden="true">
-  <div class="ov-lines"></div>
-  <div class="ov-grain"></div>
-  <div class="ov-band"></div>
-  <div class="inst inst-ruler"><i></i></div>
-  <div class="inst inst-hex mn"><div>1770<br>1831<br>1818<br>1883<br>1820<br>1895<br>1854<br>1938<br>1870<br>1924<br>1871<br>1919<br>1879<br>1940<br>1888<br>1938<br>1889<br>1970<br>A3E1<br>5D07<br>C0DE<br>77F1<br>0B2E<br>9A4C<br>1770<br>1831<br>1818<br>1883<br>1820<br>1895<br>1854<br>1938<br>1870<br>1924<br>1871<br>1919<br>1879<br>1940<br>1888<br>1938<br>1889<br>1970<br>A3E1<br>5D07<br>C0DE<br>77F1<br>0B2E<br>9A4C</div></div>
-  <div class="inst inst-x"><i></i></div>
-</div>
 
 <header class="tbar">
   <div class="wrap" style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px 32px; padding-top: 12px; padding-bottom: 12px">
@@ -247,14 +244,13 @@ mark { background: rgba(232, 34, 42, 0.42); color: #FFFFFF; padding: 0 2px; }
       <a href="/dispatches/">DISPATCHES</a>
       <a href="/shop/">SHOP</a>
     </nav>
-    <span class="mn" style="display: inline-flex; align-items: center; gap: 10px; font-size: 13px; letter-spacing: 0.12em; color: #A89C95"><span class="dot"></span>TERMINAL 01 · /ARCHIVE/HEGEL/WORKS</span>
   </div>
 </header>
 
 <section style="position: relative; border-bottom: 1px solid #2B1B1D">
   <div class="wrap" style="position: relative; z-index: 1; padding-top: 26px; padding-bottom: clamp(36px, 4vw, 56px)">
     <nav class="crumbs mn" aria-label="Breadcrumb"><a href="/archive/">ARCHIVE</a> / <a href="/archive/hegel/">HEGEL</a> / <span style="color: #F2ECE4">COMPLETE WORKS</span></nav>
-    <span class="tag" style="margin-top: 22px">SUBJECT 01 · COMPLETE WORKS</span>
+    <span class="tag" style="margin-top: 22px">COMPLETE WORKS</span>
     <h1 class="dh it-glitch shade" style="margin: 18px 0 0; font-size: clamp(34px, 4.6vw, 72px); line-height: 0.98; color: #F2ECE4">G. W. F. HEGEL</h1>
     <p class="src shade">29 ITEMS · 29 WORKS · 1793 — 1831</p>
     <p class="shade" style="margin: 20px 0 0; max-width: 760px; padding: 14px 16px; background: rgba(9, 5, 6, 0.72); border-left: 2px solid #E8222A; font-size: 17px; color: #ECE4DC">Hegel's principal writings and lecture courses. Links open the Hegel section of the Marxists Internet Archive.</p>
@@ -272,7 +268,7 @@ mark { background: rgba(232, 34, 42, 0.42); color: #FFFFFF; padding: 0 2px; }
       <span class="cnt" id="cw-count" aria-live="polite">29 SHOWN</span>
     </div>
     <section class="cw-y" id="y1793"><h2>1793<span>1 ITEM</span></h2><ul class="cw"><li><span class="d"></span><a href="https://www.marxists.org/reference/archive/hegel/index.htm">The Tübingen Essay</a></li></ul></section><section class="cw-y" id="y1795"><h2>1795<span>2 ITEMS</span></h2><ul class="cw"><li><span class="d"></span><a href="https://www.marxists.org/reference/archive/hegel/index.htm">The Life of Jesus</a></li><li><span class="d"></span><a href="https://www.marxists.org/reference/archive/hegel/index.htm">The Positivity of the Christian Religion</a></li></ul></section><section class="cw-y" id="y1796"><h2>1796<span>1 ITEM</span></h2><ul class="cw"><li><span class="d"></span><a href="https://www.marxists.org/reference/archive/hegel/index.htm">The Oldest Systematic Programme of German Idealism (attributed)</a></li></ul></section><section class="cw-y" id="y1798"><h2>1798<span>2 ITEMS</span></h2><ul class="cw"><li><span class="d"></span><a href="https://www.marxists.org/reference/archive/hegel/index.htm">The Spirit of Christianity and its Fate</a></li><li><span class="d"></span><a href="https://www.marxists.org/reference/archive/hegel/index.htm">The German Constitution</a></li></ul></section><section class="cw-y" id="y1801"><h2>1801<span>2 ITEMS</span></h2><ul class="cw"><li><span class="d"></span><a href="https://www.marxists.org/reference/archive/hegel/index.htm">The Difference Between Fichte's and Schelling's System of Philosophy</a></li><li><span class="d"></span><a href="https://www.marxists.org/reference/archive/hegel/index.htm">Dissertation on the Orbits of the Planets</a></li></ul></section><section class="cw-y" id="y1802"><h2>1802<span>3 ITEMS</span></h2><ul class="cw"><li><span class="d"></span><a href="https://www.marxists.org/reference/archive/hegel/index.htm">Faith and Knowledge</a></li><li><span class="d"></span><a href="https://www.marxists.org/reference/archive/hegel/index.htm">On the Scientific Ways of Treating Natural Law</a></li><li><span class="d"></span><a href="https://www.marxists.org/reference/archive/hegel/index.htm">System of Ethical Life</a></li></ul></section><section class="cw-y" id="y1803"><h2>1803<span>1 ITEM</span></h2><ul class="cw"><li><span class="d"></span><a href="https://www.marxists.org/reference/archive/hegel/index.htm">First Philosophy of Spirit (Jena lectures)</a></li></ul></section><section class="cw-y" id="y1805"><h2>1805<span>1 ITEM</span></h2><ul class="cw"><li><span class="d"></span><a href="https://www.marxists.org/reference/archive/hegel/index.htm">Jena Lectures on the Philosophy of Spirit</a></li></ul></section><section class="cw-y" id="y1807"><h2>1807<span>1 ITEM</span></h2><ul class="cw"><li><span class="d"></span><a href="https://www.marxists.org/reference/archive/hegel/works/ph/phprefac.htm">Preface to the Phenomenology of Spirit</a></li></ul></section><section class="cw-y" id="y1808"><h2>1808<span>2 ITEMS</span></h2><ul class="cw"><li><span class="d"></span><a href="https://www.marxists.org/reference/archive/hegel/index.htm">Who Thinks Abstractly?</a></li><li><span class="d"></span><a href="https://www.marxists.org/reference/archive/hegel/works/pp/index.htm">The Philosophical Propaedeutic</a></li></ul></section><section class="cw-y" id="y1817"><h2>1817<span>4 ITEMS</span></h2><ul class="cw"><li><span class="d"></span><a href="https://www.marxists.org/reference/archive/hegel/works/sl/slintro.htm">Introduction to the Encyclopaedia of the Philosophical Sciences</a></li><li><span class="d"></span><a href="https://www.marxists.org/reference/archive/hegel/index.htm">The Philosophy of Nature (Encyclopaedia, Part Two)</a></li><li><span class="d"></span><a href="https://www.marxists.org/reference/archive/hegel/index.htm">The Philosophy of Mind (Encyclopaedia, Part Three)</a></li><li><span class="d"></span><a href="https://www.marxists.org/reference/archive/hegel/index.htm">Proceedings of the Estates Assembly in the Kingdom of Württemberg</a></li></ul></section><section class="cw-y" id="y1820"><h2>1820<span>2 ITEMS</span></h2><ul class="cw"><li><span class="d"></span><a href="https://www.marxists.org/reference/archive/hegel/works/pr/preface.htm">Preface to the Philosophy of Right</a></li><li><span class="d"></span><a href="https://www.marxists.org/reference/archive/hegel/works/pr/printrod.htm">Introduction to the Philosophy of Right</a></li></ul></section><section class="cw-y" id="y1822"><h2>1822<span>1 ITEM</span></h2><ul class="cw"><li><span class="d"></span><a href="https://www.marxists.org/reference/archive/hegel/works/hi/introduction.htm">Lectures on the Philosophy of History</a></li></ul></section><section class="cw-y" id="y1823"><h2>1823<span>1 ITEM</span></h2><ul class="cw"><li><span class="d"></span><a href="https://www.marxists.org/reference/archive/hegel/index.htm">Lectures on Aesthetics</a></li></ul></section><section class="cw-y" id="y1824"><h2>1824<span>1 ITEM</span></h2><ul class="cw"><li><span class="d"></span><a href="https://www.marxists.org/reference/archive/hegel/index.htm">Lectures on the Philosophy of Religion</a></li></ul></section><section class="cw-y" id="y1825"><h2>1825<span>1 ITEM</span></h2><ul class="cw"><li><span class="d"></span><a href="https://www.marxists.org/reference/archive/hegel/works/hp/hpintroduction.htm">Lectures on the History of Philosophy</a></li></ul></section><section class="cw-y" id="y1829"><h2>1829<span>1 ITEM</span></h2><ul class="cw"><li><span class="d"></span><a href="https://www.marxists.org/reference/archive/hegel/index.htm">Lectures on the Proofs of the Existence of God</a></li></ul></section><section class="cw-y" id="y1831"><h2>1831<span>2 ITEMS</span></h2><ul class="cw"><li><span class="d"></span><a href="https://www.marxists.org/reference/archive/hegel/index.htm">On the English Reform Bill</a></li><li><span class="d"></span><a href="https://www.marxists.org/reference/archive/hegel/works/letters/index.htm">Letters</a></li></ul></section>
-    <div class="pn mn"><a href="/archive/hegel/">← HEGEL DOSSIER</a><a href="/archive/">INDEX OF MARXISTS →</a></div>
+    <div class="pn mn"><a href="/archive/hegel/">← HEGEL</a><a href="/archive/">THE ARCHIVE →</a></div>
   </div>
 </section>
 

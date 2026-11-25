@@ -163,6 +163,19 @@
       ]
     },
     {
+      "slug": "gramsci",
+      "mia": "https://www.marxists.org/archive/gramsci/index.htm",
+      "note": "Gramsci's own writings are in the public domain in Italian. These entries link to the English translations on the Marxists Internet Archive.",
+      "works": [
+        {"id": "gramsci-1917-revolution-against-capital", "title": "The Revolution Against 'Capital'", "year": "1917", "kind": "link", "key": true, "url": "https://www.marxists.org/archive/gramsci/1917/12/revolution-against-capital.htm"},
+        {"id": "gramsci-1919-workers-democracy", "title": "Workers' Democracy", "year": "1919", "kind": "link", "key": true, "url": "https://www.marxists.org/archive/gramsci/1919/06/workers-democracy.htm"},
+        {"id": "gramsci-1919-unions-councils", "title": "Unions and Councils", "year": "1919", "kind": "link", "url": "https://www.marxists.org/archive/gramsci/1919/10/unions-councils.htm"},
+        {"id": "gramsci-1921-turin-councils", "title": "The Turin Factory Council Movement", "year": "1921", "kind": "link", "url": "https://www.marxists.org/archive/gramsci/1921/03/turin_councils.htm"},
+        {"id": "gramsci-1929-modern-prince", "title": "The Modern Prince", "subtitle": "From the Prison Notebooks", "year": "1929–1935", "kind": "link", "key": true, "url": "https://www.marxists.org/archive/gramsci/prison_notebooks/modern_prince/index.htm"},
+        {"id": "gramsci-1929-state-civil-society", "title": "State and Civil Society", "subtitle": "From the Prison Notebooks", "year": "1929–1935", "kind": "link", "key": true, "url": "https://www.marxists.org/archive/gramsci/prison_notebooks/state_civil/index.htm"}
+      ]
+    },
+    {
       "slug": "bordiga",
       "mia": "https://www.marxists.org/archive/bordiga/index.htm",
       "note": "Bordiga's writings stay under copyright until the end of 2040. Until his publishers agree to hosting, these entries link to the Marxists Internet Archive.",

@@ -6,7 +6,7 @@
   var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
   var KEY = 'tia-cart-v1';
   var SIZES = { tee: ['S', 'M', 'L', 'XL', '2XL', '3XL', '4XL'], cap: ['One size'], print: ['A3'], digital: ['Digital'] };
-  var PRICE = { tee: { _: 35 }, cap: { _: 28 }, print: { A3: 18 }, digital: { _: 9 } };
+  var PRICE = { tee: { _: 35 }, cap: { _: 20 }, print: { A3: 18 }, digital: { _: 9 } };
   var LABEL = { tee: 'TEE', cap: 'CAP', print: 'PRINT', digital: 'DIGITAL' };
 
   function money(n) { return '$' + (Math.round(n * 100) % 100 ? n.toFixed(2) : n.toFixed(0)); }
