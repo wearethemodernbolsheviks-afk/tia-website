@@ -2177,6 +2177,38 @@ def build_nm(d, byslug):
     return sum(1 for p in people if not p.get('author')), total
 
 
+TAGLINE_PAGES_SKIP = ('tools/', 'node_modules/')
+
+
+def strip_taglines(t):
+    """No taglines: scrolling tickers, the terminal status, 'SRC:' lines, 'FILE 01' kickers,
+    the home page's status chips, telemetry and the readouts around the Marx bust are taken out."""
+    t = re.sub(r'<div aria-hidden="true" class="mn" style="overflow: hidden;[^"]*">\s*<div class="it-ticker">(?:(?!</div>).)*</div>\s*</div>\n?', '', t, flags=re.S)
+    t = re.sub(r'\n?[ \t]*<span class="mn" style="display: inline-flex; align-items: center; gap: 10px;[^"]*"><span class="dot"></span>TERMINAL 01[^<]*</span>', '', t)
+    t = re.sub(r'\n?[ \t]*<p class="src(?: shade)?">SRC: [^<]*</p>', '', t)
+    t = re.sub(r'\n?[ \t]*<span class="tag[^"]*">FILE 01[^<]*</span>', '', t)
+    t = t.replace(' · REVISIONS SINCE 1848: 0', '')
+    t = re.sub(r'\n?[ \t]*<p class="mn it-type glow-r"[^>]*>TIA // [^<]*</p>', '', t)
+    t = re.sub(r'\n?[ \t]*<div class="mn" style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 40px;[^"]*">\s*<span[^>]*><span class="dot"></span>ARCHIVE: OPEN</span>.*?\n[ \t]*</div>', '', t, flags=re.S)
+    t = re.sub(r'\n?[ \t]*<span class="co[^"]*" aria-hidden="true" style="[^"]*"><b>(?:SUBJECT 01 · K\. MARX|HEX MATRIX · [\d,]+ CELLS|THEORY v1848|REVISIONS · 0)</b><i></i></span>', '', t)
+    t = re.sub(r'\n?[ \t]*<div class="inst inst-read mn">.*?</div>(?=\n)', '', t, flags=re.S)
+    return t
+
+
+def strip_taglines_everywhere():
+    n = 0
+    for f in ROOT.rglob('*.html'):
+        rel = f.relative_to(ROOT).as_posix()
+        if rel.startswith(TAGLINE_PAGES_SKIP):
+            continue
+        s = f.read_text(encoding='utf-8')
+        t = strip_taglines(s)
+        if t != s:
+            f.write_text(t, encoding='utf-8')
+            n += 1
+    return n
+
+
 def main():
     authors, byslug, works, cols = load()
     # clear old generated output so removed works disappear
@@ -2241,6 +2273,7 @@ def main():
     nh = sum(1 for w in works.values() if w['kind'] == 'hosted')
     print(f'{len(authors)} authors, {len(works)} works ({nh} full texts, {total:,} words), '
           f'{sum(1 for c in cols if c.get("url", "").startswith("/"))} collection pages, {n} sitemap URLs')
+    print(f'  taglines taken out of {strip_taglines_everywhere()} pages')
 
 
 if __name__ == '__main__':
