@@ -28,19 +28,23 @@ TPL = ROOT / 'tools' / 'templates'
 SITE = 'https://invariancetech.info'
 
 TENDENCY = {'PRECURSOR': 'precursor', 'FOUNDER': 'founders', 'SECOND INTERNATIONAL': 'second',
-            'BOLSHEVIK': 'bolsheviks', 'SPARTACIST': 'spartacists', 'WESTERN MARXISM': 'western', 'COMMUNIST LEFT': 'left'}
+            'BOLSHEVIK': 'bolsheviks', 'SPARTACIST': 'spartacists', 'WESTERN MARXISM': 'western', 'COMMUNIST LEFT': 'left',
+            'MARXISTISCHE GRUPPE': 'mg'}
 CHIPS = [('all', 'ALL'), ('precursor', 'PRECURSOR'), ('founders', 'FOUNDERS'),
          ('second', 'SECOND INTERNATIONAL'), ('bolsheviks', 'BOLSHEVIKS'),
-         ('spartacists', 'SPARTACISTS'), ('western', 'WESTERN MARXISM'), ('left', 'COMMUNIST LEFT')]
+         ('spartacists', 'SPARTACISTS'), ('western', 'WESTERN MARXISM'), ('left', 'COMMUNIST LEFT'),
+         ('mg', 'MARXISTISCHE GRUPPE')]
 DISPLAY = {'hegel': 'G. W. F. Hegel', 'marx': 'Karl Marx', 'engels': 'Friedrich Engels',
            'lassalle': 'Ferdinand Lassalle', 'kautsky': 'Karl Kautsky', 'plekhanov': 'G. V. Plekhanov', 'lenin': 'V. I. Lenin', 'trotsky': 'Leon Trotsky',
-           'luxemburg': 'Rosa Luxemburg', 'liebknecht': 'Karl Liebknecht', 'bukharin': 'N. I. Bukharin', 'lukacs': 'Georg Lukács', 'bordiga': 'Amadeo Bordiga'}
+           'luxemburg': 'Rosa Luxemburg', 'liebknecht': 'Karl Liebknecht', 'bukharin': 'N. I. Bukharin', 'lukacs': 'Georg Lukács', 'bordiga': 'Amadeo Bordiga',
+           'gegenstandpunkt': 'GegenStandpunkt'}
 
 
 # Full-colour posters used as moving backgrounds (no duotone).
 POSTER = {'hegel': 'p_hp_napoleon', 'marx': 'p_mon_marx_chemnitz', 'engels': 'p_mon_magnitogorsk',
           'lassalle': 'p_hp_marianne', 'kautsky': 'p_share_the_land', 'plekhanov': 'p_nine_days', 'lenin': 'p_mon_lenin_head', 'trotsky': 'p_raise_it_higher',
-          'luxemburg': 'p_rom_romantics', 'liebknecht': 'p_rom_come_back', 'bukharin': 'p_mon_worker_kolkhoz', 'lukacs': 'p_mon_motherland_bw', 'bordiga': 'p_audit_no_country'}
+          'luxemburg': 'p_rom_romantics', 'liebknecht': 'p_rom_come_back', 'bukharin': 'p_mon_worker_kolkhoz', 'lukacs': 'p_mon_motherland_bw', 'bordiga': 'p_audit_no_country',
+          'gegenstandpunkt': 'p_mon_towers'}
 AUTHOR_WALL = {
     'hegel': ['p_hp_marianne', 'p_hp_napoleon', 'p_mon_moon', 'p_mon_motherland_bw'],
     'marx': ['p_mon_magnitogorsk', 'p_mon_worker_kolkhoz', 'p_mon_motherland_bw', 'p_audit_no_country'],
@@ -723,7 +727,7 @@ def dossier_card(a, i):
           <p class="yr">{a['yr']}</p>
           <p class="role">{a['role']}</p>
           <ul>{''.join(lis)}</ul>
-          <p class="cnt">{f'<b>{len(hosted)} FULL TEXT{"S" if len(hosted) != 1 else ""}</b>' if hosted else 'NO FULL TEXTS YET'} · <a href="{a['url']}works/" style="color: inherit; border-bottom: 1px dotted #4A2B2E">{len(a.get('bib', [])):,} ITEMS FILED</a></p>
+          <p class="cnt">{f'<b>{len(hosted)} FULL TEXT{"S" if len(hosted) != 1 else ""}</b>' if hosted else ('LINKED WORKS' if a.get('links_only') else 'NO FULL TEXTS YET')} · <a href="{a['url']}works/" style="color: inherit; border-bottom: 1px dotted #4A2B2E">{len(a.get('bib', [])):,} ITEMS FILED</a></p>
           <a href="{a['url']}" class="open">OPEN DOSSIER →</a>
         </div>
       </article>"""
@@ -948,7 +952,7 @@ def build_author(a, prev_a, next_a, byslug, cols):
     cw_link = (f'<a class="au-cw" href="{a["url"]}works/">Complete works <small>{len(a["bib"]):,} ITEMS →</small></a>' if a['bib'] else '')
     if a.get('wk'):
         cw_link += (f'<a class="au-cw au-wk" href="{WK_URL}">In German <small>{a["wk"]:,} ORIGINAL TEXTS →</small></a>')
-    cw_more = (f'<a class="row" href="{a["url"]}works/" style="color: #FF5A60"><span>ALL {len(a["bib"]):,} WORKS AND LETTERS, BY DATE</span><span class="ld"></span><span>[COMPLETE WORKS →]</span></a>' if a['bib'] else '')
+    cw_more = (f'<a class="row" href="{a["url"]}works/" style="color: #FF5A60"><span>ALL {len(a["bib"]):,} {"WORKS AND LETTERS" if any(i["k"] == "letter" for i in a["bib"]) else "ITEMS"}, BY DATE</span><span class="ld"></span><span>[COMPLETE WORKS →]</span></a>' if a['bib'] else '')
     body = f"""<section style="position: relative; overflow: hidden; border-bottom: 1px solid #2B1B1D">
   <div class="wrap" style="padding-top: 26px; padding-bottom: clamp(40px, 5vw, 64px)">
     {crumbs(*([('ARCHIVE', '/archive/')] + ([('NON-MARXISTS', NM_HOME)] if a.get('nm') else []) + [(a['short'], None)]))}
@@ -961,7 +965,7 @@ def build_author(a, prev_a, next_a, byslug, cols):
         <p class="shade" style="margin: 20px 0 0; max-width: 640px; font-size: 19px; color: #ECE4DC">{a['role']}</p>
         <div class="stats"><div><b>{len(a['bib']):,}</b><span>ITEMS FILED</span></div><div><b>{nh}</b><span>FULL TEXTS HERE</span></div><div><b>{bib_y0}</b><span>FIRST ITEM</span></div><div><b>{bib_y1}</b><span>LAST ITEM</span></div></div>
         {cw_link}
-        <p class="mn" style="margin: 16px 0 0; font-size: 14px; letter-spacing: 0.12em"><a href="{attr(a['mia'])}" target="_blank" rel="noopener" style="color: #FF5A60">{a['short']} ON MARXISTS.ORG ↗</a></p>
+        <p class="mn" style="margin: 16px 0 0; font-size: 14px; letter-spacing: 0.12em"><a href="{attr(a['mia'])}" target="_blank" rel="noopener" style="color: #FF5A60">{f"{a['short']} ON MARXISTS.ORG" if 'marxists.org' in a['mia'] else re.sub(r'^https?://(www[.])?', '', a['mia']).strip('/').upper()} ↗</a></p>
       </div>
     </div>
   </div>
@@ -975,12 +979,9 @@ def build_author(a, prev_a, next_a, byslug, cols):
       <p class="mn sec-h">KEY WORKS · IN ORDER</p>
       {rows}
       {cw_more}
-      <p class="mn" style="margin: 14px 0 0; font-size: 13px; letter-spacing: 0.1em; color: #A89C95"><span style="color: #39D98A">[READ →]</span> FULL TEXT ON THIS SITE · <span>[MIA ↗]</span> OPENS THE MARXISTS INTERNET ARCHIVE{' · <span>[LINK ↗]</span> OPENS ANOTHER SITE' if any('marxists.org' not in w.get('url', 'marxists.org') for w in allw if w['kind'] == 'link') else ''}{' · <span style="color: #F5B83D">[SOON]</span> FULL TEXT HERE FROM ' + soon_label(soon[0]['soon']).upper() if soon else ''}</p>
+      <p class="mn" style="margin: 14px 0 0; font-size: 13px; letter-spacing: 0.1em; color: #A89C95">{' · '.join(x for x in ['<span style="color: #39D98A">[READ →]</span> FULL TEXT ON THIS SITE' if any(w['kind'] == 'hosted' for w in allw) else '', '<span>[MIA ↗]</span> OPENS THE MARXISTS INTERNET ARCHIVE' if any('marxists.org' in w.get('url', '') for w in allw if w['kind'] == 'link') else '', '<span>[LINK ↗]</span> OPENS ANOTHER SITE' if any('marxists.org' not in w.get('url', 'marxists.org') for w in allw if w['kind'] == 'link') else ''] if x)}{' · <span style="color: #F5B83D">[SOON]</span> FULL TEXT HERE FROM ' + soon_label(soon[0]['soon']).upper() if soon else ''}</p>
     </div>
-    <div class="it-rv" style="margin-top: 48px">
-      <p class="mn sec-h">FILED IN COLLECTIONS</p>
-      {colrows}
-    </div>
+    {f'<div class="it-rv" style="margin-top: 48px"><p class="mn sec-h">FILED IN COLLECTIONS</p>{colrows}</div>' if colrows.strip() else ''}
     {f'<div class="pn mn"><a href="{prev_a["url"]}">← {esc(prev_a["short"])}</a><a href="{NM_HOME}">ALL NON-MARXISTS</a><a href="{next_a["url"]}">{esc(next_a["short"])} →</a></div>' if a.get('nm') else
      f'<div class="pn mn"><a href="{prev_a["url"]}">← SUBJECT {prev_a["num"]} · {prev_a["short"]}</a><a href="/archive/">INDEX</a><a href="{next_a["url"]}">SUBJECT {next_a["num"]} · {next_a["short"]} →</a></div>'}
   </div>
@@ -1276,6 +1277,7 @@ def build_sitemap(authors, works, cols, ws=(), nm=None):
 # ---------------------------------------------------------------- complete works (bibliographies)
 
 BIB_BASE = {
+    'gegenstandpunkt': 'https://de.gegenstandpunkt.com/',
     'hegel': 'https://www.marxists.org/reference/archive/hegel/',
     'lenin': 'https://www.marxists.org/archive/lenin/works/',
     'trotsky': 'https://www.marxists.org/archive/trotsky/',
@@ -1285,6 +1287,7 @@ BIB_BASE = {
     'plekhanov': 'https://www.marxists.org/archive/plekhanov/',
 }
 BIB_SOURCE = {
+    'gegenstandpunkt': 'GegenStandpunkt\'s books in German and English, its first issue of March 1992 and the issues since 2024 with every article in them. Links open the publisher\'s own site, where the journal archive lists every issue since 1992 and the article archive can be searched; the Marxistische Gruppe\'s paper MSZ has its own archive there.',
     'hegel': 'Hegel\'s principal writings and lecture courses. Links open the Hegel section of the Marxists Internet Archive.',
     'marx': 'Every item in the 50 volumes of the Marx-Engels Collected Works: books, articles, manuscripts, speeches and letters, by date. Links open the Marxists Internet Archive\'s index for that year; texts in the public domain open here.',
     'engels': 'Every item in the 50 volumes of the Marx-Engels Collected Works: books, articles, manuscripts, speeches and letters, by date. Links open the Marxists Internet Archive\'s index for that year; texts in the public domain open here.',
@@ -1811,6 +1814,11 @@ TL_EVENTS = [(1789, 'FRENCH REVOLUTION'), (1848, 'MANIFESTO'), (1871, 'PARIS COM
              (1991, 'USSR DISSOLVED')]
 TL_MAJOR = {y for y, _ in TL_EVENTS}
 TL_RED, TL_WHITE = '#E8222A', '#F2ECE4'
+# one colour per band of the timeline; black lines get a grey edge so they show on the dark ground
+TL_COLOUR = {'marxists': TL_RED, 'philosophers': '#B48CFF', 'economists': '#4DA3FF', 'utopians': '#34CFB0',
+             'anarchists': '#000000', 'revisionists': '#F2C14E', 'stalinist-line': '#C9824A', 'chinese-line': '#FF6FB5',
+             'national-liberation': '#4CC96B', 'yugoslav-road': TL_WHITE}
+TL_EDGE = '#9A908A'
 
 
 def life(s):
@@ -1823,7 +1831,7 @@ def build_timeline(authors, nm):
     def person(name, yrs, red, url):
         b, d = life(yrs)
         return {'n': name, 'b': b, 'd': d, 'm': red, 'url': url}
-    marxists = {'title': 'THE MARXISTS', 'm': True,
+    marxists = {'title': 'THE MARXISTS', 'm': True, 'slug': 'marxists',
                 'people': [person(a['short'], a['yr'], True, a['url']) for a in authors]}
     bands = []
     for g in (nm['groups'] if nm else []):
@@ -1862,9 +1870,11 @@ def build_timeline(authors, nm):
             d = pp['d'] or now
             pp['label'] = f"{pp['n']} {pp['b']}–{pp['d'] or ''}"
             x0, x1 = X(pp['b']), X(d)
-            right = max(x1, x0 + len(pp['label']) * CH) + 14
+            w = len(pp['label']) * CH
+            pp['lx'] = x0 if x0 + w <= 1192 else 1192 - w      # a label that would run off the right edge ends there
+            right = max(x1, pp['lx'] + w) + 14
             for r, free in enumerate(rows):
-                if x0 >= free:
+                if min(x0, pp['lx']) >= free:
                     rows[r] = right; pp['row'] = r; break
             else:
                 rows.append(right); pp['row'] = len(rows) - 1
@@ -1892,18 +1902,22 @@ def build_timeline(authors, nm):
                   for (y, t), r in zip(TL_EVENTS, eplace))
     seps, names, lines, dots = [], [], [], []
     for n, band in enumerate(bands):
-        c = TL_RED if band['m'] else TL_WHITE
+        c = TL_COLOUR.get(band['slug'], TL_WHITE)
+        dark = c == '#000000'
+        edge = f' stroke="{TL_EDGE}" stroke-width="1.2"' if dark else ''
+        tc = '#BDB4AE' if dark else c       # black type would vanish: the anarchists' names are grey, their lines black
         if n:
             seps.append(f'M{X0} {band["top"] - pad / 2:.0f}H{X1}')
-        names.append(f'<text x="{X0}" y="{band["top"] + 10}" fill="{c}"{"" if band["m"] else " opacity=\"0.7\""}>{esc(band["title"])}</text>')
+        names.append(f'<text x="{X0}" y="{band["top"] + 10}" fill="{tc}">{esc(band["title"])}</text>')
         for pp in band['people']:
             yy = band['top'] + 16 + step * pp['row']
             x0, x1 = X(pp['b']), X(pp['d'] or now)
-            lines.append(f'<a href="{pp["url"]}"><title>{esc(pp["label"])}</title><path d="M{x0:.1f} {yy}H{x1:.1f}" stroke="{c}" stroke-width="2"></path>'
-                         f'<text x="{x0:.1f}" y="{yy - 6}" fill="{c}">{esc(pp["label"])}</text></a>')
-            dots.append(f'<circle cx="{x0:.1f}" cy="{yy}" r="3" fill="{c}"></circle>')
-            dots.append(f'<circle cx="{x1:.1f}" cy="{yy}" r="3" fill="{c}"></circle>' if pp['d'] else
-                        f'<path d="M{x1:.1f} {yy - 4}L{x1 + 7:.1f} {yy}L{x1:.1f} {yy + 4}Z" fill="{c}"></path>')
+            under = f'<path d="M{x0:.1f} {yy}H{x1:.1f}" stroke="{TL_EDGE}" stroke-width="4.4"></path>' if dark else ''
+            lines.append(f'<a href="{pp["url"]}"><title>{esc(pp["label"])}</title>{under}<path d="M{x0:.1f} {yy}H{x1:.1f}" stroke="{c}" stroke-width="2"></path>'
+                         f'<text x="{pp["lx"]:.1f}" y="{yy - 6}" fill="{tc}">{esc(pp["label"])}</text></a>')
+            dots.append(f'<circle cx="{x0:.1f}" cy="{yy}" r="3" fill="{c}"{edge}></circle>')
+            dots.append(f'<circle cx="{x1:.1f}" cy="{yy}" r="3" fill="{c}"{edge}></circle>' if pp['d'] else
+                        f'<path d="M{x1:.1f} {yy - 4}L{x1 + 7:.1f} {yy}L{x1:.1f} {yy + 4}Z" fill="{c}"{edge}></path>')
     ticks = [t for t in range(y0, 2031, 20) if not ga or not ga < t < gb]
     tk = ''.join(f'M{X(t):.1f} {bottom}V{bottom + 6}' for t in ticks)
     if ga:
@@ -1932,7 +1946,7 @@ def build_timeline(authors, nm):
         <g font-family="'JetBrains Mono', ui-monospace, monospace" font-size="10" fill="#A89C95" text-anchor="middle">{tkt}</g>
         <g class="it-sweep"><path d="M{X0} {top - 10}V{bottom - 6}" stroke="#FF5A60" stroke-width="1.5" opacity="0.7"></path><path d="M{X0 - 6} {bottom - 6}L{X0} {bottom - 14}L{X0 + 6} {bottom - 6}Z" fill="#FF5A60"></path></g>
       </svg>
-      <figcaption class="mn" style="display: flex; flex-wrap: wrap; gap: 6px 18px; margin-top: 8px; font-size: 13px; letter-spacing: 0.14em; color: #A89C95"><span>FIG. 01 · LIFESPANS IN THE ARCHIVE, {people[0]['b']} — TODAY</span><span><b style="color: {TL_RED}; font-weight: 400">━━ MARXISTS · {len(authors)}</b></span><span><b style="color: {TL_WHITE}; font-weight: 400">━━ NON-MARXISTS · {nn}</b></span></figcaption>
+      <figcaption class="mn" style="display: flex; flex-wrap: wrap; gap: 6px 18px; margin-top: 8px; font-size: 13px; letter-spacing: 0.14em; color: #A89C95"><span>FIG. 01 · LIFESPANS IN THE ARCHIVE, {people[0]['b']} — TODAY</span><span><b style="color: {TL_RED}; font-weight: 400">━━ MARXISTS · {len(authors)}</b></span><span>{nn} NON-MARXISTS, ONE COLOUR PER GROUP</span></figcaption>
     </figure>"""
 
 

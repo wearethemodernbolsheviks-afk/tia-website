@@ -171,6 +171,25 @@
         {"id": "bordiga-1926-lyon-theses", "title": "The Lyon Theses", "year": "1926", "kind": "link", "key": true, "url": "https://www.marxists.org/archive/bordiga/works/1926/lyons-theses.htm", "cols": ["the-programme", "the-communist-left"]},
         {"id": "bordiga-1952-dialogue-with-stalin", "title": "Dialogue with Stalin", "year": "1952", "kind": "link", "key": true, "url": "https://www.marxists.org/archive/bordiga/works/1952/stalin.htm", "cols": ["the-communist-left"]}
       ]
+    },
+    {
+      "slug": "gegenstandpunkt",
+      "links_only": true,
+      "mia": "https://de.gegenstandpunkt.com/",
+      "note": "GegenStandpunkt's books and journal are in copyright, so nothing of theirs is hosted here: every entry links to the publisher's own website.",
+      "works": [
+        {"id": "gsp-1981-psychology", "title": "Psychology of the Private Individual", "subtitle": "Critique of Bourgeois Consciousness", "year": "1981", "kind": "link", "key": true, "edition": "First published by the Marxistische Gruppe in 1981 as Die Psychologie des bürgerlichen Individuums; the English edition on GegenStandpunkt's site.", "url": "https://en.gegenstandpunkt.com/books/psychology-private-individual"},
+        {"id": "gsp-1989-victory-morality", "title": "The Victory of Morality over Socialism", "year": "1989", "kind": "link", "key": true, "edition": "Karl Held and Audrey Hill.", "url": "https://en.gegenstandpunkt.com/books/victory-morality-over-socialism"},
+        {"id": "gsp-1992-programme", "title": "Unser Programm", "year": "1992", "kind": "link", "key": true, "edition": "The journal's programme, from its first issue (GegenStandpunkt 1-92, March 1992).", "url": "https://de.gegenstandpunkt.com/artikel/unser-programm"},
+        {"id": "gsp-1992-journal", "title": "GegenStandpunkt: Politische Vierteljahreszeitschrift", "year": "1992", "kind": "link", "key": true, "edition": "The quarterly journal, every issue since 1992 with its contents.", "url": "https://de.gegenstandpunkt.com/publikationen/zeitschrift"},
+        {"id": "gsp-1993-democratic-state", "title": "The Democratic State", "subtitle": "Critique of Bourgeois Sovereignty", "year": "1993", "kind": "link", "key": true, "edition": "Karl Held and Audrey Hill. English edition of Der bürgerliche Staat.", "url": "https://en.gegenstandpunkt.com/books/democratic-state"},
+        {"id": "gsp-1996-fascism", "title": "Fascism and How Democracy Comes to Terms with It", "year": "1996", "kind": "link", "key": true, "edition": "Konrad Hecker, Der Faschismus und seine demokratische Bewältigung (1996); English edition revised 2023.", "url": "https://en.gegenstandpunkt.com/books/fascism"},
+        {"id": "gsp-2002-proletariat", "title": "Das Proletariat", "year": "2002", "kind": "link", "edition": "Peter Decker and Konrad Hecker.", "url": "https://de.gegenstandpunkt.com/publikationen/buecher/proletariat"},
+        {"id": "gsp-2007-geld", "title": "Das Geld", "year": "2007", "kind": "link", "edition": "Wolfgang Möhl and Theo Wentzke.", "url": "https://de.gegenstandpunkt.com/publikationen/buecher/geld"},
+        {"id": "gsp-2013-demokratie", "title": "Demokratie: Die perfekte Form bürgerlicher Herrschaft", "year": "2013", "kind": "link", "edition": "Edited by Peter Decker.", "url": "https://de.gegenstandpunkt.com/publikationen/buecher/demokratie"},
+        {"id": "gsp-2014-work-wealth", "title": "Work and Wealth", "year": "2014", "kind": "link", "key": true, "edition": "English edition of Arbeit und Reichtum.", "url": "https://en.gegenstandpunkt.com/books/work-and-wealth-2nd-revised-edition"},
+        {"id": "gsp-2016-finance-capital", "title": "Finance Capital", "year": "2016", "kind": "link", "key": true, "edition": "Peter Decker, Konrad Hecker and Joseph Patrick. English edition of Das Finanzkapital.", "url": "https://en.gegenstandpunkt.com/books/finance-capital-2nd-revised-edition"}
+      ]
     }
   ]
 }
