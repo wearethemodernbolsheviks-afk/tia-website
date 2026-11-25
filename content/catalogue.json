@@ -83,6 +83,18 @@
       ]
     },
     {
+      "slug": "plekhanov",
+      "mia": "https://www.marxists.org/archive/plekhanov/index.htm",
+      "works": [
+        {"id": "plekhanov-1883-political-struggle", "title": "Socialism and the Political Struggle", "year": "1883", "kind": "link", "url": "https://www.marxists.org/archive/plekhanov/1883/struggle/index.htm", "cols": ["second-international"]},
+        {"id": "plekhanov-1885-our-differences", "title": "Our Differences", "year": "1885", "kind": "link", "key": true, "url": "https://www.marxists.org/archive/plekhanov/1885/ourdiff/index.html", "cols": ["second-international"]},
+        {"id": "plekhanov-1895-monist-view", "title": "The Development of the Monist View of History", "year": "1895", "kind": "link", "key": true, "url": "https://www.marxists.org/archive/plekhanov/1895/monist/index.htm", "cols": ["second-international"]},
+        {"id": "plekhanov-1895-anarchism-socialism", "slug": "anarchism-and-socialism", "title": "Anarchism and Socialism", "year": "1895", "kind": "hosted", "key": true, "lang": "en", "edition": "Translated by Eleanor Marx Aveling. Minneapolis, New Times Socialist Publishing Co., 1895.", "cols": ["second-international"]},
+        {"id": "plekhanov-1898-individual", "title": "On the Role of the Individual in History", "year": "1898", "kind": "link", "key": true, "url": "https://www.marxists.org/archive/plekhanov/1898/xx/individual.html", "cols": ["second-international"]},
+        {"id": "plekhanov-1907-fundamental-problems", "title": "Fundamental Problems of Marxism", "year": "1907", "kind": "link", "url": "https://www.marxists.org/archive/plekhanov/1907/fundamental-problems.htm", "cols": ["second-international"]}
+      ]
+    },
+    {
       "slug": "lenin",
       "mia": "https://www.marxists.org/archive/lenin/works/index.htm",
       "works": [

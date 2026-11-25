@@ -218,7 +218,10 @@ mark { background: rgba(232, 34, 42, 0.42); color: #FFFFFF; padding: 0 2px; }
 .ar-block { margin-top: 44px; scroll-margin-top: 90px; }
 .ar-bh { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 6px 20px; border-bottom: 1px solid #3A2326; padding-bottom: 10px; }
 .ar-bh h2 { margin: 0; font-weight: 400; font-size: 18px; letter-spacing: 0.1em; color: #FF5A60; }
-.ar-bh.nm h2 { color: #F2ECE4; }
+.nm-hero { padding-top: 40px; border-top: 1px solid #3A2326; }
+.nm-hero .nm-tag { border-color: #6E6461; color: #F2ECE4; }
+.nm-hero h2 { margin: 18px 0 0; font-size: clamp(34px, 5vw, 80px); line-height: 1; color: #F2ECE4; }
+.nm-hero .nm-lede { margin: 22px 0 26px; max-width: 760px; padding: 14px 16px; background: rgba(9, 5, 6, 0.72); border-left: 2px solid #F2ECE4; font-size: 19px; color: #ECE4DC; }
 .ar-bh p { margin: 0; max-width: 680px; font-size: 15px; color: #B3A79F; }
 .ar-block[hidden] { display: none; }
 .nm-dos { border-color: #3A3533; }
@@ -259,8 +262,8 @@ mark { background: rgba(232, 34, 42, 0.42); color: #FFFFFF; padding: 0 2px; }
 
 <div aria-hidden="true" class="mn" style="overflow: hidden; border-bottom: 1px solid #2B1B1D; background: #100A0B; font-size: 13px; letter-spacing: 0.16em; color: #A89C95; padding: 8px 0">
   <div class="it-ticker">
-    <span style="padding-right: 56px; white-space: nowrap">INDEX OF MARXISTS /// 12 SUBJECTS /// 7 TENDENCIES /// 20 NON-MARXISTS /// 128 WORKS /// 51 FULL TEXTS /// HEGEL · MARX · ENGELS · LASSALLE · KAUTSKY · LENIN · TROTSKY · LUXEMBURG · LIEBKNECHT · BUKHARIN · LUKÁCS · BORDIGA /// READ THE SOURCES ///</span>
-    <span style="padding-right: 56px; white-space: nowrap">INDEX OF MARXISTS /// 12 SUBJECTS /// 7 TENDENCIES /// 20 NON-MARXISTS /// 128 WORKS /// 51 FULL TEXTS /// HEGEL · MARX · ENGELS · LASSALLE · KAUTSKY · LENIN · TROTSKY · LUXEMBURG · LIEBKNECHT · BUKHARIN · LUKÁCS · BORDIGA /// READ THE SOURCES ///</span>
+    <span style="padding-right: 56px; white-space: nowrap">INDEX OF MARXISTS /// 13 SUBJECTS /// 7 TENDENCIES /// 79 WORKS /// 41 FULL TEXTS /// 30 NON-MARXISTS /// HEGEL · MARX · ENGELS · LASSALLE · KAUTSKY · PLEKHANOV · LENIN · TROTSKY · LUXEMBURG · LIEBKNECHT · BUKHARIN · LUKÁCS · BORDIGA /// READ THE SOURCES ///</span>
+    <span style="padding-right: 56px; white-space: nowrap">INDEX OF MARXISTS /// 13 SUBJECTS /// 7 TENDENCIES /// 79 WORKS /// 41 FULL TEXTS /// 30 NON-MARXISTS /// HEGEL · MARX · ENGELS · LASSALLE · KAUTSKY · PLEKHANOV · LENIN · TROTSKY · LUXEMBURG · LIEBKNECHT · BUKHARIN · LUKÁCS · BORDIGA /// READ THE SOURCES ///</span>
   </div>
 </div>
 
@@ -270,8 +273,8 @@ mark { background: rgba(232, 34, 42, 0.42); color: #FFFFFF; padding: 0 2px; }
     <div style="flex: 1 1 600px; min-width: 0">
       <span class="tag">FILE 01 · THE ARCHIVE</span>
       <h1 class="dh it-glitch shade" style="margin: 18px 0 0; font-size: clamp(38px, 5.4vw, 86px); line-height: 1; color: #F2ECE4">INDEX OF MARXISTS</h1>
-      <p class="src">SRC: TIA ARCHIVE · 12 MARXISTS · 20 NON-MARXISTS · 128 WORKS · 51 FULL TEXTS</p>
-      <p style="margin: 22px 0 0; max-width: 620px; padding: 14px 16px; background: rgba(9, 5, 6, 0.72); border-left: 2px solid #E8222A; font-size: 19px; color: #ECE4DC">Every major Marxist, filed by tendency, and filed beside them the thinkers and leaders Marxism answered. Open a dossier for their works in order. Texts in the public domain, and a few public-domain originals in freely licensed translations, are here in full and searchable; the rest link to the Marxists Internet Archive.</p>
+      <p class="src">SRC: TIA ARCHIVE · 13 MARXISTS · 79 WORKS · 41 FULL TEXTS · 7 TENDENCIES</p>
+      <p style="margin: 22px 0 0; max-width: 620px; padding: 14px 16px; background: rgba(9, 5, 6, 0.72); border-left: 2px solid #E8222A; font-size: 19px; color: #ECE4DC">Every major Marxist, filed by tendency. Open a dossier for their works in order. Texts in the public domain, and a few public-domain originals in freely licensed translations, are here in full and searchable; the rest link to the Marxists Internet Archive.</p>
     </div>
     <form role="search" id="ar-form" action="/archive/" method="get" style="flex: 1 1 360px; min-width: 0; padding: 20px; background: rgba(9, 5, 6, 0.82); border: 1px solid #3A2326">
       <label for="ar-q" class="mn" style="display: block; font-size: 14px; letter-spacing: 0.14em; color: #A89C95">&gt; QUERY THE ARCHIVE</label>
@@ -279,7 +282,7 @@ mark { background: rgba(232, 34, 42, 0.42); color: #FFFFFF; padding: 0 2px; }
         <input id="ar-q" name="q" type="search" autocomplete="off" placeholder="Name, work, year or phrase" style="flex: 1; min-width: 0; min-height: 52px; box-sizing: border-box; padding: 0 14px; background: #090506; border: 2px solid #3A2326; color: #F2ECE4; font-family: Inter, sans-serif; font-size: 17px">
         <button type="submit" style="min-height: 52px; padding: 0 20px; border: 0; background: #C81D25; color: #FFFFFF; font-family: Inter, sans-serif; font-weight: 800; font-size: 16px; cursor: pointer">Search</button>
       </div>
-      <p class="mn" style="margin: 12px 0 0; font-size: 12px; letter-spacing: 0.1em; color: #A89C95">SEARCHES 11,024 TITLES AND THE FULL TEXT OF 51 WORKS</p>
+      <p class="mn" style="margin: 12px 0 0; font-size: 12px; letter-spacing: 0.1em; color: #A89C95">SEARCHES 11,085 TITLES AND THE FULL TEXT OF 53 WORKS</p>
     </form>
   </div>
 </section>
@@ -302,40 +305,40 @@ mark { background: rgba(232, 34, 42, 0.42); color: #FFFFFF; padding: 0 2px; }
 <section class="grid-bg" style="position: relative; overflow: hidden; background-color: rgba(12, 7, 8, 0.84)">
   <div class="wrap" style="padding-top: 36px; padding-bottom: clamp(56px, 7vw, 96px)">
     <div role="group" aria-label="Filter by tendency" style="display: flex; flex-wrap: wrap; gap: 8px">
-      <button type="button" class="chip on" data-f="all" aria-pressed="true">ALL<span>32</span></button>
+      <button type="button" class="chip on" data-f="all" aria-pressed="true">ALL<span>43</span></button>
       <button type="button" class="chip" data-f="precursor" aria-pressed="false">PRECURSOR<span>2</span></button>
       <button type="button" class="chip" data-f="founders" aria-pressed="false">FOUNDERS<span>2</span></button>
-      <button type="button" class="chip" data-f="second" aria-pressed="false">SECOND INTERNATIONAL<span>1</span></button>
+      <button type="button" class="chip" data-f="second" aria-pressed="false">SECOND INTERNATIONAL<span>2</span></button>
       <button type="button" class="chip" data-f="bolsheviks" aria-pressed="false">BOLSHEVIKS<span>3</span></button>
       <button type="button" class="chip" data-f="spartacists" aria-pressed="false">SPARTACISTS<span>2</span></button>
       <button type="button" class="chip" data-f="western" aria-pressed="false">WESTERN MARXISM<span>1</span></button>
       <button type="button" class="chip" data-f="left" aria-pressed="false">COMMUNIST LEFT<span>1</span></button>
       <span class="chip-br" aria-hidden="true"></span>
-      <button type="button" class="chip nmc" data-f="nm" aria-pressed="false">NON-MARXISTS<span>20</span></button>
-      <button type="button" class="chip nmc" data-f="philosophers" aria-pressed="false">PHILOSOPHERS<span>2</span></button>
+      <button type="button" class="chip nmc" data-f="nm" aria-pressed="false">NON-MARXISTS<span>30</span></button>
+      <button type="button" class="chip nmc" data-f="philosophers" aria-pressed="false">PHILOSOPHERS<span>5</span></button>
       <button type="button" class="chip nmc" data-f="economists" aria-pressed="false">ECONOMISTS<span>3</span></button>
-      <button type="button" class="chip nmc" data-f="utopians" aria-pressed="false">UTOPIANS<span>3</span></button>
+      <button type="button" class="chip nmc" data-f="utopians" aria-pressed="false">EARLY SOCIALISTS<span>4</span></button>
       <button type="button" class="chip nmc" data-f="anarchists" aria-pressed="false">ANARCHISTS<span>5</span></button>
       <button type="button" class="chip nmc" data-f="revisionists" aria-pressed="false">REVISIONISTS<span>1</span></button>
-      <button type="button" class="chip nmc" data-f="after-lenin" aria-pressed="false">AFTER LENIN<span>6</span></button>
+      <button type="button" class="chip nmc" data-f="after-lenin" aria-pressed="false">AFTER LENIN<span>12</span></button>
     </div>
 
     <figure class="it-rv" style="margin: 32px 0 0; padding: 18px 18px 10px; background: rgba(9, 5, 6, 0.85); border: 1px solid #3A2326; overflow-x: auto">
-      <svg viewBox="0 0 1200 504" width="100%" role="img" aria-label="Timeline of lifespans from 1724 to today. Marxists, in red: Hegel 1770 to 1831, Marx 1818 to 1883, Engels 1820 to 1895, Lassalle 1825 to 1864, Kautsky 1854 to 1938, Lenin 1870 to 1924, Liebknecht 1871 to 1919, Luxemburg 1871 to 1919, Trotsky 1879 to 1940, Lukács 1885 to 1971, Bukharin 1888 to 1938, Bordiga 1889 to 1970. Non-Marxists, in white: Smith 1723 to 1790, Kant 1724 to 1804, Saint-Simon 1760 to 1825, Malthus 1766 to 1834, Owen 1771 to 1858, Fourier 1772 to 1837, Ricardo 1772 to 1823, Feuerbach 1804 to 1872, Stirner 1806 to 1856, Proudhon 1809 to 1865, Bakunin 1814 to 1876, Kropotkin 1842 to 1921, Bernstein 1850 to 1932, Goldman 1869 to 1940, Stalin 1878 to 1953, Mao 1893 to 1976, Deng 1904 to 1997, Castro 1926 to 2016, Guevara 1928 to 1967, Xi 1953 to now. Markers at 1776, 1789, 1830, 1848, 1864, 1871, 1889, 1905, 1914, 1917, 1919, 1921, 1939, 1949, 1956, 1959, 1968, 1978, 1989, 1991." style="display: block; min-width: 980px">
-        <g stroke="#E8222A" stroke-width="1" stroke-dasharray="4 4" opacity="0.8"><path d="M259.6 18V458" stroke-dasharray="2 5" opacity="0.55"></path><path d="M306.0 30V458" stroke-dasharray="2 5" opacity="0.55"></path><path d="M452.1 18V458" stroke-dasharray="2 5" opacity="0.55"></path><path d="M516.3 30V458"></path><path d="M573.3 42V458" stroke-dasharray="2 5" opacity="0.55"></path><path d="M598.2 18V458"></path><path d="M662.4 30V458" stroke-dasharray="2 5" opacity="0.55"></path><path d="M719.4 18V458" stroke-dasharray="2 5" opacity="0.55"></path><path d="M751.5 42V458" stroke-dasharray="2 5" opacity="0.55"></path><path d="M762.2 54V458"></path><path d="M769.3 66V458" stroke-dasharray="2 5" opacity="0.55"></path><path d="M776.5 78V458" stroke-dasharray="2 5" opacity="0.55"></path><path d="M840.6 18V458" stroke-dasharray="2 5" opacity="0.55"></path><path d="M876.3 30V458" stroke-dasharray="2 5" opacity="0.55"></path><path d="M901.2 42V458" stroke-dasharray="2 5" opacity="0.55"></path><path d="M911.9 18V458" stroke-dasharray="2 5" opacity="0.55"></path><path d="M944.0 30V458" stroke-dasharray="2 5" opacity="0.55"></path><path d="M979.6 54V458" stroke-dasharray="2 5" opacity="0.55"></path><path d="M1018.9 18V458" stroke-dasharray="2 5" opacity="0.55"></path><path d="M1026.0 30V458" stroke-dasharray="2 5" opacity="0.55"></path></g>
-        <g font-family="'JetBrains Mono', ui-monospace, monospace" font-size="10" letter-spacing="1" fill="#FF5A60" text-anchor="middle"><text x="259.6" y="14" fill="#C98A87">1776 US INDEPENDENCE</text><text x="306.0" y="26" fill="#C98A87">1789 FRENCH REVOLUTION</text><text x="452.1" y="14" fill="#C98A87">1830 JULY REVOLUTION</text><text x="516.3" y="26">1848 MANIFESTO</text><text x="573.3" y="38" fill="#C98A87">1864 FIRST INTERNATIONAL</text><text x="598.2" y="14">1871 COMMUNE</text><text x="662.4" y="26" fill="#C98A87">1889 SECOND INTERNATIONAL</text><text x="719.4" y="14" fill="#C98A87">1905 RUSSIA</text><text x="751.5" y="38" fill="#C98A87">1914 WAR</text><text x="762.2" y="50">1917 OCTOBER</text><text x="769.3" y="62" fill="#C98A87">1919 COMINTERN</text><text x="776.5" y="74" fill="#C98A87">1921 LIVORNO</text><text x="840.6" y="14" fill="#C98A87">1939 WAR</text><text x="876.3" y="26" fill="#C98A87">1949 PRC</text><text x="901.2" y="38" fill="#C98A87">1956 XX CONGRESS</text><text x="911.9" y="14" fill="#C98A87">1959 CUBA</text><text x="944.0" y="26" fill="#C98A87">1968 MAY</text><text x="979.6" y="50" fill="#C98A87">1978 REFORM AND OPENING</text><text x="1018.9" y="14" fill="#C98A87">1989 BERLIN WALL</text><text x="1026.0" y="26" fill="#C98A87">1991 USSR ENDS</text></g>
-        <g class="tl-p" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="10" letter-spacing="1"><a href="/archive/smith/"><title>SMITH 1723–1790</title><path d="M70.7 110H309.5" stroke="#F2ECE4" stroke-width="2"></path><text x="70.7" y="104" fill="#F2ECE4">SMITH 1723–1790</text></a><a href="/archive/kant/"><title>KANT 1724–1804</title><path d="M74.3 136H359.4" stroke="#F2ECE4" stroke-width="2"></path><text x="74.3" y="130" fill="#F2ECE4">KANT 1724–1804</text></a><a href="/archive/saint-simon/"><title>SAINT-SIMON 1760–1825</title><path d="M202.6 162H434.3" stroke="#F2ECE4" stroke-width="2"></path><text x="202.6" y="156" fill="#F2ECE4">SAINT-SIMON 1760–1825</text></a><a href="/archive/malthus/"><title>MALTHUS 1766–1834</title><path d="M224.0 188H466.4" stroke="#F2ECE4" stroke-width="2"></path><text x="224.0" y="182" fill="#F2ECE4">MALTHUS 1766–1834</text></a><a href="/archive/hegel/"><title>HEGEL 1770–1831</title><path d="M238.2 214H455.7" stroke="#E8222A" stroke-width="2"></path><text x="238.2" y="208" fill="#E8222A">HEGEL 1770–1831</text></a><a href="/archive/owen/"><title>OWEN 1771–1858</title><path d="M241.8 240H551.9" stroke="#F2ECE4" stroke-width="2"></path><text x="241.8" y="234" fill="#F2ECE4">OWEN 1771–1858</text></a><a href="/archive/fourier/"><title>FOURIER 1772–1837</title><path d="M245.4 266H477.0" stroke="#F2ECE4" stroke-width="2"></path><text x="245.4" y="260" fill="#F2ECE4">FOURIER 1772–1837</text></a><a href="/archive/ricardo/"><title>RICARDO 1772–1823</title><path d="M245.4 292H427.1" stroke="#F2ECE4" stroke-width="2"></path><text x="245.4" y="286" fill="#F2ECE4">RICARDO 1772–1823</text></a><a href="/archive/feuerbach/"><title>FEUERBACH 1804–1872</title><path d="M359.4 110H601.8" stroke="#F2ECE4" stroke-width="2"></path><text x="359.4" y="104" fill="#F2ECE4">FEUERBACH 1804–1872</text></a><a href="/archive/stirner/"><title>STIRNER 1806–1856</title><path d="M366.5 318H544.8" stroke="#F2ECE4" stroke-width="2"></path><text x="366.5" y="312" fill="#F2ECE4">STIRNER 1806–1856</text></a><a href="/archive/proudhon/"><title>PROUDHON 1809–1865</title><path d="M377.2 136H576.9" stroke="#F2ECE4" stroke-width="2"></path><text x="377.2" y="130" fill="#F2ECE4">PROUDHON 1809–1865</text></a><a href="/archive/bakunin/"><title>BAKUNIN 1814–1876</title><path d="M395.1 344H616.1" stroke="#F2ECE4" stroke-width="2"></path><text x="395.1" y="338" fill="#F2ECE4">BAKUNIN 1814–1876</text></a><a href="/archive/marx/"><title>MARX 1818–1883</title><path d="M409.3 370H641.0" stroke="#E8222A" stroke-width="2"></path><text x="409.3" y="364" fill="#E8222A">MARX 1818–1883</text></a><a href="/archive/engels/"><title>ENGELS 1820–1895</title><path d="M416.5 396H683.8" stroke="#E8222A" stroke-width="2"></path><text x="416.5" y="390" fill="#E8222A">ENGELS 1820–1895</text></a><a href="/archive/lassalle/"><title>LASSALLE 1825–1864</title><path d="M434.3 422H573.3" stroke="#E8222A" stroke-width="2"></path><text x="434.3" y="416" fill="#E8222A">LASSALLE 1825–1864</text></a><a href="/archive/kropotkin/"><title>KROPOTKIN 1842–1921</title><path d="M494.9 162H776.5" stroke="#F2ECE4" stroke-width="2"></path><text x="494.9" y="156" fill="#F2ECE4">KROPOTKIN 1842–1921</text></a><a href="/archive/bernstein/"><title>BERNSTEIN 1850–1932</title><path d="M523.4 188H815.7" stroke="#F2ECE4" stroke-width="2"></path><text x="523.4" y="182" fill="#F2ECE4">BERNSTEIN 1850–1932</text></a><a href="/archive/kautsky/"><title>KAUTSKY 1854–1938</title><path d="M537.6 214H837.1" stroke="#E8222A" stroke-width="2"></path><text x="537.6" y="208" fill="#E8222A">KAUTSKY 1854–1938</text></a><a href="/archive/goldman/"><title>GOLDMAN 1869–1940</title><path d="M591.1 136H844.2" stroke="#F2ECE4" stroke-width="2"></path><text x="591.1" y="130" fill="#F2ECE4">GOLDMAN 1869–1940</text></a><a href="/archive/lenin/"><title>LENIN 1870–1924</title><path d="M594.7 240H787.2" stroke="#E8222A" stroke-width="2"></path><text x="594.7" y="234" fill="#E8222A">LENIN 1870–1924</text></a><a href="/archive/liebknecht/"><title>LIEBKNECHT 1871–1919</title><path d="M598.2 266H769.3" stroke="#E8222A" stroke-width="2"></path><text x="598.2" y="260" fill="#E8222A">LIEBKNECHT 1871–1919</text></a><a href="/archive/luxemburg/"><title>LUXEMBURG 1871–1919</title><path d="M598.2 292H769.3" stroke="#E8222A" stroke-width="2"></path><text x="598.2" y="286" fill="#E8222A">LUXEMBURG 1871–1919</text></a><a href="/archive/stalin/"><title>STALIN 1878–1953</title><path d="M623.2 110H890.5" stroke="#F2ECE4" stroke-width="2"></path><text x="623.2" y="104" fill="#F2ECE4">STALIN 1878–1953</text></a><a href="/archive/trotsky/"><title>TROTSKY 1879–1940</title><path d="M626.8 318H844.2" stroke="#E8222A" stroke-width="2"></path><text x="626.8" y="312" fill="#E8222A">TROTSKY 1879–1940</text></a><a href="/archive/lukacs/"><title>LUKÁCS 1885–1971</title><path d="M648.1 344H954.7" stroke="#E8222A" stroke-width="2"></path><text x="648.1" y="338" fill="#E8222A">LUKÁCS 1885–1971</text></a><a href="/archive/bukharin/"><title>BUKHARIN 1888–1938</title><path d="M658.8 370H837.1" stroke="#E8222A" stroke-width="2"></path><text x="658.8" y="364" fill="#E8222A">BUKHARIN 1888–1938</text></a><a href="/archive/bordiga/"><title>BORDIGA 1889–1970</title><path d="M662.4 422H951.1" stroke="#E8222A" stroke-width="2"></path><text x="662.4" y="416" fill="#E8222A">BORDIGA 1889–1970</text></a><a href="/archive/mao/"><title>MAO 1893–1976</title><path d="M676.7 448H972.5" stroke="#F2ECE4" stroke-width="2"></path><text x="676.7" y="442" fill="#F2ECE4">MAO 1893–1976</text></a><a href="/archive/deng/"><title>DENG 1904–1997</title><path d="M715.9 396H1047.4" stroke="#F2ECE4" stroke-width="2"></path><text x="715.9" y="390" fill="#F2ECE4">DENG 1904–1997</text></a><a href="/archive/castro/"><title>CASTRO 1926–2016</title><path d="M794.3 162H1115.1" stroke="#F2ECE4" stroke-width="2"></path><text x="794.3" y="156" fill="#F2ECE4">CASTRO 1926–2016</text></a><a href="/archive/guevara/"><title>GUEVARA 1928–1967</title><path d="M801.4 240H940.4" stroke="#F2ECE4" stroke-width="2"></path><text x="801.4" y="234" fill="#F2ECE4">GUEVARA 1928–1967</text></a><a href="/archive/xi/"><title>XI 1953–</title><path d="M890.5 136H1150.7" stroke="#F2ECE4" stroke-width="2"></path><text x="890.5" y="130" fill="#F2ECE4">XI 1953–</text></a></g>
-        <g><circle cx="70.7" cy="110" r="3" fill="#F2ECE4"></circle><circle cx="309.5" cy="110" r="3" fill="#F2ECE4"></circle><circle cx="74.3" cy="136" r="3" fill="#F2ECE4"></circle><circle cx="359.4" cy="136" r="3" fill="#F2ECE4"></circle><circle cx="202.6" cy="162" r="3" fill="#F2ECE4"></circle><circle cx="434.3" cy="162" r="3" fill="#F2ECE4"></circle><circle cx="224.0" cy="188" r="3" fill="#F2ECE4"></circle><circle cx="466.4" cy="188" r="3" fill="#F2ECE4"></circle><circle cx="238.2" cy="214" r="3" fill="#E8222A"></circle><circle cx="455.7" cy="214" r="3" fill="#E8222A"></circle><circle cx="241.8" cy="240" r="3" fill="#F2ECE4"></circle><circle cx="551.9" cy="240" r="3" fill="#F2ECE4"></circle><circle cx="245.4" cy="266" r="3" fill="#F2ECE4"></circle><circle cx="477.0" cy="266" r="3" fill="#F2ECE4"></circle><circle cx="245.4" cy="292" r="3" fill="#F2ECE4"></circle><circle cx="427.1" cy="292" r="3" fill="#F2ECE4"></circle><circle cx="359.4" cy="110" r="3" fill="#F2ECE4"></circle><circle cx="601.8" cy="110" r="3" fill="#F2ECE4"></circle><circle cx="366.5" cy="318" r="3" fill="#F2ECE4"></circle><circle cx="544.8" cy="318" r="3" fill="#F2ECE4"></circle><circle cx="377.2" cy="136" r="3" fill="#F2ECE4"></circle><circle cx="576.9" cy="136" r="3" fill="#F2ECE4"></circle><circle cx="395.1" cy="344" r="3" fill="#F2ECE4"></circle><circle cx="616.1" cy="344" r="3" fill="#F2ECE4"></circle><circle cx="409.3" cy="370" r="3" fill="#E8222A"></circle><circle cx="641.0" cy="370" r="3" fill="#E8222A"></circle><circle cx="416.5" cy="396" r="3" fill="#E8222A"></circle><circle cx="683.8" cy="396" r="3" fill="#E8222A"></circle><circle cx="434.3" cy="422" r="3" fill="#E8222A"></circle><circle cx="573.3" cy="422" r="3" fill="#E8222A"></circle><circle cx="494.9" cy="162" r="3" fill="#F2ECE4"></circle><circle cx="776.5" cy="162" r="3" fill="#F2ECE4"></circle><circle cx="523.4" cy="188" r="3" fill="#F2ECE4"></circle><circle cx="815.7" cy="188" r="3" fill="#F2ECE4"></circle><circle cx="537.6" cy="214" r="3" fill="#E8222A"></circle><circle cx="837.1" cy="214" r="3" fill="#E8222A"></circle><circle cx="591.1" cy="136" r="3" fill="#F2ECE4"></circle><circle cx="844.2" cy="136" r="3" fill="#F2ECE4"></circle><circle cx="594.7" cy="240" r="3" fill="#E8222A"></circle><circle cx="787.2" cy="240" r="3" fill="#E8222A"></circle><circle cx="598.2" cy="266" r="3" fill="#E8222A"></circle><circle cx="769.3" cy="266" r="3" fill="#E8222A"></circle><circle cx="598.2" cy="292" r="3" fill="#E8222A"></circle><circle cx="769.3" cy="292" r="3" fill="#E8222A"></circle><circle cx="623.2" cy="110" r="3" fill="#F2ECE4"></circle><circle cx="890.5" cy="110" r="3" fill="#F2ECE4"></circle><circle cx="626.8" cy="318" r="3" fill="#E8222A"></circle><circle cx="844.2" cy="318" r="3" fill="#E8222A"></circle><circle cx="648.1" cy="344" r="3" fill="#E8222A"></circle><circle cx="954.7" cy="344" r="3" fill="#E8222A"></circle><circle cx="658.8" cy="370" r="3" fill="#E8222A"></circle><circle cx="837.1" cy="370" r="3" fill="#E8222A"></circle><circle cx="662.4" cy="422" r="3" fill="#E8222A"></circle><circle cx="951.1" cy="422" r="3" fill="#E8222A"></circle><circle cx="676.7" cy="448" r="3" fill="#F2ECE4"></circle><circle cx="972.5" cy="448" r="3" fill="#F2ECE4"></circle><circle cx="715.9" cy="396" r="3" fill="#F2ECE4"></circle><circle cx="1047.4" cy="396" r="3" fill="#F2ECE4"></circle><circle cx="794.3" cy="162" r="3" fill="#F2ECE4"></circle><circle cx="1115.1" cy="162" r="3" fill="#F2ECE4"></circle><circle cx="801.4" cy="240" r="3" fill="#F2ECE4"></circle><circle cx="940.4" cy="240" r="3" fill="#F2ECE4"></circle><circle cx="890.5" cy="136" r="3" fill="#F2ECE4"></circle><path d="M1150.7 132L1157.7 136L1150.7 140Z" fill="#F2ECE4"></path></g>
-        <path d="M60 464H1165" stroke="#A89C95" stroke-width="1"></path>
-        <g stroke="#A89C95" stroke-width="1"><path d="M60.0 464V470M131.3 464V470M202.6 464V470M273.9 464V470M345.2 464V470M416.5 464V470M487.7 464V470M559.0 464V470M630.3 464V470M701.6 464V470M772.9 464V470M844.2 464V470M915.5 464V470M986.8 464V470M1058.1 464V470M1129.4 464V470"></path></g>
-        <g font-family="'JetBrains Mono', ui-monospace, monospace" font-size="10" fill="#A89C95" text-anchor="middle"><text x="60.0" y="486">1720</text><text x="131.3" y="486">1740</text><text x="202.6" y="486">1760</text><text x="273.9" y="486">1780</text><text x="345.2" y="486">1800</text><text x="416.5" y="486">1820</text><text x="487.7" y="486">1840</text><text x="559.0" y="486">1860</text><text x="630.3" y="486">1880</text><text x="701.6" y="486">1900</text><text x="772.9" y="486">1920</text><text x="844.2" y="486">1940</text><text x="915.5" y="486">1960</text><text x="986.8" y="486">1980</text><text x="1058.1" y="486">2000</text><text x="1129.4" y="486">2020</text></g>
-        <g class="it-sweep"><path d="M60 90V458" stroke="#FF5A60" stroke-width="1.5" opacity="0.7"></path><path d="M54 458L60 450L66 458Z" fill="#FF5A60"></path></g>
+      <svg viewBox="0 0 1200 586" width="100%" role="img" aria-label="Timeline of lifespans from 1632 to today. Marxists, in red: Hegel 1770 to 1831, Marx 1818 to 1883, Engels 1820 to 1895, Lassalle 1825 to 1864, Kautsky 1854 to 1938, Plekhanov 1856 to 1918, Lenin 1870 to 1924, Liebknecht 1871 to 1919, Luxemburg 1871 to 1919, Trotsky 1879 to 1940, Lukács 1885 to 1971, Bukharin 1888 to 1938, Bordiga 1889 to 1970. Non-Marxists, in white: Spinoza 1632 to 1677, Smith 1723 to 1790, Kant 1724 to 1804, Saint-Simon 1760 to 1825, Malthus 1766 to 1834, Owen 1771 to 1858, Fourier 1772 to 1837, Ricardo 1772 to 1823, Feuerbach 1804 to 1872, Blanqui 1805 to 1881, Stirner 1806 to 1856, Bauer 1809 to 1882, Proudhon 1809 to 1865, Hess 1812 to 1875, Bakunin 1814 to 1876, Kropotkin 1842 to 1921, Bernstein 1850 to 1932, Goldman 1869 to 1940, Stalin 1878 to 1953, Ho Chi Minh 1890 to 1969, Tito 1892 to 1980, Mao 1893 to 1976, Deng 1904 to 1997, Hoxha 1908 to 1985, Kim Il-Sung 1912 to 1994, Castro 1926 to 2016, Guevara 1928 to 1967, Gorbachev 1931 to 2022, Sankara 1949 to 1987, Xi 1953 to now. Markers at 1789, 1848, 1871, 1917, 1991." style="display: block; min-width: 980px">
+        <g stroke="#E8222A" stroke-width="1" stroke-dasharray="4 4" opacity="0.8"><path d="M463.5 18V540"></path><path d="M635.2 18V540"></path><path d="M702.2 30V540"></path><path d="M836.1 18V540"></path><path d="M1051.5 18V540"></path></g>
+        <g font-family="'JetBrains Mono', ui-monospace, monospace" font-size="10" letter-spacing="1" fill="#FF5A60" text-anchor="middle"><text x="463.5" y="14">1789 FRENCH REVOLUTION</text><text x="635.2" y="14">1848 MANIFESTO</text><text x="702.2" y="26">1871 PARIS COMMUNE</text><text x="836.1" y="14">1917 OCTOBER REVOLUTION</text><text x="1051.5" y="14">1991 USSR DISSOLVED</text></g>
+        <g class="tl-p" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="10" letter-spacing="1"><a href="/archive/spinoza/"><title>SPINOZA 1632–1677</title><path d="M94.9 62H225.9" stroke="#F2ECE4" stroke-width="2"></path><text x="94.9" y="56" fill="#F2ECE4">SPINOZA 1632–1677</text></a><a href="/archive/smith/"><title>SMITH 1723–1790</title><path d="M271.4 62H466.4" stroke="#F2ECE4" stroke-width="2"></path><text x="271.4" y="56" fill="#F2ECE4">SMITH 1723–1790</text></a><a href="/archive/kant/"><title>KANT 1724–1804</title><path d="M274.3 88H507.2" stroke="#F2ECE4" stroke-width="2"></path><text x="274.3" y="82" fill="#F2ECE4">KANT 1724–1804</text></a><a href="/archive/saint-simon/"><title>SAINT-SIMON 1760–1825</title><path d="M379.1 114H568.3" stroke="#F2ECE4" stroke-width="2"></path><text x="379.1" y="108" fill="#F2ECE4">SAINT-SIMON 1760–1825</text></a><a href="/archive/malthus/"><title>MALTHUS 1766–1834</title><path d="M396.5 140H594.5" stroke="#F2ECE4" stroke-width="2"></path><text x="396.5" y="134" fill="#F2ECE4">MALTHUS 1766–1834</text></a><a href="/archive/hegel/"><title>HEGEL 1770–1831</title><path d="M408.2 166H585.7" stroke="#E8222A" stroke-width="2"></path><text x="408.2" y="160" fill="#E8222A">HEGEL 1770–1831</text></a><a href="/archive/owen/"><title>OWEN 1771–1858</title><path d="M411.1 192H664.3" stroke="#F2ECE4" stroke-width="2"></path><text x="411.1" y="186" fill="#F2ECE4">OWEN 1771–1858</text></a><a href="/archive/fourier/"><title>FOURIER 1772–1837</title><path d="M414.0 218H603.2" stroke="#F2ECE4" stroke-width="2"></path><text x="414.0" y="212" fill="#F2ECE4">FOURIER 1772–1837</text></a><a href="/archive/ricardo/"><title>RICARDO 1772–1823</title><path d="M414.0 244H562.5" stroke="#F2ECE4" stroke-width="2"></path><text x="414.0" y="238" fill="#F2ECE4">RICARDO 1772–1823</text></a><a href="/archive/feuerbach/"><title>FEUERBACH 1804–1872</title><path d="M507.2 62H705.1" stroke="#F2ECE4" stroke-width="2"></path><text x="507.2" y="56" fill="#F2ECE4">FEUERBACH 1804–1872</text></a><a href="/archive/blanqui/"><title>BLANQUI 1805–1881</title><path d="M510.1 270H731.3" stroke="#F2ECE4" stroke-width="2"></path><text x="510.1" y="264" fill="#F2ECE4">BLANQUI 1805–1881</text></a><a href="/archive/stirner/"><title>STIRNER 1806–1856</title><path d="M513.0 296H658.5" stroke="#F2ECE4" stroke-width="2"></path><text x="513.0" y="290" fill="#F2ECE4">STIRNER 1806–1856</text></a><a href="/archive/bauer/"><title>BAUER 1809–1882</title><path d="M521.7 88H734.2" stroke="#F2ECE4" stroke-width="2"></path><text x="521.7" y="82" fill="#F2ECE4">BAUER 1809–1882</text></a><a href="/archive/proudhon/"><title>PROUDHON 1809–1865</title><path d="M521.7 322H684.7" stroke="#F2ECE4" stroke-width="2"></path><text x="521.7" y="316" fill="#F2ECE4">PROUDHON 1809–1865</text></a><a href="/archive/hess/"><title>HESS 1812–1875</title><path d="M530.4 348H713.8" stroke="#F2ECE4" stroke-width="2"></path><text x="530.4" y="342" fill="#F2ECE4">HESS 1812–1875</text></a><a href="/archive/bakunin/"><title>BAKUNIN 1814–1876</title><path d="M536.3 374H716.7" stroke="#F2ECE4" stroke-width="2"></path><text x="536.3" y="368" fill="#F2ECE4">BAKUNIN 1814–1876</text></a><a href="/archive/marx/"><title>MARX 1818–1883</title><path d="M547.9 400H737.1" stroke="#E8222A" stroke-width="2"></path><text x="547.9" y="394" fill="#E8222A">MARX 1818–1883</text></a><a href="/archive/engels/"><title>ENGELS 1820–1895</title><path d="M553.7 426H772.0" stroke="#E8222A" stroke-width="2"></path><text x="553.7" y="420" fill="#E8222A">ENGELS 1820–1895</text></a><a href="/archive/lassalle/"><title>LASSALLE 1825–1864</title><path d="M568.3 452H681.8" stroke="#E8222A" stroke-width="2"></path><text x="568.3" y="446" fill="#E8222A">LASSALLE 1825–1864</text></a><a href="/archive/kropotkin/"><title>KROPOTKIN 1842–1921</title><path d="M617.8 114H847.7" stroke="#F2ECE4" stroke-width="2"></path><text x="617.8" y="108" fill="#F2ECE4">KROPOTKIN 1842–1921</text></a><a href="/archive/bernstein/"><title>BERNSTEIN 1850–1932</title><path d="M641.1 140H879.7" stroke="#F2ECE4" stroke-width="2"></path><text x="641.1" y="134" fill="#F2ECE4">BERNSTEIN 1850–1932</text></a><a href="/archive/kautsky/"><title>KAUTSKY 1854–1938</title><path d="M652.7 166H897.2" stroke="#E8222A" stroke-width="2"></path><text x="652.7" y="160" fill="#E8222A">KAUTSKY 1854–1938</text></a><a href="/archive/plekhanov/"><title>PLEKHANOV 1856–1918</title><path d="M658.5 218H839.0" stroke="#E8222A" stroke-width="2"></path><text x="658.5" y="212" fill="#E8222A">PLEKHANOV 1856–1918</text></a><a href="/archive/goldman/"><title>GOLDMAN 1869–1940</title><path d="M696.4 192H903.0" stroke="#F2ECE4" stroke-width="2"></path><text x="696.4" y="186" fill="#F2ECE4">GOLDMAN 1869–1940</text></a><a href="/archive/lenin/"><title>LENIN 1870–1924</title><path d="M699.3 244H856.5" stroke="#E8222A" stroke-width="2"></path><text x="699.3" y="238" fill="#E8222A">LENIN 1870–1924</text></a><a href="/archive/liebknecht/"><title>LIEBKNECHT 1871–1919</title><path d="M702.2 296H841.9" stroke="#E8222A" stroke-width="2"></path><text x="702.2" y="290" fill="#E8222A">LIEBKNECHT 1871–1919</text></a><a href="/archive/luxemburg/"><title>LUXEMBURG 1871–1919</title><path d="M702.2 322H841.9" stroke="#E8222A" stroke-width="2"></path><text x="702.2" y="316" fill="#E8222A">LUXEMBURG 1871–1919</text></a><a href="/archive/stalin/"><title>STALIN 1878–1953</title><path d="M722.6 62H940.9" stroke="#F2ECE4" stroke-width="2"></path><text x="722.6" y="56" fill="#F2ECE4">STALIN 1878–1953</text></a><a href="/archive/trotsky/"><title>TROTSKY 1879–1940</title><path d="M725.5 452H903.0" stroke="#E8222A" stroke-width="2"></path><text x="725.5" y="446" fill="#E8222A">TROTSKY 1879–1940</text></a><a href="/archive/lukacs/"><title>LUKÁCS 1885–1971</title><path d="M742.9 348H993.3" stroke="#E8222A" stroke-width="2"></path><text x="742.9" y="342" fill="#E8222A">LUKÁCS 1885–1971</text></a><a href="/archive/bukharin/"><title>BUKHARIN 1888–1938</title><path d="M751.7 88H897.2" stroke="#E8222A" stroke-width="2"></path><text x="751.7" y="82" fill="#E8222A">BUKHARIN 1888–1938</text></a><a href="/archive/bordiga/"><title>BORDIGA 1889–1970</title><path d="M754.6 270H990.4" stroke="#E8222A" stroke-width="2"></path><text x="754.6" y="264" fill="#E8222A">BORDIGA 1889–1970</text></a><a href="/archive/ho-chi-minh/"><title>HO CHI MINH 1890–1969</title><path d="M757.5 374H987.4" stroke="#F2ECE4" stroke-width="2"></path><text x="757.5" y="368" fill="#F2ECE4">HO CHI MINH 1890–1969</text></a><a href="/archive/tito/"><title>TITO 1892–1980</title><path d="M763.3 400H1019.5" stroke="#F2ECE4" stroke-width="2"></path><text x="763.3" y="394" fill="#F2ECE4">TITO 1892–1980</text></a><a href="/archive/mao/"><title>MAO 1893–1976</title><path d="M766.2 478H1007.8" stroke="#F2ECE4" stroke-width="2"></path><text x="766.2" y="472" fill="#F2ECE4">MAO 1893–1976</text></a><a href="/archive/deng/"><title>DENG 1904–1997</title><path d="M798.2 426H1068.9" stroke="#F2ECE4" stroke-width="2"></path><text x="798.2" y="420" fill="#F2ECE4">DENG 1904–1997</text></a><a href="/archive/hoxha/"><title>HOXHA 1908–1985</title><path d="M809.9 504H1034.0" stroke="#F2ECE4" stroke-width="2"></path><text x="809.9" y="498" fill="#F2ECE4">HOXHA 1908–1985</text></a><a href="/archive/kim-il-sung/"><title>KIM IL-SUNG 1912–1994</title><path d="M821.5 530H1060.2" stroke="#F2ECE4" stroke-width="2"></path><text x="821.5" y="524" fill="#F2ECE4">KIM IL-SUNG 1912–1994</text></a><a href="/archive/castro/"><title>CASTRO 1926–2016</title><path d="M862.3 114H1124.2" stroke="#F2ECE4" stroke-width="2"></path><text x="862.3" y="108" fill="#F2ECE4">CASTRO 1926–2016</text></a><a href="/archive/guevara/"><title>GUEVARA 1928–1967</title><path d="M868.1 218H981.6" stroke="#F2ECE4" stroke-width="2"></path><text x="868.1" y="212" fill="#F2ECE4">GUEVARA 1928–1967</text></a><a href="/archive/gorbachev/"><title>GORBACHEV 1931–2022</title><path d="M876.8 244H1141.7" stroke="#F2ECE4" stroke-width="2"></path><text x="876.8" y="238" fill="#F2ECE4">GORBACHEV 1931–2022</text></a><a href="/archive/sankara/"><title>SANKARA 1949–1987</title><path d="M929.2 88H1039.8" stroke="#F2ECE4" stroke-width="2"></path><text x="929.2" y="82" fill="#F2ECE4">SANKARA 1949–1987</text></a><a href="/archive/xi/"><title>XI 1953–</title><path d="M940.9 140H1153.4" stroke="#F2ECE4" stroke-width="2"></path><text x="940.9" y="134" fill="#F2ECE4">XI 1953–</text></a></g>
+        <g><circle cx="94.9" cy="62" r="3" fill="#F2ECE4"></circle><circle cx="225.9" cy="62" r="3" fill="#F2ECE4"></circle><circle cx="271.4" cy="62" r="3" fill="#F2ECE4"></circle><circle cx="466.4" cy="62" r="3" fill="#F2ECE4"></circle><circle cx="274.3" cy="88" r="3" fill="#F2ECE4"></circle><circle cx="507.2" cy="88" r="3" fill="#F2ECE4"></circle><circle cx="379.1" cy="114" r="3" fill="#F2ECE4"></circle><circle cx="568.3" cy="114" r="3" fill="#F2ECE4"></circle><circle cx="396.5" cy="140" r="3" fill="#F2ECE4"></circle><circle cx="594.5" cy="140" r="3" fill="#F2ECE4"></circle><circle cx="408.2" cy="166" r="3" fill="#E8222A"></circle><circle cx="585.7" cy="166" r="3" fill="#E8222A"></circle><circle cx="411.1" cy="192" r="3" fill="#F2ECE4"></circle><circle cx="664.3" cy="192" r="3" fill="#F2ECE4"></circle><circle cx="414.0" cy="218" r="3" fill="#F2ECE4"></circle><circle cx="603.2" cy="218" r="3" fill="#F2ECE4"></circle><circle cx="414.0" cy="244" r="3" fill="#F2ECE4"></circle><circle cx="562.5" cy="244" r="3" fill="#F2ECE4"></circle><circle cx="507.2" cy="62" r="3" fill="#F2ECE4"></circle><circle cx="705.1" cy="62" r="3" fill="#F2ECE4"></circle><circle cx="510.1" cy="270" r="3" fill="#F2ECE4"></circle><circle cx="731.3" cy="270" r="3" fill="#F2ECE4"></circle><circle cx="513.0" cy="296" r="3" fill="#F2ECE4"></circle><circle cx="658.5" cy="296" r="3" fill="#F2ECE4"></circle><circle cx="521.7" cy="88" r="3" fill="#F2ECE4"></circle><circle cx="734.2" cy="88" r="3" fill="#F2ECE4"></circle><circle cx="521.7" cy="322" r="3" fill="#F2ECE4"></circle><circle cx="684.7" cy="322" r="3" fill="#F2ECE4"></circle><circle cx="530.4" cy="348" r="3" fill="#F2ECE4"></circle><circle cx="713.8" cy="348" r="3" fill="#F2ECE4"></circle><circle cx="536.3" cy="374" r="3" fill="#F2ECE4"></circle><circle cx="716.7" cy="374" r="3" fill="#F2ECE4"></circle><circle cx="547.9" cy="400" r="3" fill="#E8222A"></circle><circle cx="737.1" cy="400" r="3" fill="#E8222A"></circle><circle cx="553.7" cy="426" r="3" fill="#E8222A"></circle><circle cx="772.0" cy="426" r="3" fill="#E8222A"></circle><circle cx="568.3" cy="452" r="3" fill="#E8222A"></circle><circle cx="681.8" cy="452" r="3" fill="#E8222A"></circle><circle cx="617.8" cy="114" r="3" fill="#F2ECE4"></circle><circle cx="847.7" cy="114" r="3" fill="#F2ECE4"></circle><circle cx="641.1" cy="140" r="3" fill="#F2ECE4"></circle><circle cx="879.7" cy="140" r="3" fill="#F2ECE4"></circle><circle cx="652.7" cy="166" r="3" fill="#E8222A"></circle><circle cx="897.2" cy="166" r="3" fill="#E8222A"></circle><circle cx="658.5" cy="218" r="3" fill="#E8222A"></circle><circle cx="839.0" cy="218" r="3" fill="#E8222A"></circle><circle cx="696.4" cy="192" r="3" fill="#F2ECE4"></circle><circle cx="903.0" cy="192" r="3" fill="#F2ECE4"></circle><circle cx="699.3" cy="244" r="3" fill="#E8222A"></circle><circle cx="856.5" cy="244" r="3" fill="#E8222A"></circle><circle cx="702.2" cy="296" r="3" fill="#E8222A"></circle><circle cx="841.9" cy="296" r="3" fill="#E8222A"></circle><circle cx="702.2" cy="322" r="3" fill="#E8222A"></circle><circle cx="841.9" cy="322" r="3" fill="#E8222A"></circle><circle cx="722.6" cy="62" r="3" fill="#F2ECE4"></circle><circle cx="940.9" cy="62" r="3" fill="#F2ECE4"></circle><circle cx="725.5" cy="452" r="3" fill="#E8222A"></circle><circle cx="903.0" cy="452" r="3" fill="#E8222A"></circle><circle cx="742.9" cy="348" r="3" fill="#E8222A"></circle><circle cx="993.3" cy="348" r="3" fill="#E8222A"></circle><circle cx="751.7" cy="88" r="3" fill="#E8222A"></circle><circle cx="897.2" cy="88" r="3" fill="#E8222A"></circle><circle cx="754.6" cy="270" r="3" fill="#E8222A"></circle><circle cx="990.4" cy="270" r="3" fill="#E8222A"></circle><circle cx="757.5" cy="374" r="3" fill="#F2ECE4"></circle><circle cx="987.4" cy="374" r="3" fill="#F2ECE4"></circle><circle cx="763.3" cy="400" r="3" fill="#F2ECE4"></circle><circle cx="1019.5" cy="400" r="3" fill="#F2ECE4"></circle><circle cx="766.2" cy="478" r="3" fill="#F2ECE4"></circle><circle cx="1007.8" cy="478" r="3" fill="#F2ECE4"></circle><circle cx="798.2" cy="426" r="3" fill="#F2ECE4"></circle><circle cx="1068.9" cy="426" r="3" fill="#F2ECE4"></circle><circle cx="809.9" cy="504" r="3" fill="#F2ECE4"></circle><circle cx="1034.0" cy="504" r="3" fill="#F2ECE4"></circle><circle cx="821.5" cy="530" r="3" fill="#F2ECE4"></circle><circle cx="1060.2" cy="530" r="3" fill="#F2ECE4"></circle><circle cx="862.3" cy="114" r="3" fill="#F2ECE4"></circle><circle cx="1124.2" cy="114" r="3" fill="#F2ECE4"></circle><circle cx="868.1" cy="218" r="3" fill="#F2ECE4"></circle><circle cx="981.6" cy="218" r="3" fill="#F2ECE4"></circle><circle cx="876.8" cy="244" r="3" fill="#F2ECE4"></circle><circle cx="1141.7" cy="244" r="3" fill="#F2ECE4"></circle><circle cx="929.2" cy="88" r="3" fill="#F2ECE4"></circle><circle cx="1039.8" cy="88" r="3" fill="#F2ECE4"></circle><circle cx="940.9" cy="140" r="3" fill="#F2ECE4"></circle><path d="M1153.4 136L1160.4 140L1153.4 144Z" fill="#F2ECE4"></path></g>
+        <path d="M60 546H241.6M255.6 546H1165" stroke="#A89C95" stroke-width="1"></path><path d="M237.6 552L245.6 540M251.6 552L259.6 540" stroke="#A89C95" stroke-width="1.5"></path>
+        <g stroke="#A89C95" stroke-width="1"><path d="M60.0 546V552M118.2 546V552M176.4 546V552M234.6 546V552M262.6 546V552M320.9 546V552M379.1 546V552M437.3 546V552M495.5 546V552M553.7 546V552M611.9 546V552M670.2 546V552M728.4 546V552M786.6 546V552M844.8 546V552M903.0 546V552M961.2 546V552M1019.5 546V552M1077.7 546V552M1135.9 546V552"></path></g>
+        <g font-family="'JetBrains Mono', ui-monospace, monospace" font-size="10" fill="#A89C95" text-anchor="middle"><text x="60.0" y="568">1620</text><text x="118.2" y="568">1640</text><text x="176.4" y="568">1660</text><text x="262.6" y="568">1720</text><text x="320.9" y="568">1740</text><text x="379.1" y="568">1760</text><text x="437.3" y="568">1780</text><text x="495.5" y="568">1800</text><text x="553.7" y="568">1820</text><text x="611.9" y="568">1840</text><text x="670.2" y="568">1860</text><text x="728.4" y="568">1880</text><text x="786.6" y="568">1900</text><text x="844.8" y="568">1920</text><text x="903.0" y="568">1940</text><text x="961.2" y="568">1960</text><text x="1019.5" y="568">1980</text><text x="1077.7" y="568">2000</text><text x="1135.9" y="568">2020</text></g>
+        <g class="it-sweep"><path d="M60 42V540" stroke="#FF5A60" stroke-width="1.5" opacity="0.7"></path><path d="M54 540L60 532L66 540Z" fill="#FF5A60"></path></g>
       </svg>
-      <figcaption class="mn" style="display: flex; flex-wrap: wrap; gap: 6px 18px; margin-top: 8px; font-size: 13px; letter-spacing: 0.14em; color: #A89C95"><span>FIG. 01 · LIFESPANS IN THE ARCHIVE, 1724 — TODAY</span><span><b style="color: #E8222A; font-weight: 400">━━ MARXISTS · 12</b></span><span><b style="color: #F2ECE4; font-weight: 400">━━ NON-MARXISTS · 20</b></span></figcaption>
+      <figcaption class="mn" style="display: flex; flex-wrap: wrap; gap: 6px 18px; margin-top: 8px; font-size: 13px; letter-spacing: 0.14em; color: #A89C95"><span>FIG. 01 · LIFESPANS IN THE ARCHIVE, 1632 — TODAY</span><span><b style="color: #E8222A; font-weight: 400">━━ MARXISTS · 13</b></span><span><b style="color: #F2ECE4; font-weight: 400">━━ NON-MARXISTS · 30</b></span></figcaption>
     </figure>
 
     <div class="ar-block" id="marxists">
-      <header class="ar-bh"><h2 class="mn">THE MARXISTS · 12 DOSSIERS</h2><p>The Index proper, filed by tendency.</p></header>
+      <header class="ar-bh"><h2 class="mn">THE MARXISTS · 13 DOSSIERS</h2><p>The Index proper, filed by tendency.</p></header>
       <div id="ar-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr)); gap: 20px; margin-top: 22px">
 
       <article class="dos it-rv" id="hegel" data-t="precursor">
@@ -403,9 +406,22 @@ mark { background: rgba(232, 34, 42, 0.42); color: #FFFFFF; padding: 0 2px; }
         </div>
       </article>
 
+      <article class="dos it-rv" id="plekhanov" data-t="second">
+        <div class="dos-top mn"><span>SUBJECT 06</span><span class="tg">SECOND INTERNATIONAL</span></div>
+        <a href="/archive/plekhanov/" class="dos-img" tabindex="-1" aria-hidden="true"><span class="mn" style="align-self: center; padding: 0 10px; text-align: center; font-size: 12px; letter-spacing: 0.14em; color: #6E5A55">NO PORTRAIT ON FILE</span><span class="hc tl"></span><span class="hc tr"></span><span class="hc bl"></span><span class="hc br"></span><span class="it-bscan" style="position: absolute; left: 0; right: 0; height: 2px; background: #FF5A60; box-shadow: 0 0 10px rgba(232, 34, 42, 0.8); animation-delay: 2.5s"></span></a>
+        <div class="dos-body">
+          <h3><a href="/archive/plekhanov/">GEORGI PLEKHANOV</a></h3>
+          <p class="yr">1856 — 1918 · GUDALOVKA → TERIJOKI</p>
+          <p class="role">Founder of Russian Marxism and teacher of Lenin's generation; later a leader of the Mensheviks, who opposed the October revolution.</p>
+          <ul><li><a href="https://www.marxists.org/archive/plekhanov/1885/ourdiff/index.html" target="_blank" rel="noopener">Our Differences</a> (1885)</li><li><a href="/archive/plekhanov/anarchism-and-socialism/">Anarchism and Socialism</a> (1895)<span class="h">TXT</span></li><li><a href="https://www.marxists.org/archive/plekhanov/1895/monist/index.htm" target="_blank" rel="noopener">The Development of the Monist View of History</a> (1895)</li><li><a href="https://www.marxists.org/archive/plekhanov/1898/xx/individual.html" target="_blank" rel="noopener">On the Role of the Individual in History</a> (1898)</li></ul>
+          <p class="cnt"><b>1 FULL TEXT</b> · <a href="/archive/plekhanov/works/" style="color: inherit; border-bottom: 1px dotted #4A2B2E">61 ITEMS FILED</a></p>
+          <a href="/archive/plekhanov/" class="open">OPEN DOSSIER →</a>
+        </div>
+      </article>
+
       <article class="dos it-rv" id="lenin" data-t="bolsheviks">
-        <div class="dos-top mn"><span>SUBJECT 06</span><span class="tg">BOLSHEVIK</span></div>
-        <a href="/archive/lenin/" class="dos-img" tabindex="-1" aria-hidden="true"><img src="/assets/hex_lenin.png" alt=""><span class="hc tl"></span><span class="hc tr"></span><span class="hc bl"></span><span class="hc br"></span><span class="co r" style="top: 26%; right: 10px"><b>HEX 3,126</b><i></i></span><span class="it-bscan" style="position: absolute; left: 0; right: 0; height: 2px; background: #FF5A60; box-shadow: 0 0 10px rgba(232, 34, 42, 0.8); animation-delay: 2.5s"></span></a>
+        <div class="dos-top mn"><span>SUBJECT 07</span><span class="tg">BOLSHEVIK</span></div>
+        <a href="/archive/lenin/" class="dos-img" tabindex="-1" aria-hidden="true"><img src="/assets/hex_lenin.png" alt=""><span class="hc tl"></span><span class="hc tr"></span><span class="hc bl"></span><span class="hc br"></span><span class="co r" style="top: 26%; right: 10px"><b>HEX 3,126</b><i></i></span><span class="it-bscan" style="position: absolute; left: 0; right: 0; height: 2px; background: #FF5A60; box-shadow: 0 0 10px rgba(232, 34, 42, 0.8); animation-delay: 3s"></span></a>
         <div class="dos-body">
           <h3><a href="/archive/lenin/">V. I. LENIN</a></h3>
           <p class="yr">1870 — 1924 · SIMBIRSK → GORKI</p>
@@ -417,8 +433,8 @@ mark { background: rgba(232, 34, 42, 0.42); color: #FFFFFF; padding: 0 2px; }
       </article>
 
       <article class="dos it-rv" id="trotsky" data-t="bolsheviks">
-        <div class="dos-top mn"><span>SUBJECT 07</span><span class="tg">BOLSHEVIK</span></div>
-        <a href="/archive/trotsky/" class="dos-img" tabindex="-1" aria-hidden="true"><img src="/assets/hex_trotsky.png" alt=""><span class="hc tl"></span><span class="hc tr"></span><span class="hc bl"></span><span class="hc br"></span><span class="co r" style="top: 26%; right: 10px"><b>HEX 2,883</b><i></i></span><span class="it-bscan" style="position: absolute; left: 0; right: 0; height: 2px; background: #FF5A60; box-shadow: 0 0 10px rgba(232, 34, 42, 0.8); animation-delay: 3s"></span></a>
+        <div class="dos-top mn"><span>SUBJECT 08</span><span class="tg">BOLSHEVIK</span></div>
+        <a href="/archive/trotsky/" class="dos-img" tabindex="-1" aria-hidden="true"><img src="/assets/hex_trotsky.png" alt=""><span class="hc tl"></span><span class="hc tr"></span><span class="hc bl"></span><span class="hc br"></span><span class="co r" style="top: 26%; right: 10px"><b>HEX 2,883</b><i></i></span><span class="it-bscan" style="position: absolute; left: 0; right: 0; height: 2px; background: #FF5A60; box-shadow: 0 0 10px rgba(232, 34, 42, 0.8); animation-delay: 3.5s"></span></a>
         <div class="dos-body">
           <h3><a href="/archive/trotsky/">LEON TROTSKY</a></h3>
           <p class="yr">1879 — 1940 · YANOVKA → COYOACÁN</p>
@@ -430,8 +446,8 @@ mark { background: rgba(232, 34, 42, 0.42); color: #FFFFFF; padding: 0 2px; }
       </article>
 
       <article class="dos it-rv" id="luxemburg" data-t="spartacists">
-        <div class="dos-top mn"><span>SUBJECT 08</span><span class="tg">SPARTACIST</span></div>
-        <a href="/archive/luxemburg/" class="dos-img" tabindex="-1" aria-hidden="true"><img src="/assets/hex_luxemburg.png" alt=""><span class="hc tl"></span><span class="hc tr"></span><span class="hc bl"></span><span class="hc br"></span><span class="co r" style="top: 26%; right: 10px"><b>HEX 3,003</b><i></i></span><span class="it-bscan" style="position: absolute; left: 0; right: 0; height: 2px; background: #FF5A60; box-shadow: 0 0 10px rgba(232, 34, 42, 0.8); animation-delay: 3.5s"></span></a>
+        <div class="dos-top mn"><span>SUBJECT 09</span><span class="tg">SPARTACIST</span></div>
+        <a href="/archive/luxemburg/" class="dos-img" tabindex="-1" aria-hidden="true"><img src="/assets/hex_luxemburg.png" alt=""><span class="hc tl"></span><span class="hc tr"></span><span class="hc bl"></span><span class="hc br"></span><span class="co r" style="top: 26%; right: 10px"><b>HEX 3,003</b><i></i></span><span class="it-bscan" style="position: absolute; left: 0; right: 0; height: 2px; background: #FF5A60; box-shadow: 0 0 10px rgba(232, 34, 42, 0.8); animation-delay: 4s"></span></a>
         <div class="dos-body">
           <h3><a href="/archive/luxemburg/">ROSA LUXEMBURG</a></h3>
           <p class="yr">1871 — 1919 · ZAMOŚĆ → BERLIN</p>
@@ -443,8 +459,8 @@ mark { background: rgba(232, 34, 42, 0.42); color: #FFFFFF; padding: 0 2px; }
       </article>
 
       <article class="dos it-rv" id="liebknecht" data-t="spartacists">
-        <div class="dos-top mn"><span>SUBJECT 09</span><span class="tg">SPARTACIST</span></div>
-        <a href="/archive/liebknecht/" class="dos-img" tabindex="-1" aria-hidden="true"><img src="/assets/hex_liebknecht.png" alt=""><span class="hc tl"></span><span class="hc tr"></span><span class="hc bl"></span><span class="hc br"></span><span class="co r" style="top: 26%; right: 10px"><b>HEX 3,835</b><i></i></span><span class="it-bscan" style="position: absolute; left: 0; right: 0; height: 2px; background: #FF5A60; box-shadow: 0 0 10px rgba(232, 34, 42, 0.8); animation-delay: 4s"></span></a>
+        <div class="dos-top mn"><span>SUBJECT 10</span><span class="tg">SPARTACIST</span></div>
+        <a href="/archive/liebknecht/" class="dos-img" tabindex="-1" aria-hidden="true"><img src="/assets/hex_liebknecht.png" alt=""><span class="hc tl"></span><span class="hc tr"></span><span class="hc bl"></span><span class="hc br"></span><span class="co r" style="top: 26%; right: 10px"><b>HEX 3,835</b><i></i></span><span class="it-bscan" style="position: absolute; left: 0; right: 0; height: 2px; background: #FF5A60; box-shadow: 0 0 10px rgba(232, 34, 42, 0.8); animation-delay: 4.5s"></span></a>
         <div class="dos-body">
           <h3><a href="/archive/liebknecht/">KARL LIEBKNECHT</a></h3>
           <p class="yr">1871 — 1919 · LEIPZIG → BERLIN</p>
@@ -456,8 +472,8 @@ mark { background: rgba(232, 34, 42, 0.42); color: #FFFFFF; padding: 0 2px; }
       </article>
 
       <article class="dos it-rv" id="bukharin" data-t="bolsheviks">
-        <div class="dos-top mn"><span>SUBJECT 10</span><span class="tg">BOLSHEVIK</span></div>
-        <a href="/archive/bukharin/" class="dos-img" tabindex="-1" aria-hidden="true"><img src="/assets/hex_bukharin.png" alt=""><span class="hc tl"></span><span class="hc tr"></span><span class="hc bl"></span><span class="hc br"></span><span class="co r" style="top: 26%; right: 10px"><b>HEX 4,654</b><i></i></span><span class="it-bscan" style="position: absolute; left: 0; right: 0; height: 2px; background: #FF5A60; box-shadow: 0 0 10px rgba(232, 34, 42, 0.8); animation-delay: 4.5s"></span></a>
+        <div class="dos-top mn"><span>SUBJECT 11</span><span class="tg">BOLSHEVIK</span></div>
+        <a href="/archive/bukharin/" class="dos-img" tabindex="-1" aria-hidden="true"><img src="/assets/hex_bukharin.png" alt=""><span class="hc tl"></span><span class="hc tr"></span><span class="hc bl"></span><span class="hc br"></span><span class="co r" style="top: 26%; right: 10px"><b>HEX 4,654</b><i></i></span><span class="it-bscan" style="position: absolute; left: 0; right: 0; height: 2px; background: #FF5A60; box-shadow: 0 0 10px rgba(232, 34, 42, 0.8); animation-delay: 5s"></span></a>
         <div class="dos-body">
           <h3><a href="/archive/bukharin/">N. I. BUKHARIN</a></h3>
           <p class="yr">1888 — 1938 · MOSCOW → MOSCOW</p>
@@ -469,8 +485,8 @@ mark { background: rgba(232, 34, 42, 0.42); color: #FFFFFF; padding: 0 2px; }
       </article>
 
       <article class="dos it-rv" id="lukacs" data-t="western">
-        <div class="dos-top mn"><span>SUBJECT 11</span><span class="tg">WESTERN MARXISM</span></div>
-        <a href="/archive/lukacs/" class="dos-img" tabindex="-1" aria-hidden="true"><img src="/assets/hex_lukacs.png" alt=""><span class="hc tl"></span><span class="hc tr"></span><span class="hc bl"></span><span class="hc br"></span><span class="co r" style="top: 26%; right: 10px"><b>HEX 3,888</b><i></i></span><span class="it-bscan" style="position: absolute; left: 0; right: 0; height: 2px; background: #FF5A60; box-shadow: 0 0 10px rgba(232, 34, 42, 0.8); animation-delay: 5s"></span></a>
+        <div class="dos-top mn"><span>SUBJECT 12</span><span class="tg">WESTERN MARXISM</span></div>
+        <a href="/archive/lukacs/" class="dos-img" tabindex="-1" aria-hidden="true"><img src="/assets/hex_lukacs.png" alt=""><span class="hc tl"></span><span class="hc tr"></span><span class="hc bl"></span><span class="hc br"></span><span class="co r" style="top: 26%; right: 10px"><b>HEX 3,888</b><i></i></span><span class="it-bscan" style="position: absolute; left: 0; right: 0; height: 2px; background: #FF5A60; box-shadow: 0 0 10px rgba(232, 34, 42, 0.8); animation-delay: 5.5s"></span></a>
         <div class="dos-body">
           <h3><a href="/archive/lukacs/">GEORG LUKÁCS</a></h3>
           <p class="yr">1885 — 1971 · BUDAPEST</p>
@@ -482,8 +498,8 @@ mark { background: rgba(232, 34, 42, 0.42); color: #FFFFFF; padding: 0 2px; }
       </article>
 
       <article class="dos it-rv" id="bordiga" data-t="left">
-        <div class="dos-top mn"><span>SUBJECT 12</span><span class="tg">COMMUNIST LEFT</span></div>
-        <a href="/archive/bordiga/" class="dos-img" tabindex="-1" aria-hidden="true"><img src="/assets/hex_bordiga.png" alt=""><span class="hc tl"></span><span class="hc tr"></span><span class="hc bl"></span><span class="hc br"></span><span class="co r" style="top: 26%; right: 10px"><b>HEX 3,801</b><i></i></span><span class="it-bscan" style="position: absolute; left: 0; right: 0; height: 2px; background: #FF5A60; box-shadow: 0 0 10px rgba(232, 34, 42, 0.8); animation-delay: 5.5s"></span></a>
+        <div class="dos-top mn"><span>SUBJECT 13</span><span class="tg">COMMUNIST LEFT</span></div>
+        <a href="/archive/bordiga/" class="dos-img" tabindex="-1" aria-hidden="true"><img src="/assets/hex_bordiga.png" alt=""><span class="hc tl"></span><span class="hc tr"></span><span class="hc bl"></span><span class="hc br"></span><span class="co r" style="top: 26%; right: 10px"><b>HEX 3,801</b><i></i></span><span class="it-bscan" style="position: absolute; left: 0; right: 0; height: 2px; background: #FF5A60; box-shadow: 0 0 10px rgba(232, 34, 42, 0.8); animation-delay: 6s"></span></a>
         <div class="dos-body">
           <h3><a href="/archive/bordiga/">AMADEO BORDIGA</a></h3>
           <p class="yr">1889 — 1970 · RESINA → FORMIA</p>
@@ -497,12 +513,30 @@ mark { background: rgba(232, 34, 42, 0.42); color: #FFFFFF; padding: 0 2px; }
     </div>
 
     <div class="ar-block" id="non-marxists">
-      <header class="ar-bh nm"><h2 class="mn">NON-MARXISTS · 20 FILES</h2><p>Filed outside the Index of Marxists: the philosophers and economists Marx worked from, the utopians and anarchists he argued with, the revisionists, and the leaders who governed in Lenin's name after him. Read them to know what Marxism answered.</p></header>
+      <header class="nm-hero">
+        <span class="tag nm-tag">FILE 01-B · OUTSIDE THE INDEX</span>
+        <h2 class="dh">INDEX OF NON-MARXISTS</h2>
+        <p class="src">SRC: TIA ARCHIVE · 30 NON-MARXISTS · 87 WORKS · 12 FULL TEXTS · 6 GROUPS</p>
+        <p class="nm-lede">Filed outside the Index of Marxists: the philosophers and economists Marx worked from, the utopians and anarchists he argued with, the revisionists, and the leaders who governed in Lenin's name after him. Read them to know what Marxism answered. Open a file for their works in order; texts in the public domain are here in full and searchable, the rest link to the Marxists Internet Archive or the published text.</p>
+      </header>
       <div class="nm-grid" style="grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr)); gap: 20px">
 
-      <article class="dos it-rv nm-dos" id="kant" data-t="nm philosophers">
+      <article class="dos it-rv nm-dos" id="spinoza" data-t="nm philosophers">
         <div class="dos-top mn"><span>FILE 01</span><span class="tg">THE PHILOSOPHERS</span></div>
-        <a href="/archive/kant/" class="dos-img" tabindex="-1" aria-hidden="true"><img src="/assets/hex_kant.png" alt="" loading="lazy"><span class="hc tl"></span><span class="hc tr"></span><span class="hc bl"></span><span class="hc br"></span><span class="it-bscan" style="position: absolute; left: 0; right: 0; height: 2px; background: #FF5A60; box-shadow: 0 0 10px rgba(232, 34, 42, 0.8)"></span></a>
+        <a href="/archive/spinoza/" class="dos-img" tabindex="-1" aria-hidden="true"><span class="mn" style="align-self: center; padding: 0 10px; text-align: center; font-size: 12px; letter-spacing: 0.14em; color: #6E5A55">NO PORTRAIT ON FILE</span><span class="hc tl"></span><span class="hc tr"></span><span class="hc bl"></span><span class="hc br"></span><span class="it-bscan" style="position: absolute; left: 0; right: 0; height: 2px; background: #FF5A60; box-shadow: 0 0 10px rgba(232, 34, 42, 0.8)"></span></a>
+        <div class="dos-body">
+          <h3><a href="/archive/spinoza/">Baruch Spinoza</a></h3>
+          <p class="yr">1632 — 1677 · AMSTERDAM → THE HAGUE</p>
+          <p class="role">Dutch philosopher, expelled from Amsterdam's Jewish community in 1656, whose Ethics identifies God with nature. Hegel held that every philosopher must begin from Spinoza.</p>
+          <ul><li><a href="/archive/spinoza/ethics/">The Ethics</a> (1677)<span class="h">TXT</span></li></ul>
+          <p class="cnt"><b>1 FULL TEXT</b> · 1 WORK</p>
+          <a href="/archive/spinoza/" class="open">OPEN FILE →</a>
+        </div>
+      </article>
+
+      <article class="dos it-rv nm-dos" id="kant" data-t="nm philosophers">
+        <div class="dos-top mn"><span>FILE 02</span><span class="tg">THE PHILOSOPHERS</span></div>
+        <a href="/archive/kant/" class="dos-img" tabindex="-1" aria-hidden="true"><img src="/assets/hex_kant.png" alt=""><span class="hc tl"></span><span class="hc tr"></span><span class="hc bl"></span><span class="hc br"></span><span class="it-bscan" style="position: absolute; left: 0; right: 0; height: 2px; background: #FF5A60; box-shadow: 0 0 10px rgba(232, 34, 42, 0.8); animation-delay: 0.4s"></span></a>
         <div class="dos-body">
           <h3><a href="/archive/kant/">Immanuel Kant</a></h3>
           <p class="yr">1724 — 1804 · KÖNIGSBERG</p>
@@ -514,8 +548,8 @@ mark { background: rgba(232, 34, 42, 0.42); color: #FFFFFF; padding: 0 2px; }
       </article>
 
       <article class="dos it-rv nm-dos" id="feuerbach" data-t="nm philosophers">
-        <div class="dos-top mn"><span>FILE 02</span><span class="tg">THE PHILOSOPHERS</span></div>
-        <a href="/archive/feuerbach/" class="dos-img" tabindex="-1" aria-hidden="true"><img src="/assets/hex_feuerbach.png" alt="" loading="lazy"><span class="hc tl"></span><span class="hc tr"></span><span class="hc bl"></span><span class="hc br"></span><span class="it-bscan" style="position: absolute; left: 0; right: 0; height: 2px; background: #FF5A60; box-shadow: 0 0 10px rgba(232, 34, 42, 0.8); animation-delay: 0.4s"></span></a>
+        <div class="dos-top mn"><span>FILE 03</span><span class="tg">THE PHILOSOPHERS</span></div>
+        <a href="/archive/feuerbach/" class="dos-img" tabindex="-1" aria-hidden="true"><img src="/assets/hex_feuerbach.png" alt=""><span class="hc tl"></span><span class="hc tr"></span><span class="hc bl"></span><span class="hc br"></span><span class="it-bscan" style="position: absolute; left: 0; right: 0; height: 2px; background: #FF5A60; box-shadow: 0 0 10px rgba(232, 34, 42, 0.8); animation-delay: 0.8s"></span></a>
         <div class="dos-body">
           <h3><a href="/archive/feuerbach/">Ludwig Feuerbach</a></h3>
           <p class="yr">1804 — 1872 · LANDSHUT → RECHENBERG</p>
@@ -526,9 +560,35 @@ mark { background: rgba(232, 34, 42, 0.42); color: #FFFFFF; padding: 0 2px; }
         </div>
       </article>
 
+      <article class="dos it-rv nm-dos" id="bauer" data-t="nm philosophers">
+        <div class="dos-top mn"><span>FILE 04</span><span class="tg">THE PHILOSOPHERS</span></div>
+        <a href="/archive/bauer/" class="dos-img" tabindex="-1" aria-hidden="true"><span class="mn" style="align-self: center; padding: 0 10px; text-align: center; font-size: 12px; letter-spacing: 0.14em; color: #6E5A55">NO PORTRAIT ON FILE</span><span class="hc tl"></span><span class="hc tr"></span><span class="hc bl"></span><span class="hc br"></span><span class="it-bscan" style="position: absolute; left: 0; right: 0; height: 2px; background: #FF5A60; box-shadow: 0 0 10px rgba(232, 34, 42, 0.8); animation-delay: 1.2s"></span></a>
+        <div class="dos-body">
+          <h3><a href="/archive/bauer/">Bruno Bauer</a></h3>
+          <p class="yr">1809 — 1882 · EISENBERG → RIXDORF</p>
+          <p class="role">Young Hegelian theologian and critic of the Gospels, Marx's teacher and friend in Berlin, whom Marx answered in On the Jewish Question and, with Engels, in The Holy Family.</p>
+          <ul><li><a href="https://www.marxists.org/deutsch/referenz/bauer-b/1841/06/staat.htm" target="_blank" rel="noopener">Der christliche Staat und unsere Zeit</a> (1841)</li><li><a href="https://www.marxists.org/deutsch/referenz/bauer-b/1842/xx/sache.htm" target="_blank" rel="noopener">Die gute Sache der Freiheit und meine eigene Angelegenheit</a> (1842)</li><li><a href="https://www.marxists.org/deutsch/referenz/bauer-b/1843/xx/juden.htm" target="_blank" rel="noopener">Die Fähigkeit der heutigen Juden und Christen, frei zu werden</a> (1843)</li></ul>
+          <p class="cnt">LINKED WORKS · 4 WORKS</p>
+          <a href="/archive/bauer/" class="open">OPEN FILE →</a>
+        </div>
+      </article>
+
+      <article class="dos it-rv nm-dos" id="hess" data-t="nm philosophers">
+        <div class="dos-top mn"><span>FILE 05</span><span class="tg">THE PHILOSOPHERS</span></div>
+        <a href="/archive/hess/" class="dos-img" tabindex="-1" aria-hidden="true"><span class="mn" style="align-self: center; padding: 0 10px; text-align: center; font-size: 12px; letter-spacing: 0.14em; color: #6E5A55">NO PORTRAIT ON FILE</span><span class="hc tl"></span><span class="hc tr"></span><span class="hc bl"></span><span class="hc br"></span><span class="it-bscan" style="position: absolute; left: 0; right: 0; height: 2px; background: #FF5A60; box-shadow: 0 0 10px rgba(232, 34, 42, 0.8)"></span></a>
+        <div class="dos-body">
+          <h3><a href="/archive/hess/">Moses Hess</a></h3>
+          <p class="yr">1812 — 1875 · BONN → PARIS</p>
+          <p class="role">Philosopher and socialist who won Engels over to communism in 1842 and worked with Marx in the 1840s; later the author of Rome and Jerusalem (1862), an early work of Zionism.</p>
+          <ul><li><a href="https://www.marxists.org/archive/hess/1845/elberfeld-speech.htm" target="_blank" rel="noopener">Speech on Communism in Elberfeld</a> (1845)</li><li><a href="https://www.marxists.org/archive/hess/1845/essence-money.htm" target="_blank" rel="noopener">The Essence of Money</a> (1845)</li></ul>
+          <p class="cnt">LINKED WORKS · 2 WORKS</p>
+          <a href="/archive/hess/" class="open">OPEN FILE →</a>
+        </div>
+      </article>
+
       <article class="dos it-rv nm-dos" id="smith" data-t="nm economists">
-        <div class="dos-top mn"><span>FILE 03</span><span class="tg">THE ECONOMISTS</span></div>
-        <a href="/archive/smith/" class="dos-img" tabindex="-1" aria-hidden="true"><img src="/assets/hex_smith.png" alt="" loading="lazy"><span class="hc tl"></span><span class="hc tr"></span><span class="hc bl"></span><span class="hc br"></span><span class="it-bscan" style="position: absolute; left: 0; right: 0; height: 2px; background: #FF5A60; box-shadow: 0 0 10px rgba(232, 34, 42, 0.8); animation-delay: 0.8s"></span></a>
+        <div class="dos-top mn"><span>FILE 06</span><span class="tg">THE ECONOMISTS</span></div>
+        <a href="/archive/smith/" class="dos-img" tabindex="-1" aria-hidden="true"><img src="/assets/hex_smith.png" alt=""><span class="hc tl"></span><span class="hc tr"></span><span class="hc bl"></span><span class="hc br"></span><span class="it-bscan" style="position: absolute; left: 0; right: 0; height: 2px; background: #FF5A60; box-shadow: 0 0 10px rgba(232, 34, 42, 0.8); animation-delay: 0.4s"></span></a>
         <div class="dos-body">
           <h3><a href="/archive/smith/">Adam Smith</a></h3>
           <p class="yr">1723 — 1790 · KIRKCALDY → EDINBURGH</p>
@@ -539,22 +599,9 @@ mark { background: rgba(232, 34, 42, 0.42); color: #FFFFFF; padding: 0 2px; }
         </div>
       </article>
 
-      <article class="dos it-rv nm-dos" id="ricardo" data-t="nm economists">
-        <div class="dos-top mn"><span>FILE 04</span><span class="tg">THE ECONOMISTS</span></div>
-        <a href="/archive/ricardo/" class="dos-img" tabindex="-1" aria-hidden="true"><img src="/assets/hex_ricardo.png" alt="" loading="lazy"><span class="hc tl"></span><span class="hc tr"></span><span class="hc bl"></span><span class="hc br"></span><span class="it-bscan" style="position: absolute; left: 0; right: 0; height: 2px; background: #FF5A60; box-shadow: 0 0 10px rgba(232, 34, 42, 0.8); animation-delay: 1.2s"></span></a>
-        <div class="dos-body">
-          <h3><a href="/archive/ricardo/">David Ricardo</a></h3>
-          <p class="yr">1772 — 1823 · LONDON → GATCOMBE</p>
-          <p class="role">Stockbroker and economist who carried the labour theory of value further than anyone before Marx.</p>
-          <ul><li><a href="/archive/ricardo/principles-of-political-economy/">On the Principles of Political Economy and Taxation</a> (1817)<span class="h">TXT</span></li></ul>
-          <p class="cnt"><b>1 FULL TEXT</b> · 1 WORK</p>
-          <a href="/archive/ricardo/" class="open">OPEN FILE →</a>
-        </div>
-      </article>
-
       <article class="dos it-rv nm-dos" id="malthus" data-t="nm economists">
-        <div class="dos-top mn"><span>FILE 05</span><span class="tg">THE ECONOMISTS</span></div>
-        <a href="/archive/malthus/" class="dos-img" tabindex="-1" aria-hidden="true"><img src="/assets/hex_malthus.png" alt="" loading="lazy"><span class="hc tl"></span><span class="hc tr"></span><span class="hc bl"></span><span class="hc br"></span><span class="it-bscan" style="position: absolute; left: 0; right: 0; height: 2px; background: #FF5A60; box-shadow: 0 0 10px rgba(232, 34, 42, 0.8)"></span></a>
+        <div class="dos-top mn"><span>FILE 07</span><span class="tg">THE ECONOMISTS</span></div>
+        <a href="/archive/malthus/" class="dos-img" tabindex="-1" aria-hidden="true"><img src="/assets/hex_malthus.png" alt=""><span class="hc tl"></span><span class="hc tr"></span><span class="hc bl"></span><span class="hc br"></span><span class="it-bscan" style="position: absolute; left: 0; right: 0; height: 2px; background: #FF5A60; box-shadow: 0 0 10px rgba(232, 34, 42, 0.8); animation-delay: 0.8s"></span></a>
         <div class="dos-body">
           <h3><a href="/archive/malthus/">Thomas Malthus</a></h3>
           <p class="yr">1766 — 1834 · SURREY → BATH</p>
@@ -565,9 +612,22 @@ mark { background: rgba(232, 34, 42, 0.42); color: #FFFFFF; padding: 0 2px; }
         </div>
       </article>
 
+      <article class="dos it-rv nm-dos" id="ricardo" data-t="nm economists">
+        <div class="dos-top mn"><span>FILE 08</span><span class="tg">THE ECONOMISTS</span></div>
+        <a href="/archive/ricardo/" class="dos-img" tabindex="-1" aria-hidden="true"><img src="/assets/hex_ricardo.png" alt=""><span class="hc tl"></span><span class="hc tr"></span><span class="hc bl"></span><span class="hc br"></span><span class="it-bscan" style="position: absolute; left: 0; right: 0; height: 2px; background: #FF5A60; box-shadow: 0 0 10px rgba(232, 34, 42, 0.8); animation-delay: 1.2s"></span></a>
+        <div class="dos-body">
+          <h3><a href="/archive/ricardo/">David Ricardo</a></h3>
+          <p class="yr">1772 — 1823 · LONDON → GATCOMBE</p>
+          <p class="role">Stockbroker and economist who carried the labour theory of value further than anyone before Marx.</p>
+          <ul><li><a href="/archive/ricardo/principles-of-political-economy/">On the Principles of Political Economy and Taxation</a> (1817)<span class="h">TXT</span></li></ul>
+          <p class="cnt"><b>1 FULL TEXT</b> · 1 WORK</p>
+          <a href="/archive/ricardo/" class="open">OPEN FILE →</a>
+        </div>
+      </article>
+
       <article class="dos it-rv nm-dos" id="saint-simon" data-t="nm utopians">
-        <div class="dos-top mn"><span>FILE 06</span><span class="tg">THE UTOPIANS</span></div>
-        <a href="/archive/saint-simon/" class="dos-img" tabindex="-1" aria-hidden="true"><img src="/assets/hex_saint-simon.png" alt="" loading="lazy"><span class="hc tl"></span><span class="hc tr"></span><span class="hc bl"></span><span class="hc br"></span><span class="it-bscan" style="position: absolute; left: 0; right: 0; height: 2px; background: #FF5A60; box-shadow: 0 0 10px rgba(232, 34, 42, 0.8); animation-delay: 0.4s"></span></a>
+        <div class="dos-top mn"><span>FILE 09</span><span class="tg">THE EARLY SOCIALISTS</span></div>
+        <a href="/archive/saint-simon/" class="dos-img" tabindex="-1" aria-hidden="true"><img src="/assets/hex_saint-simon.png" alt=""><span class="hc tl"></span><span class="hc tr"></span><span class="hc bl"></span><span class="hc br"></span><span class="it-bscan" style="position: absolute; left: 0; right: 0; height: 2px; background: #FF5A60; box-shadow: 0 0 10px rgba(232, 34, 42, 0.8)"></span></a>
         <div class="dos-body">
           <h3><a href="/archive/saint-simon/">Henri de Saint-Simon</a></h3>
           <p class="yr">1760 — 1825 · PARIS</p>
@@ -578,22 +638,9 @@ mark { background: rgba(232, 34, 42, 0.42); color: #FFFFFF; padding: 0 2px; }
         </div>
       </article>
 
-      <article class="dos it-rv nm-dos" id="fourier" data-t="nm utopians">
-        <div class="dos-top mn"><span>FILE 07</span><span class="tg">THE UTOPIANS</span></div>
-        <a href="/archive/fourier/" class="dos-img" tabindex="-1" aria-hidden="true"><img src="/assets/hex_fourier.png" alt="" loading="lazy"><span class="hc tl"></span><span class="hc tr"></span><span class="hc bl"></span><span class="hc br"></span><span class="it-bscan" style="position: absolute; left: 0; right: 0; height: 2px; background: #FF5A60; box-shadow: 0 0 10px rgba(232, 34, 42, 0.8); animation-delay: 0.8s"></span></a>
-        <div class="dos-body">
-          <h3><a href="/archive/fourier/">Charles Fourier</a></h3>
-          <p class="yr">1772 — 1837 · BESANÇON → PARIS</p>
-          <p class="role">French critic of commerce and of 'civilisation' who planned cooperative communities, the phalansteries.</p>
-          <ul><li><a href="https://www.marxists.org/reference/archive/fourier/social-destiny.pdf" target="_blank" rel="noopener">The Social Destiny of Man, or Theory of the Four Movements</a> (1808)</li></ul>
-          <p class="cnt">LINKED WORKS · 1 WORK</p>
-          <a href="/archive/fourier/" class="open">OPEN FILE →</a>
-        </div>
-      </article>
-
       <article class="dos it-rv nm-dos" id="owen" data-t="nm utopians">
-        <div class="dos-top mn"><span>FILE 08</span><span class="tg">THE UTOPIANS</span></div>
-        <a href="/archive/owen/" class="dos-img" tabindex="-1" aria-hidden="true"><img src="/assets/hex_owen.png" alt="" loading="lazy"><span class="hc tl"></span><span class="hc tr"></span><span class="hc bl"></span><span class="hc br"></span><span class="it-bscan" style="position: absolute; left: 0; right: 0; height: 2px; background: #FF5A60; box-shadow: 0 0 10px rgba(232, 34, 42, 0.8); animation-delay: 1.2s"></span></a>
+        <div class="dos-top mn"><span>FILE 10</span><span class="tg">THE EARLY SOCIALISTS</span></div>
+        <a href="/archive/owen/" class="dos-img" tabindex="-1" aria-hidden="true"><img src="/assets/hex_owen.png" alt=""><span class="hc tl"></span><span class="hc tr"></span><span class="hc bl"></span><span class="hc br"></span><span class="it-bscan" style="position: absolute; left: 0; right: 0; height: 2px; background: #FF5A60; box-shadow: 0 0 10px rgba(232, 34, 42, 0.8); animation-delay: 0.4s"></span></a>
         <div class="dos-body">
           <h3><a href="/archive/owen/">Robert Owen</a></h3>
           <p class="yr">1771 — 1858 · NEWTOWN → NEWTOWN</p>
@@ -604,22 +651,35 @@ mark { background: rgba(232, 34, 42, 0.42); color: #FFFFFF; padding: 0 2px; }
         </div>
       </article>
 
-      <article class="dos it-rv nm-dos" id="proudhon" data-t="nm anarchists">
-        <div class="dos-top mn"><span>FILE 09</span><span class="tg">THE ANARCHISTS</span></div>
-        <a href="/archive/proudhon/" class="dos-img" tabindex="-1" aria-hidden="true"><img src="/assets/hex_proudhon.png" alt="" loading="lazy"><span class="hc tl"></span><span class="hc tr"></span><span class="hc bl"></span><span class="hc br"></span><span class="it-bscan" style="position: absolute; left: 0; right: 0; height: 2px; background: #FF5A60; box-shadow: 0 0 10px rgba(232, 34, 42, 0.8)"></span></a>
+      <article class="dos it-rv nm-dos" id="fourier" data-t="nm utopians">
+        <div class="dos-top mn"><span>FILE 11</span><span class="tg">THE EARLY SOCIALISTS</span></div>
+        <a href="/archive/fourier/" class="dos-img" tabindex="-1" aria-hidden="true"><img src="/assets/hex_fourier.png" alt=""><span class="hc tl"></span><span class="hc tr"></span><span class="hc bl"></span><span class="hc br"></span><span class="it-bscan" style="position: absolute; left: 0; right: 0; height: 2px; background: #FF5A60; box-shadow: 0 0 10px rgba(232, 34, 42, 0.8); animation-delay: 0.8s"></span></a>
         <div class="dos-body">
-          <h3><a href="/archive/proudhon/">Pierre-Joseph Proudhon</a></h3>
-          <p class="yr">1809 — 1865 · BESANÇON → PASSY</p>
-          <p class="role">French printer who declared that property is theft and was the first to call himself an anarchist. Marx answered his System of Economic Contradictions with The Poverty of Philosophy.</p>
-          <ul><li><a href="https://www.marxists.org/reference/subject/economics/proudhon/property/index.htm" target="_blank" rel="noopener">What Is Property?</a> (1840)</li><li><a href="https://www.marxists.org/reference/subject/economics/proudhon/philosophy/index.htm" target="_blank" rel="noopener">System of Economical Contradictions, or The Philosophy of Poverty</a> (1846)</li><li><a href="https://www.marxists.org/reference/subject/economics/proudhon/1851/general-idea-of-the-revolution-in-the-nineteenth-century/index.html" target="_blank" rel="noopener">General Idea of the Revolution in the Nineteenth Century</a> (1851)</li></ul>
-          <p class="cnt">LINKED WORKS · 3 WORKS</p>
-          <a href="/archive/proudhon/" class="open">OPEN FILE →</a>
+          <h3><a href="/archive/fourier/">Charles Fourier</a></h3>
+          <p class="yr">1772 — 1837 · BESANÇON → PARIS</p>
+          <p class="role">French critic of commerce and of 'civilisation' who planned cooperative communities, the phalansteries.</p>
+          <ul><li><a href="https://www.marxists.org/reference/archive/fourier/social-destiny.pdf" target="_blank" rel="noopener">The Social Destiny of Man, or Theory of the Four Movements</a> (1808)</li></ul>
+          <p class="cnt">LINKED WORKS · 1 WORK</p>
+          <a href="/archive/fourier/" class="open">OPEN FILE →</a>
+        </div>
+      </article>
+
+      <article class="dos it-rv nm-dos" id="blanqui" data-t="nm utopians">
+        <div class="dos-top mn"><span>FILE 12</span><span class="tg">THE EARLY SOCIALISTS</span></div>
+        <a href="/archive/blanqui/" class="dos-img" tabindex="-1" aria-hidden="true"><span class="mn" style="align-self: center; padding: 0 10px; text-align: center; font-size: 12px; letter-spacing: 0.14em; color: #6E5A55">NO PORTRAIT ON FILE</span><span class="hc tl"></span><span class="hc tr"></span><span class="hc bl"></span><span class="hc br"></span><span class="it-bscan" style="position: absolute; left: 0; right: 0; height: 2px; background: #FF5A60; box-shadow: 0 0 10px rgba(232, 34, 42, 0.8); animation-delay: 1.2s"></span></a>
+        <div class="dos-body">
+          <h3><a href="/archive/blanqui/">Auguste Blanqui</a></h3>
+          <p class="yr">1805 — 1881 · PUGET-THÉNIERS → PARIS</p>
+          <p class="role">French revolutionary who spent more than thirty years in prison for his conspiracies and insurrections; his followers fought in the Paris Commune.</p>
+          <ul><li><a href="https://www.marxists.org/reference/archive/blanqui/1832/defence-speech.htm" target="_blank" rel="noopener">Defence Speech</a> (1832)</li><li><a href="https://www.marxists.org/reference/archive/blanqui/1848/red-flag.htm" target="_blank" rel="noopener">For the Red Flag</a> (1848)</li><li><a href="https://www.marxists.org/reference/archive/blanqui/1851/toast.htm" target="_blank" rel="noopener">Warning to the People</a> (1851)</li></ul>
+          <p class="cnt">LINKED WORKS · 5 WORKS</p>
+          <a href="/archive/blanqui/" class="open">OPEN FILE →</a>
         </div>
       </article>
 
       <article class="dos it-rv nm-dos" id="stirner" data-t="nm anarchists">
-        <div class="dos-top mn"><span>FILE 10</span><span class="tg">THE ANARCHISTS</span></div>
-        <a href="/archive/stirner/" class="dos-img" tabindex="-1" aria-hidden="true"><img src="/assets/hex_stirner.png" alt="" loading="lazy"><span class="hc tl"></span><span class="hc tr"></span><span class="hc bl"></span><span class="hc br"></span><span class="it-bscan" style="position: absolute; left: 0; right: 0; height: 2px; background: #FF5A60; box-shadow: 0 0 10px rgba(232, 34, 42, 0.8); animation-delay: 0.4s"></span></a>
+        <div class="dos-top mn"><span>FILE 13</span><span class="tg">THE ANARCHISTS</span></div>
+        <a href="/archive/stirner/" class="dos-img" tabindex="-1" aria-hidden="true"><img src="/assets/hex_stirner.png" alt=""><span class="hc tl"></span><span class="hc tr"></span><span class="hc bl"></span><span class="hc br"></span><span class="it-bscan" style="position: absolute; left: 0; right: 0; height: 2px; background: #FF5A60; box-shadow: 0 0 10px rgba(232, 34, 42, 0.8)"></span></a>
         <div class="dos-body">
           <h3><a href="/archive/stirner/">Max Stirner</a></h3>
           <p class="yr">1806 — 1856 · BAYREUTH → BERLIN</p>
@@ -630,9 +690,22 @@ mark { background: rgba(232, 34, 42, 0.42); color: #FFFFFF; padding: 0 2px; }
         </div>
       </article>
 
+      <article class="dos it-rv nm-dos" id="proudhon" data-t="nm anarchists">
+        <div class="dos-top mn"><span>FILE 14</span><span class="tg">THE ANARCHISTS</span></div>
+        <a href="/archive/proudhon/" class="dos-img" tabindex="-1" aria-hidden="true"><img src="/assets/hex_proudhon.png" alt=""><span class="hc tl"></span><span class="hc tr"></span><span class="hc bl"></span><span class="hc br"></span><span class="it-bscan" style="position: absolute; left: 0; right: 0; height: 2px; background: #FF5A60; box-shadow: 0 0 10px rgba(232, 34, 42, 0.8); animation-delay: 0.4s"></span></a>
+        <div class="dos-body">
+          <h3><a href="/archive/proudhon/">Pierre-Joseph Proudhon</a></h3>
+          <p class="yr">1809 — 1865 · BESANÇON → PASSY</p>
+          <p class="role">French printer who declared that property is theft and was the first to call himself an anarchist. Marx answered his System of Economic Contradictions with The Poverty of Philosophy.</p>
+          <ul><li><a href="https://www.marxists.org/reference/subject/economics/proudhon/property/index.htm" target="_blank" rel="noopener">What Is Property?</a> (1840)</li><li><a href="https://www.marxists.org/reference/subject/economics/proudhon/philosophy/index.htm" target="_blank" rel="noopener">System of Economical Contradictions, or The Philosophy of Poverty</a> (1846)</li><li><a href="https://www.marxists.org/reference/subject/economics/proudhon/1851/general-idea-of-the-revolution-in-the-nineteenth-century/index.html" target="_blank" rel="noopener">General Idea of the Revolution in the Nineteenth Century</a> (1851)</li></ul>
+          <p class="cnt">LINKED WORKS · 3 WORKS</p>
+          <a href="/archive/proudhon/" class="open">OPEN FILE →</a>
+        </div>
+      </article>
+
       <article class="dos it-rv nm-dos" id="bakunin" data-t="nm anarchists">
-        <div class="dos-top mn"><span>FILE 11</span><span class="tg">THE ANARCHISTS</span></div>
-        <a href="/archive/bakunin/" class="dos-img" tabindex="-1" aria-hidden="true"><img src="/assets/hex_bakunin.png" alt="" loading="lazy"><span class="hc tl"></span><span class="hc tr"></span><span class="hc bl"></span><span class="hc br"></span><span class="it-bscan" style="position: absolute; left: 0; right: 0; height: 2px; background: #FF5A60; box-shadow: 0 0 10px rgba(232, 34, 42, 0.8); animation-delay: 0.8s"></span></a>
+        <div class="dos-top mn"><span>FILE 15</span><span class="tg">THE ANARCHISTS</span></div>
+        <a href="/archive/bakunin/" class="dos-img" tabindex="-1" aria-hidden="true"><img src="/assets/hex_bakunin.png" alt=""><span class="hc tl"></span><span class="hc tr"></span><span class="hc bl"></span><span class="hc br"></span><span class="it-bscan" style="position: absolute; left: 0; right: 0; height: 2px; background: #FF5A60; box-shadow: 0 0 10px rgba(232, 34, 42, 0.8); animation-delay: 0.8s"></span></a>
         <div class="dos-body">
           <h3><a href="/archive/bakunin/">Mikhail Bakunin</a></h3>
           <p class="yr">1814 — 1876 · PRYAMUKHINO → BERN</p>
@@ -644,8 +717,8 @@ mark { background: rgba(232, 34, 42, 0.42); color: #FFFFFF; padding: 0 2px; }
       </article>
 
       <article class="dos it-rv nm-dos" id="kropotkin" data-t="nm anarchists">
-        <div class="dos-top mn"><span>FILE 12</span><span class="tg">THE ANARCHISTS</span></div>
-        <a href="/archive/kropotkin/" class="dos-img" tabindex="-1" aria-hidden="true"><img src="/assets/hex_kropotkin.png" alt="" loading="lazy"><span class="hc tl"></span><span class="hc tr"></span><span class="hc bl"></span><span class="hc br"></span><span class="it-bscan" style="position: absolute; left: 0; right: 0; height: 2px; background: #FF5A60; box-shadow: 0 0 10px rgba(232, 34, 42, 0.8); animation-delay: 1.2s"></span></a>
+        <div class="dos-top mn"><span>FILE 16</span><span class="tg">THE ANARCHISTS</span></div>
+        <a href="/archive/kropotkin/" class="dos-img" tabindex="-1" aria-hidden="true"><img src="/assets/hex_kropotkin.png" alt=""><span class="hc tl"></span><span class="hc tr"></span><span class="hc bl"></span><span class="hc br"></span><span class="it-bscan" style="position: absolute; left: 0; right: 0; height: 2px; background: #FF5A60; box-shadow: 0 0 10px rgba(232, 34, 42, 0.8); animation-delay: 1.2s"></span></a>
         <div class="dos-body">
           <h3><a href="/archive/kropotkin/">Peter Kropotkin</a></h3>
           <p class="yr">1842 — 1921 · MOSCOW → DMITROV</p>
@@ -657,8 +730,8 @@ mark { background: rgba(232, 34, 42, 0.42); color: #FFFFFF; padding: 0 2px; }
       </article>
 
       <article class="dos it-rv nm-dos" id="goldman" data-t="nm anarchists">
-        <div class="dos-top mn"><span>FILE 13</span><span class="tg">THE ANARCHISTS</span></div>
-        <a href="/archive/goldman/" class="dos-img" tabindex="-1" aria-hidden="true"><img src="/assets/hex_goldman.png" alt="" loading="lazy"><span class="hc tl"></span><span class="hc tr"></span><span class="hc bl"></span><span class="hc br"></span><span class="it-bscan" style="position: absolute; left: 0; right: 0; height: 2px; background: #FF5A60; box-shadow: 0 0 10px rgba(232, 34, 42, 0.8)"></span></a>
+        <div class="dos-top mn"><span>FILE 17</span><span class="tg">THE ANARCHISTS</span></div>
+        <a href="/archive/goldman/" class="dos-img" tabindex="-1" aria-hidden="true"><img src="/assets/hex_goldman.png" alt=""><span class="hc tl"></span><span class="hc tr"></span><span class="hc bl"></span><span class="hc br"></span><span class="it-bscan" style="position: absolute; left: 0; right: 0; height: 2px; background: #FF5A60; box-shadow: 0 0 10px rgba(232, 34, 42, 0.8)"></span></a>
         <div class="dos-body">
           <h3><a href="/archive/goldman/">Emma Goldman</a></h3>
           <p class="yr">1869 — 1940 · KOVNO → TORONTO</p>
@@ -670,8 +743,8 @@ mark { background: rgba(232, 34, 42, 0.42); color: #FFFFFF; padding: 0 2px; }
       </article>
 
       <article class="dos it-rv nm-dos" id="bernstein" data-t="nm revisionists">
-        <div class="dos-top mn"><span>FILE 14</span><span class="tg">THE REVISIONISTS</span></div>
-        <a href="/archive/bernstein/" class="dos-img" tabindex="-1" aria-hidden="true"><img src="/assets/hex_bernstein.png" alt="" loading="lazy"><span class="hc tl"></span><span class="hc tr"></span><span class="hc bl"></span><span class="hc br"></span><span class="it-bscan" style="position: absolute; left: 0; right: 0; height: 2px; background: #FF5A60; box-shadow: 0 0 10px rgba(232, 34, 42, 0.8); animation-delay: 0.4s"></span></a>
+        <div class="dos-top mn"><span>FILE 18</span><span class="tg">THE REVISIONISTS</span></div>
+        <a href="/archive/bernstein/" class="dos-img" tabindex="-1" aria-hidden="true"><img src="/assets/hex_bernstein.png" alt=""><span class="hc tl"></span><span class="hc tr"></span><span class="hc bl"></span><span class="hc br"></span><span class="it-bscan" style="position: absolute; left: 0; right: 0; height: 2px; background: #FF5A60; box-shadow: 0 0 10px rgba(232, 34, 42, 0.8); animation-delay: 0.4s"></span></a>
         <div class="dos-body">
           <h3><a href="/archive/bernstein/">Eduard Bernstein</a></h3>
           <p class="yr">1850 — 1932 · BERLIN</p>
@@ -683,8 +756,8 @@ mark { background: rgba(232, 34, 42, 0.42); color: #FFFFFF; padding: 0 2px; }
       </article>
 
       <article class="dos it-rv nm-dos" id="stalin" data-t="nm after-lenin">
-        <div class="dos-top mn"><span>FILE 15</span><span class="tg">AFTER LENIN</span></div>
-        <a href="/archive/stalin/" class="dos-img" tabindex="-1" aria-hidden="true"><img src="/assets/hex_stalin.png" alt="" loading="lazy"><span class="hc tl"></span><span class="hc tr"></span><span class="hc bl"></span><span class="hc br"></span><span class="it-bscan" style="position: absolute; left: 0; right: 0; height: 2px; background: #FF5A60; box-shadow: 0 0 10px rgba(232, 34, 42, 0.8); animation-delay: 0.8s"></span></a>
+        <div class="dos-top mn"><span>FILE 19</span><span class="tg">AFTER LENIN</span></div>
+        <a href="/archive/stalin/" class="dos-img" tabindex="-1" aria-hidden="true"><img src="/assets/hex_stalin.png" alt=""><span class="hc tl"></span><span class="hc tr"></span><span class="hc bl"></span><span class="hc br"></span><span class="it-bscan" style="position: absolute; left: 0; right: 0; height: 2px; background: #FF5A60; box-shadow: 0 0 10px rgba(232, 34, 42, 0.8); animation-delay: 0.8s"></span></a>
         <div class="dos-body">
           <h3><a href="/archive/stalin/">Joseph Stalin</a></h3>
           <p class="yr">1878 — 1953 · GORI → MOSCOW</p>
@@ -695,9 +768,35 @@ mark { background: rgba(232, 34, 42, 0.42); color: #FFFFFF; padding: 0 2px; }
         </div>
       </article>
 
+      <article class="dos it-rv nm-dos" id="ho-chi-minh" data-t="nm after-lenin">
+        <div class="dos-top mn"><span>FILE 20</span><span class="tg">AFTER LENIN</span></div>
+        <a href="/archive/ho-chi-minh/" class="dos-img" tabindex="-1" aria-hidden="true"><span class="mn" style="align-self: center; padding: 0 10px; text-align: center; font-size: 12px; letter-spacing: 0.14em; color: #6E5A55">NO PORTRAIT ON FILE</span><span class="hc tl"></span><span class="hc tr"></span><span class="hc bl"></span><span class="hc br"></span><span class="it-bscan" style="position: absolute; left: 0; right: 0; height: 2px; background: #FF5A60; box-shadow: 0 0 10px rgba(232, 34, 42, 0.8); animation-delay: 1.2s"></span></a>
+        <div class="dos-body">
+          <h3><a href="/archive/ho-chi-minh/">Ho Chi Minh</a></h3>
+          <p class="yr">1890 — 1969 · KIM LIÊN → HANOI</p>
+          <p class="role">Founder of the Indochinese Communist Party in 1930, who declared Vietnam's independence in 1945 and led North Vietnam until his death in 1969.</p>
+          <ul><li><a href="https://www.marxists.org/reference/archive/ho-chi-minh/works/1922/05/25.htm" target="_blank" rel="noopener">Some Considerations on the Colonial Question</a> (1922)</li><li><a href="https://www.marxists.org/reference/archive/ho-chi-minh/works/1924/01/27.htm" target="_blank" rel="noopener">Lenin and the Colonial Peoples</a> (1924)</li><li><a href="https://www.marxists.org/reference/archive/ho-chi-minh/works/1924/07/08.htm" target="_blank" rel="noopener">Report on the National and Colonial Questions at the Fifth Congress of the Comintern</a> (1924)</li></ul>
+          <p class="cnt">LINKED WORKS · 4 WORKS</p>
+          <a href="/archive/ho-chi-minh/" class="open">OPEN FILE →</a>
+        </div>
+      </article>
+
+      <article class="dos it-rv nm-dos" id="tito" data-t="nm after-lenin">
+        <div class="dos-top mn"><span>FILE 21</span><span class="tg">AFTER LENIN</span></div>
+        <a href="/archive/tito/" class="dos-img" tabindex="-1" aria-hidden="true"><span class="mn" style="align-self: center; padding: 0 10px; text-align: center; font-size: 12px; letter-spacing: 0.14em; color: #6E5A55">NO PORTRAIT ON FILE</span><span class="hc tl"></span><span class="hc tr"></span><span class="hc bl"></span><span class="hc br"></span><span class="it-bscan" style="position: absolute; left: 0; right: 0; height: 2px; background: #FF5A60; box-shadow: 0 0 10px rgba(232, 34, 42, 0.8)"></span></a>
+        <div class="dos-body">
+          <h3><a href="/archive/tito/">Josip Broz Tito</a></h3>
+          <p class="yr">1892 — 1980 · KUMROVEC → LJUBLJANA</p>
+          <p class="role">Leader of the Yugoslav partisans in the Second World War and of Yugoslavia from 1945 until his death; he broke with Stalin in 1948 and helped found the Non-Aligned Movement.</p>
+          <ul><li><a href="https://www.marxists.org/archive/tito/1948/11/26.htm" target="_blank" rel="noopener">Concerning the National Question and Social Patriotism</a> (1948)</li><li><a href="https://www.marxists.org/archive/tito/1950/06/26.htm" target="_blank" rel="noopener">Workers Manage Factories in Yugoslavia</a> (1950)</li><li><a href="https://www.marxists.org/archive/tito/1956/02/20.htm" target="_blank" rel="noopener">Letter to the Twentieth Congress of the Communist Party of the Soviet Union</a> (1956)</li></ul>
+          <p class="cnt">LINKED WORKS · 4 WORKS</p>
+          <a href="/archive/tito/" class="open">OPEN FILE →</a>
+        </div>
+      </article>
+
       <article class="dos it-rv nm-dos" id="mao" data-t="nm after-lenin">
-        <div class="dos-top mn"><span>FILE 16</span><span class="tg">AFTER LENIN</span></div>
-        <a href="/archive/mao/" class="dos-img" tabindex="-1" aria-hidden="true"><img src="/assets/hex_mao.png" alt="" loading="lazy"><span class="hc tl"></span><span class="hc tr"></span><span class="hc bl"></span><span class="hc br"></span><span class="it-bscan" style="position: absolute; left: 0; right: 0; height: 2px; background: #FF5A60; box-shadow: 0 0 10px rgba(232, 34, 42, 0.8); animation-delay: 1.2s"></span></a>
+        <div class="dos-top mn"><span>FILE 22</span><span class="tg">AFTER LENIN</span></div>
+        <a href="/archive/mao/" class="dos-img" tabindex="-1" aria-hidden="true"><img src="/assets/hex_mao.png" alt=""><span class="hc tl"></span><span class="hc tr"></span><span class="hc bl"></span><span class="hc br"></span><span class="it-bscan" style="position: absolute; left: 0; right: 0; height: 2px; background: #FF5A60; box-shadow: 0 0 10px rgba(232, 34, 42, 0.8); animation-delay: 0.4s"></span></a>
         <div class="dos-body">
           <h3><a href="/archive/mao/">Mao Zedong</a></h3>
           <p class="yr">1893 — 1976 · SHAOSHAN → BEIJING</p>
@@ -709,8 +808,8 @@ mark { background: rgba(232, 34, 42, 0.42); color: #FFFFFF; padding: 0 2px; }
       </article>
 
       <article class="dos it-rv nm-dos" id="deng" data-t="nm after-lenin">
-        <div class="dos-top mn"><span>FILE 17</span><span class="tg">AFTER LENIN</span></div>
-        <a href="/archive/deng/" class="dos-img" tabindex="-1" aria-hidden="true"><img src="/assets/hex_deng.png" alt="" loading="lazy"><span class="hc tl"></span><span class="hc tr"></span><span class="hc bl"></span><span class="hc br"></span><span class="it-bscan" style="position: absolute; left: 0; right: 0; height: 2px; background: #FF5A60; box-shadow: 0 0 10px rgba(232, 34, 42, 0.8)"></span></a>
+        <div class="dos-top mn"><span>FILE 23</span><span class="tg">AFTER LENIN</span></div>
+        <a href="/archive/deng/" class="dos-img" tabindex="-1" aria-hidden="true"><img src="/assets/hex_deng.png" alt=""><span class="hc tl"></span><span class="hc tr"></span><span class="hc bl"></span><span class="hc br"></span><span class="it-bscan" style="position: absolute; left: 0; right: 0; height: 2px; background: #FF5A60; box-shadow: 0 0 10px rgba(232, 34, 42, 0.8); animation-delay: 0.8s"></span></a>
         <div class="dos-body">
           <h3><a href="/archive/deng/">Deng Xiaoping</a></h3>
           <p class="yr">1904 — 1997 · GUANG'AN → BEIJING</p>
@@ -721,9 +820,35 @@ mark { background: rgba(232, 34, 42, 0.42); color: #FFFFFF; padding: 0 2px; }
         </div>
       </article>
 
+      <article class="dos it-rv nm-dos" id="hoxha" data-t="nm after-lenin">
+        <div class="dos-top mn"><span>FILE 24</span><span class="tg">AFTER LENIN</span></div>
+        <a href="/archive/hoxha/" class="dos-img" tabindex="-1" aria-hidden="true"><span class="mn" style="align-self: center; padding: 0 10px; text-align: center; font-size: 12px; letter-spacing: 0.14em; color: #6E5A55">NO PORTRAIT ON FILE</span><span class="hc tl"></span><span class="hc tr"></span><span class="hc bl"></span><span class="hc br"></span><span class="it-bscan" style="position: absolute; left: 0; right: 0; height: 2px; background: #FF5A60; box-shadow: 0 0 10px rgba(232, 34, 42, 0.8); animation-delay: 1.2s"></span></a>
+        <div class="dos-body">
+          <h3><a href="/archive/hoxha/">Enver Hoxha</a></h3>
+          <p class="yr">1908 — 1985 · GJIROKASTËR → TIRANA</p>
+          <p class="role">Leader of Albania from 1944 until his death in 1985, who broke in turn with Yugoslavia, the Soviet Union and China.</p>
+          <ul><li><a href="https://www.marxists.org/reference/archive/hoxha/works/imp_rev/toc.htm" target="_blank" rel="noopener">Imperialism and the Revolution</a> (1978)</li><li><a href="https://www.marxists.org/reference/archive/hoxha/works/ebooks/reflections_on_china_volume_1.pdf" target="_blank" rel="noopener">Reflections on China, Volume One</a> (1979)</li><li><a href="https://www.marxists.org/reference/archive/hoxha/works/1976/khruschevites/index.htm" target="_blank" rel="noopener">The Khrushchevites</a> (1980)</li></ul>
+          <p class="cnt">LINKED WORKS · 3 WORKS</p>
+          <a href="/archive/hoxha/" class="open">OPEN FILE →</a>
+        </div>
+      </article>
+
+      <article class="dos it-rv nm-dos" id="kim-il-sung" data-t="nm after-lenin">
+        <div class="dos-top mn"><span>FILE 25</span><span class="tg">AFTER LENIN</span></div>
+        <a href="/archive/kim-il-sung/" class="dos-img" tabindex="-1" aria-hidden="true"><span class="mn" style="align-self: center; padding: 0 10px; text-align: center; font-size: 12px; letter-spacing: 0.14em; color: #6E5A55">NO PORTRAIT ON FILE</span><span class="hc tl"></span><span class="hc tr"></span><span class="hc bl"></span><span class="hc br"></span><span class="it-bscan" style="position: absolute; left: 0; right: 0; height: 2px; background: #FF5A60; box-shadow: 0 0 10px rgba(232, 34, 42, 0.8)"></span></a>
+        <div class="dos-body">
+          <h3><a href="/archive/kim-il-sung/">Kim Il-sung</a></h3>
+          <p class="yr">1912 — 1994 · MANGYONGDAE → PYONGYANG</p>
+          <p class="role">Leader of North Korea from its founding in 1948 until his death in 1994, and author of its state doctrine of Juche.</p>
+          <ul><li><a href="https://www.marxists.org/archive/kim-il-sung/1946/09/26.htm" target="_blank" rel="noopener">On the Establishment of the Workers' Party of North Korea</a> (1946)</li><li><a href="https://www.marxists.org/archive/kim-il-sung/1955/12/28.htm" target="_blank" rel="noopener">On Eliminating Dogmatism and Formalism and Establishing Juche in Ideological Work</a> (1955)</li><li><a href="https://www.marxists.org/archive/kim-il-sung/1968/10/08.htm" target="_blank" rel="noopener">The Great Anti-Imperialist Revolutionary Cause of the Asian, African and Latin American Peoples Is Invincible</a> (1968)</li></ul>
+          <p class="cnt">LINKED WORKS · 4 WORKS</p>
+          <a href="/archive/kim-il-sung/" class="open">OPEN FILE →</a>
+        </div>
+      </article>
+
       <article class="dos it-rv nm-dos" id="castro" data-t="nm after-lenin">
-        <div class="dos-top mn"><span>FILE 18</span><span class="tg">AFTER LENIN</span></div>
-        <a href="/archive/castro/" class="dos-img" tabindex="-1" aria-hidden="true"><img src="/assets/hex_castro.png" alt="" loading="lazy"><span class="hc tl"></span><span class="hc tr"></span><span class="hc bl"></span><span class="hc br"></span><span class="it-bscan" style="position: absolute; left: 0; right: 0; height: 2px; background: #FF5A60; box-shadow: 0 0 10px rgba(232, 34, 42, 0.8); animation-delay: 0.4s"></span></a>
+        <div class="dos-top mn"><span>FILE 26</span><span class="tg">AFTER LENIN</span></div>
+        <a href="/archive/castro/" class="dos-img" tabindex="-1" aria-hidden="true"><img src="/assets/hex_castro.png" alt=""><span class="hc tl"></span><span class="hc tr"></span><span class="hc bl"></span><span class="hc br"></span><span class="it-bscan" style="position: absolute; left: 0; right: 0; height: 2px; background: #FF5A60; box-shadow: 0 0 10px rgba(232, 34, 42, 0.8); animation-delay: 0.4s"></span></a>
         <div class="dos-body">
           <h3><a href="/archive/castro/">Fidel Castro</a></h3>
           <p class="yr">1926 — 2016 · BIRÁN → HAVANA</p>
@@ -735,8 +860,8 @@ mark { background: rgba(232, 34, 42, 0.42); color: #FFFFFF; padding: 0 2px; }
       </article>
 
       <article class="dos it-rv nm-dos" id="guevara" data-t="nm after-lenin">
-        <div class="dos-top mn"><span>FILE 19</span><span class="tg">AFTER LENIN</span></div>
-        <a href="/archive/guevara/" class="dos-img" tabindex="-1" aria-hidden="true"><img src="/assets/hex_guevara.png" alt="" loading="lazy"><span class="hc tl"></span><span class="hc tr"></span><span class="hc bl"></span><span class="hc br"></span><span class="it-bscan" style="position: absolute; left: 0; right: 0; height: 2px; background: #FF5A60; box-shadow: 0 0 10px rgba(232, 34, 42, 0.8); animation-delay: 0.8s"></span></a>
+        <div class="dos-top mn"><span>FILE 27</span><span class="tg">AFTER LENIN</span></div>
+        <a href="/archive/guevara/" class="dos-img" tabindex="-1" aria-hidden="true"><img src="/assets/hex_guevara.png" alt=""><span class="hc tl"></span><span class="hc tr"></span><span class="hc bl"></span><span class="hc br"></span><span class="it-bscan" style="position: absolute; left: 0; right: 0; height: 2px; background: #FF5A60; box-shadow: 0 0 10px rgba(232, 34, 42, 0.8); animation-delay: 0.8s"></span></a>
         <div class="dos-body">
           <h3><a href="/archive/guevara/">Che Guevara</a></h3>
           <p class="yr">1928 — 1967 · ROSARIO → LA HIGUERA</p>
@@ -747,9 +872,35 @@ mark { background: rgba(232, 34, 42, 0.42); color: #FFFFFF; padding: 0 2px; }
         </div>
       </article>
 
+      <article class="dos it-rv nm-dos" id="gorbachev" data-t="nm after-lenin">
+        <div class="dos-top mn"><span>FILE 28</span><span class="tg">AFTER LENIN</span></div>
+        <a href="/archive/gorbachev/" class="dos-img" tabindex="-1" aria-hidden="true"><span class="mn" style="align-self: center; padding: 0 10px; text-align: center; font-size: 12px; letter-spacing: 0.14em; color: #6E5A55">NO PORTRAIT ON FILE</span><span class="hc tl"></span><span class="hc tr"></span><span class="hc bl"></span><span class="hc br"></span><span class="it-bscan" style="position: absolute; left: 0; right: 0; height: 2px; background: #FF5A60; box-shadow: 0 0 10px rgba(232, 34, 42, 0.8); animation-delay: 1.2s"></span></a>
+        <div class="dos-body">
+          <h3><a href="/archive/gorbachev/">Mikhail Gorbachev</a></h3>
+          <p class="yr">1931 — 2022 · PRIVOLNOYE → MOSCOW</p>
+          <p class="role">Last General Secretary of the Soviet Communist Party, from 1985 to 1991, whose reforms of perestroika and glasnost preceded the end of the Soviet Union.</p>
+          <ul><li><a href="https://www.nobelprize.org/prizes/peace/1990/gorbachev/lecture/" target="_blank" rel="noopener">Nobel Lecture</a> (1991)</li></ul>
+          <p class="cnt">LINKED WORKS · 1 WORK</p>
+          <a href="/archive/gorbachev/" class="open">OPEN FILE →</a>
+        </div>
+      </article>
+
+      <article class="dos it-rv nm-dos" id="sankara" data-t="nm after-lenin">
+        <div class="dos-top mn"><span>FILE 29</span><span class="tg">AFTER LENIN</span></div>
+        <a href="/archive/sankara/" class="dos-img" tabindex="-1" aria-hidden="true"><span class="mn" style="align-self: center; padding: 0 10px; text-align: center; font-size: 12px; letter-spacing: 0.14em; color: #6E5A55">NO PORTRAIT ON FILE</span><span class="hc tl"></span><span class="hc tr"></span><span class="hc bl"></span><span class="hc br"></span><span class="it-bscan" style="position: absolute; left: 0; right: 0; height: 2px; background: #FF5A60; box-shadow: 0 0 10px rgba(232, 34, 42, 0.8)"></span></a>
+        <div class="dos-body">
+          <h3><a href="/archive/sankara/">Thomas Sankara</a></h3>
+          <p class="yr">1949 — 1987 · YAKO → OUAGADOUGOU</p>
+          <p class="role">Army captain who took power in Upper Volta in 1983, renamed it Burkina Faso, and led it until he was killed in a coup in 1987.</p>
+          <ul><li><a href="https://www.marxists.org/archive/sankara/1984/october/04.htm" target="_blank" rel="noopener">Speech before the General Assembly of the United Nations</a> (1984)</li><li><a href="https://www.marxists.org/archive/sankara/1984/january/23.htm" target="_blank" rel="noopener">We Didn't Import Our Revolution</a> (1984)</li><li><a href="https://www.marxists.org/archive/sankara/1986/february/05.htm" target="_blank" rel="noopener">Imperialism Is the Arsonist of Our Forests and Savannas</a> (1986)</li></ul>
+          <p class="cnt">LINKED WORKS · 4 WORKS</p>
+          <a href="/archive/sankara/" class="open">OPEN FILE →</a>
+        </div>
+      </article>
+
       <article class="dos it-rv nm-dos" id="xi" data-t="nm after-lenin">
-        <div class="dos-top mn"><span>FILE 20</span><span class="tg">AFTER LENIN</span></div>
-        <a href="/archive/xi/" class="dos-img" tabindex="-1" aria-hidden="true"><img src="/assets/hex_xi.png" alt="" loading="lazy"><span class="hc tl"></span><span class="hc tr"></span><span class="hc bl"></span><span class="hc br"></span><span class="it-bscan" style="position: absolute; left: 0; right: 0; height: 2px; background: #FF5A60; box-shadow: 0 0 10px rgba(232, 34, 42, 0.8); animation-delay: 1.2s"></span></a>
+        <div class="dos-top mn"><span>FILE 30</span><span class="tg">AFTER LENIN</span></div>
+        <a href="/archive/xi/" class="dos-img" tabindex="-1" aria-hidden="true"><img src="/assets/hex_xi.png" alt=""><span class="hc tl"></span><span class="hc tr"></span><span class="hc bl"></span><span class="hc br"></span><span class="it-bscan" style="position: absolute; left: 0; right: 0; height: 2px; background: #FF5A60; box-shadow: 0 0 10px rgba(232, 34, 42, 0.8); animation-delay: 0.4s"></span></a>
         <div class="dos-body">
           <h3><a href="/archive/xi/">Xi Jinping</a></h3>
           <p class="yr">1953 — · BEIJING</p>
@@ -764,9 +915,10 @@ mark { background: rgba(232, 34, 42, 0.42); color: #FFFFFF; padding: 0 2px; }
 
     <div class="it-rv" id="texts" style="margin-top: 56px">
       <div style="display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 10px; border-bottom: 1px solid #3A2326; padding-bottom: 10px">
-        <p class="mn" style="margin: 0; font-size: 18px; letter-spacing: 0.1em">READING ROOM · 51 FULL TEXTS</p>
+        <p class="mn" style="margin: 0; font-size: 18px; letter-spacing: 0.1em">READING ROOM · 53 FULL TEXTS</p>
         <span class="mn" style="font-size: 13px; letter-spacing: 0.1em; color: #A89C95">PUBLIC DOMAIN OR CC BY-SA · FREE TO READ AND DOWNLOAD</span>
       </div>
+      <a href="/archive/spinoza/ethics/" class="row wk"><span class="y">1677</span><span class="ti">The Ethics<small>Ethica Ordine Geometrico Demonstrata</small></span><span class="ld"></span><span class="by">SPINOZA</span><span class="st ok">[READ →]</span></a>
       <a href="/archive/smith/wealth-of-nations/" class="row wk"><span class="y">1776</span><span class="ti">An Inquiry into the Nature and Causes of the Wealth of Nations</span><span class="ld"></span><span class="by">SMITH</span><span class="st ok">[READ →]</span></a>
       <a href="/archive/kant/critique-of-pure-reason/" class="row wk"><span class="y">1781</span><span class="ti">The Critique of Pure Reason</span><span class="ld"></span><span class="by">KANT</span><span class="st ok">[READ →]</span></a>
       <a href="/archive/kant/groundwork-of-the-metaphysic-of-morals/" class="row wk"><span class="y">1785</span><span class="ti">Fundamental Principles of the Metaphysic of Morals<small>Also known as the Groundwork</small></span><span class="ld"></span><span class="by">KANT</span><span class="st ok">[READ →]</span></a>
@@ -804,6 +956,7 @@ mark { background: rgba(232, 34, 42, 0.42); color: #FFFFFF; padding: 0 2px; }
       <a href="/archive/kautsky/frederick-engels/" class="row wk"><span class="y">1887</span><span class="ti">Frederick Engels: His Life, His Work and His Writings</span><span class="ld"></span><span class="by">KAUTSKY</span><span class="st ok">[READ →]</span></a>
       <a href="/archive/kropotkin/the-conquest-of-bread/" class="row wk"><span class="y">1892</span><span class="ti">The Conquest of Bread</span><span class="ld"></span><span class="by">KROPOTKIN</span><span class="st ok">[READ →]</span></a>
       <a href="/archive/luxemburg/short-writings-1893-1911/" class="row wk"><span class="y">1893–1911</span><span class="ti">Short Writings, 1893–1911<small>The Zurich report and protest of 1893, and five pieces for the French socialist press</small></span><span class="ld"></span><span class="by">LUXEMBURG</span><span class="st ok">[READ →]</span></a>
+      <a href="/archive/plekhanov/anarchism-and-socialism/" class="row wk"><span class="y">1895</span><span class="ti">Anarchism and Socialism</span><span class="ld"></span><span class="by">PLEKHANOV</span><span class="st ok">[READ →]</span></a>
       <a href="/archive/kautsky/short-writings-1895-1912/" class="row wk"><span class="y">1895–1912</span><span class="ti">Short Writings, 1895–1912<small>On Sorge and the American movement, a letter to the Belgian Marxist papers, and War and Revolution</small></span><span class="ld"></span><span class="by">KAUTSKY</span><span class="st ok">[READ →]</span></a>
       <a href="/archive/kropotkin/mutual-aid/" class="row wk"><span class="y">1902</span><span class="ti">Mutual Aid: A Factor of Evolution</span><span class="ld"></span><span class="by">KROPOTKIN</span><span class="st ok">[READ →]</span></a>
       <a href="/archive/trotsky/our-revolution/" class="row wk"><span class="y">1904–1917</span><span class="ti">Our Revolution<small>Essays on Working-Class and International Revolution, 1904–1917, including Prospects of a Labor Dictatorship</small></span><span class="ld"></span><span class="by">TROTSKY</span><span class="st ok">[READ →]</span></a>
@@ -824,7 +977,7 @@ mark { background: rgba(232, 34, 42, 0.42); color: #FFFFFF; padding: 0 2px; }
       <p class="mn sec-h">COLLECTIONS</p>
       <a href="/archive/collections/the-programme/" class="row"><span style="color: #A89C95">COL-01</span><span>THE PROGRAMME</span><span class="ld"></span><span style="color: #FF5A60">1848 —</span><span style="color: #39D98A">[8 WORKS]</span></a>
       <a href="/archive/collections/marx-and-engels/" class="row"><span style="color: #A89C95">COL-02</span><span>MARX AND ENGELS</span><span class="ld"></span><span style="color: #FF5A60">1843 — 1895</span><span style="color: #39D98A">[16 WORKS]</span></a>
-      <a href="/archive/collections/second-international/" class="row"><span style="color: #A89C95">COL-03</span><span>SECOND INTERNATIONAL</span><span class="ld"></span><span style="color: #FF5A60">1889 — 1914</span><span style="color: #39D98A">[12 WORKS]</span></a>
+      <a href="/archive/collections/second-international/" class="row"><span style="color: #A89C95">COL-03</span><span>SECOND INTERNATIONAL</span><span class="ld"></span><span style="color: #FF5A60">1889 — 1914</span><span style="color: #39D98A">[18 WORKS]</span></a>
       <a href="/archive/collections/lenin-and-october/" class="row"><span style="color: #A89C95">COL-04</span><span>LENIN AND OCTOBER</span><span class="ld"></span><span style="color: #FF5A60">1894 — 1924</span><span style="color: #39D98A">[11 WORKS]</span></a>
       <a href="/archive/collections/the-german-left/" class="row"><span style="color: #A89C95">COL-05</span><span>THE GERMAN LEFT</span><span class="ld"></span><span style="color: #FF5A60">1898 — 1919</span><span style="color: #39D98A">[11 WORKS]</span></a>
       <a href="/archive/collections/the-communist-left/" class="row"><span style="color: #A89C95">COL-06</span><span>THE COMMUNIST LEFT</span><span class="ld"></span><span style="color: #FF5A60">1912 — 1970</span><span style="color: #39D98A">[3 WORKS]</span></a>

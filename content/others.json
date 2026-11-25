@@ -6,7 +6,7 @@
    "code": "NM-01",
    "slug": "philosophers",
    "title": "The Philosophers",
-   "blurb": "Classical German philosophy outside Hegel: the critical philosophy, and the materialism Marx began from."
+   "blurb": "Spinoza, Kant and the Young Hegelians: the philosophy Marx came out of and broke with, outside Hegel himself."
   },
   {
    "code": "NM-02",
@@ -17,8 +17,8 @@
   {
    "code": "NM-03",
    "slug": "utopians",
-   "title": "The Utopians",
-   "blurb": "The socialists before scientific socialism, whom Engels honoured and answered."
+   "title": "The Early Socialists",
+   "blurb": "The socialists and revolutionaries before scientific socialism: the utopians Engels honoured and answered, and the insurrections of Blanqui."
   },
   {
    "code": "NM-04",
@@ -36,10 +36,31 @@
    "code": "NM-06",
    "slug": "after-lenin",
    "title": "After Lenin",
-   "blurb": "Leaders and revolutionaries of the parties and states that claimed Lenin's succession: the Soviet Union, China and Cuba."
+   "blurb": "Leaders and revolutionaries of the parties and states that claimed Lenin's succession, in Europe, Asia, Africa and the Americas."
   }
  ],
  "people": [
+  {
+   "slug": "spinoza",
+   "name": "Baruch Spinoza",
+   "years": "1632 — 1677",
+   "place": "Amsterdam → The Hague",
+   "group": "NM-01",
+   "role": "Dutch philosopher, expelled from Amsterdam's Jewish community in 1656, whose Ethics identifies God with nature. Hegel held that every philosopher must begin from Spinoza.",
+   "works": [
+    {
+     "id": "spinoza-1677-ethics",
+     "slug": "ethics",
+     "title": "The Ethics",
+     "subtitle": "Ethica Ordine Geometrico Demonstrata",
+     "year": "1677",
+     "kind": "hosted",
+     "lang": "en",
+     "edition": "Translated from the Latin by R. H. M. Elwes. London, George Bell and Sons, 1883–84.",
+     "pg": 3800
+    }
+   ]
+  },
   {
    "slug": "kant",
    "name": "Immanuel Kant",
@@ -115,6 +136,75 @@
    ]
   },
   {
+   "slug": "bauer",
+   "name": "Bruno Bauer",
+   "years": "1809 — 1882",
+   "place": "Eisenberg → Rixdorf",
+   "group": "NM-01",
+   "role": "Young Hegelian theologian and critic of the Gospels, Marx's teacher and friend in Berlin, whom Marx answered in On the Jewish Question and, with Engels, in The Holy Family.",
+   "mia": "https://www.marxists.org/deutsch/referenz/bauer-b/index.htm",
+   "note": "His writings are linked in the German originals; no public-domain English translation is known.",
+   "works": [
+    {
+     "id": "bauer-1841-christian-state",
+     "title": "Der christliche Staat und unsere Zeit",
+     "subtitle": "In German",
+     "year": "1841",
+     "kind": "link",
+     "url": "https://www.marxists.org/deutsch/referenz/bauer-b/1841/06/staat.htm"
+    },
+    {
+     "id": "bauer-1842-good-cause",
+     "title": "Die gute Sache der Freiheit und meine eigene Angelegenheit",
+     "subtitle": "In German",
+     "year": "1842",
+     "kind": "link",
+     "url": "https://www.marxists.org/deutsch/referenz/bauer-b/1842/xx/sache.htm"
+    },
+    {
+     "id": "bauer-1843-jews-christians",
+     "title": "Die Fähigkeit der heutigen Juden und Christen, frei zu werden",
+     "subtitle": "In German. Marx answered it in On the Jewish Question",
+     "year": "1843",
+     "kind": "link",
+     "url": "https://www.marxists.org/deutsch/referenz/bauer-b/1843/xx/juden.htm"
+    },
+    {
+     "id": "bauer-1844-critique",
+     "title": "Was ist jetzt Gegenstand der Kritik?",
+     "subtitle": "In German",
+     "year": "1844",
+     "kind": "link",
+     "url": "https://www.marxists.org/deutsch/referenz/bauer-b/1844/06/kritik.htm"
+    }
+   ]
+  },
+  {
+   "slug": "hess",
+   "name": "Moses Hess",
+   "years": "1812 — 1875",
+   "place": "Bonn → Paris",
+   "group": "NM-01",
+   "role": "Philosopher and socialist who won Engels over to communism in 1842 and worked with Marx in the 1840s; later the author of Rome and Jerusalem (1862), an early work of Zionism.",
+   "mia": "https://www.marxists.org/archive/hess/index.htm",
+   "works": [
+    {
+     "id": "hess-1845-essence-money",
+     "title": "The Essence of Money",
+     "year": "1845",
+     "kind": "link",
+     "url": "https://www.marxists.org/archive/hess/1845/essence-money.htm"
+    },
+    {
+     "id": "hess-1845-elberfeld",
+     "title": "Speech on Communism in Elberfeld",
+     "year": "1845",
+     "kind": "link",
+     "url": "https://www.marxists.org/archive/hess/1845/elberfeld-speech.htm"
+    }
+   ]
+  },
+  {
    "slug": "smith",
    "name": "Adam Smith",
    "years": "1723 — 1790",
@@ -143,27 +233,6 @@
    ]
   },
   {
-   "slug": "ricardo",
-   "name": "David Ricardo",
-   "years": "1772 — 1823",
-   "place": "London → Gatcombe",
-   "group": "NM-02",
-   "role": "Stockbroker and economist who carried the labour theory of value further than anyone before Marx.",
-   "mia": "https://www.marxists.org/reference/subject/economics/ricardo/tax/index.htm",
-   "works": [
-    {
-     "id": "ricardo-1817-principles",
-     "slug": "principles-of-political-economy",
-     "title": "On the Principles of Political Economy and Taxation",
-     "year": "1817",
-     "kind": "hosted",
-     "lang": "en",
-     "edition": "London, John Murray, 1817 (the first edition).",
-     "pg": 33310
-    }
-   ]
-  },
-  {
    "slug": "malthus",
    "name": "Thomas Malthus",
    "years": "1766 — 1834",
@@ -185,6 +254,27 @@
    ]
   },
   {
+   "slug": "ricardo",
+   "name": "David Ricardo",
+   "years": "1772 — 1823",
+   "place": "London → Gatcombe",
+   "group": "NM-02",
+   "role": "Stockbroker and economist who carried the labour theory of value further than anyone before Marx.",
+   "mia": "https://www.marxists.org/reference/subject/economics/ricardo/tax/index.htm",
+   "works": [
+    {
+     "id": "ricardo-1817-principles",
+     "slug": "principles-of-political-economy",
+     "title": "On the Principles of Political Economy and Taxation",
+     "year": "1817",
+     "kind": "hosted",
+     "lang": "en",
+     "edition": "London, John Murray, 1817 (the first edition).",
+     "pg": 33310
+    }
+   ]
+  },
+  {
    "slug": "saint-simon",
    "name": "Henri de Saint-Simon",
    "years": "1760 — 1825",
@@ -199,24 +289,6 @@
      "year": "1803",
      "kind": "link",
      "url": "https://www.marxists.org/reference/subject/philosophy/works/fr/st-simon.htm"
-    }
-   ]
-  },
-  {
-   "slug": "fourier",
-   "name": "Charles Fourier",
-   "years": "1772 — 1837",
-   "place": "Besançon → Paris",
-   "group": "NM-03",
-   "role": "French critic of commerce and of 'civilisation' who planned cooperative communities, the phalansteries.",
-   "mia": "https://www.marxists.org/reference/archive/fourier/index.htm",
-   "works": [
-    {
-     "id": "fourier-1808-four-movements",
-     "title": "The Social Destiny of Man, or Theory of the Four Movements",
-     "year": "1808",
-     "kind": "link",
-     "url": "https://www.marxists.org/reference/archive/fourier/social-destiny.pdf"
     }
    ]
   },
@@ -242,6 +314,92 @@
      "year": "1821",
      "kind": "link",
      "url": "https://www.marxists.org/reference/subject/economics/owen/lanark.pdf"
+    }
+   ]
+  },
+  {
+   "slug": "fourier",
+   "name": "Charles Fourier",
+   "years": "1772 — 1837",
+   "place": "Besançon → Paris",
+   "group": "NM-03",
+   "role": "French critic of commerce and of 'civilisation' who planned cooperative communities, the phalansteries.",
+   "mia": "https://www.marxists.org/reference/archive/fourier/index.htm",
+   "works": [
+    {
+     "id": "fourier-1808-four-movements",
+     "title": "The Social Destiny of Man, or Theory of the Four Movements",
+     "year": "1808",
+     "kind": "link",
+     "url": "https://www.marxists.org/reference/archive/fourier/social-destiny.pdf"
+    }
+   ]
+  },
+  {
+   "slug": "blanqui",
+   "name": "Auguste Blanqui",
+   "years": "1805 — 1881",
+   "place": "Puget-Théniers → Paris",
+   "group": "NM-03",
+   "role": "French revolutionary who spent more than thirty years in prison for his conspiracies and insurrections; his followers fought in the Paris Commune.",
+   "mia": "https://www.marxists.org/reference/archive/blanqui/index.htm",
+   "works": [
+    {
+     "id": "blanqui-1832-defence",
+     "title": "Defence Speech",
+     "year": "1832",
+     "kind": "link",
+     "url": "https://www.marxists.org/reference/archive/blanqui/1832/defence-speech.htm"
+    },
+    {
+     "id": "blanqui-1848-red-flag",
+     "title": "For the Red Flag",
+     "year": "1848",
+     "kind": "link",
+     "url": "https://www.marxists.org/reference/archive/blanqui/1848/red-flag.htm"
+    },
+    {
+     "id": "blanqui-1851-warning",
+     "title": "Warning to the People",
+     "year": "1851",
+     "kind": "link",
+     "url": "https://www.marxists.org/reference/archive/blanqui/1851/toast.htm"
+    },
+    {
+     "id": "blanqui-1866-insurrection",
+     "title": "Manual for an Armed Insurrection",
+     "year": "1866",
+     "kind": "link",
+     "url": "https://www.marxists.org/reference/archive/blanqui/1866/instructions1.htm"
+    },
+    {
+     "id": "blanqui-1872-eternity",
+     "title": "Eternity Through the Stars",
+     "year": "1872",
+     "kind": "link",
+     "url": "https://www.marxists.org/reference/archive/blanqui/1872/astres.htm"
+    }
+   ]
+  },
+  {
+   "slug": "stirner",
+   "name": "Max Stirner",
+   "years": "1806 — 1856",
+   "place": "Bayreuth → Berlin",
+   "group": "NM-04",
+   "role": "Young Hegelian whose The Ego and Its Own set the individual above every cause. Marx and Engels answered him at great length in The German Ideology.",
+   "mia": "https://www.marxists.org/reference/archive/stirner/index.htm",
+   "works": [
+    {
+     "id": "stirner-1844-ego",
+     "slug": "the-ego-and-his-own",
+     "title": "The Ego and His Own",
+     "subtitle": "Also translated as The Ego and Its Own",
+     "year": "1844",
+     "kind": "hosted",
+     "lang": "en",
+     "edition": "Translated by Steven T. Byington, with an introduction by J. L. Walker. New York, Benjamin R. Tucker, 1907.",
+     "pg": 34580
     }
    ]
   },
@@ -274,28 +432,6 @@
      "year": "1851",
      "kind": "link",
      "url": "https://www.marxists.org/reference/subject/economics/proudhon/1851/general-idea-of-the-revolution-in-the-nineteenth-century/index.html"
-    }
-   ]
-  },
-  {
-   "slug": "stirner",
-   "name": "Max Stirner",
-   "years": "1806 — 1856",
-   "place": "Bayreuth → Berlin",
-   "group": "NM-04",
-   "role": "Young Hegelian whose The Ego and Its Own set the individual above every cause. Marx and Engels answered him at great length in The German Ideology.",
-   "mia": "https://www.marxists.org/reference/archive/stirner/index.htm",
-   "works": [
-    {
-     "id": "stirner-1844-ego",
-     "slug": "the-ego-and-his-own",
-     "title": "The Ego and His Own",
-     "subtitle": "Also translated as The Ego and Its Own",
-     "year": "1844",
-     "kind": "hosted",
-     "lang": "en",
-     "edition": "Translated by Steven T. Byington, with an introduction by J. L. Walker. New York, Benjamin R. Tucker, 1907.",
-     "pg": 34580
     }
    ]
   },
@@ -494,6 +630,86 @@
    ]
   },
   {
+   "slug": "ho-chi-minh",
+   "name": "Ho Chi Minh",
+   "years": "1890 — 1969",
+   "place": "Kim Liên → Hanoi",
+   "group": "NM-06",
+   "role": "Founder of the Indochinese Communist Party in 1930, who declared Vietnam's independence in 1945 and led North Vietnam until his death in 1969.",
+   "mia": "https://www.marxists.org/reference/archive/ho-chi-minh/index.htm",
+   "note": "In copyright: these links open the Marxists Internet Archive.",
+   "works": [
+    {
+     "id": "ho-1922-colonial-question",
+     "title": "Some Considerations on the Colonial Question",
+     "year": "1922",
+     "kind": "link",
+     "url": "https://www.marxists.org/reference/archive/ho-chi-minh/works/1922/05/25.htm"
+    },
+    {
+     "id": "ho-1924-lenin-colonial",
+     "title": "Lenin and the Colonial Peoples",
+     "year": "1924",
+     "kind": "link",
+     "url": "https://www.marxists.org/reference/archive/ho-chi-minh/works/1924/01/27.htm"
+    },
+    {
+     "id": "ho-1924-fifth-congress",
+     "title": "Report on the National and Colonial Questions at the Fifth Congress of the Comintern",
+     "year": "1924",
+     "kind": "link",
+     "url": "https://www.marxists.org/reference/archive/ho-chi-minh/works/1924/07/08.htm"
+    },
+    {
+     "id": "ho-1945-independence",
+     "title": "Declaration of Independence of the Democratic Republic of Vietnam",
+     "year": "1945",
+     "kind": "link",
+     "url": "https://www.marxists.org/reference/archive/ho-chi-minh/works/1945/declaration-independence.htm"
+    }
+   ]
+  },
+  {
+   "slug": "tito",
+   "name": "Josip Broz Tito",
+   "years": "1892 — 1980",
+   "place": "Kumrovec → Ljubljana",
+   "group": "NM-06",
+   "role": "Leader of the Yugoslav partisans in the Second World War and of Yugoslavia from 1945 until his death; he broke with Stalin in 1948 and helped found the Non-Aligned Movement.",
+   "mia": "https://www.marxists.org/archive/tito/index.htm",
+   "note": "In copyright: these links open the Marxists Internet Archive.",
+   "works": [
+    {
+     "id": "tito-1948-national-question",
+     "title": "Concerning the National Question and Social Patriotism",
+     "year": "1948",
+     "kind": "link",
+     "url": "https://www.marxists.org/archive/tito/1948/11/26.htm"
+    },
+    {
+     "id": "tito-1950-workers-manage",
+     "title": "Workers Manage Factories in Yugoslavia",
+     "year": "1950",
+     "kind": "link",
+     "url": "https://www.marxists.org/archive/tito/1950/06/26.htm"
+    },
+    {
+     "id": "tito-1956-letter-20th",
+     "title": "Letter to the Twentieth Congress of the Communist Party of the Soviet Union",
+     "year": "1956",
+     "kind": "link",
+     "url": "https://www.marxists.org/archive/tito/1956/02/20.htm"
+    },
+    {
+     "id": "tito-1957-workers-councils",
+     "title": "Speech at the First Congress of Workers' Councils",
+     "year": "1957",
+     "kind": "link",
+     "url": "https://www.marxists.org/archive/tito/1957/06/25.htm"
+    }
+   ]
+  },
+  {
    "slug": "mao",
    "name": "Mao Zedong",
    "years": "1893 — 1976",
@@ -588,6 +804,79 @@
    ]
   },
   {
+   "slug": "hoxha",
+   "name": "Enver Hoxha",
+   "years": "1908 — 1985",
+   "place": "Gjirokastër → Tirana",
+   "group": "NM-06",
+   "role": "Leader of Albania from 1944 until his death in 1985, who broke in turn with Yugoslavia, the Soviet Union and China.",
+   "mia": "https://www.marxists.org/reference/archive/hoxha/index.htm",
+   "note": "In copyright: these links open the Marxists Internet Archive.",
+   "works": [
+    {
+     "id": "hoxha-1978-imperialism-revolution",
+     "title": "Imperialism and the Revolution",
+     "year": "1978",
+     "kind": "link",
+     "url": "https://www.marxists.org/reference/archive/hoxha/works/imp_rev/toc.htm"
+    },
+    {
+     "id": "hoxha-1979-reflections-china",
+     "title": "Reflections on China, Volume One",
+     "year": "1979",
+     "kind": "link",
+     "url": "https://www.marxists.org/reference/archive/hoxha/works/ebooks/reflections_on_china_volume_1.pdf"
+    },
+    {
+     "id": "hoxha-1980-khrushchevites",
+     "title": "The Khrushchevites",
+     "year": "1980",
+     "kind": "link",
+     "url": "https://www.marxists.org/reference/archive/hoxha/works/1976/khruschevites/index.htm"
+    }
+   ]
+  },
+  {
+   "slug": "kim-il-sung",
+   "name": "Kim Il-sung",
+   "years": "1912 — 1994",
+   "place": "Mangyongdae → Pyongyang",
+   "group": "NM-06",
+   "role": "Leader of North Korea from its founding in 1948 until his death in 1994, and author of its state doctrine of Juche.",
+   "mia": "https://www.marxists.org/archive/kim-il-sung/index.htm",
+   "note": "In copyright: these links open the Marxists Internet Archive.",
+   "works": [
+    {
+     "id": "kim-1946-workers-party",
+     "title": "On the Establishment of the Workers' Party of North Korea",
+     "year": "1946",
+     "kind": "link",
+     "url": "https://www.marxists.org/archive/kim-il-sung/1946/09/26.htm"
+    },
+    {
+     "id": "kim-1955-juche",
+     "title": "On Eliminating Dogmatism and Formalism and Establishing Juche in Ideological Work",
+     "year": "1955",
+     "kind": "link",
+     "url": "https://www.marxists.org/archive/kim-il-sung/1955/12/28.htm"
+    },
+    {
+     "id": "kim-1968-anti-imperialist",
+     "title": "The Great Anti-Imperialist Revolutionary Cause of the Asian, African and Latin American Peoples Is Invincible",
+     "year": "1968",
+     "kind": "link",
+     "url": "https://www.marxists.org/archive/kim-il-sung/1968/10/08.htm"
+    },
+    {
+     "id": "kim-1986-non-aligned",
+     "title": "For the Development of the Non-Aligned Movement",
+     "year": "1986",
+     "kind": "link",
+     "url": "https://www.marxists.org/archive/kim-il-sung/1986/06/20.htm"
+    }
+   ]
+  },
+  {
    "slug": "castro",
    "name": "Fidel Castro",
    "years": "1926 — 2016",
@@ -657,6 +946,64 @@
      "year": "1967",
      "kind": "link",
      "url": "https://www.marxists.org/archive/guevara/1967/04/16.htm"
+    }
+   ]
+  },
+  {
+   "slug": "gorbachev",
+   "name": "Mikhail Gorbachev",
+   "years": "1931 — 2022",
+   "place": "Privolnoye → Moscow",
+   "group": "NM-06",
+   "role": "Last General Secretary of the Soviet Communist Party, from 1985 to 1991, whose reforms of perestroika and glasnost preceded the end of the Soviet Union.",
+   "note": "In copyright: this link opens the published text on another site.",
+   "works": [
+    {
+     "id": "gorbachev-1991-nobel",
+     "title": "Nobel Lecture",
+     "year": "1991",
+     "kind": "link",
+     "url": "https://www.nobelprize.org/prizes/peace/1990/gorbachev/lecture/"
+    }
+   ]
+  },
+  {
+   "slug": "sankara",
+   "name": "Thomas Sankara",
+   "years": "1949 — 1987",
+   "place": "Yako → Ouagadougou",
+   "group": "NM-06",
+   "role": "Army captain who took power in Upper Volta in 1983, renamed it Burkina Faso, and led it until he was killed in a coup in 1987.",
+   "mia": "https://www.marxists.org/archive/sankara/index.htm",
+   "note": "In copyright: these links open the Marxists Internet Archive.",
+   "works": [
+    {
+     "id": "sankara-1984-import",
+     "title": "We Didn't Import Our Revolution",
+     "year": "1984",
+     "kind": "link",
+     "url": "https://www.marxists.org/archive/sankara/1984/january/23.htm"
+    },
+    {
+     "id": "sankara-1984-un",
+     "title": "Speech before the General Assembly of the United Nations",
+     "year": "1984",
+     "kind": "link",
+     "url": "https://www.marxists.org/archive/sankara/1984/october/04.htm"
+    },
+    {
+     "id": "sankara-1986-arsonist",
+     "title": "Imperialism Is the Arsonist of Our Forests and Savannas",
+     "year": "1986",
+     "kind": "link",
+     "url": "https://www.marxists.org/archive/sankara/1986/february/05.htm"
+    },
+    {
+     "id": "sankara-1987-debt",
+     "title": "A United Front Against Debt",
+     "year": "1987",
+     "kind": "link",
+     "url": "https://www.marxists.org/archive/sankara/1987/july/29.htm"
     }
    ]
   },

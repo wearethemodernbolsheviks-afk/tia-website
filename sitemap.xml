@@ -16,6 +16,7 @@
   <url><loc>https://invariancetech.info/archive/engels/</loc></url>
   <url><loc>https://invariancetech.info/archive/lassalle/</loc></url>
   <url><loc>https://invariancetech.info/archive/kautsky/</loc></url>
+  <url><loc>https://invariancetech.info/archive/plekhanov/</loc></url>
   <url><loc>https://invariancetech.info/archive/lenin/</loc></url>
   <url><loc>https://invariancetech.info/archive/trotsky/</loc></url>
   <url><loc>https://invariancetech.info/archive/luxemburg/</loc></url>
@@ -28,6 +29,7 @@
   <url><loc>https://invariancetech.info/archive/engels/works/</loc></url>
   <url><loc>https://invariancetech.info/archive/lassalle/works/</loc></url>
   <url><loc>https://invariancetech.info/archive/kautsky/works/</loc></url>
+  <url><loc>https://invariancetech.info/archive/plekhanov/works/</loc></url>
   <url><loc>https://invariancetech.info/archive/lenin/works/</loc></url>
   <url><loc>https://invariancetech.info/archive/trotsky/works/</loc></url>
   <url><loc>https://invariancetech.info/archive/luxemburg/works/</loc></url>
@@ -72,6 +74,7 @@
   <url><loc>https://invariancetech.info/archive/marx/briefwechsel-1/</loc></url>
   <url><loc>https://invariancetech.info/archive/marx/demands-of-the-communist-party-in-germany/</loc></url>
   <url><loc>https://invariancetech.info/archive/marx/communist-manifesto/</loc></url>
+  <url><loc>https://invariancetech.info/archive/plekhanov/anarchism-and-socialism/</loc></url>
   <url><loc>https://invariancetech.info/archive/trotsky/the-war-and-the-international/</loc></url>
   <url><loc>https://invariancetech.info/archive/trotsky/our-revolution/</loc></url>
   <url><loc>https://invariancetech.info/archive/trotsky/terrorism-and-communism/</loc></url>
@@ -81,32 +84,43 @@
   <url><loc>https://invariancetech.info/archive/collections/lenin-and-october/</loc></url>
   <url><loc>https://invariancetech.info/archive/collections/the-german-left/</loc></url>
   <url><loc>https://invariancetech.info/archive/collections/the-communist-left/</loc></url>
+  <url><loc>https://invariancetech.info/archive/spinoza/</loc></url>
   <url><loc>https://invariancetech.info/archive/kant/</loc></url>
   <url><loc>https://invariancetech.info/archive/feuerbach/</loc></url>
+  <url><loc>https://invariancetech.info/archive/bauer/</loc></url>
+  <url><loc>https://invariancetech.info/archive/hess/</loc></url>
   <url><loc>https://invariancetech.info/archive/smith/</loc></url>
-  <url><loc>https://invariancetech.info/archive/ricardo/</loc></url>
   <url><loc>https://invariancetech.info/archive/malthus/</loc></url>
+  <url><loc>https://invariancetech.info/archive/ricardo/</loc></url>
   <url><loc>https://invariancetech.info/archive/saint-simon/</loc></url>
-  <url><loc>https://invariancetech.info/archive/fourier/</loc></url>
   <url><loc>https://invariancetech.info/archive/owen/</loc></url>
-  <url><loc>https://invariancetech.info/archive/proudhon/</loc></url>
+  <url><loc>https://invariancetech.info/archive/fourier/</loc></url>
+  <url><loc>https://invariancetech.info/archive/blanqui/</loc></url>
   <url><loc>https://invariancetech.info/archive/stirner/</loc></url>
+  <url><loc>https://invariancetech.info/archive/proudhon/</loc></url>
   <url><loc>https://invariancetech.info/archive/bakunin/</loc></url>
   <url><loc>https://invariancetech.info/archive/kropotkin/</loc></url>
   <url><loc>https://invariancetech.info/archive/goldman/</loc></url>
   <url><loc>https://invariancetech.info/archive/bernstein/</loc></url>
   <url><loc>https://invariancetech.info/archive/stalin/</loc></url>
+  <url><loc>https://invariancetech.info/archive/ho-chi-minh/</loc></url>
+  <url><loc>https://invariancetech.info/archive/tito/</loc></url>
   <url><loc>https://invariancetech.info/archive/mao/</loc></url>
   <url><loc>https://invariancetech.info/archive/deng/</loc></url>
+  <url><loc>https://invariancetech.info/archive/hoxha/</loc></url>
+  <url><loc>https://invariancetech.info/archive/kim-il-sung/</loc></url>
   <url><loc>https://invariancetech.info/archive/castro/</loc></url>
   <url><loc>https://invariancetech.info/archive/guevara/</loc></url>
+  <url><loc>https://invariancetech.info/archive/gorbachev/</loc></url>
+  <url><loc>https://invariancetech.info/archive/sankara/</loc></url>
   <url><loc>https://invariancetech.info/archive/xi/</loc></url>
+  <url><loc>https://invariancetech.info/archive/spinoza/ethics/</loc></url>
   <url><loc>https://invariancetech.info/archive/kant/critique-of-pure-reason/</loc></url>
   <url><loc>https://invariancetech.info/archive/kant/groundwork-of-the-metaphysic-of-morals/</loc></url>
   <url><loc>https://invariancetech.info/archive/feuerbach/essence-of-christianity/</loc></url>
   <url><loc>https://invariancetech.info/archive/smith/wealth-of-nations/</loc></url>
-  <url><loc>https://invariancetech.info/archive/ricardo/principles-of-political-economy/</loc></url>
   <url><loc>https://invariancetech.info/archive/malthus/essay-on-population/</loc></url>
+  <url><loc>https://invariancetech.info/archive/ricardo/principles-of-political-economy/</loc></url>
   <url><loc>https://invariancetech.info/archive/stirner/the-ego-and-his-own/</loc></url>
   <url><loc>https://invariancetech.info/archive/bakunin/god-and-the-state/</loc></url>
   <url><loc>https://invariancetech.info/archive/kropotkin/the-conquest-of-bread/</loc></url>
