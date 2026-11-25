@@ -55,7 +55,8 @@
         c.classList.toggle('on', on);
         c.setAttribute('aria-pressed', on ? 'true' : 'false');
       });
-      cards.forEach(function (d) { d.hidden = !(f === 'all' || d.getAttribute('data-t') === f); });
+      cards.forEach(function (d) { d.hidden = !(f === 'all' || d.getAttribute('data-t').split(' ').indexOf(f) !== -1); });
+      $$('.ar-block').forEach(function (b) { b.hidden = !b.querySelector('.dos[data-t]:not([hidden])'); });
     });
   });
 
