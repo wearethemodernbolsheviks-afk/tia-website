@@ -1,155 +1,689 @@
 {
-  "_about": "The Non-Marxists section of the archive: thinkers and leaders filed outside the Index of Marxists. Works are 'hosted' (a text in content/texts/<id>.txt, in the public domain) or 'link' (the Marxists Internet Archive or another site). Each person needs a group code from 'groups'.",
-  "intro": "Filed outside the Index of Marxists: the philosophers and economists Marx worked from, the utopians and anarchists he argued with, the revisionists, and the leaders of the states that ruled in his name. Read them to know what Marxism answered.",
-  "groups": [
-    {"code": "NM-01", "slug": "philosophers", "title": "The Philosophers", "blurb": "Classical German philosophy outside Hegel: the critical philosophy, and the materialism Marx began from."},
-    {"code": "NM-02", "slug": "economists", "title": "The Economists", "blurb": "Classical political economy, the science Marx set out to criticise."},
-    {"code": "NM-03", "slug": "utopians", "title": "The Utopians", "blurb": "The socialists before scientific socialism, whom Engels honoured and answered."},
-    {"code": "NM-04", "slug": "anarchists", "title": "The Anarchists", "blurb": "Marx's rivals in the First International and their successors."},
-    {"code": "NM-05", "slug": "revisionists", "title": "The Revisionists", "blurb": "Socialism by gradual reform, inside the Second International."},
-    {"code": "NM-06", "slug": "party-and-state", "title": "Party and State", "blurb": "Leaders of the states that called themselves socialist."}
-  ],
-  "people": [
-    {"slug": "kant", "name": "Immanuel Kant", "years": "1724 — 1804", "place": "Königsberg", "group": "NM-01",
-     "role": "Königsberg philosopher whose critical philosophy set the problems that Hegel answered. A century later, Bernstein and the neo-Kantians called for a return to Kant.",
-     "mia": "https://www.marxists.org/reference/subject/ethics/kant/index.htm",
-     "works": [
-       {"id": "kant-1781-critique-pure-reason", "slug": "critique-of-pure-reason", "title": "The Critique of Pure Reason", "year": "1781", "kind": "hosted", "lang": "en", "edition": "Translated by J. M. D. Meiklejohn. London, 1855.", "pg": 4280},
-       {"id": "kant-1784-enlightenment", "title": "An Answer to the Question: What Is Enlightenment?", "year": "1784", "kind": "link", "url": "https://www.marxists.org/reference/subject/ethics/kant/enlightenment.htm"},
-       {"id": "kant-1785-groundwork", "slug": "groundwork-of-the-metaphysic-of-morals", "title": "Fundamental Principles of the Metaphysic of Morals", "subtitle": "Also known as the Groundwork", "year": "1785", "kind": "hosted", "lang": "en", "edition": "Translated by Thomas Kingsmill Abbott. London, 1873.", "pg": 5682}
-     ]},
-    {"slug": "feuerbach", "name": "Ludwig Feuerbach", "years": "1804 — 1872", "place": "Landshut → Rechenberg", "group": "NM-01",
-     "role": "Young Hegelian who turned Hegel's philosophy into a materialism of man and nature. Marx's Theses on Feuerbach and Engels's Ludwig Feuerbach settle accounts with him.",
-     "mia": "https://www.marxists.org/reference/archive/feuerbach/index.htm",
-     "works": [
-       {"id": "feuerbach-1839-critique-hegel", "title": "Towards a Critique of Hegel's Philosophy", "year": "1839", "kind": "link", "url": "https://www.marxists.org/reference/archive/feuerbach/works/critique/index.htm"},
-       {"id": "feuerbach-1841-essence-christianity", "slug": "essence-of-christianity", "title": "The Essence of Christianity", "year": "1841", "kind": "hosted", "lang": "en", "edition": "Translated from the second German edition by Marian Evans (George Eliot). London, 1854.", "pg": 47025},
-       {"id": "feuerbach-1843-philosophy-future", "title": "Principles of the Philosophy of the Future", "year": "1843", "kind": "link", "url": "https://www.marxists.org/reference/archive/feuerbach/works/future/index.htm"}
-     ]},
-    {"slug": "smith", "name": "Adam Smith", "years": "1723 — 1790", "place": "Kirkcaldy → Edinburgh", "group": "NM-02",
-     "role": "Scottish moral philosopher whose Wealth of Nations founded classical political economy, the starting point of Marx's critique.",
-     "mia": "https://www.marxists.org/reference/archive/smith-adam/index.htm",
-     "works": [
-       {"id": "smith-1759-moral-sentiments", "title": "The Theory of Moral Sentiments", "year": "1759", "kind": "link", "url": "https://www.marxists.org/reference/archive/smith-adam/works/moral/index.htm"},
-       {"id": "smith-1776-wealth-of-nations", "slug": "wealth-of-nations", "title": "An Inquiry into the Nature and Causes of the Wealth of Nations", "year": "1776", "kind": "hosted", "lang": "en", "edition": "First published in London in 1776.", "pg": 3300}
-     ]},
-    {"slug": "ricardo", "name": "David Ricardo", "years": "1772 — 1823", "place": "London → Gatcombe", "group": "NM-02",
-     "role": "Stockbroker and economist who carried the labour theory of value further than anyone before Marx.",
-     "mia": "https://www.marxists.org/reference/subject/economics/ricardo/tax/index.htm",
-     "works": [
-       {"id": "ricardo-1817-principles", "slug": "principles-of-political-economy", "title": "On the Principles of Political Economy and Taxation", "year": "1817", "kind": "hosted", "lang": "en", "edition": "London, John Murray, 1817 (the first edition).", "pg": 33310}
-     ]},
-    {"slug": "malthus", "name": "Thomas Malthus", "years": "1766 — 1834", "place": "Surrey → Bath", "group": "NM-02",
-     "role": "Clergyman and economist whose law of population Marx attacked as an apology for poverty.",
-     "mia": "https://www.marxists.org/reference/subject/economics/malthus/index.htm",
-     "works": [
-       {"id": "malthus-1798-population", "slug": "essay-on-population", "title": "An Essay on the Principle of Population", "year": "1798", "kind": "hosted", "lang": "en", "edition": "London, J. Johnson, 1798 (the first edition).", "pg": 4239}
-     ]},
-    {"slug": "saint-simon", "name": "Henri de Saint-Simon", "years": "1760 — 1825", "place": "Paris", "group": "NM-03",
-     "role": "French aristocrat who imagined a society run by industrialists and scientists. Engels counted him among the three great utopians.",
-     "mia": "https://www.marxists.org/reference/subject/philosophy/works/fr/st-simon.htm",
-     "works": [
-       {"id": "saint-simon-1803-geneva", "title": "Letters from an Inhabitant of Geneva", "year": "1803", "kind": "link", "url": "https://www.marxists.org/reference/subject/philosophy/works/fr/st-simon.htm"}
-     ]},
-    {"slug": "fourier", "name": "Charles Fourier", "years": "1772 — 1837", "place": "Besançon → Paris", "group": "NM-03",
-     "role": "French critic of commerce and of 'civilisation' who planned cooperative communities, the phalansteries.",
-     "mia": "https://www.marxists.org/reference/archive/fourier/index.htm",
-     "works": [
-       {"id": "fourier-1808-four-movements", "title": "The Social Destiny of Man, or Theory of the Four Movements", "year": "1808", "kind": "link", "url": "https://www.marxists.org/reference/archive/fourier/social-destiny.pdf"}
-     ]},
-    {"slug": "owen", "name": "Robert Owen", "years": "1771 — 1858", "place": "Newtown → Newtown", "group": "NM-03",
-     "role": "Welsh mill-owner who ran New Lanark as a model factory town and founded communities in Britain and America.",
-     "mia": "https://www.marxists.org/reference/subject/economics/owen/index.htm",
-     "works": [
-       {"id": "owen-1813-new-view", "title": "A New View of Society", "year": "1813", "kind": "link", "url": "https://www.marxists.org/reference/subject/economics/owen/society/index.htm"},
-       {"id": "owen-1821-lanark", "title": "Report to the County of Lanark", "year": "1821", "kind": "link", "url": "https://www.marxists.org/reference/subject/economics/owen/lanark.pdf"}
-     ]},
-    {"slug": "proudhon", "name": "Pierre-Joseph Proudhon", "years": "1809 — 1865", "place": "Besançon → Passy", "group": "NM-04",
-     "role": "French printer who declared that property is theft and was the first to call himself an anarchist. Marx answered his System of Economic Contradictions with The Poverty of Philosophy.",
-     "mia": "https://www.marxists.org/reference/subject/economics/proudhon/index.htm",
-     "works": [
-       {"id": "proudhon-1840-property", "title": "What Is Property?", "year": "1840", "kind": "link", "url": "https://www.marxists.org/reference/subject/economics/proudhon/property/index.htm"},
-       {"id": "proudhon-1846-contradictions", "title": "System of Economical Contradictions, or The Philosophy of Poverty", "year": "1846", "kind": "link", "url": "https://www.marxists.org/reference/subject/economics/proudhon/philosophy/index.htm"},
-       {"id": "proudhon-1851-general-idea", "title": "General Idea of the Revolution in the Nineteenth Century", "year": "1851", "kind": "link", "url": "https://www.marxists.org/reference/subject/economics/proudhon/1851/general-idea-of-the-revolution-in-the-nineteenth-century/index.html"}
-     ]},
-    {"slug": "stirner", "name": "Max Stirner", "years": "1806 — 1856", "place": "Bayreuth → Berlin", "group": "NM-04",
-     "role": "Young Hegelian whose The Ego and Its Own set the individual above every cause. Marx and Engels answered him at great length in The German Ideology.",
-     "mia": "https://www.marxists.org/reference/archive/stirner/index.htm",
-     "works": [
-       {"id": "stirner-1844-ego", "slug": "the-ego-and-his-own", "title": "The Ego and His Own", "subtitle": "Also translated as The Ego and Its Own", "year": "1844", "kind": "hosted", "lang": "en", "edition": "Translated by Steven T. Byington, with an introduction by J. L. Walker. New York, Benjamin R. Tucker, 1907.", "pg": 34580}
-     ]},
-    {"slug": "bakunin", "name": "Mikhail Bakunin", "years": "1814 — 1876", "place": "Pryamukhino → Bern", "group": "NM-04",
-     "role": "Russian revolutionary who fought Marx for the First International and was expelled from it at the Hague Congress of 1872.",
-     "mia": "https://www.marxists.org/reference/archive/bakunin/index.htm",
-     "works": [
-       {"id": "bakunin-1851-confession", "title": "Confession to Tsar Nicholas I", "year": "1851", "kind": "link", "url": "https://www.marxists.org/reference/archive/bakunin/works/1851/confession.htm"},
-       {"id": "bakunin-1866-catechism", "title": "Revolutionary Catechism", "year": "1866", "kind": "link", "url": "https://www.marxists.org/reference/archive/bakunin/works/1866/catechism.htm"},
-       {"id": "bakunin-1873-statism", "title": "Statism and Anarchy", "year": "1873", "kind": "link", "url": "https://www.marxists.org/reference/archive/bakunin/works/1873/statism-anarchy.htm"},
-       {"id": "bakunin-1882-god-and-state", "slug": "god-and-the-state", "title": "God and the State", "year": "1882", "kind": "hosted", "lang": "en", "edition": "Translated by Benjamin R. Tucker, with a preface by Carlo Cafiero and Élisée Reclus. New York, Mother Earth Publishing Association, 1916.", "pg": 36568}
-     ]},
-    {"slug": "kropotkin", "name": "Peter Kropotkin", "years": "1842 — 1921", "place": "Moscow → Dmitrov", "group": "NM-04",
-     "role": "Russian prince and geographer, the leading theorist of anarchist communism.",
-     "works": [
-       {"id": "kropotkin-1892-conquest-of-bread", "slug": "the-conquest-of-bread", "title": "The Conquest of Bread", "year": "1892", "kind": "hosted", "lang": "en", "edition": "English translation first published in London in 1906; this text follows the Vanguard Press printing, New York, 1926.", "pg": 23428},
-       {"id": "kropotkin-1902-mutual-aid", "slug": "mutual-aid", "title": "Mutual Aid: A Factor of Evolution", "year": "1902", "kind": "hosted", "lang": "en", "edition": "London, William Heinemann, 1902.", "pg": 4341}
-     ]},
-    {"slug": "malatesta", "name": "Errico Malatesta", "years": "1853 — 1932", "place": "Santa Maria Capua Vetere → Rome", "group": "NM-04",
-     "role": "Italian anarchist agitator and organiser for more than sixty years.",
-     "mia": "https://www.marxists.org/archive/malatesta/index.htm",
-     "works": [
-       {"id": "malatesta-1884-talk", "title": "A Talk About Anarchist Communism Between Two Workers", "year": "1884", "kind": "link", "url": "https://www.marxists.org/archive/malatesta/1933/talk.html"},
-       {"id": "malatesta-1891-anarchy", "title": "Anarchy", "year": "1891", "kind": "link", "url": "https://www.marxists.org/archive/malatesta/1891/xx/anarchy.htm"},
-       {"id": "malatesta-1920-programme", "title": "An Anarchist Programme", "year": "1920", "kind": "link", "url": "https://www.marxists.org/archive/malatesta/1920/program/program.htm"}
-     ]},
-    {"slug": "goldman", "name": "Emma Goldman", "years": "1869 — 1940", "place": "Kovno → Toronto", "group": "NM-04",
-     "role": "Lithuanian-born American anarchist, deported to Soviet Russia in 1919, who wrote of her disillusionment there.",
-     "mia": "https://www.marxists.org/reference/archive/goldman/index.htm",
-     "works": [
-       {"id": "goldman-1910-anarchism-essays", "slug": "anarchism-and-other-essays", "title": "Anarchism and Other Essays", "year": "1910", "kind": "hosted", "lang": "en", "edition": "With a biographic sketch by Hippolyte Havel. New York, Mother Earth Publishing Association, 1910.", "pg": 2162},
-       {"id": "goldman-1923-disillusionment", "title": "My Disillusionment in Russia", "year": "1923", "kind": "link", "url": "https://www.marxists.org/reference/archive/goldman/works/1920s/disillusionment/index.htm"},
-       {"id": "goldman-1931-living", "title": "Living My Life", "year": "1931", "kind": "link", "url": "https://www.marxists.org/reference/archive/goldman/works/1931/living-my-life/index.html"}
-     ]},
-    {"slug": "bernstein", "name": "Eduard Bernstein", "years": "1850 — 1932", "place": "Berlin", "group": "NM-05",
-     "role": "Engels's literary executor, who argued from 1896 that socialism would come by gradual reform. His party rejected the revision, and Luxemburg answered it in Reform or Revolution.",
-     "mia": "https://www.marxists.org/reference/archive/bernstein/index.htm",
-     "works": [
-       {"id": "bernstein-1890-reichstag", "title": "Socialism in the German Reichstag and on the German Throne", "year": "1890", "kind": "link", "url": "https://www.marxists.org/reference/archive/bernstein/works/1890/socialism-throne.htm"},
-       {"id": "bernstein-1899-evolutionary", "title": "Evolutionary Socialism", "subtitle": "Die Voraussetzungen des Sozialismus und die Aufgaben der Sozialdemokratie", "year": "1899", "kind": "link", "url": "https://www.marxists.org/reference/archive/bernstein/works/1899/evsoc/index.htm"}
-     ]},
-    {"slug": "stalin", "name": "Joseph Stalin", "years": "1878 — 1953", "place": "Gori → Moscow", "group": "NM-06",
-     "role": "General Secretary of the Soviet Communist Party from 1922 and ruler of the USSR until his death in 1953; author of the doctrine of socialism in one country.",
-     "mia": "https://www.marxists.org/reference/archive/stalin/index.htm",
-     "note": "Linked, not hosted: the English translations here are not clearly in the public domain everywhere.",
-     "works": [
-       {"id": "stalin-1906-anarchism-socialism", "title": "Anarchism or Socialism?", "year": "1906", "kind": "link", "url": "https://www.marxists.org/reference/archive/stalin/works/1906/12/x01.htm"},
-       {"id": "stalin-1913-national-question", "title": "Marxism and the National Question", "year": "1913", "kind": "link", "url": "https://www.marxists.org/reference/archive/stalin/works/1913/03a.htm"},
-       {"id": "stalin-1924-foundations", "title": "The Foundations of Leninism", "year": "1924", "kind": "link", "url": "https://www.marxists.org/reference/archive/stalin/works/1924/foundations-leninism/index.htm"},
-       {"id": "stalin-1926-questions", "title": "Concerning Questions of Leninism", "year": "1926", "kind": "link", "url": "https://www.marxists.org/reference/archive/stalin/works/1926/01/25.htm"},
-       {"id": "stalin-1938-dialectical", "title": "Dialectical and Historical Materialism", "year": "1938", "kind": "link", "url": "https://www.marxists.org/reference/archive/stalin/works/1938/09.htm"},
-       {"id": "stalin-1938-short-course", "title": "History of the Communist Party of the Soviet Union (Bolsheviks): Short Course", "year": "1938", "kind": "link", "url": "https://www.marxists.org/reference/archive/stalin/works/1939/x01/index.htm"},
-       {"id": "stalin-1952-economic-problems", "title": "Economic Problems of Socialism in the USSR", "year": "1952", "kind": "link", "url": "https://www.marxists.org/reference/archive/stalin/works/1951/economic-problems/index.htm"}
-     ]},
-    {"slug": "mao", "name": "Mao Zedong", "years": "1893 — 1976", "place": "Shaoshan → Beijing", "group": "NM-06",
-     "role": "Chairman of the Chinese Communist Party, who led it to power in 1949 and ruled the People's Republic of China until his death in 1976.",
-     "mia": "https://www.marxists.org/reference/archive/mao/index.htm",
-     "note": "In copyright: these links open the Marxists Internet Archive.",
-     "works": [
-       {"id": "mao-1937-practice", "title": "On Practice", "year": "1937", "kind": "link", "url": "https://www.marxists.org/reference/archive/mao/selected-works/volume-1/mswv1_16.htm"},
-       {"id": "mao-1937-contradiction", "title": "On Contradiction", "year": "1937", "kind": "link", "url": "https://www.marxists.org/reference/archive/mao/selected-works/volume-1/mswv1_17.htm"},
-       {"id": "mao-1940-new-democracy", "title": "On New Democracy", "year": "1940", "kind": "link", "url": "https://www.marxists.org/reference/archive/mao/selected-works/volume-2/mswv2_26.htm"},
-       {"id": "mao-1964-quotations", "title": "Quotations from Chairman Mao Tse-tung", "year": "1964", "kind": "link", "url": "https://www.marxists.org/reference/archive/mao/works/red-book/index.htm"},
-       {"id": "mao-selected-works", "title": "Selected Works", "year": "1926–1957", "kind": "link", "url": "https://www.marxists.org/reference/archive/mao/selected-works/index.htm"}
-     ]},
-    {"slug": "deng", "name": "Deng Xiaoping", "years": "1904 — 1997", "place": "Guang'an → Beijing", "group": "NM-06",
-     "role": "Leader of China from 1978 into the 1990s, who opened its economy to the market under the name of socialism with Chinese characteristics.",
-     "mia": "https://www.marxists.org/reference/archive/deng-xiaoping/index.htm",
-     "note": "In copyright: these links open the Marxists Internet Archive.",
-     "works": [
-       {"id": "deng-1978-emancipate", "title": "Emancipate the Mind, Seek Truth from Facts and Unite as One in Looking to the Future", "year": "1978", "kind": "link", "url": "https://www.marxists.org/reference/archive/deng-xiaoping/1978/110.htm"},
-       {"id": "deng-1979-four-principles", "title": "Uphold the Four Cardinal Principles", "year": "1979", "kind": "link", "url": "https://www.marxists.org/reference/archive/deng-xiaoping/1979/115.htm"},
-       {"id": "deng-1979-market", "title": "We Can Develop a Market Economy under Socialism", "year": "1979", "kind": "link", "url": "https://www.marxists.org/reference/archive/deng-xiaoping/1979/152.htm"},
-       {"id": "deng-1984-chinese-character", "title": "Building a Socialism with a Specifically Chinese Character", "year": "1984", "kind": "link", "url": "https://www.marxists.org/reference/archive/deng-xiaoping/1984/36.htm"},
-       {"id": "deng-1985-second-revolution", "title": "Reform Is China's Second Revolution", "year": "1985", "kind": "link", "url": "https://www.marxists.org/reference/archive/deng-xiaoping/1985/189.htm"}
-     ]}
-  ]
+ "_about": "The Non-Marxists section of the archive: thinkers and leaders filed outside the Index of Marxists. Works are 'hosted' (a text in content/texts/<id>.txt, in the public domain) or 'link' (the Marxists Internet Archive or another site). Each person needs a group code from 'groups'.",
+ "intro": "Filed outside the Index of Marxists: the philosophers and economists Marx worked from, the utopians and anarchists he argued with, the revisionists, and the leaders who governed in Lenin's name after him. Read them to know what Marxism answered.",
+ "groups": [
+  {
+   "code": "NM-01",
+   "slug": "philosophers",
+   "title": "The Philosophers",
+   "blurb": "Classical German philosophy outside Hegel: the critical philosophy, and the materialism Marx began from."
+  },
+  {
+   "code": "NM-02",
+   "slug": "economists",
+   "title": "The Economists",
+   "blurb": "Classical political economy, the science Marx set out to criticise."
+  },
+  {
+   "code": "NM-03",
+   "slug": "utopians",
+   "title": "The Utopians",
+   "blurb": "The socialists before scientific socialism, whom Engels honoured and answered."
+  },
+  {
+   "code": "NM-04",
+   "slug": "anarchists",
+   "title": "The Anarchists",
+   "blurb": "Marx's rivals in the First International and their successors."
+  },
+  {
+   "code": "NM-05",
+   "slug": "revisionists",
+   "title": "The Revisionists",
+   "blurb": "Socialism by gradual reform, inside the Second International."
+  },
+  {
+   "code": "NM-06",
+   "slug": "after-lenin",
+   "title": "After Lenin",
+   "blurb": "Leaders and revolutionaries of the parties and states that claimed Lenin's succession: the Soviet Union, China and Cuba."
+  }
+ ],
+ "people": [
+  {
+   "slug": "kant",
+   "name": "Immanuel Kant",
+   "years": "1724 — 1804",
+   "place": "Königsberg",
+   "group": "NM-01",
+   "role": "Königsberg philosopher whose critical philosophy set the problems that Hegel answered. A century later, Bernstein and the neo-Kantians called for a return to Kant.",
+   "mia": "https://www.marxists.org/reference/subject/ethics/kant/index.htm",
+   "works": [
+    {
+     "id": "kant-1781-critique-pure-reason",
+     "slug": "critique-of-pure-reason",
+     "title": "The Critique of Pure Reason",
+     "year": "1781",
+     "kind": "hosted",
+     "lang": "en",
+     "edition": "Translated by J. M. D. Meiklejohn. London, 1855.",
+     "pg": 4280
+    },
+    {
+     "id": "kant-1784-enlightenment",
+     "title": "An Answer to the Question: What Is Enlightenment?",
+     "year": "1784",
+     "kind": "link",
+     "url": "https://www.marxists.org/reference/subject/ethics/kant/enlightenment.htm"
+    },
+    {
+     "id": "kant-1785-groundwork",
+     "slug": "groundwork-of-the-metaphysic-of-morals",
+     "title": "Fundamental Principles of the Metaphysic of Morals",
+     "subtitle": "Also known as the Groundwork",
+     "year": "1785",
+     "kind": "hosted",
+     "lang": "en",
+     "edition": "Translated by Thomas Kingsmill Abbott. London, 1873.",
+     "pg": 5682
+    }
+   ]
+  },
+  {
+   "slug": "feuerbach",
+   "name": "Ludwig Feuerbach",
+   "years": "1804 — 1872",
+   "place": "Landshut → Rechenberg",
+   "group": "NM-01",
+   "role": "Young Hegelian who turned Hegel's philosophy into a materialism of man and nature. Marx's Theses on Feuerbach and Engels's Ludwig Feuerbach settle accounts with him.",
+   "mia": "https://www.marxists.org/reference/archive/feuerbach/index.htm",
+   "works": [
+    {
+     "id": "feuerbach-1839-critique-hegel",
+     "title": "Towards a Critique of Hegel's Philosophy",
+     "year": "1839",
+     "kind": "link",
+     "url": "https://www.marxists.org/reference/archive/feuerbach/works/critique/index.htm"
+    },
+    {
+     "id": "feuerbach-1841-essence-christianity",
+     "slug": "essence-of-christianity",
+     "title": "The Essence of Christianity",
+     "year": "1841",
+     "kind": "hosted",
+     "lang": "en",
+     "edition": "Translated from the second German edition by Marian Evans (George Eliot). London, 1854.",
+     "pg": 47025
+    },
+    {
+     "id": "feuerbach-1843-philosophy-future",
+     "title": "Principles of the Philosophy of the Future",
+     "year": "1843",
+     "kind": "link",
+     "url": "https://www.marxists.org/reference/archive/feuerbach/works/future/index.htm"
+    }
+   ]
+  },
+  {
+   "slug": "smith",
+   "name": "Adam Smith",
+   "years": "1723 — 1790",
+   "place": "Kirkcaldy → Edinburgh",
+   "group": "NM-02",
+   "role": "Scottish moral philosopher whose Wealth of Nations founded classical political economy, the starting point of Marx's critique.",
+   "mia": "https://www.marxists.org/reference/archive/smith-adam/index.htm",
+   "works": [
+    {
+     "id": "smith-1759-moral-sentiments",
+     "title": "The Theory of Moral Sentiments",
+     "year": "1759",
+     "kind": "link",
+     "url": "https://www.marxists.org/reference/archive/smith-adam/works/moral/index.htm"
+    },
+    {
+     "id": "smith-1776-wealth-of-nations",
+     "slug": "wealth-of-nations",
+     "title": "An Inquiry into the Nature and Causes of the Wealth of Nations",
+     "year": "1776",
+     "kind": "hosted",
+     "lang": "en",
+     "edition": "First published in London in 1776.",
+     "pg": 3300
+    }
+   ]
+  },
+  {
+   "slug": "ricardo",
+   "name": "David Ricardo",
+   "years": "1772 — 1823",
+   "place": "London → Gatcombe",
+   "group": "NM-02",
+   "role": "Stockbroker and economist who carried the labour theory of value further than anyone before Marx.",
+   "mia": "https://www.marxists.org/reference/subject/economics/ricardo/tax/index.htm",
+   "works": [
+    {
+     "id": "ricardo-1817-principles",
+     "slug": "principles-of-political-economy",
+     "title": "On the Principles of Political Economy and Taxation",
+     "year": "1817",
+     "kind": "hosted",
+     "lang": "en",
+     "edition": "London, John Murray, 1817 (the first edition).",
+     "pg": 33310
+    }
+   ]
+  },
+  {
+   "slug": "malthus",
+   "name": "Thomas Malthus",
+   "years": "1766 — 1834",
+   "place": "Surrey → Bath",
+   "group": "NM-02",
+   "role": "Clergyman and economist whose law of population Marx attacked as an apology for poverty.",
+   "mia": "https://www.marxists.org/reference/subject/economics/malthus/index.htm",
+   "works": [
+    {
+     "id": "malthus-1798-population",
+     "slug": "essay-on-population",
+     "title": "An Essay on the Principle of Population",
+     "year": "1798",
+     "kind": "hosted",
+     "lang": "en",
+     "edition": "London, J. Johnson, 1798 (the first edition).",
+     "pg": 4239
+    }
+   ]
+  },
+  {
+   "slug": "saint-simon",
+   "name": "Henri de Saint-Simon",
+   "years": "1760 — 1825",
+   "place": "Paris",
+   "group": "NM-03",
+   "role": "French aristocrat who imagined a society run by industrialists and scientists. Engels counted him among the three great utopians.",
+   "mia": "https://www.marxists.org/reference/subject/philosophy/works/fr/st-simon.htm",
+   "works": [
+    {
+     "id": "saint-simon-1803-geneva",
+     "title": "Letters from an Inhabitant of Geneva",
+     "year": "1803",
+     "kind": "link",
+     "url": "https://www.marxists.org/reference/subject/philosophy/works/fr/st-simon.htm"
+    }
+   ]
+  },
+  {
+   "slug": "fourier",
+   "name": "Charles Fourier",
+   "years": "1772 — 1837",
+   "place": "Besançon → Paris",
+   "group": "NM-03",
+   "role": "French critic of commerce and of 'civilisation' who planned cooperative communities, the phalansteries.",
+   "mia": "https://www.marxists.org/reference/archive/fourier/index.htm",
+   "works": [
+    {
+     "id": "fourier-1808-four-movements",
+     "title": "The Social Destiny of Man, or Theory of the Four Movements",
+     "year": "1808",
+     "kind": "link",
+     "url": "https://www.marxists.org/reference/archive/fourier/social-destiny.pdf"
+    }
+   ]
+  },
+  {
+   "slug": "owen",
+   "name": "Robert Owen",
+   "years": "1771 — 1858",
+   "place": "Newtown → Newtown",
+   "group": "NM-03",
+   "role": "Welsh mill-owner who ran New Lanark as a model factory town and founded communities in Britain and America.",
+   "mia": "https://www.marxists.org/reference/subject/economics/owen/index.htm",
+   "works": [
+    {
+     "id": "owen-1813-new-view",
+     "title": "A New View of Society",
+     "year": "1813",
+     "kind": "link",
+     "url": "https://www.marxists.org/reference/subject/economics/owen/society/index.htm"
+    },
+    {
+     "id": "owen-1821-lanark",
+     "title": "Report to the County of Lanark",
+     "year": "1821",
+     "kind": "link",
+     "url": "https://www.marxists.org/reference/subject/economics/owen/lanark.pdf"
+    }
+   ]
+  },
+  {
+   "slug": "proudhon",
+   "name": "Pierre-Joseph Proudhon",
+   "years": "1809 — 1865",
+   "place": "Besançon → Passy",
+   "group": "NM-04",
+   "role": "French printer who declared that property is theft and was the first to call himself an anarchist. Marx answered his System of Economic Contradictions with The Poverty of Philosophy.",
+   "mia": "https://www.marxists.org/reference/subject/economics/proudhon/index.htm",
+   "works": [
+    {
+     "id": "proudhon-1840-property",
+     "title": "What Is Property?",
+     "year": "1840",
+     "kind": "link",
+     "url": "https://www.marxists.org/reference/subject/economics/proudhon/property/index.htm"
+    },
+    {
+     "id": "proudhon-1846-contradictions",
+     "title": "System of Economical Contradictions, or The Philosophy of Poverty",
+     "year": "1846",
+     "kind": "link",
+     "url": "https://www.marxists.org/reference/subject/economics/proudhon/philosophy/index.htm"
+    },
+    {
+     "id": "proudhon-1851-general-idea",
+     "title": "General Idea of the Revolution in the Nineteenth Century",
+     "year": "1851",
+     "kind": "link",
+     "url": "https://www.marxists.org/reference/subject/economics/proudhon/1851/general-idea-of-the-revolution-in-the-nineteenth-century/index.html"
+    }
+   ]
+  },
+  {
+   "slug": "stirner",
+   "name": "Max Stirner",
+   "years": "1806 — 1856",
+   "place": "Bayreuth → Berlin",
+   "group": "NM-04",
+   "role": "Young Hegelian whose The Ego and Its Own set the individual above every cause. Marx and Engels answered him at great length in The German Ideology.",
+   "mia": "https://www.marxists.org/reference/archive/stirner/index.htm",
+   "works": [
+    {
+     "id": "stirner-1844-ego",
+     "slug": "the-ego-and-his-own",
+     "title": "The Ego and His Own",
+     "subtitle": "Also translated as The Ego and Its Own",
+     "year": "1844",
+     "kind": "hosted",
+     "lang": "en",
+     "edition": "Translated by Steven T. Byington, with an introduction by J. L. Walker. New York, Benjamin R. Tucker, 1907.",
+     "pg": 34580
+    }
+   ]
+  },
+  {
+   "slug": "bakunin",
+   "name": "Mikhail Bakunin",
+   "years": "1814 — 1876",
+   "place": "Pryamukhino → Bern",
+   "group": "NM-04",
+   "role": "Russian revolutionary who fought Marx for the First International and was expelled from it at the Hague Congress of 1872.",
+   "mia": "https://www.marxists.org/reference/archive/bakunin/index.htm",
+   "works": [
+    {
+     "id": "bakunin-1851-confession",
+     "title": "Confession to Tsar Nicholas I",
+     "year": "1851",
+     "kind": "link",
+     "url": "https://www.marxists.org/reference/archive/bakunin/works/1851/confession.htm"
+    },
+    {
+     "id": "bakunin-1866-catechism",
+     "title": "Revolutionary Catechism",
+     "year": "1866",
+     "kind": "link",
+     "url": "https://www.marxists.org/reference/archive/bakunin/works/1866/catechism.htm"
+    },
+    {
+     "id": "bakunin-1873-statism",
+     "title": "Statism and Anarchy",
+     "year": "1873",
+     "kind": "link",
+     "url": "https://www.marxists.org/reference/archive/bakunin/works/1873/statism-anarchy.htm"
+    },
+    {
+     "id": "bakunin-1882-god-and-state",
+     "slug": "god-and-the-state",
+     "title": "God and the State",
+     "year": "1882",
+     "kind": "hosted",
+     "lang": "en",
+     "edition": "Translated by Benjamin R. Tucker, with a preface by Carlo Cafiero and Élisée Reclus. New York, Mother Earth Publishing Association, 1916.",
+     "pg": 36568
+    }
+   ]
+  },
+  {
+   "slug": "kropotkin",
+   "name": "Peter Kropotkin",
+   "years": "1842 — 1921",
+   "place": "Moscow → Dmitrov",
+   "group": "NM-04",
+   "role": "Russian prince and geographer, the leading theorist of anarchist communism.",
+   "works": [
+    {
+     "id": "kropotkin-1892-conquest-of-bread",
+     "slug": "the-conquest-of-bread",
+     "title": "The Conquest of Bread",
+     "year": "1892",
+     "kind": "hosted",
+     "lang": "en",
+     "edition": "English translation first published in London in 1906; this text follows the Vanguard Press printing, New York, 1926.",
+     "pg": 23428
+    },
+    {
+     "id": "kropotkin-1902-mutual-aid",
+     "slug": "mutual-aid",
+     "title": "Mutual Aid: A Factor of Evolution",
+     "year": "1902",
+     "kind": "hosted",
+     "lang": "en",
+     "edition": "London, William Heinemann, 1902.",
+     "pg": 4341
+    }
+   ]
+  },
+  {
+   "slug": "goldman",
+   "name": "Emma Goldman",
+   "years": "1869 — 1940",
+   "place": "Kovno → Toronto",
+   "group": "NM-04",
+   "role": "Lithuanian-born American anarchist, deported to Soviet Russia in 1919, who wrote of her disillusionment there.",
+   "mia": "https://www.marxists.org/reference/archive/goldman/index.htm",
+   "works": [
+    {
+     "id": "goldman-1910-anarchism-essays",
+     "slug": "anarchism-and-other-essays",
+     "title": "Anarchism and Other Essays",
+     "year": "1910",
+     "kind": "hosted",
+     "lang": "en",
+     "edition": "With a biographic sketch by Hippolyte Havel. New York, Mother Earth Publishing Association, 1910.",
+     "pg": 2162
+    },
+    {
+     "id": "goldman-1923-disillusionment",
+     "title": "My Disillusionment in Russia",
+     "year": "1923",
+     "kind": "link",
+     "url": "https://www.marxists.org/reference/archive/goldman/works/1920s/disillusionment/index.htm"
+    },
+    {
+     "id": "goldman-1931-living",
+     "title": "Living My Life",
+     "year": "1931",
+     "kind": "link",
+     "url": "https://www.marxists.org/reference/archive/goldman/works/1931/living-my-life/index.html"
+    }
+   ]
+  },
+  {
+   "slug": "bernstein",
+   "name": "Eduard Bernstein",
+   "years": "1850 — 1932",
+   "place": "Berlin",
+   "group": "NM-05",
+   "role": "Engels's literary executor, who argued from 1896 that socialism would come by gradual reform. His party rejected the revision, and Luxemburg answered it in Reform or Revolution.",
+   "mia": "https://www.marxists.org/reference/archive/bernstein/index.htm",
+   "works": [
+    {
+     "id": "bernstein-1890-reichstag",
+     "title": "Socialism in the German Reichstag and on the German Throne",
+     "year": "1890",
+     "kind": "link",
+     "url": "https://www.marxists.org/reference/archive/bernstein/works/1890/socialism-throne.htm"
+    },
+    {
+     "id": "bernstein-1899-evolutionary",
+     "title": "Evolutionary Socialism",
+     "subtitle": "Die Voraussetzungen des Sozialismus und die Aufgaben der Sozialdemokratie",
+     "year": "1899",
+     "kind": "link",
+     "url": "https://www.marxists.org/reference/archive/bernstein/works/1899/evsoc/index.htm"
+    }
+   ]
+  },
+  {
+   "slug": "stalin",
+   "name": "Joseph Stalin",
+   "years": "1878 — 1953",
+   "place": "Gori → Moscow",
+   "group": "NM-06",
+   "role": "General Secretary of the Soviet Communist Party from 1922 and ruler of the USSR until his death in 1953; author of the doctrine of socialism in one country.",
+   "mia": "https://www.marxists.org/reference/archive/stalin/index.htm",
+   "note": "Linked, not hosted: the English translations here are not clearly in the public domain everywhere.",
+   "works": [
+    {
+     "id": "stalin-1906-anarchism-socialism",
+     "title": "Anarchism or Socialism?",
+     "year": "1906",
+     "kind": "link",
+     "url": "https://www.marxists.org/reference/archive/stalin/works/1906/12/x01.htm"
+    },
+    {
+     "id": "stalin-1913-national-question",
+     "title": "Marxism and the National Question",
+     "year": "1913",
+     "kind": "link",
+     "url": "https://www.marxists.org/reference/archive/stalin/works/1913/03a.htm"
+    },
+    {
+     "id": "stalin-1924-foundations",
+     "title": "The Foundations of Leninism",
+     "year": "1924",
+     "kind": "link",
+     "url": "https://www.marxists.org/reference/archive/stalin/works/1924/foundations-leninism/index.htm"
+    },
+    {
+     "id": "stalin-1926-questions",
+     "title": "Concerning Questions of Leninism",
+     "year": "1926",
+     "kind": "link",
+     "url": "https://www.marxists.org/reference/archive/stalin/works/1926/01/25.htm"
+    },
+    {
+     "id": "stalin-1938-dialectical",
+     "title": "Dialectical and Historical Materialism",
+     "year": "1938",
+     "kind": "link",
+     "url": "https://www.marxists.org/reference/archive/stalin/works/1938/09.htm"
+    },
+    {
+     "id": "stalin-1938-short-course",
+     "title": "History of the Communist Party of the Soviet Union (Bolsheviks): Short Course",
+     "year": "1938",
+     "kind": "link",
+     "url": "https://www.marxists.org/reference/archive/stalin/works/1939/x01/index.htm"
+    },
+    {
+     "id": "stalin-1952-economic-problems",
+     "title": "Economic Problems of Socialism in the USSR",
+     "year": "1952",
+     "kind": "link",
+     "url": "https://www.marxists.org/reference/archive/stalin/works/1951/economic-problems/index.htm"
+    }
+   ]
+  },
+  {
+   "slug": "mao",
+   "name": "Mao Zedong",
+   "years": "1893 — 1976",
+   "place": "Shaoshan → Beijing",
+   "group": "NM-06",
+   "role": "Chairman of the Chinese Communist Party, who led it to power in 1949 and ruled the People's Republic of China until his death in 1976.",
+   "mia": "https://www.marxists.org/reference/archive/mao/index.htm",
+   "note": "In copyright: these links open the Marxists Internet Archive.",
+   "works": [
+    {
+     "id": "mao-1937-practice",
+     "title": "On Practice",
+     "year": "1937",
+     "kind": "link",
+     "url": "https://www.marxists.org/reference/archive/mao/selected-works/volume-1/mswv1_16.htm"
+    },
+    {
+     "id": "mao-1937-contradiction",
+     "title": "On Contradiction",
+     "year": "1937",
+     "kind": "link",
+     "url": "https://www.marxists.org/reference/archive/mao/selected-works/volume-1/mswv1_17.htm"
+    },
+    {
+     "id": "mao-1940-new-democracy",
+     "title": "On New Democracy",
+     "year": "1940",
+     "kind": "link",
+     "url": "https://www.marxists.org/reference/archive/mao/selected-works/volume-2/mswv2_26.htm"
+    },
+    {
+     "id": "mao-1964-quotations",
+     "title": "Quotations from Chairman Mao Tse-tung",
+     "year": "1964",
+     "kind": "link",
+     "url": "https://www.marxists.org/reference/archive/mao/works/red-book/index.htm"
+    },
+    {
+     "id": "mao-selected-works",
+     "title": "Selected Works",
+     "year": "1926–1957",
+     "kind": "link",
+     "url": "https://www.marxists.org/reference/archive/mao/selected-works/index.htm"
+    }
+   ]
+  },
+  {
+   "slug": "deng",
+   "name": "Deng Xiaoping",
+   "years": "1904 — 1997",
+   "place": "Guang'an → Beijing",
+   "group": "NM-06",
+   "role": "Leader of China from 1978 into the 1990s, who opened its economy to the market under the name of socialism with Chinese characteristics.",
+   "mia": "https://www.marxists.org/reference/archive/deng-xiaoping/index.htm",
+   "note": "In copyright: these links open the Marxists Internet Archive.",
+   "works": [
+    {
+     "id": "deng-1978-emancipate",
+     "title": "Emancipate the Mind, Seek Truth from Facts and Unite as One in Looking to the Future",
+     "year": "1978",
+     "kind": "link",
+     "url": "https://www.marxists.org/reference/archive/deng-xiaoping/1978/110.htm"
+    },
+    {
+     "id": "deng-1979-four-principles",
+     "title": "Uphold the Four Cardinal Principles",
+     "year": "1979",
+     "kind": "link",
+     "url": "https://www.marxists.org/reference/archive/deng-xiaoping/1979/115.htm"
+    },
+    {
+     "id": "deng-1979-market",
+     "title": "We Can Develop a Market Economy under Socialism",
+     "year": "1979",
+     "kind": "link",
+     "url": "https://www.marxists.org/reference/archive/deng-xiaoping/1979/152.htm"
+    },
+    {
+     "id": "deng-1984-chinese-character",
+     "title": "Building a Socialism with a Specifically Chinese Character",
+     "year": "1984",
+     "kind": "link",
+     "url": "https://www.marxists.org/reference/archive/deng-xiaoping/1984/36.htm"
+    },
+    {
+     "id": "deng-1985-second-revolution",
+     "title": "Reform Is China's Second Revolution",
+     "year": "1985",
+     "kind": "link",
+     "url": "https://www.marxists.org/reference/archive/deng-xiaoping/1985/189.htm"
+    }
+   ]
+  },
+  {
+   "slug": "castro",
+   "name": "Fidel Castro",
+   "years": "1926 — 2016",
+   "place": "Birán → Havana",
+   "group": "NM-06",
+   "role": "Lawyer who led the Cuban revolution of 1959, declared it socialist in 1961 and governed Cuba until 2008.",
+   "mia": "https://www.marxists.org/history/cuba/archive/castro/index.htm",
+   "note": "In copyright: these links open the Marxists Internet Archive.",
+   "works": [
+    {
+     "id": "castro-1953-history-will-absolve",
+     "title": "History Will Absolve Me",
+     "year": "1953",
+     "kind": "link",
+     "url": "https://www.marxists.org/history/cuba/archive/castro/1953/10/16.htm"
+    },
+    {
+     "id": "castro-1961-cuban-socialism",
+     "title": "The Nature of Cuban Socialism",
+     "year": "1961",
+     "kind": "link",
+     "url": "https://www.marxists.org/history/cuba/archive/castro/1961/02/01.htm"
+    },
+    {
+     "id": "castro-1961-marxism-leninism",
+     "title": "Speech on Marxism-Leninism",
+     "year": "1961",
+     "kind": "link",
+     "url": "https://www.marxists.org/history/cuba/archive/castro/1961/12/02.htm"
+    },
+    {
+     "id": "castro-1966-tricontinental",
+     "title": "At the Closing Session of the Tricontinental Conference",
+     "year": "1966",
+     "kind": "link",
+     "url": "https://www.marxists.org/history/cuba/archive/castro/1966/01/15.htm"
+    }
+   ]
+  },
+  {
+   "slug": "guevara",
+   "name": "Che Guevara",
+   "years": "1928 — 1967",
+   "place": "Rosario → La Higuera",
+   "group": "NM-06",
+   "role": "Argentine doctor who fought in the Cuban revolution, ran Cuba's national bank and its ministry of industry, and was killed in Bolivia in 1967 while leading a guerrilla campaign.",
+   "mia": "https://www.marxists.org/archive/guevara/index.htm",
+   "note": "In copyright: these links open the Marxists Internet Archive.",
+   "works": [
+    {
+     "id": "guevara-1965-algiers",
+     "title": "At the Afro-Asian Conference in Algeria",
+     "year": "1965",
+     "kind": "link",
+     "url": "https://www.marxists.org/archive/guevara/1965/02/24.htm"
+    },
+    {
+     "id": "guevara-1965-socialism-and-man",
+     "title": "Socialism and Man in Cuba",
+     "year": "1965",
+     "kind": "link",
+     "url": "https://www.marxists.org/archive/guevara/1965/03/man-socialism.htm"
+    },
+    {
+     "id": "guevara-1967-tricontinental",
+     "title": "Message to the Tricontinental",
+     "year": "1967",
+     "kind": "link",
+     "url": "https://www.marxists.org/archive/guevara/1967/04/16.htm"
+    }
+   ]
+  },
+  {
+   "slug": "xi",
+   "name": "Xi Jinping",
+   "years": "1953 —",
+   "place": "Beijing",
+   "group": "NM-06",
+   "role": "General Secretary of the Chinese Communist Party since 2012 and President of China since 2013. His doctrine is written into the party constitution as Xi Jinping Thought on Socialism with Chinese Characteristics for a New Era.",
+   "note": "In copyright: these links open the published English texts on other sites.",
+   "works": [
+    {
+     "id": "xi-2017-19th-congress",
+     "title": "Report to the 19th National Congress of the Communist Party of China",
+     "year": "2017",
+     "kind": "link",
+     "url": "https://china.usc.edu/node/21019"
+    },
+    {
+     "id": "xi-2022-20th-congress",
+     "title": "Report to the 20th National Congress of the Communist Party of China",
+     "year": "2022",
+     "kind": "link",
+     "url": "https://www.mfa.gov.cn/eng/xw/zyjh/202405/t20240530_11341666.html"
+    }
+   ]
+  }
+ ]
 }

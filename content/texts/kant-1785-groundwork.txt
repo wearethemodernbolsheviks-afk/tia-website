@@ -1,5 +1,3 @@
-1785
-
           FUNDAMENTAL PRINCIPLES OF THE METAPHYSIC OF MORALS
 
                            by Immanuel Kant
@@ -226,8 +224,6 @@ metaphysic of morals.
 
 3 THIRD SECTION. Final step from the metaphysic of morals to the
 critique of the pure practical reason.
-
-SEC_1
 
                       FIRST SECTION
 
@@ -717,8 +713,6 @@ in it a dialetic which forces it to seek aid in philosophy, just as
 happens to it in its theoretic use; and in this case, therefore, as
 well as in the other, it will find rest nowhere but in a thorough
 critical examination of our reason.
-
-SEC_2
 
                    SECOND SECTION
 
@@ -2244,8 +2238,6 @@ reason, which however we cannot venture on without first giving a
 critical examination of this faculty of reason. In the concluding
 section we shall give the principal outlines of this critical
 examination as far as is sufficient for our purpose.
-
-SEC_3
 
                      THIRD SECTION
 

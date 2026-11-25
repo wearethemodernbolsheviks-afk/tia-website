@@ -194,6 +194,23 @@ a.row:hover .ti { color: #FF5A60; }
 mark { background: rgba(232, 34, 42, 0.42); color: #FFFFFF; padding: 0 2px; }
 .scan-bar { height: 2px; margin-top: 10px; background: #241618; overflow: hidden; }
 .scan-bar i { display: block; height: 100%; width: 0; background: #E8222A; box-shadow: 0 0 8px rgba(232, 34, 42, 0.8); transition: width 160ms linear; }
+
+.nm-grp { margin-top: 52px; scroll-margin-top: 90px; }
+.nm-grp > header { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 6px 18px; border-bottom: 1px solid #3A2326; padding-bottom: 10px; }
+.nm-grp > header h2 { margin: 0; font-family: 'JetBrains Mono', ui-monospace, monospace; font-weight: 400; font-size: 22px; letter-spacing: 0.08em; color: #F2ECE4; }
+.nm-grp > header h2 span { color: #FF5A60; margin-right: 10px; }
+.nm-grp > header p { margin: 0; max-width: 620px; font-size: 15px; color: #B3A79F; }
+.nm-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); gap: 20px; margin-top: 22px; }
+.nm-grid .dos-img { height: 260px; }
+.nm-jump { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 18px; }
+.nm-jump a { padding: 5px 9px; border: 1px solid #3A2326; background: rgba(9, 5, 6, 0.7); font-size: 12px; letter-spacing: 0.1em; color: #CFC4BC; }
+.nm-jump a:hover { border-color: #E8222A; color: #FF5A60; }
+.nm-strip { display: flex; gap: 6px; overflow: hidden; margin-top: 18px; -webkit-mask-image: linear-gradient(to right, #000 80%, transparent); mask-image: linear-gradient(to right, #000 80%, transparent); }
+.nm-strip img { flex: 0 0 auto; height: 92px; width: auto; }
+.nm-panel { display: block; margin-top: 56px; padding: 20px; border: 1px solid #3A2326; background: rgba(9, 5, 6, 0.82); color: #F2ECE4; }
+.nm-panel:hover { border-color: #E8222A; }
+.nm-panel p { margin: 8px 0 0; max-width: 760px; color: #CFC4BC; }
+.nm-panel .go { display: inline-block; margin-top: 14px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 14px; letter-spacing: 0.12em; color: #FF5A60; }
 </style>
 </head>
 <body>
@@ -454,6 +471,13 @@ mark { background: rgba(232, 34, 42, 0.42); color: #FFFFFF; padding: 0 2px; }
         </div>
       </article>
     </div>
+
+    <a class="nm-panel it-rv" href="/archive/non-marxists/">
+      <span class="mn" style="font-size: 18px; letter-spacing: 0.1em">NON-MARXISTS · 20 FILES</span>
+      <p>Filed outside the Index of Marxists: the philosophers and economists Marx worked from, the utopians and anarchists he argued with, the revisionists, and the leaders who governed in Lenin's name after him. Read them to know what Marxism answered.</p>
+      <div class="nm-strip" aria-hidden="true"><img src="/assets/hex_kant.png" alt="" loading="lazy"><img src="/assets/hex_feuerbach.png" alt="" loading="lazy"><img src="/assets/hex_smith.png" alt="" loading="lazy"><img src="/assets/hex_ricardo.png" alt="" loading="lazy"><img src="/assets/hex_malthus.png" alt="" loading="lazy"><img src="/assets/hex_saint-simon.png" alt="" loading="lazy"><img src="/assets/hex_fourier.png" alt="" loading="lazy"><img src="/assets/hex_owen.png" alt="" loading="lazy"><img src="/assets/hex_proudhon.png" alt="" loading="lazy"><img src="/assets/hex_stirner.png" alt="" loading="lazy"><img src="/assets/hex_bakunin.png" alt="" loading="lazy"><img src="/assets/hex_kropotkin.png" alt="" loading="lazy"><img src="/assets/hex_goldman.png" alt="" loading="lazy"><img src="/assets/hex_bernstein.png" alt="" loading="lazy"><img src="/assets/hex_stalin.png" alt="" loading="lazy"><img src="/assets/hex_mao.png" alt="" loading="lazy"><img src="/assets/hex_deng.png" alt="" loading="lazy"><img src="/assets/hex_castro.png" alt="" loading="lazy"><img src="/assets/hex_guevara.png" alt="" loading="lazy"><img src="/assets/hex_xi.png" alt="" loading="lazy"></div>
+      <span class="go">OPEN THE NON-MARXISTS →</span>
+    </a>
 
     <div class="it-rv" id="texts" style="margin-top: 56px">
       <div style="display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 10px; border-bottom: 1px solid #3A2326; padding-bottom: 10px">

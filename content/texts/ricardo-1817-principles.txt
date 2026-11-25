@@ -1,10 +1,3 @@
-+---------------------------------------------------+
-  | Transcriber's note:                               |
-  | Corrections in the ERRATA section have been made  |
-  | and duplicate Chapter numbers are marked by       |
-  | asterisks as shown in the original text.          |
-  +---------------------------------------------------+
-
   ON
 
   THE PRINCIPLES
@@ -9038,8 +9031,7 @@ prevent any unnecessary variation of the currency.[48]
 
 CHAPTER XXVI.
 
-ON THE COMPARATIVE VALUE OF GOLD, CORN, AND LABOUR, IN RICH AND IN POOR
-COUNTRIES.
+ON THE COMPARATIVE VALUE OF GOLD, CORN, AND LABOUR, IN RICH AND IN POOR COUNTRIES.
 
 "Gold and silver, like all other commodities," says Adam Smith,
 "naturally seek the market where the best price is given for them; and

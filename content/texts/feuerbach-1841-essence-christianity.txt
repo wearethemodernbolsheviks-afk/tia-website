@@ -454,85 +454,6 @@ LUDWIG FEUERBACH.
 
 Bruckberg, Feb. 14, 1843.
 
-CONTENTS.
-
-INTRODUCTION.
-
-CHAPTER                                                         PAGE
-
-   I. § 1. The Essential Nature of Man                             1
-      § 2. The Essence of Religion Considered Generally           12
-
-Part I.
-
-THE TRUE OR ANTHROPOLOGICAL ESSENCE OF RELIGION.
-
-     II.   God as a Being of the Understanding                    33
-    III.   God as a Moral Being or Law                            44
-     IV.   The Mystery of the Incarnation; or, God as Love,
-           as a Being of the Heart                                50
-      V.   The Mystery of the Suffering God                       59
-     VI.   The Mystery of the Trinity and the Mother of God       65
-    VII.   The Mystery of the Logos and Divine Image              74
-   VIII.   The Mystery of the Cosmogonical Principle in God       80
-     IX.   The Mystery of Mysticism, or of Nature in God          87
-      X.   The Mystery of Providence and Creation out of
-           Nothing                                               101
-     XI.   The Significance of the Creation in Judaism           112
-    XII.   The Omnipotence of Feeling, or the Mystery of
-           Prayer                                                120
-   XIII.   The Mystery of Faith--The Mystery of Miracle          126
-    XIV.   The Mystery of the Resurrection and of the
-           Miraculous Conception                                 135
-     XV.   The Mystery of the Christian Christ, or the
-           Personal God                                          140
-    XVI.   The Distinction between Christianity and Heathenism   150
-   XVII.   The Significance of Voluntary Celibacy and
-           Monachism                                             160
-  XVIII.   The Christian Heaven, or Personal Immortality         170
-
-Part II.
-
-THE FALSE OR THEOLOGICAL ESSENCE OF RELIGION.
-
-    XIX.   The Essential Standpoint of Religion                  185
-     XX.   The Contradiction in the Existence of God             197
-    XXI.   The Contradiction in the Revelation of God            204
-   XXII.   The Contradiction in the Nature of God in General     213
-  XXIII.   The Contradiction in the Speculative Doctrine of
-           God                                                   226
-   XXIV.   The Contradiction in the Trinity                      232
-    XXV.   The Contradiction in the Sacraments                   236
-   XXVI.   The Contradiction of Faith and Love                   247
-  XXVII.   Concluding Application                                270
-
-APPENDIX.
-
-SECTION
-
-      1.   The Religious Emotions Purely Human                   281
-      2.   God is Feeling Released from Limits                   283
-      3.   God is the Highest Feeling of Self                    284
-      4.   Distinction between the Pantheistic and Personal God  285
-      5.   Nature without Interest for Christians                287
-      6.   In God Man is his Own Object                          289
-      7.   Christianity the Religion of Suffering                292
-      8.   Mystery of the Trinity                                293
-      9.   Creation out of Nothing                               297
-     10.   Egoism of the Israelitish Religion                    298
-     11.   The Idea of Providence                                299
-     12.   Contradiction of Faith and Reason                     304
-     13.   The Resurrection of Christ                            306
-     14.   The Christian a Supermundane Being                    307
-     15.   The Celibate and Monachism                            308
-     16.   The Christian Heaven                                  315
-     17.   What Faith Denies on Earth it Affirms in Heaven       316
-     18.   Contradictions in the Sacraments                      317
-     19.   Contradiction of Faith and Love                       320
-     20.   Results of the Principle of Faith                     326
-     21.   Contradiction of the God-Man                          332
-     22.   Anthropology the Mystery of Theology                  336
-
 THE ESSENCE OF CHRISTIANITY.
 
 CHAPTER I.
@@ -2223,8 +2144,7 @@ no abstract beings, but creatures of flesh and blood. [32]
 
 CHAPTER IV.
 
-THE MYSTERY OF THE INCARNATION; OR, GOD AS LOVE, AS A BEING OF
-THE HEART.
+THE MYSTERY OF THE INCARNATION; OR, GOD AS LOVE, AS A BEING OF THE HEART.
 
 It is the consciousness of love by which man reconciles himself with
 God, or rather with his own nature as represented in the moral law. The
