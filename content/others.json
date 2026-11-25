@@ -48,13 +48,13 @@
    "code": "NM-08",
    "slug": "national-liberation",
    "title": "National Liberation",
-   "blurb": "Leaders of anti-colonial revolutions who took up Lenin's name: Ho Chi Minh in Vietnam, Fidel Castro and Che Guevara in Cuba, Thomas Sankara in Burkina Faso."
+   "blurb": "Leaders of anti-colonial revolutions who took up Lenin's name: Ho Chi Minh in Vietnam, Fidel Castro and Che Guevara in Cuba."
   },
   {
    "code": "NM-09",
-   "slug": "reformers",
-   "title": "The Reformers",
-   "blurb": "Two who broke with the Soviet model from inside it: Tito, expelled from the Cominform in 1948 for going his own way, and Gorbachev, whose reforms ended with the Soviet Union in 1991."
+   "slug": "yugoslav-road",
+   "title": "The Yugoslav Road",
+   "blurb": "Tito, whose Yugoslavia was expelled from the Cominform in 1948 for going its own way, and the workers' self-management and non-alignment it took up afterwards."
   }
  ],
  "people": [
@@ -953,46 +953,6 @@
    ]
   },
   {
-   "slug": "sankara",
-   "name": "Thomas Sankara",
-   "years": "1949 — 1987",
-   "place": "Yako → Ouagadougou",
-   "group": "NM-08",
-   "role": "Army captain who took power in Upper Volta in 1983, renamed it Burkina Faso, and led it until he was killed in a coup in 1987.",
-   "mia": "https://www.marxists.org/archive/sankara/index.htm",
-   "note": "In copyright: these links open the Marxists Internet Archive.",
-   "works": [
-    {
-     "id": "sankara-1984-import",
-     "title": "We Didn't Import Our Revolution",
-     "year": "1984",
-     "kind": "link",
-     "url": "https://www.marxists.org/archive/sankara/1984/january/23.htm"
-    },
-    {
-     "id": "sankara-1984-un",
-     "title": "Speech before the General Assembly of the United Nations",
-     "year": "1984",
-     "kind": "link",
-     "url": "https://www.marxists.org/archive/sankara/1984/october/04.htm"
-    },
-    {
-     "id": "sankara-1986-arsonist",
-     "title": "Imperialism Is the Arsonist of Our Forests and Savannas",
-     "year": "1986",
-     "kind": "link",
-     "url": "https://www.marxists.org/archive/sankara/1986/february/05.htm"
-    },
-    {
-     "id": "sankara-1987-debt",
-     "title": "A United Front Against Debt",
-     "year": "1987",
-     "kind": "link",
-     "url": "https://www.marxists.org/archive/sankara/1987/july/29.htm"
-    }
-   ]
-  },
-  {
    "slug": "tito",
    "name": "Josip Broz Tito",
    "years": "1892 — 1980",
@@ -1029,24 +989,6 @@
      "year": "1957",
      "kind": "link",
      "url": "https://www.marxists.org/archive/tito/1957/06/25.htm"
-    }
-   ]
-  },
-  {
-   "slug": "gorbachev",
-   "name": "Mikhail Gorbachev",
-   "years": "1931 — 2022",
-   "place": "Privolnoye → Moscow",
-   "group": "NM-09",
-   "role": "Last General Secretary of the Soviet Communist Party, from 1985 to 1991, whose reforms of perestroika and glasnost preceded the end of the Soviet Union.",
-   "note": "In copyright: this link opens the published text on another site.",
-   "works": [
-    {
-     "id": "gorbachev-1991-nobel",
-     "title": "Nobel Lecture",
-     "year": "1991",
-     "kind": "link",
-     "url": "https://www.nobelprize.org/prizes/peace/1990/gorbachev/lecture/"
     }
    ]
   }
