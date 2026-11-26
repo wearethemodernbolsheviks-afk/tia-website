@@ -7,8 +7,7 @@
     {"slug": "lenin-and-october", "code": "COL-04", "title": "LENIN AND OCTOBER", "span": "1894 — 1924", "desc": "The Bolshevik party, the revolutions of 1905 and 1917, and the first years of the Soviet republic, in the words of the people who led them."},
     {"slug": "the-german-left", "code": "COL-05", "title": "THE GERMAN LEFT", "span": "1898 — 1919", "desc": "Rosa Luxemburg against revisionism, against the party bureaucracy and against the war, up to the Spartacus uprising."},
     {"slug": "the-communist-left", "code": "COL-06", "title": "THE COMMUNIST LEFT", "span": "1912 — 1970", "desc": "The Italian Communist Left: the founding theses of the Communist Party of Italy, the fight inside the Communist International and the post-war work of restoring the programme."},
-    {"slug": "beyond-europe", "code": "COL-07", "title": "BEYOND EUROPE", "span": "1919 —", "status": "compiling", "desc": "Marxism in Asia, Africa and the Americas."},
-    {"slug": "tia-broadcasts", "code": "COL-08", "title": "TIA BROADCASTS", "span": "2026 —", "url": "https://www.youtube.com/@Invariance_Tech", "desc": "TIA videos on YouTube."}
+    {"slug": "beyond-europe", "code": "COL-07", "title": "BEYOND EUROPE", "span": "1919 —", "status": "compiling", "desc": "Marxism in Asia, Africa and the Americas."}
   ],
   "authors": [
     {
