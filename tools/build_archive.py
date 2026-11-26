@@ -1152,6 +1152,7 @@ def build_index(authors, byslug, works, cols, nm=None):
             t = re.sub(r'(INDEX OF MARXISTS ///[^<]*?) · ' + re.escape(a['short']) + r'(?= ·)', r'\1', t)
             t = re.sub(r'(INDEX OF MARXISTS ///[^<]*?/// )' + re.escape(a['short']) + r' · ', r'\1', t)
     t = t.replace('/// 12 SUBJECTS ///', f'/// {len(authors)} SUBJECTS ///')
+    t = t.replace('/// 7 TENDENCIES ///', f'/// {len({a["tendency"] for a in authors})} TENDENCIES ///')
     t = t.replace('Every major thinker, filed by tendency. Open a dossier to read their works in order, from the first article to the last letter.',
                   'Every major Marxist, filed by tendency. Open a dossier for their works in order. Texts in the public domain, and a few public-domain originals in freely licensed translations, are here in full and searchable; the rest link to the Marxists Internet Archive.')
     search = f"""<form role="search" id="ar-form" action="/archive/" method="get" style="flex: 1 1 360px; min-width: 0; padding: 20px; background: rgba(9, 5, 6, 0.82); border: 1px solid #3A2326">
