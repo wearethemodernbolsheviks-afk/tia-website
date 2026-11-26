@@ -1297,7 +1297,7 @@ def build_home(authors, works, cols, nm=None):
     t = t.replace('</style>', ROOM_CSS + '</style>', 1)
     t = t.replace('</body>', '<script src="/assets/tia-media.js" defer></script>\n</body>', 1)
     nmarx = sum(1 for a in authors if not a.get('nm'))
-    t = t.replace('SRC: TIA ARCHIVE · 12 SUBJECTS · 8 COLLECTIONS', f'SRC: TIA ARCHIVE · {nmarx} SUBJECTS · {nh} FULL TEXTS · 8 COLLECTIONS')
+    t = t.replace('SRC: TIA ARCHIVE · 12 SUBJECTS · 7 COLLECTIONS', f'SRC: TIA ARCHIVE · {nmarx} SUBJECTS · {nh} FULL TEXTS · 7 COLLECTIONS')
     t = t.replace('INDEX OF MARXISTS: 12 SUBJECTS', f'INDEX OF MARXISTS: {nmarx} SUBJECTS')
     # the busts are the Index of Marxists; dossiers filed among the non-Marxists leave the row
     for a in authors:
