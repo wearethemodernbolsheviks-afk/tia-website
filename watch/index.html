@@ -163,6 +163,8 @@ a.panel:hover { border-color: #E8222A; }
 
 /* no scan lines: the CRT line overlay, the rolling band and the red bars across the portraits are off */
 .ov-lines, .ov-band, .it-bscan { display: none !important; }
+.busts { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; margin-top: 18px; }
+@media (min-width: 700px) { .busts { grid-template-columns: repeat(8, minmax(0, 1fr)); gap: 14px 10px; } }
 </style>
 </head>
 <body>
